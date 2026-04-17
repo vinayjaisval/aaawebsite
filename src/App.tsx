@@ -8,5 +8,5 @@ function App() {
     </>
   )
 }
-
+//   by shruti
 export default App
