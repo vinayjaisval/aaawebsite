@@ -9,6 +9,7 @@ import {
   BadgeCheck,
   ArrowRight,
 } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const services = [
   {
@@ -22,7 +23,7 @@ const services = [
       "IT Infrastructure Review",
       "System Reliability & Integrity Audit",
     ],
-    href: "/services/it-systems-audit",
+    href: "/it-systems-audit",
   },
   {
     icon: ShieldCheck,
@@ -35,7 +36,7 @@ const services = [
       "Vulnerability & Threat Analysis",
       "Security Controls Evaluation",
     ],
-    href: "/services/cyber-security-audit",
+    href: "/cyber-security-audit",
   },
   {
     icon: Lock,
@@ -48,7 +49,7 @@ const services = [
       "Access Control & Data Protection Review",
       "Security Policy & Procedure Assessment",
     ],
-    href: "/services/it-security-audit",
+    href: "/it-security-audit",
   },
   {
     icon: ClipboardCheck,
@@ -61,7 +62,7 @@ const services = [
       "Regulatory Framework Adherence",
       "Process Assurance & Risk Mitigation",
     ],
-    href: "/services/it-assurance-compliance",
+    href: "/it-assurance-compliance",
   },
   {
     icon: BarChart3,
@@ -74,7 +75,7 @@ const services = [
       "Performance & Control Assessment",
       "Board-Level IT Governance Advisory",
     ],
-    href: "/services/it-governance",
+    href: "/it-governance",
   },
   {
     icon: BadgeCheck,
@@ -87,7 +88,7 @@ const services = [
       "ISO 27001 Compliance Audits",
       "Information Systems Audit (ISA)",
     ],
-    href: "/services/is-audit-certification",
+    href: "/is-audit-certification",
   },
 ];
 
@@ -132,8 +133,8 @@ export function ServicesSection() {
         >
           {services.map((service) => (
             <li key={service.number}>
-              <a
-                href={service.href}
+              <Link
+                to={service.href}
                 aria-label={`${service.title} — ${service.description}`}
                 className="group block h-full focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--aaa-primary)] focus-visible:ring-offset-2 rounded-xl"
               >
@@ -209,7 +210,7 @@ export function ServicesSection() {
                     </div>
                   </div>
                 </article>
-              </a>
+              </Link>
             </li>
           ))}
         </ul>

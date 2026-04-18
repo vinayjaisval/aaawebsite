@@ -2,6 +2,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Separator } from "@/components/ui/separator";
 import { User, Mail, Phone, MapPin } from "lucide-react";
+import { Link } from "react-router-dom";
 import aaaLogo from "@/assets/aaa-logo.png";
 import { useEffect, useRef } from "react";
 
@@ -164,12 +165,12 @@ export function NewsletterFooter() {
                 <ul className="space-y-2">
                   {links.map((link) => (
                     <li key={link}>
-                      <a
-                        href="#"
+                      <Link
+                        to={link === "IT Systems Audit" ? "/it-systems-audit" : "#"}
                         className="text-muted-foreground hover:text-advance-primary transition-colors"
                       >
                         {link}
-                      </a>
+                      </Link>
                     </li>
                   ))}
                 </ul>

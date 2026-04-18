@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useRef, useEffect } from "react";
+import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Menu, X, ChevronDown } from "lucide-react";
 import { ThemeToggle } from "@/components/theme-toggle";
@@ -47,14 +48,6 @@ const servicesData = [
       "IT Risk Management",
       "Performance & Control Frameworks",
       "Board-Level IT Governance Advisory",
-    ],
-  },
-  {
-    title: "IS Audit & Certification",
-    items: [
-      "CERT-In Empanelled Audits",
-      "ISO 27001 Compliance Audits",
-      "Information Systems Audit (ISA)",
     ],
   },
 ];
@@ -128,16 +121,16 @@ const industriesData = [
 
 // ─── Shared class tokens ──────────────────────────────────────────────────────
 
-// bg-gray-100 gives a light neutral grey that keeps the logo legible in all modes
-const HEADER_BG   = "bg-gray-100 dark:bg-gray-100";
-const HEADER_TEXT = "text-slate-700 dark:text-slate-800";
-const NAV_HOVER   = "hover:text-red-800 dark:hover:text-red-700 focus-visible:text-red-800";
+// Transparent/Blurred background for a premium feel
+const HEADER_BG = "bg-white/95 dark:bg-black/95 backdrop-blur-md";
+const HEADER_TEXT = "text-slate-900 dark:text-white";
+const NAV_HOVER = "hover:text-aaa-primary focus-visible:text-aaa-primary";
 
 export function Header() {
-  const [isMenuOpen, setIsMenuOpen]       = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
-  const dropdownRef    = useRef<HTMLDivElement>(null);
-  const hoverTimeout   = useRef<NodeJS.Timeout | null>(null);
+  const dropdownRef = useRef<HTMLDivElement>(null);
+  const hoverTimeout = useRef<NodeJS.Timeout | null>(null);
 
   // Close dropdown when clicking outside
   useEffect(() => {
@@ -162,7 +155,7 @@ export function Header() {
     return () => window.removeEventListener("resize", onResize);
   }, []);
 
-  const openDropdown  = (key: string) => {
+  const openDropdown = (key: string) => {
     if (hoverTimeout.current) clearTimeout(hoverTimeout.current);
     setActiveDropdown(key);
   };
@@ -184,8 +177,8 @@ export function Header() {
         <div className="flex items-center justify-between h-16 lg:h-18">
 
           {/* ── Logo ─────────────────────────────────────────────────────── */}
-          <a
-            href="#main-content"
+          <Link
+            to="/"
             aria-label="AAA Technologies Limited — return to top"
             className="flex-shrink-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-red-700 focus-visible:ring-offset-2 rounded"
           >
@@ -196,7 +189,7 @@ export function Header() {
               width={160}
               height={44}
             />
-          </a>
+          </Link>
 
           {/* ── Desktop navigation ───────────────────────────────────────── */}
           <nav
@@ -204,13 +197,13 @@ export function Header() {
             ref={dropdownRef}
             aria-label="Main navigation"
           >
-            <a
-              href="#main-content"
+            <Link
+              to="/"
               aria-current="page"
               className={`px-3 py-2 text-sm font-medium rounded ${HEADER_TEXT} ${NAV_HOVER} transition-colors`}
             >
               Home
-            </a>
+            </Link>
 
             {/* Services */}
             <div
@@ -290,7 +283,7 @@ export function Header() {
               className={`p-2 rounded ${HEADER_TEXT} hover:bg-slate-100 dark:hover:bg-slate-200 transition-colors min-h-[44px] min-w-[44px] flex items-center justify-center`}
             >
               {isMenuOpen
-                ? <X    className="h-6 w-6" aria-hidden="true" />
+                ? <X className="h-6 w-6" aria-hidden="true" />
                 : <Menu className="h-6 w-6" aria-hidden="true" />
               }
             </button>
@@ -446,26 +439,43 @@ export function Header() {
           id="services-dropdown"
           role="region"
           aria-label="Services menu"
-          className="absolute left-0 w-full bg-white border-b border-slate-200 shadow-lg z-[60]"
+          className="absolute left-0 w-full bg-white dark:bg-black border-b border-slate-200 dark:border-white/10 shadow-lg z-[60]"
           onMouseEnter={() => openDropdown("services")}
           onMouseLeave={closeDropdown}
         >
-          <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-8">
-            <div className="grid grid-cols-2 md:grid-cols-3 gap-8 max-w-5xl">
+          <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-10">
+            <div className="grid grid-cols-5 gap-x-8 gap-y-12">
               {servicesData.map((service) => (
-                <div key={service.title} className="space-y-2">
-                  <h4 className="text-sm font-semibold text-red-700">
-                    {service.title}
-                  </h4>
-                  <ul className="space-y-1" role="list">
+                <div key={service.title} className="space-y-4 group">
+                  <div className="pb-3 border-b border-slate-100 dark:border-white/5 group-hover:border-aaa-primary transition-all duration-500">
+                    <Link
+                      to={
+                        service.title === "IT Systems Audit" ? "/it-systems-audit" :
+                        service.title === "Cyber Security Audit" ? "/cyber-security-audit" :
+                        service.title === "IT Security Audit" ? "/it-security-audit" :
+                        service.title === "IT Assurance & Compliance" ? "/it-assurance-compliance" :
+                        service.title === "IT Governance" ? "/it-governance" : "/"
+                      }
+                      className="text-[13px] font-bold text-slate-900 dark:text-white tracking-tight hover:text-aaa-primary transition-colors block"
+                    >
+                      {service.title}
+                    </Link>
+                  </div>
+                  <ul className="space-y-2.5" role="list">
                     {service.items.map((item) => (
                       <li key={item}>
-                        <a
-                          href="#services"
-                          className="text-sm text-slate-600 hover:text-red-700 transition-colors block py-0.5"
+                        <Link
+                          to={
+                            service.title === "IT Systems Audit" ? "/it-systems-audit" :
+                            service.title === "Cyber Security Audit" ? "/cyber-security-audit" :
+                            service.title === "IT Security Audit" ? "/it-security-audit" :
+                            service.title === "IT Assurance & Compliance" ? "/it-assurance-compliance" :
+                            service.title === "IT Governance" ? "/it-governance" : "/"
+                          }
+                          className="text-[14px] font-medium text-slate-500 dark:text-slate-400 hover:text-aaa-primary dark:hover:text-aaa-primary transition-colors block py-0.5"
                         >
                           {item}
-                        </a>
+                        </Link>
                       </li>
                     ))}
                   </ul>
@@ -482,23 +492,25 @@ export function Header() {
           id="industries-dropdown"
           role="region"
           aria-label="Industries menu"
-          className="absolute left-0 w-full bg-white border-b border-slate-200 shadow-lg z-[60]"
+          className="absolute left-0 w-full bg-white dark:bg-black border-b border-slate-200 dark:border-white/10 shadow-lg z-[60]"
           onMouseEnter={() => openDropdown("industries")}
           onMouseLeave={closeDropdown}
         >
-          <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-8">
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-5xl">
+          <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-10">
+            <div className="grid grid-cols-4 gap-x-8 gap-y-12">
               {industriesData.map((industry) => (
-                <div key={industry.title} className="space-y-2">
-                  <h4 className="text-sm font-semibold text-green-800">
-                    {industry.title}
-                  </h4>
-                  <ul className="space-y-1" role="list">
+                <div key={industry.title} className="space-y-4 group">
+                  <div className="pb-3 border-b border-slate-100 dark:border-white/5 group-hover:border-aaa-secondary transition-all duration-500">
+                    <h4 className="text-[13px] font-bold text-slate-900 dark:text-white tracking-tight">
+                      {industry.title}
+                    </h4>
+                  </div>
+                  <ul className="space-y-2.5" role="list">
                     {industry.items.map((item) => (
                       <li key={item}>
                         <a
                           href="#industries"
-                          className="text-sm text-slate-600 hover:text-red-700 transition-colors block py-0.5"
+                          className="text-[14px] font-medium text-slate-500 dark:text-slate-400 hover:text-aaa-secondary dark:hover:text-aaa-secondary transition-colors block py-0.5"
                         >
                           {item}
                         </a>
