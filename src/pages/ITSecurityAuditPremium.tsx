@@ -33,10 +33,10 @@ export default function ITSecurityAuditPremium() {
         <section className="relative pt-24 pb-16 bg-[#0a0a0a] overflow-hidden border-b border-white/5">
           <div className="absolute inset-0 z-0 pointer-events-none">
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] bg-aaa-primary/5 blur-[120px] rounded-full" />
-            <motion.div 
+            <motion.div
               initial={{ backgroundPosition: "0 0" }} animate={{ backgroundPosition: "0 40px" }} transition={{ duration: 2, repeat: Infinity, ease: "linear" }}
-              className="absolute inset-0 opacity-[0.05]" 
-              style={{ backgroundImage: `linear-gradient(to bottom, white 1px, transparent 1px), linear-gradient(to right, white 1px, transparent 1px)`, backgroundSize: '40px 40px' }} 
+              className="absolute inset-0 opacity-[0.05]"
+              style={{ backgroundImage: `linear-gradient(to bottom, white 1px, transparent 1px), linear-gradient(to right, white 1px, transparent 1px)`, backgroundSize: '40px 40px' }}
             />
           </div>
 
@@ -50,14 +50,50 @@ export default function ITSecurityAuditPremium() {
                 <span className="text-aaa-primary uppercase tracking-widest font-black">IT Security Audit</span>
               </nav>
 
-              <div className="max-w-4xl">
-                <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight tracking-tight uppercase italic">
-                  IT Security <span className="text-aaa-primary underline decoration-aaa-secondary decoration-4 underline-offset-8 transition-all">Audit</span>
-                </h1>
-                <p className="mt-4 text-white/40 text-base md:text-lg max-w-2xl leading-relaxed">
-                   Independent evaluation of technical and administrative controls 
-                   to protect your organizational assets.
-                </p>
+              <div className="relative">
+                <div className="max-w-4xl relative z-10">
+                  <h1 className="text-4xl md:text-5xl lg:text-7xl font-black text-white leading-tight tracking-tight uppercase italic font-outfit">
+                    IT Security <span className="text-2xl md:text-4xl text-aaa-primary opacity-70 font-bold block mt-0 tracking-widest transition-all">Audit</span>
+                  </h1>
+                  <p className="mt-4 text-white/40 text-base md:text-lg max-w-2xl leading-relaxed line-clamp-2">
+                    It is an audit on the level of information security in an organization. Most commonly the controls being audited can be categorized to technical, physical and administrative.
+                  </p>
+                </div>
+
+                {/* The "Sundar" Magnetic Shield Emblem - Absolute Positioned */}
+                <div className="absolute top-1/2 -right-20 -translate-y-1/2 hidden xl:flex items-center justify-center w-[500px] h-[500px] pointer-events-none">
+                  <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] bg-aaa-primary/10 blur-[120px] rounded-full animate-pulse" />
+
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <motion.div
+                      animate={{ rotate: 360 }} transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
+                      className="absolute w-[400px] h-[400px] border border-white/[0.03] rounded-full"
+                    />
+                  </div>
+
+                  <motion.div
+                    animate={{
+                      y: [0, -20, 0],
+                      rotateX: [5, -5, 5],
+                      rotateY: [10, -10, 10]
+                    }}
+                    transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+                    className="relative z-10"
+                  >
+                    <div className="relative p-12 bg-white/[0.02] backdrop-blur-3xl rounded-[50px] border border-white/10 shadow-[0_0_80px_rgba(252,43,42,0.1)] overflow-hidden">
+                      <div className="absolute inset-0 bg-gradient-to-br from-white/10 via-transparent to-transparent opacity-50" />
+                      <div className="relative">
+                        <div className="absolute inset-0 blur-3xl bg-aaa-primary opacity-20" />
+                        <ShieldCheck className="w-32 h-32 text-aaa-primary relative z-10 drop-shadow-[0_0_15px_rgba(252,43,42,0.6)]" />
+                      </div>
+                      <motion.div
+                        animate={{ x: ["-150%", "150%"] }}
+                        transition={{ duration: 4, repeat: Infinity, ease: "easeInOut", repeatDelay: 1 }}
+                        className="absolute inset-0 bg-gradient-to-r from-transparent via-white/[0.1] to-transparent skew-x-35 translate-x-[-150%]"
+                      />
+                    </div>
+                  </motion.div>
+                </div>
               </div>
             </motion.div>
           </div>
@@ -67,28 +103,28 @@ export default function ITSecurityAuditPremium() {
         <section className="py-24 bg-white relative">
           <div className="container mx-auto px-6">
             <div className="flex flex-col lg:flex-row gap-16 items-start">
-              
+
               {/* Sidebar Image */}
               <motion.div className="w-full lg:w-5/12 lg:sticky lg:top-32">
                 <div className="relative group">
-                  <div className="overflow-hidden rounded-xl shadow-2xl relative border border-slate-100 bg-white">
-                    <img 
-                      src="/images/it-security-914.jpg" 
-                      alt="IT Security Audit" 
-                      className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105" 
+                  <div className="overflow-hidden rounded-xl shadow-2xl relative border border-slate-100 bg-white h-[250px] sm:h-[300px] lg:h-[340px]">
+                    <img
+                      src="/images/it-security-914.jpg"
+                      alt="IT Security Audit"
+                      className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105"
                     />
                   </div>
                   <div className="absolute -bottom-6 -right-6 bg-white p-6 shadow-2xl rounded-xl border border-slate-50 hidden md:block text-aaa-primary">
-                     <Lock className="w-10 h-10" />
+                    <Lock className="w-10 h-10" />
                   </div>
                 </div>
 
                 <div className="mt-16 p-8 bg-slate-50/80 border border-slate-100 rounded-xl relative overflow-hidden">
-                   <div className="absolute top-0 right-0 w-32 h-32 bg-aaa-primary/5 blur-3xl" />
-                   <h3 className="text-lg font-bold text-slate-900 mb-4 uppercase tracking-tighter italic">Holistic Guard</h3>
-                   <p className="text-sm text-slate-600 leading-relaxed font-medium">
-                     Identifying vulnerabilities across data centers and databases to ensure protection.
-                   </p>
+                  <div className="absolute top-0 right-0 w-32 h-32 bg-aaa-primary/5 blur-3xl" />
+                  <h3 className="text-lg font-bold text-slate-900 mb-4 uppercase tracking-tighter italic">Holistic Guard</h3>
+                  <p className="text-sm text-slate-600 leading-relaxed font-medium">
+                    Identifying vulnerabilities across data centers and databases to ensure protection.
+                  </p>
                 </div>
               </motion.div>
 
@@ -102,7 +138,7 @@ export default function ITSecurityAuditPremium() {
                     Security <span className="text-aaa-primary">Assessment</span>
                   </h2>
                 </div>
-                
+
                 <div className="text-slate-600 text-[17px] leading-relaxed mb-12">
                   <p className="font-medium text-slate-800 border-l-4 border-aaa-primary/20 pl-6 py-2 mb-10 bg-slate-50/50 pr-4 rounded-r-lg italic shadow-sm leading-relaxed">
                     "Evaluating the technical, physical, and administrative level of information security."
@@ -111,7 +147,7 @@ export default function ITSecurityAuditPremium() {
                   <div className="bg-slate-900 p-8 rounded-3xl mb-16 text-white relative overflow-hidden group">
                     <div className="absolute top-0 right-0 w-32 h-32 bg-aaa-primary/10 blur-3xl" />
                     <h4 className="text-aaa-primary font-black mb-4 flex items-center gap-2 uppercase tracking-widest text-[11px]">
-                       <ShieldCheck className="w-5 h-5" /> Audit Principles
+                      <ShieldCheck className="w-5 h-5" /> Audit Principles
                     </h4>
                     <p className="text-white/70 leading-relaxed text-sm mb-8">
                       Conducted on the following basic Principles of audit:
@@ -127,13 +163,13 @@ export default function ITSecurityAuditPremium() {
                       <div className="h-px w-full bg-slate-100" />
                     </div>
 
-                    <motion.div 
+                    <motion.div
                       variants={{ hidden: { opacity: 0 }, show: { opacity: 1, transition: { staggerChildren: 0.05 } } }}
                       initial="hidden" whileInView="show" viewport={{ once: true }}
                       className="grid sm:grid-cols-2 gap-4"
                     >
                       {auditTypes.map((type, i) => (
-                        <motion.div 
+                        <motion.div
                           key={i}
                           variants={{ hidden: { opacity: 0, y: 15 }, show: { opacity: 1, y: 0 } }}
                           className="flex items-center gap-4 p-5 bg-white border border-slate-100 rounded-2xl hover:bg-[#0f172a] transition-all duration-300 group cursor-default shadow-sm"
@@ -151,13 +187,6 @@ export default function ITSecurityAuditPremium() {
           </div>
         </section>
 
-        {/* CTA Section */}
-        <section className="py-28 bg-[#0a0a0a] relative overflow-hidden text-center group">
-          <div className="container mx-auto px-6 relative z-10 text-center">
-             <h3 className="text-3xl md:text-5xl font-black text-white mb-8 italic uppercase tracking-tighter">Your Security, <span className="text-aaa-primary">Our Expertise.</span></h3>
-             <button className="bg-aaa-primary hover:bg-aaa-primary/90 text-white px-12 py-4.5 font-bold uppercase tracking-widest rounded-sm text-sm transition-all shadow-xl shadow-aaa-primary/20">Talk to Our experts</button>
-          </div>
-        </section>
       </main>
 
       <NewsletterFooter />

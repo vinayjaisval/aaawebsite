@@ -1,17 +1,16 @@
-"use client";
-
 import { useState, useRef, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { Button } from "@/components/ui/button";
+import { Button } from "./ui/button";
 import { Menu, X, ChevronDown } from "lucide-react";
-import { ThemeToggle } from "@/components/theme-toggle";
-import aaaLogo from "@/assets/aaa-logo.png";
+import { ThemeToggle } from "./theme-toggle";
+import aaaLogo from "../assets/aaa-logo.png";
 
 // ─── Nav data ────────────────────────────────────────────────────────────────
 
 const servicesData = [
   {
     title: "IT Systems Audit",
+    path: "/it-systems-audit",
     items: [
       "Management Controls Assessment",
       "IT Infrastructure Review",
@@ -20,6 +19,7 @@ const servicesData = [
   },
   {
     title: "Cyber Security Audit",
+    path: "/cyber-security-audit",
     items: [
       "Cyber Security Posture Assessment",
       "Vulnerability & Threat Analysis",
@@ -28,6 +28,7 @@ const servicesData = [
   },
   {
     title: "IT Security Audit",
+    path: "/it-security-audit",
     items: [
       "Information Security Level Audit",
       "Access Control & Data Protection Review",
@@ -36,6 +37,7 @@ const servicesData = [
   },
   {
     title: "IT Assurance & Compliance",
+    path: "/it-assurance-compliance",
     items: [
       "IT Compliance Verification",
       "Regulatory Framework Adherence",
@@ -44,6 +46,7 @@ const servicesData = [
   },
   {
     title: "IT Governance",
+    path: "/it-governance",
     items: [
       "IT Risk Management",
       "Performance & Control Frameworks",
@@ -55,6 +58,7 @@ const servicesData = [
 const industriesData = [
   {
     title: "Banking, Financial Services & Insurance",
+    path: "/#industries",
     items: [
       "Core Banking IT Audit",
       "NBFC & Insurance Compliance Review",
@@ -63,6 +67,7 @@ const industriesData = [
   },
   {
     title: "Government & Public Sector",
+    path: "/#industries",
     items: [
       "e-Governance IT Audit",
       "Public Sector Cyber Security Assessment",
@@ -71,6 +76,7 @@ const industriesData = [
   },
   {
     title: "Healthcare & Pharmaceuticals",
+    path: "/#industries",
     items: [
       "Hospital IT Systems Audit",
       "Clinical Data Security & Compliance",
@@ -79,6 +85,7 @@ const industriesData = [
   },
   {
     title: "Manufacturing & Industry",
+    path: "/#industries",
     items: [
       "OT & SCADA Security Audit",
       "ERP Systems Audit",
@@ -87,6 +94,7 @@ const industriesData = [
   },
   {
     title: "Telecom & Media",
+    path: "/#industries",
     items: [
       "Network Infrastructure Security Audit",
       "Telecom Regulatory Compliance",
@@ -95,6 +103,7 @@ const industriesData = [
   },
   {
     title: "Retail & E-commerce",
+    path: "/#industries",
     items: [
       "PCI-DSS Compliance Audit",
       "E-commerce Platform Security Review",
@@ -103,6 +112,7 @@ const industriesData = [
   },
   {
     title: "IT & IT-Enabled Services",
+    path: "/#industries",
     items: [
       "ISO 27001 Implementation Audit",
       "SOC & ITES Security Assessment",
@@ -111,6 +121,7 @@ const industriesData = [
   },
   {
     title: "Energy & Utilities",
+    path: "/#industries",
     items: [
       "Critical Infrastructure Security Audit",
       "SCADA & ICS Cyber Security Review",
@@ -131,6 +142,12 @@ export function Header() {
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
   const dropdownRef = useRef<HTMLDivElement>(null);
   const hoverTimeout = useRef<NodeJS.Timeout | null>(null);
+  const handleNavigation = (path: string) => {
+    setActiveDropdown(null);
+    setIsMenuOpen(false);
+    // Force immediate redirection for direct open
+    window.location.assign(path);
+  };
 
   // Close dropdown when clicking outside
   useEffect(() => {
@@ -170,7 +187,7 @@ export function Header() {
 
   return (
     <header
-      className={`${HEADER_BG} border-b border-slate-200 dark:border-slate-300 shadow-sm sticky top-0 z-50`}
+      className={`${HEADER_BG} border-b border-slate-200 dark:border-slate-300 shadow-sm sticky top-0 z-[999] overflow-visible`}
       role="banner"
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -439,43 +456,31 @@ export function Header() {
           id="services-dropdown"
           role="region"
           aria-label="Services menu"
-          className="absolute left-0 w-full bg-white dark:bg-black border-b border-slate-200 dark:border-white/10 shadow-lg z-[60]"
+          className="absolute top-full left-0 w-full bg-white dark:bg-black border-b border-slate-200 dark:border-white/10 shadow-xl z-[1100] pointer-events-auto"
           onMouseEnter={() => openDropdown("services")}
           onMouseLeave={closeDropdown}
         >
-          <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-10">
+          <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
             <div className="grid grid-cols-5 gap-x-8 gap-y-12">
               {servicesData.map((service) => (
-                <div key={service.title} className="space-y-4 group">
-                  <div className="pb-3 border-b border-slate-100 dark:border-white/5 group-hover:border-aaa-primary transition-all duration-500">
-                    <Link
-                      to={
-                        service.title === "IT Systems Audit" ? "/it-systems-audit" :
-                        service.title === "Cyber Security Audit" ? "/cyber-security-audit" :
-                        service.title === "IT Security Audit" ? "/it-security-audit" :
-                        service.title === "IT Assurance & Compliance" ? "/it-assurance-compliance" :
-                        service.title === "IT Governance" ? "/it-governance" : "/"
-                      }
-                      className="text-[13px] font-bold text-slate-900 dark:text-white tracking-tight hover:text-aaa-primary transition-colors block"
+                <div key={service.title} className="space-y-4">
+                  <div className="pb-3 border-b border-slate-100 dark:border-white/5">
+                    <button
+                      onMouseDown={() => handleNavigation(service.path)}
+                      className="text-[13px] font-bold text-slate-900 dark:text-white tracking-tight hover:text-aaa-primary transition-colors block text-left"
                     >
                       {service.title}
-                    </Link>
+                    </button>
                   </div>
                   <ul className="space-y-2.5" role="list">
                     {service.items.map((item) => (
                       <li key={item}>
-                        <Link
-                          to={
-                            service.title === "IT Systems Audit" ? "/it-systems-audit" :
-                            service.title === "Cyber Security Audit" ? "/cyber-security-audit" :
-                            service.title === "IT Security Audit" ? "/it-security-audit" :
-                            service.title === "IT Assurance & Compliance" ? "/it-assurance-compliance" :
-                            service.title === "IT Governance" ? "/it-governance" : "/"
-                          }
-                          className="text-[14px] font-medium text-slate-500 dark:text-slate-400 hover:text-aaa-primary dark:hover:text-aaa-primary transition-colors block py-0.5"
+                        <button
+                          onMouseDown={() => handleNavigation(service.path)}
+                          className="text-[14px] font-medium text-slate-500 dark:text-slate-400 hover:text-aaa-primary dark:hover:text-aaa-primary transition-colors block py-0.5 text-left w-full"
                         >
                           {item}
-                        </Link>
+                        </button>
                       </li>
                     ))}
                   </ul>
@@ -492,28 +497,31 @@ export function Header() {
           id="industries-dropdown"
           role="region"
           aria-label="Industries menu"
-          className="absolute left-0 w-full bg-white dark:bg-black border-b border-slate-200 dark:border-white/10 shadow-lg z-[60]"
+          className="absolute top-full left-0 w-full bg-white dark:bg-black border-b border-slate-200 dark:border-white/10 shadow-xl z-[1100] pointer-events-auto"
           onMouseEnter={() => openDropdown("industries")}
           onMouseLeave={closeDropdown}
         >
-          <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-10">
-            <div className="grid grid-cols-4 gap-x-8 gap-y-12">
+          <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
+            <div className="grid grid-cols-4 gap-x-12 gap-y-12">
               {industriesData.map((industry) => (
-                <div key={industry.title} className="space-y-4 group">
-                  <div className="pb-3 border-b border-slate-100 dark:border-white/5 group-hover:border-aaa-secondary transition-all duration-500">
-                    <h4 className="text-[13px] font-bold text-slate-900 dark:text-white tracking-tight">
+                <div key={industry.title} className="space-y-4">
+                  <div className="pb-3 border-b border-slate-100 dark:border-white/5">
+                    <button
+                      onMouseDown={() => handleNavigation(industry.path)}
+                      className="text-[13px] font-bold text-slate-900 dark:text-white tracking-tight hover:text-aaa-secondary transition-colors text-left"
+                    >
                       {industry.title}
-                    </h4>
+                    </button>
                   </div>
-                  <ul className="space-y-2.5" role="list">
+                  <ul className="space-y-3" role="list">
                     {industry.items.map((item) => (
                       <li key={item}>
-                        <a
-                          href="#industries"
-                          className="text-[14px] font-medium text-slate-500 dark:text-slate-400 hover:text-aaa-secondary dark:hover:text-aaa-secondary transition-colors block py-0.5"
+                        <button
+                          onMouseDown={() => handleNavigation(industry.path)}
+                          className="text-[13px] font-bold text-slate-500 dark:text-slate-400 hover:text-aaa-secondary dark:hover:text-aaa-secondary transition-colors block py-0.5 text-left w-full"
                         >
                           {item}
-                        </a>
+                        </button>
                       </li>
                     ))}
                   </ul>
