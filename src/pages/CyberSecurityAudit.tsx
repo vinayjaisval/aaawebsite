@@ -48,8 +48,8 @@ export default function CyberSecurityAudit() {
       <Header />
 
       <main>
-        {/* Banner Section (Strictly Matching Master Format) */}
-        <section className="relative pt-24 pb-16 bg-[#0a0a0a] overflow-hidden border-b border-white/5">
+        {/* Banner Section (Premium Responsive Layout) */}
+        <section className="relative pt-24 pb-12 sm:pb-16 bg-[#0a0a0a] overflow-hidden border-b border-white/5">
           <div className="absolute inset-0 z-0 pointer-events-none">
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] bg-aaa-primary/5 blur-[120px] rounded-full" />
             <motion.div
@@ -59,22 +59,23 @@ export default function CyberSecurityAudit() {
             />
           </div>
 
-          <div className="container mx-auto px-6 relative z-10">
+          <div className="container mx-auto px-4 sm:px-6 relative z-10">
             <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
-              <nav className="flex items-center gap-2 mb-8 text-[11px] font-bold uppercase tracking-widest text-white/40">
+              <nav className="flex items-center gap-2 mb-8 text-[10px] sm:text-[11px] font-bold uppercase tracking-widest text-white/40 overflow-x-auto no-scrollbar whitespace-nowrap">
                 <Link to="/" className="hover:text-aaa-primary transition-colors">Home</Link>
-                <ChevronRight className="w-3 h-3 text-white/20" />
-                <span className="text-white/20">Services</span>
-                <ChevronRight className="w-3 h-3 text-white/20" />
-                <span className="text-aaa-primary uppercase tracking-widest font-black">Cyber Security Audit</span>
+                <ChevronRight className="w-3 h-3 text-white/20 shrink-0" />
+                <span className="text-white/20 shrink-0">Services</span>
+                <ChevronRight className="w-3 h-3 text-white/20 shrink-0" />
+                <span className="text-aaa-primary uppercase tracking-widest shrink-0">Cyber Security Audit</span>
               </nav>
 
               <div className="relative">
                 <div className="max-w-4xl relative z-10">
-                  <h1 className="text-4xl md:text-5xl lg:text-7xl font-black text-white leading-tight tracking-tight uppercase italic font-outfit">
-                    Cyber Security <span className="text-2xl md:text-4xl text-aaa-primary opacity-70 font-bold block mt-0 tracking-widest transition-all">Audit</span>
+                  <h1 className="text-4xl sm:text-5xl lg:text-7xl font-black text-white leading-tight tracking-tight uppercase italic flex flex-col gap-1 md:gap-2">
+                    <span className="leading-[0.8] tracking-tighter">Cyber Security</span> 
+                    <span className="text-2xl sm:text-3xl lg:text-4xl text-aaa-primary opacity-70 font-bold tracking-[0.2em] transition-all">Audit</span>
                   </h1>
-                  <p className="mt-4 text-white/40 text-base md:text-lg max-w-2xl leading-relaxed line-clamp-2">
+                  <p className="mt-4 text-white/40 text-xs sm:text-sm md:text-base lg:text-lg max-w-2xl leading-relaxed">
                     The objective is to provide Management with an assessment of an organization’s cyber security Policies and procedures and their operating effectiveness.
                   </p>
                 </div>

@@ -41,8 +41,7 @@ export default function ITSystemsAudit() {
       <Header />
 
       <main>
-        {/* Banner Section (Strictly Matching Master Format) */}
-        <section className="relative pt-24 pb-16 bg-[#0a0a0a] overflow-hidden border-b border-white/5">
+        <section className="relative pt-24 pb-12 sm:pb-16 bg-[#0a0a0a] overflow-hidden border-b border-white/5">
           <div className="absolute inset-0 z-0 pointer-events-none">
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] bg-aaa-primary/5 blur-[120px] rounded-full" />
             <motion.div
@@ -52,22 +51,23 @@ export default function ITSystemsAudit() {
             />
           </div>
 
-          <div className="container mx-auto px-6 relative z-10">
+          <div className="container mx-auto px-4 sm:px-6 relative z-10">
             <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
-              <nav className="flex items-center gap-2 mb-8 text-[11px] font-bold uppercase tracking-widest text-white/40">
+              <nav className="flex items-center gap-2 mb-8 text-[10px] sm:text-[11px] font-bold uppercase tracking-widest text-white/40 overflow-x-auto no-scrollbar whitespace-nowrap">
                 <Link to="/" className="hover:text-aaa-primary transition-colors">Home</Link>
-                <ChevronRight className="w-3 h-3 text-white/20" />
-                <span className="text-white/20">Services</span>
-                <ChevronRight className="w-3 h-3 text-white/20" />
-                <span className="text-aaa-primary uppercase tracking-widest">IT System Audit</span>
+                <ChevronRight className="w-3 h-3 text-white/20 shrink-0" />
+                <span className="text-white/20 shrink-0">Services</span>
+                <ChevronRight className="w-3 h-3 text-white/20 shrink-0" />
+                <span className="text-aaa-primary uppercase tracking-widest shrink-0">IT System Audit</span>
               </nav>
 
               <div className="relative">
                 <div className="max-w-4xl relative z-10">
-                  <h1 className="text-4xl md:text-5xl lg:text-7xl font-black text-white leading-tight tracking-tight uppercase italic">
-                    IT Systems <span className="text-2xl md:text-4xl text-aaa-primary opacity-70 font-bold block mt-0 tracking-widest transition-all">Audit</span>
+                  <h1 className="text-4xl sm:text-5xl lg:text-7xl font-black text-white leading-tight tracking-tight uppercase italic flex flex-col gap-1 md:gap-2">
+                    <span className="leading-[0.8] tracking-tighter">IT Systems</span>
+                    <span className="text-2xl sm:text-3xl lg:text-4xl text-aaa-primary opacity-70 font-bold tracking-[0.2em] transition-all">Audit</span>
                   </h1>
-                  <p className="mt-4 text-white/40 text-base md:text-lg max-w-2xl leading-relaxed line-clamp-2">
+                  <p className="mt-4 text-white/40 text-xs sm:text-sm md:text-base lg:text-lg max-w-2xl leading-relaxed">
                     Safeguarding assets and maintaining data integrity through
                     strict management controls and infrastructure assessment.
                   </p>
@@ -113,55 +113,55 @@ export default function ITSystemsAudit() {
         </section>
 
         {/* Content Section (Side-by-Side Layout) */}
-        <section className="py-24 bg-white relative">
-          <div className="container mx-auto px-6">
-            <div className="flex flex-col lg:flex-row gap-16 items-start">
+        <section className="py-12 sm:py-24 bg-white relative">
+          <div className="container mx-auto px-4 sm:px-6">
+            <div className="flex flex-col lg:flex-row gap-12 lg:gap-16 items-start">
 
               {/* Sidebar Image Column */}
               <motion.div className="w-full lg:w-5/12 lg:sticky lg:top-32">
                 <div className="relative group">
-                  <div className="overflow-hidden rounded-xl shadow-2xl relative border border-slate-100 bg-white h-[250px] sm:h-[300px] lg:h-[340px]">
+                  <div className="overflow-hidden rounded-xl shadow-2xl relative border border-slate-100 bg-white h-[200px] sm:h-[300px] lg:h-[340px]">
                     <img
                       src="/images/system-audit-official.png"
                       alt="IT System Audit"
                       className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                     />
                   </div>
-                  <div className="absolute -bottom-6 -right-6 bg-white p-6 shadow-2xl rounded-xl border border-slate-50 hidden md:block text-aaa-primary">
-                    <ShieldCheck className="w-10 h-10" />
+                  <div className="absolute -bottom-6 -right-6 bg-white p-4 sm:p-6 shadow-2xl rounded-xl border border-slate-50 hidden md:block text-aaa-primary">
+                    <ShieldCheck className="w-8 h-8 sm:w-10 sm:h-10" />
                   </div>
                 </div>
 
-                <div className="mt-16 p-8 bg-slate-50/80 border border-slate-100 rounded-xl relative overflow-hidden">
+                <div className="mt-12 sm:mt-16 p-6 sm:p-8 bg-slate-50/80 border border-slate-100 rounded-xl relative overflow-hidden">
                   <div className="absolute top-0 right-0 w-32 h-32 bg-aaa-primary/5 blur-3xl" />
-                  <h3 className="text-lg font-bold text-slate-900 mb-4 uppercase tracking-tighter">Objective Assessment</h3>
-                  <p className="text-sm text-slate-600 leading-relaxed font-medium">
-                    Providing independent assurance that systems are operating effectively and safeguarding assets.
+                  <h3 className="text-base sm:text-lg font-bold text-slate-900 mb-3 sm:mb-4 uppercase tracking-tighter">Objective Assessment</h3>
+                  <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-medium">
+                    Providing independent assurance that systems are operating effectively and safeguarding assets through comprehensive management control examination.
                   </p>
                 </div>
               </motion.div>
 
               {/* Text Detailed Column */}
-              <motion.div className="w-full lg:w-7/12">
-                <div className="space-y-4 mb-12">
-                  <div className="flex items-center gap-2 font-bold text-xs text-aaa-secondary uppercase tracking-widest">
-                    <div className="h-[1px] w-8 bg-aaa-secondary" /> Service Overview
+              <motion.div initial={{ opacity: 0, x: 20 }} whileInView={{ opacity: 1, x: 0 }} transition={{ duration: 0.6 }} className="w-full lg:w-7/12">
+                <div className="space-y-4 mb-10 sm:mb-12">
+                  <div className="flex items-center gap-2 font-bold text-[10px] sm:text-xs text-aaa-secondary uppercase tracking-widest">
+                    <div className="h-[1px] w-6 sm:w-8 bg-aaa-secondary" /> Service Overview
                   </div>
-                  <h2 className="text-3xl md:text-4xl font-bold text-slate-900 tracking-tight leading-tight uppercase italic underline decoration-aaa-primary/10 decoration-8 underline-offset-4">
+                  <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-slate-900 tracking-tight leading-tight uppercase italic underline decoration-aaa-primary/10 decoration-8 underline-offset-4">
                     IT Systems <span className="text-aaa-primary">Audit</span>
                   </h2>
                 </div>
 
-                <div className="text-slate-600 text-[17px] leading-relaxed mb-12">
-                  <p className="mb-10">
-                    It is an examination of the management controls within an Information technology (IT) infrastructure. The evaluation of obtained evidence determines if the information systems are safeguarding assets, maintaining data integrity, and operating effectively to achieve the organization's goals or objectives.
+                <div className="text-slate-600 sm:text-[17px] leading-relaxed mb-12">
+                  <p className="font-medium text-slate-800 mb-8 sm:mb-10 text-sm sm:text-base border-l-4 border-aaa-primary/10 pl-4 sm:pl-6 py-2 bg-slate-50/30 rounded-r-xl leading-relaxed italic shadow-sm">
+                    "It is an examination of the checks and balances or controls within an Information technology (IT) infrastructure. The examination of an information system (IS) allows an organization to evaluate the system's ability to protect its assets and maintain data integrity and to find out if these activities are aligned with the enterprise's goals or objectives."
                   </p>
 
-                  <p className="mb-10">
-                    Following are the types of audits conducted by our Company which can be classified under IS Audit:
+                  <p className="mb-8 sm:mb-10 text-sm sm:text-base">
+                    AAA Technologies Limited provides a comprehensive IT Systems audit to ensure that your IT infrastructure is secure, compliant, and operating at peak performance.
                   </p>
 
-                  <div className="space-y-8 mt-16">
+                  <div className="space-y-8 mt-12 sm:mt-16">
                     <div className="flex items-center gap-6">
                       <h3 className="text-xs font-black text-slate-400 uppercase tracking-[0.4em] whitespace-nowrap">Audit Portfolio</h3>
                       <div className="h-px w-full bg-slate-100" />
@@ -170,29 +170,19 @@ export default function ITSystemsAudit() {
                     <motion.div
                       variants={{
                         hidden: { opacity: 0 },
-                        show: {
-                          opacity: 1,
-                          transition: {
-                            staggerChildren: 0.05
-                          }
-                        }
+                        show: { opacity: 1, transition: { staggerChildren: 0.05 } }
                       }}
-                      initial="hidden"
-                      whileInView="show"
-                      viewport={{ once: true }}
-                      className="grid sm:grid-cols-2 gap-4"
+                      initial="hidden" whileInView="show" viewport={{ once: true }}
+                      className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4"
                     >
                       {auditTypes.map((type, i) => (
                         <motion.div
                           key={i}
-                          variants={{
-                            hidden: { opacity: 0, y: 15 },
-                            show: { opacity: 1, y: 0 }
-                          }}
-                          className="flex items-center gap-4 p-5 bg-white border border-slate-100 rounded-2xl hover:bg-[#0f172a] transition-all duration-300 group cursor-default shadow-sm"
+                          variants={{ hidden: { opacity: 0, y: 15 }, show: { opacity: 1, y: 0 } }}
+                          className="flex items-center gap-4 p-4 sm:p-5 bg-white border border-slate-100 rounded-2xl hover:bg-[#0f172a] transition-all duration-300 group cursor-default shadow-sm"
                         >
                           <div className="w-1.5 h-1.5 rounded-full bg-aaa-neutral/30 group-hover:bg-white transition-all" />
-                          <span className="text-[13px] font-bold text-slate-700 uppercase tracking-tight group-hover:text-white transition-colors leading-snug">{type}</span>
+                          <span className="text-[11px] sm:text-[13px] font-bold text-slate-700 uppercase tracking-tight group-hover:text-white transition-colors leading-snug">{type}</span>
                         </motion.div>
                       ))}
                     </motion.div>
