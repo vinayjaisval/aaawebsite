@@ -65,7 +65,7 @@ export default function ITSystemsAudit() {
               <div className="relative">
                 <div className="max-w-4xl relative z-10">
                   <h1 className="text-4xl md:text-5xl lg:text-7xl font-black text-white leading-tight tracking-tight uppercase italic">
-                    IT System <span className="text-2xl md:text-4xl text-aaa-primary opacity-70 font-bold block mt-0 tracking-widest transition-all">Audit</span>
+                    IT Systems <span className="text-2xl md:text-4xl text-aaa-primary opacity-70 font-bold block mt-0 tracking-widest transition-all">Audit</span>
                   </h1>
                   <p className="mt-4 text-white/40 text-base md:text-lg max-w-2xl leading-relaxed line-clamp-2">
                     Safeguarding assets and maintaining data integrity through
