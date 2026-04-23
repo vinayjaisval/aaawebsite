@@ -5,6 +5,12 @@ import CyberSecurityAudit from './pages/CyberSecurityAudit';
 import ITSecurityAuditPremium from './pages/ITSecurityAuditPremium';
 import ITAssuranceCompliance from './pages/ITAssuranceCompliance';
 import ITGovernance from './pages/ITGovernance';
+import AboutOverview from './pages/AboutOverview';
+import VisionMission from './pages/VisionMission';
+import Milestone from './pages/Milestone';
+import AwardsAchievements from './pages/AwardsAchievements';
+import Management from './pages/Management';
+import GalleryEvents from './pages/GalleryEvents';
 
 function App() {
   return (
@@ -16,6 +22,12 @@ function App() {
         <Route path="/it-security-audit" element={<ITSecurityAuditPremium />} />
         <Route path="/it-assurance-compliance" element={<ITAssuranceCompliance />} />
         <Route path="/it-governance" element={<ITGovernance />} />
+        <Route path="/about/overview" element={<AboutOverview />} />
+        <Route path="/about/vision-mission" element={<VisionMission />} />
+        <Route path="/about/milestone" element={<Milestone />} />
+        <Route path="/about/awards-achievements" element={<AwardsAchievements />} />
+        <Route path="/about/management" element={<Management />} />
+        <Route path="/about/gallery-events" element={<GalleryEvents />} />
         
         {/* Redirect common mistakes */}
         <Route path="/index.html" element={<Navigate to="/" replace />} />

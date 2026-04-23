@@ -130,6 +130,63 @@ const industriesData = [
   },
 ];
 
+const aboutData = [
+  {
+    title: "Overview",
+    path: "/about/overview",
+    items: [
+      "Company Profile",
+      "Corporate Philosophy",
+      "Why AAA Technologies",
+    ],
+  },
+  {
+    title: "Vision & Mission",
+    path: "/about/vision-mission",
+    items: [
+      "Our Vision",
+      "Our Mission",
+      "Quality Objectives",
+    ],
+  },
+  {
+    title: "Our Milestone",
+    path: "/about/milestone",
+    items: [
+      "Historical Growth",
+      "Key Achievements",
+      "Company Timeline",
+    ],
+  },
+  {
+    title: "Awards & Achievements",
+    path: "/about/awards-achievements",
+    items: [
+      "Industry Recognitions",
+      "Certification Portfolio",
+      "Academic Excellence",
+    ],
+  },
+  {
+    title: "Our Management",
+    path: "/about/management",
+    items: [
+      "Board of Directors",
+      "Leadership Team",
+      "Technical Advisory",
+    ],
+  },
+  {
+    title: "Gallery & Events",
+    path: "/about/gallery-events",
+    items: [
+      "Corporate Gallery",
+      "Recent Events",
+      "Media Presence",
+    ],
+  },
+];
+
 // ─── Shared class tokens ──────────────────────────────────────────────────────
 
 // Transparent/Blurred background for a premium feel
@@ -266,12 +323,28 @@ export function Header() {
               </button>
             </div>
 
-            <a
-              href="#about"
-              className={`px-3 py-2 text-sm font-medium rounded ${HEADER_TEXT} ${NAV_HOVER} transition-colors`}
+            {/* About */}
+            <div
+              className="relative"
+              onMouseEnter={() => openDropdown("about")}
+              onMouseLeave={closeDropdown}
             >
-              About
-            </a>
+              <button
+                type="button"
+                onClick={() => toggleDropdown("about")}
+                className={`flex items-center gap-1 px-3 py-2 text-sm font-medium rounded ${HEADER_TEXT} ${NAV_HOVER} transition-colors`}
+                aria-expanded={activeDropdown === "about"}
+                aria-controls="about-dropdown"
+                aria-haspopup="true"
+              >
+                About
+                <ChevronDown
+                  className={`h-4 w-4 transition-transform duration-200 ${activeDropdown === "about" ? "rotate-180" : ""}`}
+                  aria-hidden="true"
+                />
+              </button>
+            </div>
+
             <a
               href="#blog"
               className={`px-3 py-2 text-sm font-medium rounded ${HEADER_TEXT} ${NAV_HOVER} transition-colors`}
@@ -417,15 +490,50 @@ export function Header() {
                 )}
               </li>
 
+              {/* Mobile — About accordion */}
               <li>
-                <a
-                  href="#about"
-                  className={`block px-3 py-2.5 text-sm font-medium rounded ${HEADER_TEXT} hover:bg-slate-100 dark:hover:bg-slate-200 transition-colors`}
-                  onClick={() => setIsMenuOpen(false)}
+                <button
+                  type="button"
+                  onClick={() => toggleMobileKey("mob-about")}
+                  aria-expanded={activeDropdown === "mob-about"}
+                  aria-controls="mob-about-panel"
+                  className={`flex items-center justify-between w-full px-3 py-2.5 text-sm font-medium rounded ${HEADER_TEXT} hover:bg-slate-100 dark:hover:bg-slate-200 transition-colors min-h-[44px]`}
                 >
                   About
-                </a>
+                  <ChevronDown
+                    className={`h-4 w-4 transition-transform duration-200 ${activeDropdown === "mob-about" ? "rotate-180" : ""}`}
+                    aria-hidden="true"
+                  />
+                </button>
+                {activeDropdown === "mob-about" && (
+                  <ul
+                    id="mob-about-panel"
+                    role="list"
+                    className="mt-1 ml-3 border-l-2 border-slate-200 dark:border-slate-300 pl-4 space-y-3 pb-2"
+                  >
+                    {aboutData.map((section) => (
+                      <li key={section.title}>
+                        <p className="text-xs font-semibold text-aaa-secondary dark:text-aaa-secondary uppercase tracking-wide mb-1">
+                          {section.title}
+                        </p>
+                        <ul role="list" className="space-y-0.5">
+                          {section.items.map((item) => (
+                            <li key={item}>
+                              <button
+                                onMouseDown={() => handleNavigation(section.path)}
+                                className={`block w-full text-left py-1 text-xs ${HEADER_TEXT} hover:text-red-800 dark:hover:text-red-700 transition-colors`}
+                              >
+                                {item}
+                              </button>
+                            </li>
+                          ))}
+                        </ul>
+                      </li>
+                    ))}
+                  </ul>
+                )}
               </li>
+
               <li>
                 <a
                   href="#blog"
@@ -519,6 +627,46 @@ export function Header() {
                         <button
                           onMouseDown={() => handleNavigation(industry.path)}
                           className="text-[13px] font-bold text-slate-500 dark:text-slate-400 hover:text-aaa-secondary dark:hover:text-aaa-secondary transition-colors block py-0.5 text-left w-full"
+                        >
+                          {item}
+                        </button>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      )}
+      {/* ── About mega-dropdown ───────────────────────────────────────────── */}
+      {activeDropdown === "about" && (
+        <div
+          id="about-dropdown"
+          role="region"
+          aria-label="About menu"
+          className="absolute top-full left-0 w-full bg-white dark:bg-black border-b border-slate-200 dark:border-white/10 shadow-xl z-[1100] pointer-events-auto"
+          onMouseEnter={() => openDropdown("about")}
+          onMouseLeave={closeDropdown}
+        >
+          <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
+            <div className="grid grid-cols-3 lg:grid-cols-6 gap-x-8 gap-y-12">
+              {aboutData.map((section) => (
+                <div key={section.title} className="space-y-4">
+                  <div className="pb-3 border-b border-slate-100 dark:border-white/5">
+                    <button
+                      onMouseDown={() => handleNavigation(section.path)}
+                      className="text-[13px] font-bold text-slate-900 dark:text-white tracking-tight hover:text-aaa-primary transition-colors block text-left"
+                    >
+                      {section.title}
+                    </button>
+                  </div>
+                  <ul className="space-y-2.5" role="list">
+                    {section.items.map((item) => (
+                      <li key={item}>
+                        <button
+                          onMouseDown={() => handleNavigation(section.path)}
+                          className="text-[14px] font-medium text-slate-500 dark:text-slate-400 hover:text-aaa-primary dark:hover:text-aaa-primary transition-colors block py-0.5 text-left w-full"
                         >
                           {item}
                         </button>
