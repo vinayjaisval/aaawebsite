@@ -1,7 +1,7 @@
-import { useEffect, useRef } from "react";
+import { useEffect } from "react";
 import { Link } from "react-router-dom";
-import { motion, useInView } from "framer-motion";
-import { ChevronRight, Calendar, Flag, Award, Star, TrendingUp, Building2, ShieldCheck, Landmark, Globe2, Newspaper } from "lucide-react";
+import { motion } from "framer-motion";
+import { ChevronRight, Flag, Award, TrendingUp, Building2, ShieldCheck, Landmark, Globe2, Newspaper } from "lucide-react";
 import { Header } from "../components/header";
 import { HeaderUtilityBar } from "../components/header-utility-bar";
 import { NewsletterFooter } from "../components/newsletter-footer";
@@ -10,241 +10,190 @@ import { BackToTop } from "../components/back-to-top";
 const milestones = [
   { 
     year: "2000", 
-    title: "The Genesis", 
-    desc: "AAA Technologies laid its foundation stone in Mumbai, India, beginning a legacy of IT security excellence.",
+    desc: "AAA Technologies laid its foundation stone in Mumbai, India.",
     icon: Building2
   },
   { 
     year: "2006", 
-    title: "Financial Sector Milestone", 
-    desc: "Successfully audited Internet Banking for a major Public Sector Bank (PSB) in India, establishing early trust in critical infrastructure.",
+    desc: "Audited Internet Banking for major PSB in India",
     icon: Landmark
   },
   { 
     year: "2008", 
-    title: "National Trust", 
-    desc: "Secured a major contract from the Government of India, solidifying our position as a preferred security auditor.",
+    desc: "Major Contract from Government of India",
     icon: Flag
   },
   { 
     year: "2009", 
-    title: "Quality Benchmarks", 
-    desc: "Achievement of ISO 9001 and ISO 27001 Certifications, aligning our internal processes with international quality and security standards.",
+    desc: "ISO 9001 and 27001 Certification for Company",
     icon: ShieldCheck
   },
   { 
     year: "2010", 
-    title: "Policy Leadership", 
-    desc: "Formulated the Information Security Policy for a key Regulatory Agency in India, contributing to national cybersecurity frameworks.",
+    desc: "Formation of Information Security Policy for Regulatory Agency in India",
     icon: Newspaper
   },
   { 
     year: "2011", 
-    title: "Energy & Energy Security", 
-    desc: "Executed a major contract for a leading Oil and Petroleum PSU, protecting critical national energy infrastructure.",
+    desc: "Major Contract in Oil and Petroleum PSU",
     icon: TrendingUp
   },
   { 
     year: "2013", 
-    title: "Scaling New Heights", 
-    desc: "Conducted comprehensive security audits for over 200+ websites for various State Government departments.",
+    desc: "Audited 200+ websites for State Government",
     icon: Globe2
   },
   { 
     year: "2014", 
-    title: "Urban Security", 
-    desc: "Entrusted with the security audit of one of the largest Municipal Corporations in India.",
+    desc: "Audited one of the largest Municipal Corporation in India.",
     icon: Building2
   },
   { 
     year: "2018", 
-    title: "Commercial Growth", 
-    desc: "Achieved a significant milestone with a single order value exceeding 4+ Crores.",
+    desc: "Single order of 4+ Crores",
     icon: TrendingUp
   },
   { 
     year: "2019", 
-    title: "Strategic Expansion", 
-    desc: "Opened our strategic branch office in New Delhi to better serve national-level assignments.",
+    desc: "Opened branch office in Delhi",
     icon: Globe2
   },
   { 
     year: "2020", 
-    title: "Public Listing", 
-    desc: "September: Successful Initial Public Offering (IPO). October: Official listing on the NSE Emerge platform.",
+    desc: "September: Initial Public Offering. October: Listing on NSE Emerge",
     icon: TrendingUp
   },
   { 
     year: "2021", 
-    title: "GST Compliance Excellence", 
-    desc: "One of the 54,439 organizations in India to receive a certificate of appreciation to honour GST Tax payers.",
+    desc: "One of the 54,439 organizations in India to receive certificate of appreciation to honour GST Tax payers",
     icon: Award
   },
   { 
     year: "2022", 
-    title: "Major Infrastructure Project", 
-    desc: "Rendered specialized security services for the City And Industrial Development Corporation Of Maharashtra Limited (CIDCO) for an order value of Rs. 4+ Crores.",
+    desc: "Conducted work/ rendered services to City And Industrial Development Corporation Of Maharashtra Limited (CIDCO) of Rs. 4+ Crore. Migration to Main Board of NSE & BSE.",
     icon: Building2
   }
 ];
 
-const MilestoneItem = ({ ms, index }) => {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: "-100px" });
-
-  return (
-    <motion.div 
-      ref={ref}
-      initial={{ opacity: 0, x: index % 2 === 0 ? -40 : 40 }}
-      animate={isInView ? { opacity: 1, x: 0 } : {}}
-      transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-      className={`flex flex-col ${index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'} items-center gap-12 md:gap-32 relative`}
-    >
-      {/* Circle on line */}
-      <div className="absolute left-0 md:left-1/2 -translate-x-1/2 hidden md:flex items-center justify-center w-16 h-16 bg-white border-4 border-slate-50 rounded-full shadow-2xl z-20">
-        <ms.icon className="w-6 h-6 text-aaa-primary" />
-        <div className="absolute inset-0 rounded-full border border-aaa-primary/20 animate-ping opacity-30" />
-      </div>
-
-      <div className={`w-full md:w-1/2 ${index % 2 === 0 ? 'md:text-right' : 'md:text-left'} group/ms`}>
-        <div className="mb-2 inline-block">
-          <span className="text-4xl sm:text-5xl font-black text-slate-100 transition-colors group-hover/ms:text-aaa-primary/20 tracking-tighter italic">
-            {ms.year}
-          </span>
-        </div>
-        <h3 className="text-[20px] sm:text-[24px] lg:text-[28px] font-black text-slate-900 mb-3 group-hover/ms:text-aaa-primary transition-colors tracking-tight uppercase">
-          {ms.title}
-        </h3>
-        <p className="text-slate-500 text-[14px] sm:text-[15px] leading-relaxed text-justify md:text-inherit">
-          {ms.desc}
-        </p>
-      </div>
-      <div className="hidden md:block w-1/2" />
-    </motion.div>
-  );
-};
-
 export default function Milestone() {
   useEffect(() => {
     window.scrollTo(0, 0);
-    document.documentElement.classList.remove("dark");
   }, []);
 
+  // Pairs for the dual-column grid
+  const milestonePairs = [];
+  for (let i = 0; i < milestones.length; i += 2) {
+    milestonePairs.push(milestones.slice(i, i + 2));
+  }
+
   return (
-    <div className="min-h-screen bg-white text-slate-900 selection:bg-aaa-primary/10 transition-colors font-sans overflow-x-hidden">
+    <div className="min-h-screen bg-white text-slate-900 selection:bg-aaa-primary/10 transition-all font-sans overflow-x-hidden">
       <HeaderUtilityBar />
-      <div className="sticky top-0 z-[100] bg-white border-b border-slate-100">
+      <div className="sticky top-0 z-[100] bg-white border-b border-slate-100 shadow-sm">
         <Header />
       </div>
 
-      <main className="bg-white selection:bg-aaa-primary/10 overflow-hidden">
-        {/* --- STANDARDIZED HERO --- */}
-        <section className="relative pt-16 pb-12 bg-[#0c0c0c] overflow-hidden group/hero">
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_-20%,rgba(252,43,42,0.1),transparent_70%)]" />
-          <div className="absolute bottom-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-aaa-primary/20 to-transparent" />
-          
+      <main className="bg-slate-50 overflow-hidden relative">
+        {/* --- ARCHITECTURAL WATERMARK --- */}
+        <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden opacity-[0.015] select-none font-black grayscale transition-opacity">
+          <div className="absolute top-[12%] left-[-10%] text-[40vw] text-black leading-none rotate-[-10deg]">AAA</div>
+          <div className="absolute bottom-[10%] right-[-10%] text-[25vw] text-black leading-none rotate-[15deg]">TRUST</div>
+        </div>
+
+        {/* --- ELITE INSTITUTIONAL HERO --- */}
+        <section className="relative py-12 lg:py-16 bg-white border-b border-slate-100 overflow-hidden z-20">
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,rgba(252,43,42,0.015),transparent_70%)]" />
           <div className="container mx-auto px-4 sm:px-6 relative z-10" style={{ maxWidth: "1150px" }}>
-            <motion.div initial={{ opacity: 0, y: 15 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
-               <nav className="flex items-center gap-2 mb-6 text-[10px] font-black uppercase tracking-[0.4em] text-white/30">
-                <Link to="/" className="hover:text-aaa-primary transition-colors">Home</Link>
-                <ChevronRight className="w-3 h-3 text-white/10" />
-                <span className="text-aaa-primary">Company Journey</span>
-              </nav>
-              
-              <h1 className="text-white font-black uppercase tracking-tight transition-colors duration-500">
-                <span className="text-[28px] sm:text-[36px] lg:text-[45px] leading-[1.1] block">
-                  A Legacy Of <span className="text-aaa-primary italic uppercase tracking-tighter">Excellence</span>
-                </span>
-              </h1>
-            </motion.div>
+            <div className="flex flex-col md:flex-row md:items-center justify-between gap-12">
+              <motion.div initial={{ opacity: 0, x: -30 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.8 }}>
+                <nav className="flex items-center gap-2 mb-4 text-[9px] font-black uppercase tracking-[0.4em] text-slate-400">
+                  <Link to="/" className="hover:text-aaa-primary transition-colors text-slate-900">Home</Link>
+                  <ChevronRight className="w-2.5 h-2.5 text-slate-200" />
+                  <span className="text-aaa-primary uppercase tracking-[0.4em]">Our Milestone</span>
+                </nav>
+                <h1 className="text-slate-900 font-black uppercase tracking-tight">
+                  <span className="text-[32px] sm:text-[45px] lg:text-[55px] leading-tight block">
+                    Our <span className="text-aaa-primary italic uppercase tracking-tight">Milestone</span>
+                  </span>
+                </h1>
+                <div className="mt-6 flex items-start gap-4">
+                  <div className="w-1.5 h-12 bg-aaa-primary shadow-[0_0_15px_rgba(252,43,42,0.3)] rounded-full" />
+                  <p className="text-slate-600 text-[15.5px] lg:text-[16px] font-bold italic leading-relaxed max-w-lg">
+                    A legacy represented by two decades of uncompromising trust and digital resilience since 2000.
+                  </p>
+                </div>
+              </motion.div>
+              <motion.div 
+                initial={{ opacity: 0, scale: 0.98 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 1 }}
+                className="hidden md:block relative h-[180px] sm:h-[200px] lg:h-[230px] w-[450px] lg:w-[480px] rounded-[40px] overflow-hidden shadow-[0_30px_90px_-20px_rgba(0,0,0,0.3)] border border-white"
+              >
+                <img src="/milestone-success.png" className="w-full h-full object-cover" alt="Heritage" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent" />
+              </motion.div>
+            </div>
           </div>
         </section>
 
-        {/* --- DYNAMIC IMPACT TIMELINE --- */}
-        <section className="relative py-20 bg-white">
-          {/* Parallax Background Elements */}
-          <div className="absolute inset-0 pointer-events-none">
-             <div className="absolute top-1/4 left-10 w-64 h-64 bg-slate-50 rounded-full blur-[100px] opacity-60" />
-             <div className="absolute bottom-1/4 right-10 w-96 h-96 bg-aaa-primary/5 rounded-full blur-[120px] opacity-30" />
-             <div className="absolute inset-0 opacity-[0.03] bg-[url('https://www.transparenttextures.com/patterns/cubes.png')]" />
-          </div>
-          
-          <div className="container mx-auto px-4 sm:px-6 relative z-10" style={{ maxWidth: "1150px" }}>
-            <div className="relative">
-              {/* Central Progress Line */}
-              <div className="absolute left-6 md:left-1/2 top-0 bottom-0 w-[1px] bg-slate-100 md:-translate-x-1/2 overflow-hidden">
-                <motion.div 
-                   initial={{ height: 0 }}
-                   whileInView={{ height: "100%" }}
-                   viewport={{ once: false, margin: "-10% 0% -40% 0%" }}
-                   transition={{ duration: 1.5, ease: "easeOut" }}
-                   className="w-full bg-aaa-primary origin-top relative"
-                >
-                   <motion.div 
-                    animate={{ top: ["0%", "100%"] }}
-                    transition={{ duration: 4, repeat: Infinity, ease: "linear" }}
-                    className="absolute left-0 w-full h-20 bg-white shadow-[0_0_15px_#fc2b2a]"
-                   />
-                </motion.div>
-              </div>
+        {/* --- HIGH-AUTHORITY 4-PHASE GRID (Absolute-Dark Hover Shadows) --- */}
+        <section className="relative px-4 pt-12 pb-32 z-10">
+          <div className="container mx-auto relative z-10" style={{ maxWidth: "1250px" }}>
 
-              {/* Milestone Blocks */}
-              <div className="space-y-6 sm:space-y-8">
-                {milestones.map((ms, i) => (
-                  <div key={ms.year} className={`relative flex flex-col md:flex-row items-center gap-6 md:gap-14 py-6 ${i % 2 === 0 ? 'md:flex-row-reverse' : ''} group/ms-item`}>
-                    
-                    {/* Node */}
-                    <div className="absolute left-6 md:left-1/2 -translate-x-1/2 z-30">
-                       <motion.div 
-                         whileInView={{ scale: [1, 1.2, 1], backgroundColor: "#fc2b2a" }}
-                         viewport={{ margin: "-20% 0% -20% 0%" }}
-                         transition={{ duration: 2, repeat: Infinity }}
-                         className="w-3 h-3 bg-slate-200 border-2 border-white rounded-full transition-all duration-500"
-                       />
+            {/* INSTITUTIONAL CENTRAL SPINE */}
+            <div className="absolute left-1/2 top-0 bottom-[120px] w-px bg-slate-200 -translate-x-1/2 z-0 hidden md:block" />
+
+            <div className="space-y-6 md:space-y-6 lg:space-y-8 relative">
+              {milestonePairs.map((pair, rowIdx) => {
+                const isSingle = pair.length === 1;
+
+                return (
+                  <div key={rowIdx} className={`grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8 relative`}>
+
+                    {/* CENTER LEVEL ANCHOR */}
+                    <div className="absolute left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2 z-40 hidden md:block">
+                      <div className="w-4 h-4 rounded-full bg-aaa-primary border-4 border-white shadow-[0_0_15px_rgba(252,43,42,0.3)]" />
                     </div>
 
-                    {/* Background Year */}
-                    <motion.div 
-                       initial={{ opacity: 0 }}
-                       whileInView={{ opacity: 0.05 }}
-                       className={`absolute hidden lg:block text-[120px] font-black text-slate-900 pointer-events-none tracking-tighter ${i % 2 === 0 ? 'left-[22%]' : 'right-[22%]'}`}
+                    {/* ABSOLUTE DARK HOVER SHADOW RECTANGLE (Max Depth Shadow) */}
+                    <motion.div
+                      initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.8 }}
+                      className={`group relative bg-white border border-slate-100/60 rounded-[32px] p-8 lg:p-9 shadow-sm hover:shadow-[0_60px_150px_-35px_rgba(0,0,0,0.65)] transition-all duration-700 hover:border-aaa-primary/20 flex items-start gap-8 hover:-translate-y-6 cursor-default`}
                     >
-                        {ms.year}
-                    </motion.div>
-                    
-                    {/* Content Card (Standardized Sizes) */}
-                    <motion.div 
-                      initial={{ opacity: 0, y: 15 }}
-                      whileInView={{ opacity: 1, y: 0 }}
-                      viewport={{ once: true, margin: "-50px" }}
-                      transition={{ duration: 0.7 }}
-                      className="w-full md:w-[46%] group/card"
-                    >
-                      <div className="relative p-6 sm:p-8 rounded-[24px] bg-white border border-slate-100 shadow-[0_10px_40px_rgba(0,0,0,0.03)] hover:shadow-[0_25px_60px_rgba(252,43,42,0.06)] hover:border-aaa-primary/20 transition-all duration-700 overflow-hidden">
-                         <div className="absolute right-0 top-0 w-32 h-32 bg-slate-50/50 rounded-bl-full -mr-16 -mt-16 transition-all group-hover:scale-110" />
-
-                         <div className="flex items-center justify-between mb-5 relative z-10">
-                            <span className="text-3xl sm:text-4xl font-black text-slate-100 italic tracking-tighter group-hover:text-aaa-primary/20 transition-all duration-700">
-                                {ms.year}
-                            </span>
-                            <div className="w-10 h-10 rounded-xl bg-slate-50 border border-slate-100 flex items-center justify-center text-slate-400 group-hover:bg-aaa-primary group-hover:text-white transition-all duration-700">
-                              <ms.icon className="w-5 h-5" />
-                            </div>
-                         </div>
-
-                         <h3 className="text-[18px] lg:text-[20px] font-black text-[#111] uppercase tracking-wide mb-3 leading-tight group-hover:text-aaa-primary transition-colors duration-500 relative z-10">
-                           {ms.title}
-                         </h3>
-                         <p className="text-slate-500 text-[14px] sm:text-[15px] leading-relaxed relative z-10 font-medium text-justify">
-                           {ms.desc}
-                         </p>
+                      <div className="flex-shrink-0 w-14 h-14 rounded-2xl bg-slate-50 border border-slate-100 flex items-center justify-center text-slate-400 group-hover:bg-aaa-primary group-hover:text-white transition-all duration-500 shadow-sm z-10">
+                        {(() => { const Icon = pair[0].icon; return <Icon className="w-7 h-7" />; })()}
+                      </div>
+                      <div className="flex-1 z-10">
+                        <div className="text-[36px] sm:text-[42px] font-black text-slate-900 italic tracking-tighter leading-none group-hover:text-aaa-primary transition-all duration-500 mb-3 select-none">
+                          {pair[0].year}
+                        </div>
+                        <p className="text-slate-600 text-[15.5px] font-bold italic leading-relaxed group-hover:text-slate-900 transition-colors duration-500">
+                          {pair[0].desc}
+                        </p>
                       </div>
                     </motion.div>
-                    
-                    <div className="hidden md:block w-[46%]" />
+
+                    {/* ABSOLUTE DARK HOVER SHADOW RECTANGLE */}
+                    {!isSingle && (
+                      <motion.div
+                        initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.8, delay: 0.1 }}
+                        className={`group relative bg-white border border-slate-100/60 rounded-[32px] p-8 lg:p-9 shadow-sm hover:shadow-[0_60px_150px_-35px_rgba(0,0,0,0.65)] transition-all duration-700 hover:border-aaa-primary/20 flex items-start gap-8 hover:-translate-y-6 cursor-default`}
+                      >
+                        <div className="flex-shrink-0 w-14 h-14 rounded-2xl bg-slate-50 border border-slate-100 flex items-center justify-center text-slate-400 group-hover:bg-aaa-primary group-hover:text-white transition-all duration-500 shadow-sm z-10">
+                          {(() => { const Icon = pair[1].icon; return <Icon className="w-7 h-7" />; })()}
+                        </div>
+                        <div className="flex-1 z-10">
+                          <div className="text-[36px] sm:text-[42px] font-black text-slate-900 italic tracking-tighter leading-none group-hover:text-aaa-primary transition-all duration-500 mb-3 select-none">
+                            {pair[1].year}
+                          </div>
+                          <p className="text-slate-600 text-[15.5px] font-bold italic leading-relaxed group-hover:text-slate-900 transition-colors duration-500">
+                            {pair[1].desc}
+                          </p>
+                        </div>
+                      </motion.div>
+                    )}
+
                   </div>
-                ))}
-              </div>
+                );
+              })}
             </div>
           </div>
         </section>

@@ -103,7 +103,7 @@ export default function AboutOverview() {
                       <CheckCircle2 className="w-3.5 h-3.5 text-aaa-primary" />
                       <span className="text-[9px] sm:text-[10px] font-black uppercase tracking-[0.3em] text-slate-400">Corporate Portal</span>
                     </div>
-                    <h1 className="text-black uppercase tracking-tight font-black transition-colors duration-500">
+                    <h1 className="text-black uppercase tracking-tight font-black transition-all duration-500">
                       <span className="text-[28px] sm:text-[36px] lg:text-[45px] leading-[1.2] lg:leading-[1.1] block mb-4">
                         Enabling Organizations To Identify Issues Of
                       </span>
@@ -127,11 +127,11 @@ export default function AboutOverview() {
                     <motion.div animate={{ rotate: 360 }} transition={{ duration: 25, repeat: Infinity, ease: "linear" }} className="absolute inset-0 border border-slate-100 rounded-[50px] opacity-40 shadow-[0_0_20px_rgba(0,0,0,0.05)]" />
                     <motion.div animate={{ rotate: -360 }} transition={{ duration: 35, repeat: Infinity, ease: "linear" }} className="absolute inset-[25px] sm:inset-[30px] border border-aaa-primary/10 rounded-[50px] shadow-[0_0_40px_rgba(252,43,42,0.05)]" />
 
-                    <div className="absolute inset-[40px] sm:inset-[50px] bg-[#0c0c0c] border border-slate-900 rounded-[35px] sm:rounded-[45px] shadow-[0_30px_60px_rgba(0,0,0,0.3)] flex items-center justify-center overflow-hidden group/seal">
+                    <div className="absolute inset-[40px] sm:inset-[50px] bg-[#080808] border border-white/5 rounded-[35px] sm:rounded-[45px] shadow-[0_30px_60px_rgba(0,0,0,0.5)] flex items-center justify-center overflow-hidden group/seal">
                       <div className="absolute inset-0 opacity-[0.03] bg-[radial-gradient(white_1px,transparent_1px)] bg-[size:12px_12px] sm:bg-[size:15px_15px]" />
                       <div className="absolute inset-0 bg-gradient-to-br from-white/10 via-transparent to-black" />
                       <motion.div animate={{ y: [0, -10, 0] }} transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }} className="relative z-10 scale-90 sm:scale-100">
-                         <ShieldCheck className="w-24 h-24 sm:w-32 sm:h-32 text-aaa-primary drop-shadow-[0_15px_30px_rgba(252,43,42,0.4)] brightness-110" />
+                         <ShieldCheck className="w-24 h-24 sm:w-32 sm:h-32 text-white drop-shadow-[0_0_35px_rgba(252,43,42,0.45)]" />
                          <motion.div animate={{ x: ["-100%", "200%"] }} transition={{ duration: 3, repeat: Infinity, ease: "easeInOut", repeatDelay: 1.5 }} className="absolute top-0 left-0 w-full h-full bg-gradient-to-r from-transparent via-white/20 to-transparent skew-x-[-20deg]" />
                       </motion.div>
                       <motion.div animate={{ top: ["-100%", "200%"] }} transition={{ duration: 5, repeat: Infinity, ease: "linear" }} className="absolute left-0 right-0 h-1.5 bg-gradient-to-r from-transparent via-aaa-primary/60 to-transparent blur-[6px] z-20" />
@@ -169,16 +169,16 @@ export default function AboutOverview() {
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.8 }}
-                        className="group/p p-0 rounded-[32px] bg-white border border-neutral-200 shadow-sm hover:shadow-xl hover:border-aaa-primary/20 transition-all duration-700 flex flex-col h-full overflow-hidden relative z-10"
+                        className="group/p flex flex-col h-full overflow-hidden relative z-10"
                       >
-                        <div className="p-8 sm:p-10">
+                        <div className="pb-8 pr-8">
                           <p className="text-black text-[15px] sm:text-[16px] text-justify leading-[1.8] font-medium">
                             AAA Technologies Private Limited was incorporated at Mumbai as a Private Limited Company in October 2000 with a vision of a world where each day is safer and more secure than the one before.
                           </p>
                         </div>
                         
-                        {/* LOCAL PROJECT IMAGE (Ensures 100% visibility & relevance) */}
-                        <div className="mt-auto relative w-full h-[320px] sm:h-[400px] group/img overflow-hidden bg-neutral-100">
+                        {/* BROAD IMMERSIVE IMAGE (No Box) */}
+                        <div className="mt-auto relative w-full h-[320px] sm:h-[400px] group/img overflow-hidden rounded-[32px]">
                           <img
                             src="/images/it-audit-hero.png"
                             className="w-full h-full object-cover transition-transform duration-[2000ms] group-hover/p:scale-110 grayscale-[0.2] contrast-[1.05]"
