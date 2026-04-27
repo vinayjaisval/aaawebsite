@@ -7,7 +7,6 @@ import { HeaderUtilityBar } from "../components/header-utility-bar";
 import { NewsletterFooter } from "../components/newsletter-footer";
 import { BackToTop } from "../components/back-to-top";
 
-// Official Awards Final Definiton (Strict 21 Items Line-by-Line)
 const awardsList = [
   {
     year: "2022",
@@ -143,25 +142,26 @@ export default function AwardsAchievements() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-white text-slate-900 selection:bg-aaa-primary/10 transition-all font-sans overflow-x-hidden">
+    <div className="min-h-screen bg-white text-slate-900 selection:bg-gray-100 transition-all font-sans overflow-x-hidden">
       <HeaderUtilityBar />
-      <div className="sticky top-0 z-[100] bg-white border-b border-slate-100 shadow-sm">
+      <div className="sticky top-0 z-[100] bg-white border-b border-gray-100">
         <Header />
       </div>
 
-      <main className="bg-slate-50 overflow-hidden relative">
-        {/* --- ARCHITECTURAL WATERMARK --- */}
-        <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden opacity-[0.012] select-none font-black grayscale transition-opacity">
-          <div className="absolute top-[12%] left-[-10%] text-[40vw] text-black leading-none rotate-[-10deg]">AAA</div>
-          <div className="absolute bottom-[10%] right-[-10%] text-[25vw] text-black leading-none rotate-[15deg]">AWARDS</div>
-        </div>
+      <main className="bg-white overflow-hidden relative">
 
-        {/* --- GLOBAL FONT MATCH HERO (55px Match) --- */}
+        {/* --- SECTION: ANALYTICAL AWARDS OVERVIEW (FINAL MORNING HERO) --- */}
         <section className="relative py-12 lg:py-16 bg-white border-b border-slate-100 overflow-hidden z-20">
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,rgba(252,43,42,0.012),transparent_70%)]" />
           <div className="container mx-auto px-4 sm:px-6 relative z-10" style={{ maxWidth: "1250px" }}>
             <div className="flex flex-col md:flex-row md:items-center justify-between gap-10">
-              <motion.div initial={{ opacity: 0, x: -30 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.8 }} className="flex-1">
+              <motion.div
+                initial={{ opacity: 0, x: -30 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.8 }}
+                className="flex-1"
+              >
+                {/* NAVIGATION: INSTITUTIONAL CONTENT HIERARCHY */}
                 <nav className="flex items-center gap-2 mb-4 text-[9px] font-black uppercase tracking-[0.4em] text-slate-400">
                   <Link to="/" className="hover:text-aaa-primary transition-colors text-slate-900 text-[10px]">Home</Link>
                   <ChevronRight className="w-2.5 h-2.5 text-slate-200" />
@@ -175,7 +175,9 @@ export default function AwardsAchievements() {
                 </p>
               </motion.div>
               <motion.div
-                initial={{ opacity: 0, scale: 0.98 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 1 }}
+                initial={{ opacity: 0, scale: 0.98 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 1 }}
                 className="hidden md:block relative h-[160px] lg:h-[220px] w-[350px] lg:w-[450px] rounded-[30px] overflow-hidden shadow-[0_20px_60px_-15px_rgba(0,0,0,0.2)] border border-white"
               >
                 <img src="/elite_awards_hero_wall.png" className="w-full h-full object-cover" alt="Awards Chronicles" />
@@ -184,41 +186,49 @@ export default function AwardsAchievements() {
           </div>
         </section>
 
-        {/* --- RESTORED BALANCED EXHIBIT (Standard Fonts + Corporate Gaps) --- */}
-        <section className="relative px-4 pt-16 pb-40 z-10">
+        {/* --- SECTION: CHRONOLOGICAL ACHIEVEMENT PORTFOLIO (4-COLUMN GRID) --- */}
+        <section className="relative px-4 pt-4 pb-20 z-10">
           <div className="container mx-auto relative z-10" style={{ maxWidth: "1600px" }}>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
               {awardsList.map((award, idx) => (
                 <motion.div
                   key={idx}
-                  initial={{ opacity: 0, y: 30 }}
+                  initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.7, delay: idx * 0.05 }}
-                  className="group relative bg-white border border-slate-100 rounded-[35px] shadow-sm hover:shadow-xl transition-all duration-500 hover:-translate-y-2 cursor-default overflow-hidden flex flex-col min-h-[580px] lg:min-h-[620px]"
+                  className="group relative bg-white border border-gray-200 rounded-lg cursor-default overflow-hidden flex flex-col h-full"
                 >
-                  {/* RESTORED BALANCED VIEWPORT (380px Vertical Scale) */}
-                  <div className="relative h-[280px] sm:h-[320px] lg:h-[380px] w-full bg-white overflow-hidden flex items-center justify-center">
+                  {/* VISUAL COMPONENT: NORMALIZED AWARD EVIDENCE RENDERER */}
+                  <div className="relative h-[350px] w-full overflow-hidden bg-white">
                     <img
                       src={award.image}
-                      className="w-full h-full object-contain p-2 lg:p-4 group-hover:scale-105 transition-transform duration-1000 ease-out"
+                      className={`w-full h-full object-cover object-top transition-transform duration-700 ease-in-out ${award.title.includes('Forbes') ? 'scale-[2.3] group-hover:scale-[2.45]' : 'scale-[1.75] group-hover:scale-[1.85]'}`}
                       alt={award.title}
                       onError={(e) => { e.currentTarget.src = "https://www.aaatechnologies.co.in/img/logo.png"; }}
                     />
-                    {/* Balanced Floating Year */}
-                    <div className="absolute top-5 right-5 px-4 py-1.5 bg-aaa-primary border border-aaa-primary/20 text-white rounded-xl text-[11px] font-black italic shadow-lg z-20">
+
+                    {/* Year Badge (AAA Red - High Contrast) */}
+                    <div className="absolute top-0 left-0 px-6 py-2 bg-aaa-primary text-white text-[10px] font-black uppercase tracking-[0.3em] z-20 shadow-sm">
                       {award.year}
                     </div>
                   </div>
 
-                  {/* STANDARDIZED CONTENT (Matched 15.5px) */}
-                  <div className="p-8 lg:p-10 pt-7 flex-1 flex flex-col border-t border-slate-50 bg-white">
-                    <h3 className="text-[20px] lg:text-[23px] font-black text-slate-900 italic tracking-tighter leading-[1.1] group-hover:text-aaa-primary transition-colors mb-5 line-clamp-2 uppercase">
+                  {/* --- CONTENT AREA (Professional Corporate Spacing) --- */}
+                  <div className="p-5 flex-1 flex flex-col bg-white">
+                    <h3 className="text-[17.5px] font-black text-slate-900 leading-tight mb-1.5 group-hover:text-aaa-primary transition-colors uppercase tracking-tight">
                       {award.title}
                     </h3>
-                    <p className="text-slate-600 text-[15.5px] font-bold italic leading-relaxed group-hover:text-slate-950 transition-colors duration-500">
+                    <p className="text-slate-500 text-[14px] font-medium leading-relaxed mb-4">
                       {award.desc}
                     </p>
+
+                    {/* Footer Button (Corporate Black) */}
+                    <div className="mt-auto">
+                      <div className="w-full py-2.5 bg-slate-900 text-white rounded-sm text-center text-[11px] font-black uppercase tracking-[0.2em] group-hover:bg-aaa-primary transition-all duration-500">
+                        Award Recognition
+                      </div>
+                    </div>
                   </div>
                 </motion.div>
               ))}
