@@ -11,6 +11,10 @@ import Milestone from './pages/Milestone';
 import AwardsAchievements from './pages/AwardsAchievements';
 import Management from './pages/Management';
 import GalleryEvents from './pages/GalleryEvents';
+import InvestorRelations from './pages/InvestorRelations';
+import BoardOfDirectors from './pages/BoardOfDirectors';
+import BoardCommittees from './pages/BoardCommittees';
+import InvestorGrievances from './pages/InvestorGrievances';
 
 function App() {
   return (
@@ -28,6 +32,12 @@ function App() {
         <Route path="/about/awards-achievements" element={<AwardsAchievements />} />
         <Route path="/about/management" element={<Management />} />
         <Route path="/about/gallery-events" element={<GalleryEvents />} />
+        
+        {/* Investor Routes */}
+        <Route path="/investors/relations" element={<InvestorRelations />} />
+        <Route path="/investors/board" element={<BoardOfDirectors />} />
+        <Route path="/investors/committees" element={<BoardCommittees />} />
+        <Route path="/investors/grievances" element={<InvestorGrievances />} />
         
         {/* Redirect common mistakes */}
         <Route path="/index.html" element={<Navigate to="/" replace />} />

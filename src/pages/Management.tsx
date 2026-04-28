@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { Link } from "react-router-dom";
-import { ChevronRight, Briefcase, GraduationCap } from "lucide-react";
+import { ChevronRight, Linkedin, Award, Briefcase, GraduationCap, Trophy } from "lucide-react";
 import { Header } from "../components/header";
 import { HeaderUtilityBar } from "../components/header-utility-bar";
 import { NewsletterFooter } from "../components/newsletter-footer";
@@ -85,36 +85,34 @@ export default function Management() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-white text-slate-900 selection:bg-aaa-primary/10 transition-colors font-sans overflow-x-hidden">
+    <div className="min-h-screen bg-white text-slate-900 selection:bg-gray-100 transition-all font-sans overflow-x-hidden">
       <HeaderUtilityBar />
       <div className="sticky top-0 z-[100] bg-white border-b border-gray-100">
         <Header />
       </div>
 
       <main className="bg-white">
-        {/* --- SECTION: INSTITUTIONAL LEADERSHIP OVERVIEW (TOTAL MATCH HERO) --- */}
-        <section className="relative py-12 sm:py-20 bg-white border-b border-slate-100 overflow-hidden z-20">
+        {/* --- SECTION: INSTITUTIONAL LEADERSHIP OVERVIEW (HERO) --- */}
+        <section className="relative py-12 lg:py-16 bg-white border-b border-slate-100 overflow-hidden z-20">
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,rgba(252,43,42,0.012),transparent_70%)]" />
           <div className="container mx-auto px-4 sm:px-6 relative z-10" style={{ maxWidth: "1250px" }}>
             <div className="flex flex-col md:flex-row md:items-center justify-between gap-10">
               <div className="flex-1">
-                <nav className="flex items-center gap-2 mb-10 text-[11px] font-bold uppercase tracking-widest text-slate-400">
-                  <Link to="/" className="hover:text-aaa-primary transition-colors">Home</Link>
-                  <ChevronRight className="w-3 h-3 text-slate-200" />
-                  <span className="text-aaa-primary uppercase tracking-widest">Our Management</span>
+                {/* NAVIGATION: INSTITUTIONAL HIERARCHY PATHWAY */}
+                <nav className="flex items-center gap-2 mb-4 text-[9px] font-black uppercase tracking-[0.4em] text-slate-400">
+                  <Link to="/" className="hover:text-aaa-primary transition-colors text-slate-900 text-[10px]">Home</Link>
+                  <ChevronRight className="w-2.5 h-2.5 text-slate-200" />
+                  <span className="text-aaa-primary uppercase tracking-[0.4em]">Our Management</span>
                 </nav>
-                <div className="relative">
-                  <h1 className="text-4xl sm:text-5xl lg:text-7xl font-black text-slate-900 leading-[0.8] tracking-tighter uppercase italic flex flex-col gap-2">
-                    <span>Our</span>
-                    <span className="text-2xl sm:text-3xl lg:text-4xl text-aaa-primary opacity-70 font-bold tracking-[0.2em] transition-all">Management</span>
-                  </h1>
-                  <p className="mt-8 text-slate-600 text-sm sm:text-base lg:text-lg max-w-lg leading-relaxed font-medium">
-                    People who are doing things the right way and their brief profiles
-                  </p>
-                </div>
+                <h1 className="text-slate-900 font-black uppercase tracking-tight text-[32px] sm:text-[45px] lg:text-[55px] leading-tight">
+                  Our <span className="text-aaa-primary italic uppercase">Management</span>
+                </h1>
+                <p className="mt-4 text-slate-600 text-[15.5px] font-bold italic leading-relaxed max-w-lg">
+                  People who are doing things the right way and their brief profiles
+                </p>
               </div>
               <div
-                className="hidden md:block relative h-[160px] lg:h-[220px] w-[350px] lg:w-[450px] rounded-[30px] overflow-hidden shadow-[0_20px_60px_-15px_rgba(0,0,0,0.1)] border border-white"
+                className="hidden md:block relative h-[160px] lg:h-[220px] w-[350px] lg:w-[450px] rounded-[30px] overflow-hidden shadow-[0_20px_60px_-15px_rgba(0,0,0,0.2)] border border-white"
               >
                 <img src="/management_hero_visual.png" className="w-full h-full object-cover" alt="Leadership Chronicles" />
               </div>
@@ -122,18 +120,21 @@ export default function Management() {
           </div>
         </section>
 
-        {/* --- SECTION: EXECUTIVE BOARD COMPOSITION (TOTAL MATCH SPACING) --- */}
-        <section className="py-12 sm:py-24 bg-slate-50/50">
-          <div className="container mx-auto px-4 relative z-10" style={{ maxWidth: "1250px" }}>
-            <div className="space-y-24 lg:space-y-40">
+        {/* --- SECTION: EXECUTIVE LEADERSHIP PROFILES --- */}
+        <section className="pt-4 pb-20 bg-slate-50 relative overflow-hidden">
+          {/* VISUAL ELEMENT: INSTITUTIONAL CONTINUITY AXIS */}
+          <div className="absolute top-0 bottom-0 left-1/2 -translate-x-1/2 w-[1px] bg-slate-200 hidden lg:block z-0 opacity-40" />
+
+          <div className="container mx-auto px-4 relative z-10" style={{ maxWidth: "1200px" }}>
+            <div className="space-y-10 lg:space-y-16">
               {leaders.map((leader, idx) => (
                 <div
                   key={leader.name}
-                  className="grid grid-cols-1 md:grid-cols-12 gap-12 lg:gap-20 items-start transition-all duration-500 w-full overflow-hidden group"
+                  className="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-16 items-center bg-white border border-slate-100 p-6 lg:p-10 shadow-sm rounded-[40px] transition-all duration-500 w-full overflow-hidden group"
                 >
-                  {/* Portrait (4 Columns) - Subtly Rounded 30px */}
-                  <div className={`md:col-span-4 flex justify-center ${idx % 2 === 0 ? "md:order-1" : "md:order-2"} md:sticky md:top-32`}>
-                    <div className="relative w-full max-w-[330px] aspect-[4/5] overflow-hidden rounded-[30px] border border-slate-100 shadow-2xl transition-transform duration-700 group-hover:scale-[1.03]">
+                  {/* LEADERSHIP PORTRAIT AND VISUAL CARD */}
+                  <div className={`md:col-span-4 flex justify-center ${idx % 2 === 0 ? "md:order-1" : "md:order-2"}`}>
+                    <div className="relative w-full max-w-[330px] aspect-[4/5] overflow-hidden rounded-[30px] border border-slate-100 shadow-xl transition-transform duration-500 group-hover:scale-[1.02]">
                       <img
                         src={leader.image}
                         className="w-full h-full object-cover object-top"
@@ -142,56 +143,40 @@ export default function Management() {
                     </div>
                   </div>
 
-                  {/* Bio (8 Columns) - Professional Hierarchy */}
+                  {/* LEADERSHIP BIOGRAPHY AND PROFESSIONAL CREDENTIALS */}
                   <div className={`md:col-span-8 flex flex-col justify-center ${idx % 2 === 0 ? "md:order-2" : "md:order-1"}`}>
-                    <div className="space-y-4 mb-12">
-                      <div className="flex items-center gap-2 font-bold text-[11px] text-aaa-secondary uppercase tracking-widest">
-                        <div className="h-[1px] w-8 bg-aaa-secondary" /> Service Overview
-                      </div>
-                      <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-slate-900 tracking-tight leading-tight uppercase italic underline decoration-aaa-primary/10 decoration-8 underline-offset-4">
-                        {leader.name}
-                      </h2>
-                      <p className="text-aaa-primary font-bold text-xs sm:text-sm uppercase tracking-[0.3em] opacity-80">{leader.role}</p>
+                    <div className="flex items-center gap-3 mb-1">
+                      <div className="h-[2px] w-8 bg-aaa-primary" />
+                      <span className="text-[11px] font-black uppercase tracking-[0.3em] text-aaa-primary">Board Member</span>
                     </div>
 
-                    <div className="space-y-8 mb-16">
-                      <div className="flex gap-6 items-start">
-                        <div className="p-4 bg-white rounded-2xl shadow-sm border border-slate-100 shrink-0">
-                          <Briefcase className="w-6 h-6 text-aaa-primary" />
-                        </div>
-                        <p className="text-slate-700 leading-relaxed text-sm sm:text-[17px] font-medium pt-1">
+                    <h2 className="text-[26px] font-black text-slate-900 mb-2 uppercase tracking-tight leading-tight">
+                      {leader.name}
+                    </h2>
+                    <p className="text-aaa-primary font-bold text-[12px] uppercase tracking-widest mb-6">{leader.role}</p>
+
+                    <div className="space-y-4 mb-6">
+                      <div className="flex gap-4 items-start">
+                        <Briefcase className="w-5 h-5 text-aaa-primary/80 shrink-0 mt-1" />
+                        <p className="text-slate-600 leading-relaxed text-[15px] font-medium">
                           {leader.experience}
                         </p>
                       </div>
-                      <div className="flex gap-6 items-start">
-                        <div className="p-4 bg-white rounded-2xl shadow-sm border border-slate-100 shrink-0">
-                          <GraduationCap className="w-6 h-6 text-aaa-primary" />
-                        </div>
-                        <p className="text-slate-700 leading-relaxed text-sm sm:text-[17px] font-medium italic pt-1 opacity-90 border-l-4 border-aaa-primary/10 pl-6 bg-slate-50/50 rounded-r-xl">
+                      <div className="flex gap-4 items-start">
+                        <GraduationCap className="w-5 h-5 text-aaa-primary/80 shrink-0 mt-1" />
+                        <p className="text-slate-600 leading-relaxed text-[15px] font-medium">
                           {leader.qualifications}
                         </p>
                       </div>
                     </div>
 
-                    <div className="space-y-8">
-                      <div className="flex items-center gap-6">
-                        <h3 className="text-xs font-black text-slate-400 uppercase tracking-[0.4em] whitespace-nowrap">Professional Timeline</h3>
-                        <div className="h-px w-full bg-slate-200/50" />
-                      </div>
-
-                      <div className="grid grid-cols-1 lg:grid-cols-2 gap-3 sm:gap-4">
-                        {leader.bullets.map((item, i) => (
-                          <div
-                            key={i}
-                            className="flex items-center gap-4 p-4 sm:p-5 bg-white border border-slate-100 rounded-2xl hover:bg-[#0f172a] transition-all duration-300 group cursor-default shadow-sm"
-                          >
-                            <div className="w-1.5 h-1.5 rounded-full bg-aaa-primary/30 group-hover:bg-white transition-all shrink-0" />
-                            <span className="text-[11px] sm:text-[12px] font-bold text-slate-700 uppercase tracking-tight group-hover:text-white transition-colors leading-snug">
-                              {item}
-                            </span>
-                          </div>
-                        ))}
-                      </div>
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-y-2 gap-x-8 pt-4 border-t border-slate-100">
+                      {leader.bullets.map((item, i) => (
+                        <div key={i} className="flex gap-3 items-start">
+                          <Trophy className="w-3.5 h-3.5 text-aaa-primary/60 mt-1 shrink-0" />
+                          <span className="text-slate-600 text-[13.5px] font-bold leading-snug">{item}</span>
+                        </div>
+                      ))}
                     </div>
                   </div>
                 </div>

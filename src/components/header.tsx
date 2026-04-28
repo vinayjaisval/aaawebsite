@@ -187,6 +187,45 @@ const aboutData = [
   },
 ];
 
+const investorData = [
+  {
+    title: "Investor Relations",
+    path: "/investors/relations",
+    items: [
+      "Financial Results",
+      "Annual Reports",
+      "Shareholding Pattern",
+    ],
+  },
+  {
+    title: "Board of Directors",
+    path: "/about/management",
+    items: [
+      "Profile of Directors",
+      "Composition of Board",
+      "Terms of Appointment",
+    ],
+  },
+  {
+    title: "Committees of the Board",
+    path: "/investors/committees",
+    items: [
+      "Audit Committee",
+      "Stakeholders Relationship",
+      "Nomination & Remuneration",
+    ],
+  },
+  {
+    title: "Investor Grievances",
+    path: "/investors/grievances",
+    items: [
+      "Compliance Officer",
+      "Registrar & Transfer Agent",
+      "Contact Details",
+    ],
+  },
+];
+
 // ─── Shared class tokens ──────────────────────────────────────────────────────
 
 // Transparent/Blurred background for a premium feel
@@ -273,13 +312,11 @@ export function Header() {
           >
             <Link
               to="/"
-              aria-current="page"
               className={`px-3 py-2 text-sm font-medium rounded ${HEADER_TEXT} ${NAV_HOVER} transition-colors`}
             >
               Home
             </Link>
 
-            {/* Services */}
             <div
               className="relative"
               onMouseEnter={() => openDropdown("services")}
@@ -301,7 +338,6 @@ export function Header() {
               </button>
             </div>
 
-            {/* Industries */}
             <div
               className="relative"
               onMouseEnter={() => openDropdown("industries")}
@@ -323,7 +359,6 @@ export function Header() {
               </button>
             </div>
 
-            {/* About */}
             <div
               className="relative"
               onMouseEnter={() => openDropdown("about")}
@@ -340,6 +375,28 @@ export function Header() {
                 About
                 <ChevronDown
                   className={`h-4 w-4 transition-transform duration-200 ${activeDropdown === "about" ? "rotate-180" : ""}`}
+                  aria-hidden="true"
+                />
+              </button>
+            </div>
+
+            {/* Investor */}
+            <div
+              className="relative"
+              onMouseEnter={() => openDropdown("investor")}
+              onMouseLeave={closeDropdown}
+            >
+              <button
+                type="button"
+                onClick={() => toggleDropdown("investor")}
+                className={`flex items-center gap-1 px-3 py-2 text-sm font-medium rounded ${HEADER_TEXT} ${NAV_HOVER} transition-colors ${activeDropdown === "investor" ? "text-aaa-primary" : ""}`}
+                aria-expanded={activeDropdown === "investor"}
+                aria-controls="investor-dropdown"
+                aria-haspopup="true"
+              >
+                Investor
+                <ChevronDown
+                  className={`h-4 w-4 transition-transform duration-200 ${activeDropdown === "investor" ? "rotate-180" : ""}`}
                   aria-hidden="true"
                 />
               </button>
@@ -534,6 +591,50 @@ export function Header() {
                 )}
               </li>
 
+              {/* Mobile — Investor accordion */}
+              <li>
+                <button
+                  type="button"
+                  onClick={() => toggleMobileKey("mob-investor")}
+                  aria-expanded={activeDropdown === "mob-investor"}
+                  aria-controls="mob-investor-panel"
+                  className={`flex items-center justify-between w-full px-3 py-2.5 text-sm font-medium rounded ${HEADER_TEXT} hover:bg-slate-100 dark:hover:bg-slate-200 transition-colors min-h-[44px]`}
+                >
+                  Investor
+                  <ChevronDown
+                    className={`h-4 w-4 transition-transform duration-200 ${activeDropdown === "mob-investor" ? "rotate-180" : ""}`}
+                    aria-hidden="true"
+                  />
+                </button>
+                {activeDropdown === "mob-investor" && (
+                  <ul
+                    id="mob-investor-panel"
+                    role="list"
+                    className="mt-1 ml-3 border-l-2 border-slate-200 dark:border-slate-300 pl-4 space-y-3 pb-2"
+                  >
+                    {investorData.map((section) => (
+                      <li key={section.title}>
+                        <p className="text-xs font-semibold text-aaa-primary dark:text-aaa-primary uppercase tracking-wide mb-1">
+                          {section.title}
+                        </p>
+                        <ul role="list" className="space-y-0.5">
+                          {section.items.map((item) => (
+                            <li key={item}>
+                              <button
+                                onMouseDown={() => handleNavigation(section.path)}
+                                className={`block w-full text-left py-1 text-xs ${HEADER_TEXT} hover:text-red-800 dark:hover:text-red-700 transition-colors`}
+                              >
+                                {item}
+                              </button>
+                            </li>
+                          ))}
+                        </ul>
+                      </li>
+                    ))}
+                  </ul>
+                )}
+              </li>
+
               <li>
                 <a
                   href="#blog"
@@ -652,6 +753,46 @@ export function Header() {
           <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
             <div className="grid grid-cols-3 lg:grid-cols-6 gap-x-8 gap-y-12">
               {aboutData.map((section) => (
+                <div key={section.title} className="space-y-4">
+                  <div className="pb-3 border-b border-slate-100 dark:border-white/5">
+                    <button
+                      onMouseDown={() => handleNavigation(section.path)}
+                      className="text-[13px] font-bold text-slate-900 dark:text-white tracking-tight hover:text-aaa-primary transition-colors block text-left"
+                    >
+                      {section.title}
+                    </button>
+                  </div>
+                  <ul className="space-y-2.5" role="list">
+                    {section.items.map((item) => (
+                      <li key={item}>
+                        <button
+                          onMouseDown={() => handleNavigation(section.path)}
+                          className="text-[14px] font-medium text-slate-500 dark:text-slate-400 hover:text-aaa-primary dark:hover:text-aaa-primary transition-colors block py-0.5 text-left w-full"
+                        >
+                          {item}
+                        </button>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      )}
+      {/* ── Investor mega-dropdown ───────────────────────────────────────────── */}
+      {activeDropdown === "investor" && (
+        <div
+          id="investor-dropdown"
+          role="region"
+          aria-label="Investor menu"
+          className="absolute top-full left-0 w-full bg-white dark:bg-black border-b border-slate-200 dark:border-white/10 shadow-xl z-[1100] pointer-events-auto"
+          onMouseEnter={() => openDropdown("investor")}
+          onMouseLeave={closeDropdown}
+        >
+          <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
+            <div className="grid grid-cols-4 gap-x-8 gap-y-12">
+              {investorData.map((section) => (
                 <div key={section.title} className="space-y-4">
                   <div className="pb-3 border-b border-slate-100 dark:border-white/5">
                     <button
