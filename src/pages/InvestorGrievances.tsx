@@ -30,10 +30,10 @@ export default function InvestorGrievances() {
                   <ChevronRight className="w-2.5 h-2.5 text-slate-200" />
                   <span className="text-aaa-primary uppercase tracking-[0.4em]">Investors</span>
                 </nav>
-                <h1 className="text-slate-900 font-black uppercase tracking-tight text-[32px] sm:text-[45px] lg:text-[55px] leading-[1.1]">
-                  Investor <span className="text-aaa-primary italic uppercase">Grievances</span>
+                <h1 className="text-slate-900 font-black uppercase tracking-tight text-4xl sm:text-5xl lg:text-7xl leading-tight italic">
+                  Investor <span className="text-aaa-primary not-italic">Grievances</span>
                 </h1>
-                <p className="mt-4 text-slate-500 text-[15.5px] font-bold italic leading-relaxed max-w-xl">
+                <p className="mt-6 text-slate-500 text-sm sm:text-base lg:text-lg font-medium italic leading-relaxed max-w-xl border-l-4 border-aaa-primary/20 pl-6 py-2 bg-slate-50/50 rounded-r-lg">
                   Ensuring transparency, accountability and corporate excellence through dedicated governance oversight.
                 </p>
               </div>
@@ -52,11 +52,9 @@ export default function InvestorGrievances() {
             <div className="bg-white border border-slate-200 shadow-sm rounded-none overflow-hidden">
               <div className="p-6 lg:p-10">
                 <div className="mb-6">
-                  <div className="h-[2px] w-10 bg-aaa-primary mb-3" />
-                  <h2 className="text-[26px] font-black text-slate-900 uppercase tracking-tight leading-tight">
+                  <h2 className="text-2xl md:text-3xl font-black text-slate-900 tracking-tight leading-tight uppercase italic underline decoration-aaa-primary/10 decoration-8 underline-offset-4 mb-4">
                     Company Secretary and Compliance Officer
                   </h2>
-                  <p className="text-aaa-primary font-bold text-[11px] uppercase tracking-[0.3em] mt-2">Board Member</p>
                 </div>
 
                 <div className="border border-[#DEE2E6] overflow-hidden rounded-none">

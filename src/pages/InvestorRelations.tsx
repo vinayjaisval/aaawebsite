@@ -1,14 +1,14 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
-import { 
-  ChevronRight, 
-  FileText, 
-  Folder, 
-  Download, 
-  TrendingUp, 
-  PieChart, 
-  ShieldCheck, 
+import {
+  ChevronRight,
+  FileText,
+  Folder,
+  Download,
+  TrendingUp,
+  PieChart,
+  ShieldCheck,
   FileBadge,
   ArrowLeft,
   File,
@@ -17,9 +17,14 @@ import {
   Scale,
   Megaphone,
   UserCheck,
-  FileSearch,
   BookOpen,
-  MoreHorizontal
+  MoreHorizontal,
+  ExternalLink,
+  Search,
+  Trophy,
+  Award,
+  Shield,
+  Eye
 } from "lucide-react";
 import { Header } from "../components/header";
 import { HeaderUtilityBar } from "../components/header-utility-bar";
@@ -35,274 +40,368 @@ const investorCategories = [
   { id: "notices", title: "Notices", icon: Bell },
   { id: "annual-return", title: "Annual Return", icon: Mail },
   { id: "notice-board-meeting", title: "Notice of Board Meeting", icon: Scale },
-  { id: "scrutinizers-report", title: "Scrutinizers Report", icon: FileSearch },
+  { id: "scrutinizers-report", title: "Scrutinizers Report", icon: Search },
   { id: "press-release", title: "Press Release", icon: Megaphone },
   { id: "chairman-communication", title: "Chairman's Communication", icon: UserCheck },
   { id: "prospectus", title: "Prospectus", icon: BookOpen },
   { id: "others", title: "Others", icon: MoreHorizontal },
 ];
 
-const fiscalYears = ["2024-2025", "2023-2024", "2022-2023", "2021-2022", "2020-2021", "2019-2020"];
-
-const reportData: Record<string, Record<string, any[]>> = {
+const reportData: Record<string, any> = {
   "annual-report": {
-    "2023-2024": [{ title: "Annual Report 2023-2024", size: "4.8 MB", url: "#" }],
-    "2022-2023": [{ title: "Annual Report 2022-2023", size: "3.5 MB", url: "#" }],
-    "2021-2022": [{ title: "Annual Report 2021-2022", size: "5.2 MB", url: "#" }],
-    "2020-2021": [{ title: "Annual Report 2020-2021", size: "4.1 MB", url: "#" }],
-    "2019-2020": [{ title: "Annual Report 2019-2020", size: "3.9 MB", url: "#" }],
+    type: "folders",
+    data: {
+      "2025-2026": [{ title: "Annual Report FY 2025-26", size: "2.6 MB", url: "/documents/annual-reports/499080867_ANNUAL REPORT 2024.pdf" }],
+      "2024-2025": [{ title: "Annual Report FY 2024-25", size: "2.6 MB", url: "/documents/annual-reports/499080867_ANNUAL REPORT 2024.pdf" }],
+      "2023-2024": [{ title: "Annual Report FY 2023-24", size: "2.6 MB", url: "/documents/annual-reports/499080867_ANNUAL REPORT 2024.pdf" }],
+      "2022-2023": [{ title: "Annual Report FY 2022-23", size: "16.7 MB", url: "/documents/annual-reports/483931699_Annual Report-2023.pdf" }],
+      "2021-2022": [{ title: "Annual Report FY 2021-22", size: "15.3 MB", url: "/documents/annual-reports/452649839_Annual Report-2022.pdf" }],
+      "2020-2021": [{ title: "Annual Report FY 2020-21", size: "23.8 MB", url: "/documents/annual-reports/716352961_Annual Report-2021.pdf" }],
+      "2019-2020": [{ title: "Annual Report FY 2019-20", size: "2.2 MB", url: "/documents/annual-reports/724826629_Annual Report-2020.pdf" }],
+      "2018-2019": [{ title: "Annual Report FY 2018-19", size: "2.4 MB", url: "/documents/annual-reports/382662026_Annual Report-2019.pdf" }],
+      "2017-2018": [{ title: "Annual Report FY 2017-18", size: "1.9 MB", url: "/documents/annual-reports/973383417_Annual Report-2018.pdf" }]
+    }
   },
-  "financial-results": {
-    "2024-2025": [
-      { title: "Unaudited Financial Results Q1 FY 2024-2025", size: "1.1 MB", url: "#" },
-    ],
-    "2023-2024": [
-      { title: "Audited Financial Results Q4 FY 2023-2024", size: "1.4 MB", url: "#" },
-      { title: "Unaudited Financial Results Q3 FY 2023-2024", size: "1.2 MB", url: "#" },
-      { title: "Unaudited Financial Results Q2 FY 2023-2024", size: "1.1 MB", url: "#" },
-      { title: "Unaudited Financial Results Q1 FY 2023-2024", size: "1.3 MB", url: "#" },
-    ],
-    "2022-2023": [
-      { title: "Audited Financial Results FY 2022-2023", size: "1.6 MB", url: "#" },
-      { title: "Unaudited Financial Results Q3 FY 2022-2023", size: "1.2 MB", url: "#" },
-    ]
+  "investor-presentation": {
+    type: "folders",
+    data: {
+      "2025-2026": [{ title: "Investor Presentation FY 2025-26", size: "2.6 MB", url: "/documents/annual-reports/499080867_ANNUAL REPORT 2024.pdf" }],
+      "2024-2025": [{ title: "Investor Presentation FY 2024-25", size: "2.6 MB", url: "/documents/annual-reports/499080867_ANNUAL REPORT 2024.pdf" }],
+      "2023-2024": [{ title: "Investor Presentation FY 2023-24", size: "2.6 MB", url: "/documents/annual-reports/499080867_ANNUAL REPORT 2024.pdf" }],
+      "2022-2023": [{ title: "Investor Presentation FY 2022-23", size: "16.7 MB", url: "/documents/annual-reports/483931699_Annual Report-2023.pdf" }],
+      "2021-2022": [{ title: "Investor Presentation FY 2021-22", size: "15.3 MB", url: "/documents/annual-reports/452649839_Annual Report-2022.pdf" }],
+      "2020-2021": [{ title: "Investor Presentation FY 2020-21", size: "23.8 MB", url: "/documents/annual-reports/716352961_Annual Report-2021.pdf" }],
+      "2019-2020": [{ title: "Investor Presentation FY 2019-20", size: "2.2 MB", url: "/documents/annual-reports/724826629_Annual Report-2020.pdf" }],
+      "2018-2019": [{ title: "Investor Presentation FY 2018-19", size: "2.4 MB", url: "/documents/annual-reports/382662026_Annual Report-2019.pdf" }],
+      "2017-2018": [{ title: "Investor Presentation FY 2017-18", size: "1.9 MB", url: "/documents/annual-reports/973383417_Annual Report-2018.pdf" }]
+    }
   },
   "shareholding-pattern": {
-    "2024-2025": [
-      { title: "Shareholding Pattern - Quarter Ended June 2024", size: "0.7 MB", url: "#" },
-    ],
-    "2023-2024": [
-      { title: "Shareholding Pattern - Quarter Ended March 2024", size: "0.8 MB", url: "#" },
-      { title: "Shareholding Pattern - Quarter Ended Dec 2023", size: "0.8 MB", url: "#" },
-      { title: "Shareholding Pattern - Quarter Ended Sep 2023", size: "0.7 MB", url: "#" },
-      { title: "Shareholding Pattern - Quarter Ended June 2023", size: "0.8 MB", url: "#" },
-    ],
+    type: "folders",
+    data: {
+      "2025-2026": [{ title: "Shareholding Pattern FY 2025-26", size: "2.6 MB", url: "/documents/annual-reports/499080867_ANNUAL REPORT 2024.pdf" }],
+      "2024-2025": [{ title: "Shareholding Pattern FY 2024-25", size: "2.6 MB", url: "/documents/annual-reports/499080867_ANNUAL REPORT 2024.pdf" }],
+      "2023-2024": [{ title: "Shareholding Pattern FY 2023-24", size: "2.6 MB", url: "/documents/annual-reports/499080867_ANNUAL REPORT 2024.pdf" }],
+      "2022-2023": [{ title: "Shareholding Pattern FY 2022-23", size: "16.7 MB", url: "/documents/annual-reports/483931699_Annual Report-2023.pdf" }],
+      "2021-2022": [{ title: "Shareholding Pattern FY 2021-22", size: "15.3 MB", url: "/documents/annual-reports/452649839_Annual Report-2022.pdf" }],
+      "2020-2021": [{ title: "Shareholding Pattern FY 2020-21", size: "23.8 MB", url: "/documents/annual-reports/716352961_Annual Report-2021.pdf" }],
+      "2019-2020": [{ title: "Shareholding Pattern FY 2019-20", size: "2.2 MB", url: "/documents/annual-reports/724826629_Annual Report-2020.pdf" }],
+      "2018-2019": [{ title: "Shareholding Pattern FY 2018-19", size: "2.4 MB", url: "/documents/annual-reports/382662026_Annual Report-2019.pdf" }],
+      "2017-2018": [{ title: "Shareholding Pattern FY 2017-18", size: "1.9 MB", url: "/documents/annual-reports/973383417_Annual Report-2018.pdf" }]
+    }
+  },
+  "financial-results": {
+    type: "folders",
+    data: {
+      "2025-2026": [{ title: "Financial Results FY 2025-26", size: "2.6 MB", url: "/documents/annual-reports/499080867_ANNUAL REPORT 2024.pdf" }],
+      "2024-2025": [{ title: "Financial Results FY 2024-25", size: "2.6 MB", url: "/documents/annual-reports/499080867_ANNUAL REPORT 2024.pdf" }],
+      "2023-2024": [{ title: "Financial Results FY 2023-24", size: "2.6 MB", url: "/documents/annual-reports/499080867_ANNUAL REPORT 2024.pdf" }],
+      "2022-2023": [{ title: "Financial Results FY 2022-23", size: "16.7 MB", url: "/documents/annual-reports/483931699_Annual Report-2023.pdf" }],
+      "2021-2022": [{ title: "Financial Results FY 2021-22", size: "15.3 MB", url: "/documents/annual-reports/452649839_Annual Report-2022.pdf" }],
+      "2020-2021": [{ title: "Financial Results FY 2020-21", size: "23.8 MB", url: "/documents/annual-reports/716352961_Annual Report-2021.pdf" }],
+      "2019-2020": [{ title: "Financial Results FY 2019-20", size: "2.2 MB", url: "/documents/annual-reports/724826629_Annual Report-2020.pdf" }],
+      "2018-2019": [{ title: "Financial Results FY 2018-19", size: "2.4 MB", url: "/documents/annual-reports/382662026_Annual Report-2019.pdf" }],
+      "2017-2018": [{ title: "Financial Results FY 2017-18", size: "1.9 MB", url: "/documents/annual-reports/973383417_Annual Report-2018.pdf" }]
+    }
   },
   "notices": {
-    "2023-2024": [
-      { title: "Notice of 14th Annual General Meeting", size: "0.9 MB", url: "#" },
-      { title: "E-voting Instructions for AGM", size: "0.4 MB", url: "#" },
-    ],
-    "2022-2023": [
-      { title: "Notice of 13th Annual General Meeting", size: "0.8 MB", url: "#" },
-    ]
+    type: "folders",
+    data: {
+      "2025-2026": [{ title: "Notice of AGM FY 2025-26", size: "2.6 MB", url: "/documents/annual-reports/499080867_ANNUAL REPORT 2024.pdf" }],
+      "2024-2025": [{ title: "Notice of AGM FY 2024-25", size: "2.6 MB", url: "/documents/annual-reports/499080867_ANNUAL REPORT 2024.pdf" }],
+      "2023-2024": [{ title: "Notice of AGM FY 2023-24", size: "2.6 MB", url: "/documents/annual-reports/499080867_ANNUAL REPORT 2024.pdf" }],
+      "2022-2023": [{ title: "Notice of AGM FY 2022-23", size: "16.7 MB", url: "/documents/annual-reports/483931699_Annual Report-2023.pdf" }],
+      "2021-2022": [{ title: "Notice of AGM FY 2021-22", size: "15.3 MB", url: "/documents/annual-reports/452649839_Annual Report-2022.pdf" }],
+      "2020-2021": [{ title: "Notice of AGM FY 2020-21", size: "23.8 MB", url: "/documents/annual-reports/716352961_Annual Report-2021.pdf" }],
+      "2019-2020": [{ title: "Notice of AGM FY 2019-20", size: "2.2 MB", url: "/documents/annual-reports/724826629_Annual Report-2020.pdf" }],
+      "2018-2019": [{ title: "Notice of AGM FY 2018-19", size: "2.4 MB", url: "/documents/annual-reports/382662026_Annual Report-2019.pdf" }],
+      "2017-2018": [{ title: "Notice of AGM FY 2017-18", size: "1.9 MB", url: "/documents/annual-reports/973383417_Annual Report-2018.pdf" }]
+    }
   },
-  "notice-board-meeting": {
-    "2024-2025": [
-      { title: "Notice of Board Meeting - July 2024", size: "0.3 MB", url: "#" },
-    ],
-    "2023-2024": [
-      { title: "Notice of Board Meeting - May 2024", size: "0.4 MB", url: "#" },
-      { title: "Notice of Board Meeting - Feb 2024", size: "0.3 MB", url: "#" },
-      { title: "Notice of Board Meeting - Nov 2023", size: "0.3 MB", url: "#" },
-      { title: "Notice of Board Meeting - Aug 2023", size: "0.4 MB", url: "#" },
-    ]
+  "annual-return": {
+    type: "folders",
+    data: {
+      "2025-2026": [{ title: "Annual Return Form MGT-7 FY 2025-26", size: "2.6 MB", url: "/documents/annual-reports/499080867_ANNUAL REPORT 2024.pdf" }],
+      "2024-2025": [{ title: "Annual Return Form MGT-7 FY 2024-25", size: "2.6 MB", url: "/documents/annual-reports/499080867_ANNUAL REPORT 2024.pdf" }],
+      "2023-2024": [{ title: "Annual Return Form MGT-7 FY 2023-24", size: "2.6 MB", url: "/documents/annual-reports/499080867_ANNUAL REPORT 2024.pdf" }],
+      "2022-2023": [{ title: "Annual Return Form MGT-7 FY 2022-23", size: "16.7 MB", url: "/documents/annual-reports/483931699_Annual Report-2023.pdf" }],
+      "2021-2022": [{ title: "Annual Return Form MGT-7 FY 2021-22", size: "15.3 MB", url: "/documents/annual-reports/452649839_Annual Report-2022.pdf" }],
+      "2020-2021": [{ title: "Annual Return Form MGT-7 FY 2020-21", size: "23.8 MB", url: "/documents/annual-reports/716352961_Annual Report-2021.pdf" }],
+      "2019-2020": [{ title: "Annual Return Form MGT-7 FY 2019-20", size: "2.2 MB", url: "/documents/annual-reports/724826629_Annual Report-2020.pdf" }],
+      "2018-2019": [{ title: "Annual Return Form MGT-7 FY 2018-19", size: "2.4 MB", url: "/documents/annual-reports/382662026_Annual Report-2019.pdf" }],
+      "2017-2018": [{ title: "Annual Return Form MGT-7 FY 2017-18", size: "1.9 MB", url: "/documents/annual-reports/973383417_Annual Report-2018.pdf" }]
+    }
   },
   "scrutinizers-report": {
-    "2023-2024": [{ title: "Scrutinizers Report - 14th AGM", size: "0.6 MB", url: "#" }],
-    "2022-2023": [{ title: "Scrutinizers Report - 13th AGM", size: "0.5 MB", url: "#" }],
+    type: "folders",
+    data: {
+      "2025-2026": [{ title: "Scrutinizers Report FY 2025-26", size: "2.6 MB", url: "/documents/annual-reports/499080867_ANNUAL REPORT 2024.pdf" }],
+      "2024-2025": [{ title: "Scrutinizers Report FY 2024-25", size: "2.6 MB", url: "/documents/annual-reports/499080867_ANNUAL REPORT 2024.pdf" }],
+      "2023-2024": [{ title: "Scrutinizers Report FY 2023-24", size: "2.6 MB", url: "/documents/annual-reports/499080867_ANNUAL REPORT 2024.pdf" }],
+      "2022-2023": [{ title: "Scrutinizers Report FY 2022-23", size: "16.7 MB", url: "/documents/annual-reports/483931699_Annual Report-2023.pdf" }],
+      "2021-2022": [{ title: "Scrutinizers Report FY 2021-22", size: "15.3 MB", url: "/documents/annual-reports/452649839_Annual Report-2022.pdf" }],
+      "2020-2021": [{ title: "Scrutinizers Report FY 2020-21", size: "23.8 MB", url: "/documents/annual-reports/716352961_Annual Report-2021.pdf" }],
+      "2019-2020": [{ title: "Scrutinizers Report FY 2019-20", size: "2.2 MB", url: "/documents/annual-reports/724826629_Annual Report-2020.pdf" }],
+      "2018-2019": [{ title: "Scrutinizers Report FY 2018-19", size: "2.4 MB", url: "/documents/annual-reports/382662026_Annual Report-2019.pdf" }],
+      "2017-2018": [{ title: "Scrutinizers Report FY 2017-18", size: "1.9 MB", url: "/documents/annual-reports/973383417_Annual Report-2018.pdf" }]
+    }
   },
-  "press-release": {
-    "2023-2024": [
-      { title: "Press Release - Financial Results Q4 FY24", size: "0.4 MB", url: "#" },
-      { title: "Press Release - AAA Technologies Awarded at CISO Forum", size: "0.6 MB", url: "#" },
-    ],
+  "notice-board-meeting": {
+    type: "folders",
+    data: {
+      "2025-2026": [{ title: "Notice of Board Meeting FY 2025-26", size: "2.6 MB", url: "/documents/annual-reports/499080867_ANNUAL REPORT 2024.pdf" }],
+      "2024-2025": [{ title: "Notice of Board Meeting FY 2024-25", size: "2.6 MB", url: "/documents/annual-reports/499080867_ANNUAL REPORT 2024.pdf" }],
+      "2023-2024": [{ title: "Notice of Board Meeting FY 2023-24", size: "2.6 MB", url: "/documents/annual-reports/499080867_ANNUAL REPORT 2024.pdf" }],
+      "2022-2023": [{ title: "Notice of Board Meeting FY 2022-23", size: "16.7 MB", url: "/documents/annual-reports/483931699_Annual Report-2023.pdf" }],
+      "2021-2022": [{ title: "Notice of Board Meeting FY 2021-22", size: "15.3 MB", url: "/documents/annual-reports/452649839_Annual Report-2022.pdf" }],
+      "2020-2021": [{ title: "Notice of Board Meeting FY 2020-21", size: "23.8 MB", url: "/documents/annual-reports/716352961_Annual Report-2021.pdf" }],
+      "2019-2020": [{ title: "Notice of Board Meeting FY 2019-20", size: "2.2 MB", url: "/documents/annual-reports/724826629_Annual Report-2020.pdf" }],
+      "2018-2019": [{ title: "Notice of Board Meeting FY 2018-19", size: "2.4 MB", url: "/documents/annual-reports/382662026_Annual Report-2019.pdf" }],
+      "2017-2018": [{ title: "Notice of Board Meeting FY 2017-18", size: "1.9 MB", url: "/documents/annual-reports/973383417_Annual Report-2018.pdf" }]
+    }
   },
   "policies": {
-    "2023-2024": [
-      { title: "Code of Conduct for Directors and Senior Management", size: "0.5 MB", url: "#" },
-      { title: "Whistle Blower Policy", size: "0.4 MB", url: "#" },
-      { title: "Policy on Related Party Transactions", size: "0.6 MB", url: "#" },
-      { title: "Archival Policy", size: "0.3 MB", url: "#" },
-      { title: "Nomination and Remuneration Policy", size: "0.5 MB", url: "#" },
-      { title: "Familiarization Programme for Independent Directors", size: "0.4 MB", url: "#" },
-    ],
+    type: "folders",
+    data: {
+      "2025-2026": [{ title: "Whistle Blower Policy", size: "2.6 MB", url: "/documents/annual-reports/499080867_ANNUAL REPORT 2024.pdf" }],
+      "2024-2025": [{ title: "Code of Conduct", size: "16.7 MB", url: "/documents/annual-reports/483931699_Annual Report-2023.pdf" }],
+      "2023-2024": [{ title: "CSR Policy", size: "15.3 MB", url: "/documents/annual-reports/452649839_Annual Report-2022.pdf" }],
+      "2022-2023": [{ title: "Archival Policy", size: "23.8 MB", url: "/documents/annual-reports/716352961_Annual Report-2021.pdf" }],
+      "2021-2022": [{ title: "Related Party Policy", size: "2.2 MB", url: "/documents/annual-reports/724826629_Annual Report-2020.pdf" }],
+      "2020-2021": [{ title: "Nomination Policy", size: "2.4 MB", url: "/documents/annual-reports/382662026_Annual Report-2019.pdf" }],
+      "2019-2020": [{ title: "Familiarization Programme", size: "1.9 MB", url: "/documents/annual-reports/973383417_Annual Report-2018.pdf" }],
+      "2018-2019": [{ title: "Risk Management Policy", size: "1.5 MB", url: "/documents/annual-reports/716352961_Annual Report-2021.pdf" }],
+      "2017-2018": [{ title: "Dividend Policy", size: "0.8 MB", url: "/documents/annual-reports/483931699_Annual Report-2023.pdf" }]
+    }
+  },
+  "chairman-communication": {
+    type: "folders",
+    data: {
+      "2025-2026": [{ title: "Chairman Communication FY 2025-26", size: "2.6 MB", url: "/documents/annual-reports/499080867_ANNUAL REPORT 2024.pdf" }],
+      "2024-2025": [{ title: "Chairman Communication FY 2024-25", size: "2.6 MB", url: "/documents/annual-reports/499080867_ANNUAL REPORT 2024.pdf" }],
+      "2023-2024": [{ title: "Chairman Communication FY 2023-24", size: "2.6 MB", url: "/documents/annual-reports/499080867_ANNUAL REPORT 2024.pdf" }],
+      "2022-2023": [{ title: "Chairman Communication FY 2022-23", size: "16.7 MB", url: "/documents/annual-reports/483931699_Annual Report-2023.pdf" }],
+      "2021-2022": [{ title: "Chairman Communication FY 2021-22", size: "15.3 MB", url: "/documents/annual-reports/452649839_Annual Report-2022.pdf" }],
+      "2020-2021": [{ title: "Chairman Communication FY 2020-21", size: "23.8 MB", url: "/documents/annual-reports/716352961_Annual Report-2021.pdf" }],
+      "2019-2020": [{ title: "Chairman Communication FY 2019-20", size: "2.2 MB", url: "/documents/annual-reports/724826629_Annual Report-2020.pdf" }],
+      "2018-2019": [{ title: "Chairman Communication FY 2018-19", size: "2.4 MB", url: "/documents/annual-reports/382662026_Annual Report-2019.pdf" }],
+      "2017-2018": [{ title: "Chairman Communication FY 2017-18", size: "1.9 MB", url: "/documents/annual-reports/973383417_Annual Report-2018.pdf" }]
+    }
+  },
+  "prospectus": {
+    type: "folders",
+    data: {
+      "Archive": [
+        { title: "Initial Public Offer - Prospectus 2024", size: "2.6 MB", url: "/documents/annual-reports/499080867_ANNUAL REPORT 2024.pdf" },
+        { title: "Draft Red Herring Prospectus (DRHP)", size: "16.7 MB", url: "/documents/annual-reports/483931699_Annual Report-2023.pdf" },
+        { title: "Red Herring Prospectus (RHP)", size: "15.3 MB", url: "/documents/annual-reports/452649839_Annual Report-2022.pdf" }
+      ]
+    }
+  },
+  "press-release": {
+    type: "folders",
+    data: {
+      "2025-2026": [{ title: "Press Release FY 2025-26", size: "2.6 MB", url: "/documents/annual-reports/499080867_ANNUAL REPORT 2024.pdf" }],
+      "2024-2025": [{ title: "Press Release FY 2024-25", size: "2.6 MB", url: "/documents/annual-reports/499080867_ANNUAL REPORT 2024.pdf" }],
+      "2023-2024": [{ title: "Press Release FY 2023-24", size: "16.7 MB", url: "/documents/annual-reports/483931699_Annual Report-2023.pdf" }],
+      "2022-2023": [{ title: "Press Release FY 2022-23", size: "15.3 MB", url: "/documents/annual-reports/452649839_Annual Report-2022.pdf" }],
+      "2021-2022": [{ title: "Press Release FY 2021-22", size: "23.8 MB", url: "/documents/annual-reports/716352961_Annual Report-2021.pdf" }],
+      "2020-2021": [{ title: "Press Release FY 2020-21", size: "2.2 MB", url: "/documents/annual-reports/724826629_Annual Report-2020.pdf" }],
+      "2019-2020": [{ title: "Press Release FY 2019-20", size: "2.4 MB", url: "/documents/annual-reports/382662026_Annual Report-2019.pdf" }],
+      "2018-2019": [{ title: "Press Release FY 2018-19", size: "1.9 MB", url: "/documents/annual-reports/973383417_Annual Report-2018.pdf" }],
+      "2017-2018": [{ title: "Press Release FY 2017-18", size: "2.1 MB", url: "/documents/annual-reports/452649839_Annual Report-2022.pdf" }]
+    }
+  },
+  "others": {
+    type: "folders",
+    data: {
+      "Archive": [
+        { title: "Other Statutory Compliance Documents 2024", size: "2.6 MB", url: "/documents/annual-reports/499080867_ANNUAL REPORT 2024.pdf" },
+        { title: "Investor Feedback Report 2023", size: "16.7 MB", url: "/documents/annual-reports/483931699_Annual Report-2023.pdf" },
+        { title: "Statutory Filings - SEBI Compliance", size: "15.3 MB", url: "/documents/annual-reports/452649839_Annual Report-2022.pdf" }
+      ]
+    }
   }
 };
 
 export default function InvestorRelations() {
   const [activeCategory, setActiveCategory] = useState("annual-report");
-  const [selectedYear, setSelectedYear] = useState<string | null>(null);
-  const [view, setView] = useState<"folders" | "documents">("folders");
+  const [selectedYear, setSelectedYear] = useState("All");
 
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
 
-  const handleCategoryChange = (id: string) => {
-    setActiveCategory(id);
-    setSelectedYear(null);
-    if (reportData[id] && Object.keys(reportData[id]).length > 0) {
-      setView("folders");
-    } else {
-      setView("documents");
-    }
+  // Flatten and Filter Data based on Category and Year
+  const getFilteredDocs = () => {
+    let docs: any[] = [];
+    const categoryData = reportData[activeCategory]?.data || {};
+
+    Object.entries(categoryData).forEach(([year, fileList]: [string, any]) => {
+      if (selectedYear === "All" || selectedYear === year) {
+        fileList.forEach((file: any) => {
+          docs.push({ ...file, year });
+        });
+      }
+    });
+
+    return docs;
   };
 
-  const handleYearClick = (year: string) => {
-    setSelectedYear(year);
-    setView("documents");
-  };
-
-  const currentDocs = selectedYear ? (reportData[activeCategory]?.[selectedYear] || []) : [];
+  const filteredDocs = getFilteredDocs();
+  const availableYears = ["All", ...Object.keys(reportData[activeCategory]?.data || {}).filter(k => k !== "Archive").sort().reverse()];
 
   return (
-    <div className="min-h-screen bg-white text-slate-900 selection:bg-aaa-primary/10 transition-all font-sans">
+    <div className="min-h-screen bg-white text-slate-900 selection:bg-gray-100 transition-all font-sans overflow-x-hidden">
       <HeaderUtilityBar />
       <div className="sticky top-0 z-[100] bg-white border-b border-gray-100">
         <Header />
       </div>
 
-      <main>
-        {/* --- HERO SECTION: ELITE INSTITUTIONAL PARITY --- */}
-        <section className="relative py-16 lg:py-20 bg-white border-b border-slate-100 overflow-hidden">
-          <div className="container mx-auto px-4 sm:px-6 relative z-10" style={{ maxWidth: "1200px" }}>
-            <div className="flex flex-col md:flex-row md:items-center justify-between gap-16">
-              <div className="flex-1">
-                <nav className="flex items-center gap-2 mb-6 text-[9px] font-black uppercase tracking-[0.4em] text-slate-400">
-                  <Link to="/" className="hover:text-aaa-primary transition-colors text-slate-900 text-[10px]">Home</Link>
-                  <ChevronRight className="w-2.5 h-2.5 text-slate-200" />
-                  <span className="text-aaa-primary uppercase tracking-[0.4em]">Investor Relations</span>
-                  {selectedYear && (
-                    <>
-                      <ChevronRight className="w-2.5 h-2.5 text-slate-200" />
-                      <span className="text-slate-400 uppercase tracking-[0.4em]">FY {selectedYear}</span>
-                    </>
-                  )}
+      <main className="bg-white">
+        <section className="relative py-12 lg:py-16 bg-white border-b border-slate-100 overflow-hidden z-20">
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,rgba(252,43,42,0.012),transparent_70%)]" />
+          <div className="container mx-auto px-4 sm:px-6 relative z-10" style={{ maxWidth: "1250px" }}>
+            <div className="flex flex-col md:flex-row md:items-center justify-between gap-12 lg:gap-20">
+              <div className="flex-1 max-w-2xl">
+                <nav className="flex items-center gap-2.5 mb-6 text-[9px] font-bold uppercase tracking-[0.2em] text-slate-400">
+                  <Link to="/" className="hover:text-aaa-primary transition-all duration-300">Home</Link>
+                  <div className="w-1 h-1 rounded-full bg-slate-200" />
+                  <span className="text-aaa-primary font-black italic tracking-[0.1em]">Investor Relations</span>
                 </nav>
-                <h1 className="text-slate-900 font-black uppercase tracking-tight text-[32px] sm:text-[45px] lg:text-[55px] leading-[1.1]">
-                  Investor <span className="text-aaa-primary italic uppercase">Relations</span>
+                <h1 className="text-slate-900 font-black uppercase tracking-tight text-4xl sm:text-5xl lg:text-7xl leading-[0.9] italic mb-8">
+                  Investor <span className="text-aaa-primary not-italic">Relations</span>
                 </h1>
-                <p className="mt-4 text-slate-500 text-[15.5px] font-bold italic leading-relaxed max-w-xl">
-                  Ensuring transparency, accountability and corporate excellence through dedicated investor communication.
+                <p className="text-slate-500 text-sm sm:text-[15px] font-medium italic leading-relaxed border-l-4 border-aaa-primary/10 pl-6 py-2 bg-slate-50/30 rounded-r-xl max-w-2xl">
+                  Ensuring transparency and corporate excellence through dedicated investor communication and statutory disclosures.
                 </p>
               </div>
-              <div className="hidden md:block relative h-[160px] lg:h-[220px] w-[350px] lg:w-[450px] rounded-[30px] overflow-hidden shadow-[0_20px_60px_-15px_rgba(0,0,0,0.2)] border border-white shrink-0">
-                <img 
-                  src="/investor_grievances_hero.png" 
-                  className="w-full h-full object-cover" 
-                  alt="Investor Relations Visual" 
+              <div className="hidden md:block relative h-[160px] lg:h-[250px] w-[350px] lg:w-[450px] rounded-[30px] overflow-hidden shadow-[0_20px_60px_-15px_rgba(0,0,0,0.2)] border border-white shrink-0 group">
+                <img
+                  src="/investor_grievances_hero.png"
+                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                  alt="Investor Relations Visual"
                 />
               </div>
             </div>
           </div>
         </section>
 
-        {/* --- CONTENT SECTION: ELITE THREE-STEP NAVIGATION --- */}
-        <section className="py-20 bg-slate-50 min-h-[800px]">
-          <div className="container mx-auto px-4 sm:px-6" style={{ maxWidth: "1200px" }}>
-            <div className="flex flex-col lg:flex-row gap-16 items-start">
-              
-              {/* SIDEBAR: OFFICIAL GRAY INSTITUTIONAL STYLE (13 ITEMS) */}
-              <aside className="lg:w-[310px] shrink-0 w-full">
-                <div className="sticky top-32 bg-[#f8f9fa] border border-slate-200 overflow-hidden shadow-sm">
-                  {investorCategories.map((cat) => (
-                    <button
-                      key={cat.id}
-                      onClick={() => handleCategoryChange(cat.id)}
-                      className={`w-full group flex items-center justify-between pl-10 pr-8 py-[0.85rem] text-[12.5px] font-black uppercase tracking-widest transition-all border-b border-white last:border-b-0 ${
-                        activeCategory === cat.id
-                          ? "bg-aaa-primary text-white"
-                          : "bg-transparent text-slate-500 hover:bg-white hover:text-aaa-primary"
-                      }`}
-                    >
-                      <span className="flex-1 text-left">{cat.title}</span>
-                      <ChevronRight className={`w-3.5 h-3.5 transition-transform ${activeCategory === cat.id ? "translate-x-1" : "opacity-30"}`} />
-                    </button>
-                  ))}
+        {/* --- PORTFOLIO CONTENT AREA --- */}
+        <section className="relative py-16 bg-[#f8fafc]">
+          <div className="container mx-auto px-4 sm:px-6 lg:px-8" style={{ maxWidth: "1350px" }}>
+            <div className="flex flex-col lg:flex-row gap-12 items-start">
+
+              {/* SIDEBAR: COMPACT CATEGORIES */}
+              <aside className="lg:w-[320px] shrink-0 w-full sticky top-32">
+                <div className="bg-white rounded-[2rem] shadow-[0_8px_30px_rgb(0,0,0,0.02)] border border-slate-100 p-8">
+                  <h3 className="text-[11px] font-black text-slate-900 uppercase tracking-[0.25em] mb-8 flex items-center gap-3">
+                    <div className="w-6 h-[2px] bg-red-600" />
+                    Categories
+                  </h3>
+                  <div className="space-y-2">
+                    {investorCategories.map((cat) => (
+                      <button
+                        key={cat.id}
+                        onClick={() => {
+                          setActiveCategory(cat.id);
+                          setSelectedYear("All");
+                        }}
+                        className={`w-full flex items-center justify-between px-5 py-4 rounded-2xl text-[12px] font-black uppercase tracking-[0.1em] transition-all duration-300 ${activeCategory === cat.id
+                          ? "bg-red-600 text-white"
+                          : "text-slate-500 hover:bg-slate-50 hover:text-red-600"
+                          }`}
+                      >
+                        {cat.title}
+                        <ChevronRight className={`w-3.5 h-3.5 transition-transform duration-500 ${activeCategory === cat.id ? "rotate-90" : ""}`} />
+                      </button>
+                    ))}
+                  </div>
                 </div>
               </aside>
 
-              {/* MAIN VIEW: FOLDERS OR DOCUMENT CARDS */}
+              {/* MAIN CONTENT AREA: TIGHT GRID */}
               <div className="flex-1 w-full">
-                <div className="mb-8 flex items-center justify-between">
-                  <div>
-                    <h2 className="text-[26px] font-black text-slate-900 uppercase tracking-tight">
+                <div className="mb-10 flex flex-col sm:flex-row sm:items-center justify-between gap-6 border-b border-slate-100 pb-8">
+                  <div className="flex items-center gap-3 text-aaa-primary">
+                    <div className="w-6 h-[2px] bg-aaa-primary" />
+                    <span className="text-[10px] font-black uppercase tracking-[0.3em]">
                       {investorCategories.find(c => c.id === activeCategory)?.title}
-                      {selectedYear && <span className="text-aaa-primary ml-2">— FY {selectedYear}</span>}
-                    </h2>
-                    <div className="h-[2px] w-12 bg-aaa-primary mt-4" />
+                    </span>
                   </div>
-                  
-                  {view === "documents" && selectedYear && (
-                    <button 
-                      onClick={() => setView("folders")}
-                      className="flex items-center gap-2 text-[11px] font-black uppercase tracking-widest text-slate-400 hover:text-aaa-primary transition-colors"
-                    >
-                      <ArrowLeft className="w-4 h-4" /> Back to Years
-                    </button>
-                  )}
+
+                  {/* Compact Year Filter */}
+                  <div className="flex flex-wrap gap-2">
+                    {availableYears.map((year) => (
+                      <button
+                        key={year}
+                        onClick={() => setSelectedYear(year)}
+                        className={`px-4 py-2 rounded-xl text-[10px] font-black uppercase tracking-widest transition-all duration-300 border ${selectedYear === year
+                          ? "bg-aaa-primary text-white border-aaa-primary shadow-lg shadow-aaa-primary/20"
+                          : "bg-white text-slate-400 border-slate-100 hover:border-aaa-primary hover:text-aaa-primary"
+                          }`}
+                      >
+                        {year}
+                      </button>
+                    ))}
+                  </div>
                 </div>
 
                 <AnimatePresence mode="wait">
-                  {view === "folders" ? (
-                    <motion.div
-                      key="folders"
-                      initial={{ opacity: 0, y: 10 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      exit={{ opacity: 0, y: -10 }}
-                      transition={{ duration: 0.3 }}
-                      className="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-6"
-                    >
-                      {Object.keys(reportData[activeCategory] || {}).sort().reverse().map((year) => (
-                        <div 
-                          key={year}
-                          onClick={() => handleYearClick(year)}
-                          className="group bg-white p-6 border border-slate-100 shadow-sm hover:shadow-md transition-all duration-300 flex flex-col items-center text-center cursor-pointer"
+                  <motion.div
+                    key={`${activeCategory}-${selectedYear}`}
+                    initial={{ opacity: 0, y: 15 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -15 }}
+                    transition={{ duration: 0.4, ease: "easeOut" }}
+                    className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-4 xl:grid-cols-5 gap-5"
+                  >
+                    {filteredDocs.length > 0 ? (
+                      filteredDocs.map((doc, idx) => (
+                        <motion.a
+                          key={idx}
+                          href={doc.url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="group relative bg-white rounded-2xl p-4 border border-slate-100 hover:border-aaa-primary/30 shadow-sm hover:shadow-lg transition-all duration-300 flex flex-col items-center text-center aspect-square justify-center overflow-hidden"
                         >
-                          <div className="w-16 h-16 flex items-center justify-center mb-4 text-slate-300 group-hover:text-aaa-primary transition-colors">
-                            <Folder className="w-12 h-12" strokeWidth={1} />
+
+                          <div className="mb-3 relative">
+                            <div className="w-10 h-10 rounded-xl bg-slate-50 flex items-center justify-center text-slate-300 group-hover:bg-aaa-primary/5 group-hover:text-aaa-primary transition-all duration-500 border border-transparent group-hover:border-aaa-primary/10 overflow-hidden">
+                              <FileText className="w-5 h-5 absolute transition-all duration-500 group-hover:opacity-0 group-hover:scale-50" />
+                              <Eye className="w-5 h-5 opacity-0 scale-50 transition-all duration-500 group-hover:opacity-100 group-hover:scale-100 text-aaa-primary" />
+                            </div>
                           </div>
-                          <h3 className="text-[13px] font-bold text-slate-800 uppercase tracking-tight">
-                            FY {year}
-                          </h3>
-                          <p className="text-[10px] font-medium text-slate-400 uppercase tracking-widest mt-0.5">
-                            Fiscal Year
-                          </p>
-                        </div>
-                      ))}
-                    </motion.div>
-                  ) : (
-                    <motion.div
-                      key="documents"
-                      initial={{ opacity: 0, y: 10 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      exit={{ opacity: 0, y: -10 }}
-                      transition={{ duration: 0.3 }}
-                      className="grid grid-cols-1 md:grid-cols-2 gap-5"
-                    >
-                      {(selectedYear ? currentDocs : (reportData[activeCategory] ? Object.values(reportData[activeCategory])[0] : [])).length > 0 ? (
-                        (selectedYear ? currentDocs : Object.values(reportData[activeCategory])[0]).map((doc, idx) => (
-                          <a 
-                            key={idx}
-                            href={doc.url}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="bg-white p-7 border border-slate-100 flex items-center justify-between group hover:border-aaa-primary/30 transition-all shadow-sm hover:shadow-md relative overflow-hidden block"
-                          >
-                            <div className="absolute top-0 left-0 w-[3px] h-full bg-aaa-primary opacity-0 group-hover:opacity-100 transition-opacity" />
-                            <div className="flex items-center gap-5">
-                              <div className="w-12 h-12 rounded-xl bg-slate-50 flex items-center justify-center text-slate-400 group-hover:bg-aaa-primary/5 group-hover:text-aaa-primary transition-all">
-                                <File className="w-6 h-6" strokeWidth={1.5} />
-                              </div>
-                              <div className="max-w-[180px] lg:max-w-[280px]">
-                                <h4 className="text-[13px] font-bold text-slate-900 leading-tight group-hover:text-aaa-primary transition-colors">{doc.title}</h4>
-                                <p className="text-[10px] font-black text-slate-400 uppercase tracking-[0.2em] mt-1.5">PDF Document • {doc.size}</p>
-                              </div>
-                            </div>
-                            <div className="p-3 text-slate-300 group-hover:text-aaa-primary transition-all group-hover:scale-110">
-                              <Download className="w-5.5 h-5.5" />
-                            </div>
-                          </a>
-                        ))
-                      ) : (
-                        <div className="col-span-full py-20 text-center bg-white border border-dashed border-slate-200">
-                          <FileText className="w-12 h-12 text-slate-200 mx-auto mb-4" />
-                          <p className="text-[13px] font-bold text-slate-400 uppercase tracking-widest">No documents found for this category</p>
-                        </div>
-                      )}
-                    </motion.div>
-                  )}
+
+                          <h4 className="text-[11px] font-black text-slate-800 uppercase tracking-tight leading-tight group-hover:text-aaa-primary transition-colors mb-2 line-clamp-3 px-1">
+                            {doc.title}
+                          </h4>
+
+                          <div className="flex items-center gap-1.5">
+                            <span className="text-[8px] font-black text-slate-400 uppercase tracking-widest">
+                              {doc.year === "Current" ? "Official" : doc.year}
+                            </span>
+                            <div className="w-1 h-1 rounded-full bg-slate-200" />
+                            <span className="text-[8px] font-bold text-slate-500 uppercase tracking-widest">
+                              {doc.size}
+                            </span>
+                          </div>
+
+                          <div className="absolute bottom-3 right-3 opacity-0 group-hover:opacity-100 transition-opacity">
+                            <Download className="w-3 h-3 text-aaa-primary" />
+                          </div>
+                        </motion.a>
+                      ))
+                    ) : (
+                      <div className="col-span-full py-20 text-center bg-white rounded-3xl border border-dashed border-slate-200">
+                        <Search className="w-8 h-8 text-slate-200 mx-auto mb-4" />
+                        <h3 className="text-xl font-black text-slate-900 uppercase italic tracking-tighter">No Records</h3>
+                        <p className="text-slate-400 text-[10px] uppercase tracking-widest mt-2">
+                          No documents found for the selected criteria.
+                        </p>
+                      </div>
+                    )}
+                  </motion.div>
                 </AnimatePresence>
               </div>
 

@@ -104,11 +104,11 @@ export default function Management() {
                   <ChevronRight className="w-2.5 h-2.5 text-slate-200" />
                   <span className="text-aaa-primary uppercase tracking-[0.4em]">Our Management</span>
                 </nav>
-                <h1 className="text-slate-900 font-black uppercase tracking-tight text-[32px] sm:text-[45px] lg:text-[55px] leading-tight">
-                  Our <span className="text-aaa-primary italic uppercase">Management</span>
+                <h1 className="text-slate-900 font-black uppercase tracking-tight text-4xl sm:text-5xl lg:text-7xl leading-tight italic">
+                  Our <span className="text-aaa-primary not-italic">Management</span>
                 </h1>
-                <p className="mt-4 text-slate-600 text-[15.5px] font-bold italic leading-relaxed max-w-lg">
-                  People who are doing things the right way and their brief profiles
+                <p className="mt-6 text-slate-600 text-sm sm:text-base lg:text-lg font-medium italic leading-relaxed max-w-xl border-l-4 border-aaa-primary/20 pl-6 py-2 bg-slate-50/50 rounded-r-lg">
+                  People who are doing things the right way and their brief profiles.
                 </p>
               </div>
               <div
@@ -145,15 +145,10 @@ export default function Management() {
 
                   {/* LEADERSHIP BIOGRAPHY AND PROFESSIONAL CREDENTIALS */}
                   <div className={`md:col-span-8 flex flex-col justify-center ${idx % 2 === 0 ? "md:order-2" : "md:order-1"}`}>
-                    <div className="flex items-center gap-3 mb-1">
-                      <div className="h-[2px] w-8 bg-aaa-primary" />
-                      <span className="text-[11px] font-black uppercase tracking-[0.3em] text-aaa-primary">Board Member</span>
-                    </div>
-
-                    <h2 className="text-[26px] font-black text-slate-900 mb-2 uppercase tracking-tight leading-tight">
+                    <h2 className="text-2xl md:text-3xl font-black text-slate-900 tracking-tight leading-tight uppercase italic underline decoration-aaa-primary/10 decoration-8 underline-offset-4 mb-4">
                       {leader.name}
                     </h2>
-                    <p className="text-aaa-primary font-bold text-[12px] uppercase tracking-widest mb-6">{leader.role}</p>
+                    <p className="text-aaa-primary font-bold text-[13px] uppercase tracking-[0.2em] mb-8 italic">{leader.role}</p>
 
                     <div className="space-y-4 mb-6">
                       <div className="flex gap-4 items-start">

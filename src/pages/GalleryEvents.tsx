@@ -70,11 +70,11 @@ export default function GalleryEvents() {
                   <ChevronRight className="w-2.5 h-2.5 text-slate-200" />
                   <span className="text-aaa-primary uppercase tracking-[0.4em]">Gallery & Events</span>
                 </nav>
-                <h1 className="text-slate-900 font-black uppercase tracking-tight text-[32px] sm:text-[45px] lg:text-[55px] leading-tight">
-                  Gallery & <span className="text-aaa-primary italic uppercase">Events</span>
+                <h1 className="text-slate-900 font-black uppercase tracking-tight text-4xl sm:text-5xl lg:text-7xl leading-tight italic">
+                  Gallery & <span className="text-aaa-primary not-italic">Events</span>
                 </h1>
-                <p className="mt-4 text-slate-600 text-[15.5px] font-bold italic leading-relaxed max-w-lg">
-                  Capturing moments of professional excellence and corporate culture
+                <p className="mt-6 text-slate-600 text-sm sm:text-base lg:text-lg font-medium italic leading-relaxed max-w-xl border-l-4 border-aaa-primary/20 pl-6 py-2 bg-slate-50/50 rounded-r-lg">
+                  Capturing moments of professional excellence and corporate culture.
                 </p>
               </div>
               <div

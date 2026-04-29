@@ -20,21 +20,19 @@ export default function VisionMission() {
 
       <main>
         {/* Header section matches corporate style */}
-        <section className="relative pt-24 pb-12 bg-[#0a0a0a] overflow-hidden">
-          <div className="absolute inset-0 z-0 pointer-events-none">
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] bg-aaa-secondary/5 blur-[120px] rounded-full" />
-          </div>
+        <section className="relative py-12 lg:py-16 bg-white border-b border-slate-100 overflow-hidden z-20">
+          <div className="absolute inset-0 z-0 pointer-events-none bg-white" />
           <div className="container mx-auto px-4 sm:px-6 relative z-10">
             <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
-               <nav className="flex items-center gap-2 mb-8 text-[10px] font-bold uppercase tracking-widest text-white/40">
+               <nav className="flex items-center gap-2 mb-8 text-[10px] font-bold uppercase tracking-widest text-slate-400">
                 <Link to="/" className="hover:text-aaa-primary">Home</Link>
-                <ChevronRight className="w-3 h-3 text-white/20" />
-                <span className="text-white/20">About</span>
-                <ChevronRight className="w-3 h-3 text-white/20" />
+                <ChevronRight className="w-3 h-3 text-slate-200" />
+                <span className="text-slate-400">About</span>
+                <ChevronRight className="w-3 h-3 text-slate-200" />
                 <span className="text-aaa-primary">Vision & Mission</span>
               </nav>
-              <h1 className="text-5xl sm:text-7xl font-black text-white uppercase italic leading-none">
-                Vision & <span className="text-aaa-secondary block mt-2 opacity-80">Mission</span>
+              <h1 className="text-slate-900 font-black uppercase tracking-tight text-4xl sm:text-5xl lg:text-7xl leading-tight italic">
+                Vision & <span className="text-aaa-primary not-italic">Mission</span>
               </h1>
             </motion.div>
           </div>
@@ -53,7 +51,7 @@ export default function VisionMission() {
               >
                 <div className="absolute top-0 right-0 w-64 h-64 bg-aaa-secondary/5 blur-3xl -mr-20 -mt-20 group-hover:bg-aaa-secondary/10 transition-colors" />
                 <Rocket className="w-16 h-16 text-aaa-secondary mb-8" />
-                <h2 className="text-4xl font-bold text-slate-900 mb-6">Our Vision</h2>
+                <h2 className="text-3xl md:text-4xl font-bold text-slate-900 tracking-tight leading-tight uppercase italic underline decoration-aaa-primary/10 decoration-8 underline-offset-4 mb-8">Our Vision</h2>
                 <p className="text-xl text-slate-600 leading-relaxed font-medium">
                   To be the global leader in providing innovative and reliable Information Security, Audit, and Governance services, empowering organizations to thrive in the digital age with absolute confidence.
                 </p>
@@ -68,7 +66,7 @@ export default function VisionMission() {
               >
                 <div className="absolute top-0 right-0 w-64 h-64 bg-aaa-primary/5 blur-3xl -mr-20 -mt-20 group-hover:bg-aaa-primary/10 transition-colors" />
                 <Target className="w-16 h-16 text-aaa-primary mb-8" />
-                <h2 className="text-4xl font-bold text-white mb-6">Our Mission</h2>
+                <h2 className="text-3xl md:text-4xl font-bold text-white tracking-tight leading-tight uppercase italic underline decoration-white/10 decoration-8 underline-offset-4 mb-8">Our Mission</h2>
                 <p className="text-xl text-white/50 leading-relaxed font-medium">
                   We are committed to delivering excellence through specialized professional services that safeguard assets, ensure compliance, and mitigate risks. Our mission is to build trust through integrity, expertise, and continuous innovation.
                 </p>

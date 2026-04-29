@@ -199,7 +199,7 @@ const investorData = [
   },
   {
     title: "Board of Directors",
-    path: "/about/management",
+    path: "/investors/board",
     items: [
       "Profile of Directors",
       "Composition of Board",

@@ -1,7 +1,7 @@
 import { useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import { motion, useInView } from "framer-motion";
-import { BarChart3, ShieldCheck, Globe2, Layers, Briefcase, Cpu, Landmark, HeartPulse, ShieldAlert, ArrowRight, Target, Award, CheckCircle2 } from "lucide-react";
+import { BarChart3, ShieldCheck, Globe2, Layers, Briefcase, Cpu, Landmark, HeartPulse, ShieldAlert, ArrowRight, Target, Award, CheckCircle2, ChevronRight } from "lucide-react";
 import { Header } from "../components/header";
 import { HeaderUtilityBar } from "../components/header-utility-bar";
 import { NewsletterFooter } from "../components/newsletter-footer";
@@ -98,21 +98,21 @@ export default function AboutOverview() {
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
                 >
-                  <div className="flex flex-col space-y-5 sm:space-y-6">
-                    <div className="inline-flex items-center gap-3 px-3 py-1.5 rounded-full bg-slate-50 border border-slate-100 shadow-sm w-fit">
-                      <CheckCircle2 className="w-3.5 h-3.5 text-aaa-primary" />
-                      <span className="text-[9px] sm:text-[10px] font-black uppercase tracking-[0.3em] text-slate-400">Corporate Portal</span>
+                    <div className="flex flex-col space-y-6 sm:space-y-8">
+                      {/* INSTITUTIONAL BREADCRUMB */}
+                      <nav className="flex items-center gap-2 mb-2 text-[9px] font-black uppercase tracking-[0.4em] text-slate-400">
+                        <Link to="/" className="hover:text-aaa-primary transition-colors text-slate-900 text-[10px]">Home</Link>
+                        <ChevronRight className="w-2.5 h-2.5 text-slate-200" />
+                        <span className="text-aaa-primary uppercase tracking-[0.4em]">Overview</span>
+                      </nav>
+                      <h1 className="text-black uppercase tracking-tight font-black text-4xl sm:text-5xl lg:text-7xl leading-tight italic">
+                        Enabling <br /> <span className="text-aaa-primary not-italic">Organizations</span>
+                      </h1>
+                      <div className="text-[16px] sm:text-[18px] lg:text-[20px] text-slate-600 leading-relaxed border-l-[4px] border-aaa-primary/20 pl-8 block max-w-4xl italic font-medium bg-slate-50/50 py-6 rounded-r-2xl shadow-sm transition-all duration-500">
+                        To Identify Issues Of Cyber Security & IT Corporate Governance And Providing
+                        <span className="not-italic text-aaa-primary font-black uppercase tracking-widest text-[12px] sm:text-[14px] block mt-4 tracking-[0.2em]">Accurate | Reliable | Innovative Services</span>
+                      </div>
                     </div>
-                    <h1 className="text-black uppercase tracking-tight font-black transition-all duration-500">
-                      <span className="text-[28px] sm:text-[36px] lg:text-[45px] leading-[1.2] lg:leading-[1.1] block mb-4">
-                        Enabling Organizations To Identify Issues Of
-                      </span>
-                      <span className="text-[15px] sm:text-[17px] lg:text-[18px] text-aaa-primary leading-relaxed border-l-[3px] sm:border-l-[4px] border-aaa-primary pl-5 sm:pl-8 block max-w-4xl italic font-sans shadow-sm bg-slate-50/10 py-4 sm:py-5 rounded-r-xl sm:rounded-r-2xl transition-all duration-500">
-                        Cyber Security & IT Corporate Governance And Providing <br className="hidden lg:block" />
-                        <span className="not-italic text-black font-extrabold uppercase tracking-widest text-[13px] sm:text-[15px] lg:text-[16px] block mt-2 sm:mt-3">Accurate | Reliable | Innovative Services</span>
-                      </span>
-                    </h1>
-                  </div>
                 </motion.div>
 
                 {/* THE REVERTED STABLE LOGO GRAPHIC (SVG version) */}
@@ -157,7 +157,11 @@ export default function AboutOverview() {
               <div className="grid grid-cols-1 gap-10 sm:gap-12 align-items-center mb-6">
                 <div className="w-full">
                   <AnimatedModule>
-                    <h2 className="text-[22px] sm:text-2xl lg:text-[28px] font-black text-black uppercase tracking-tight relative pl-5 sm:pl-6 border-l-[3px] sm:border-l-4 border-aaa-primary mb-8 transition-all duration-500 italic">Corporate Origins</h2>
+                    <div className="space-y-4 mb-12">
+                      <h2 className="text-3xl md:text-4xl font-bold text-black tracking-tight leading-tight uppercase italic underline decoration-aaa-primary/10 decoration-8 underline-offset-4">
+                        Corporate <span className="text-aaa-primary">Origins</span>
+                      </h2>
+                    </div>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-14 relative group/chronicle">
                       {/* Blueprint Logic Line (Hide on mobile) */}
                       <div className="absolute left-1/2 top-0 bottom-0 w-[1px] bg-slate-50 hidden md:block overflow-hidden">
@@ -273,14 +277,15 @@ export default function AboutOverview() {
             <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-slate-100 to-transparent" />
             <div className="container mx-auto px-4 sm:px-6 relative z-10" style={{ maxWidth: "1150px" }}>
               <div className="space-y-8 sm:space-y-10">
-                <div className="max-w-4xl border-l-[3px] sm:border-l-[4px] border-aaa-primary pl-5 sm:pl-8 transition-all duration-700">
-                  <p className="text-black text-[15px] sm:text-[16px] text-justify leading-relaxed font-black uppercase tracking-tight italic">
+                <div className="space-y-4 mb-12">
+                  <h2 className="text-3xl md:text-4xl font-bold text-black tracking-tight leading-tight uppercase italic underline decoration-aaa-primary/10 decoration-8 underline-offset-4">
+                    Market <span className="text-aaa-primary">Ecosystem</span>
+                  </h2>
+                </div>
+                <div className="max-w-4xl mb-12">
+                  <p className="text-black text-[15px] sm:text-[17px] text-justify leading-relaxed font-bold uppercase tracking-tight italic border-l-4 border-aaa-primary/20 pl-6 py-2 bg-slate-50/50 rounded-r-lg">
                     The Company is agnostic and has no dependency on any single industry for business.
                   </p>
-                  <div className="flex items-center gap-4 mt-4 text-black">
-                    <span className="h-px w-6 sm:w-8 bg-aaa-primary" />
-                    <p className="text-slate-400 text-[9px] sm:text-[10px] lg:text-[11px] uppercase tracking-[0.3em] sm:tracking-[0.4em] font-black">Assignments completed across sectors</p>
-                  </div>
                 </div>
                 <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-3 sm:gap-4">
                   {industriesRecap.map((tag, i) => (

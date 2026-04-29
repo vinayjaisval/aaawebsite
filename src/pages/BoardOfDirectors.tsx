@@ -97,19 +97,21 @@ export default function BoardOfDirectors() {
                 <nav className="flex items-center gap-2 mb-4 text-[9px] font-black uppercase tracking-[0.4em] text-slate-400">
                   <Link to="/" className="hover:text-aaa-primary transition-colors text-slate-900 text-[10px]">Home</Link>
                   <ChevronRight className="w-2.5 h-2.5 text-slate-200" />
-                  <span className="text-aaa-primary uppercase tracking-[0.4em]">Investors</span>
+                  <Link to="/investors/relations" className="hover:text-aaa-primary transition-colors text-slate-400">Investors</Link>
+                  <ChevronRight className="w-2.5 h-2.5 text-slate-200" />
+                  <span className="text-aaa-primary uppercase tracking-[0.4em]">Board of Directors</span>
                 </nav>
-                <h1 className="text-slate-900 font-black uppercase tracking-tight text-[32px] sm:text-[45px] lg:text-[55px] leading-tight">
-                  Board of <span className="text-aaa-primary italic uppercase">Directors</span>
+                <h1 className="text-slate-900 font-black uppercase tracking-tight text-4xl sm:text-5xl lg:text-7xl leading-tight italic">
+                  Board of <span className="text-aaa-primary not-italic">Directors</span>
                 </h1>
-                <p className="mt-4 text-slate-500 text-[15.5px] font-bold italic leading-relaxed max-w-xl">
+                <p className="mt-6 text-slate-500 text-sm sm:text-base lg:text-lg font-medium italic leading-relaxed max-w-xl border-l-4 border-aaa-primary/20 pl-6 py-2 bg-slate-50/50 rounded-r-lg">
                   Governance through wisdom, expertise, and principled leadership.
                 </p>
               </div>
               <div
                 className="hidden md:block relative h-[160px] lg:h-[220px] w-[350px] lg:w-[450px] rounded-[30px] overflow-hidden shadow-[0_20px_60px_-15px_rgba(0,0,0,0.2)] border border-white shrink-0"
               >
-                <img src="/management_hero_visual.png" className="w-full h-full object-cover" alt="Governance" />
+                <img src="/management_hero_visual.png" className="w-full h-full object-cover" alt="Board of Directors" />
               </div>
             </div>
           </div>
@@ -124,14 +126,9 @@ export default function BoardOfDirectors() {
                   key={member.name}
                   className="bg-white border border-slate-100 p-6 lg:p-10 shadow-sm rounded-[40px] transition-all duration-500 w-full hover:shadow-xl group"
                 >
-                  <div className="flex items-center gap-3 mb-1">
-                    <div className="h-[2px] w-8 bg-aaa-primary" />
-                    <span className="text-[11px] font-black uppercase tracking-[0.3em] text-aaa-primary">Board Member</span>
-                  </div>
-
-                  <h2 className="text-[26px] font-black text-slate-900 mb-2 uppercase tracking-tight leading-tight group-hover:text-aaa-primary transition-colors">
-                    {member.name}
-                  </h2>
+                    <h2 className="text-2xl md:text-3xl font-black text-slate-900 tracking-tight leading-tight uppercase italic underline decoration-aaa-primary/10 decoration-8 underline-offset-4 mb-4 group-hover:text-aaa-primary transition-colors">
+                      {member.name}
+                    </h2>
                   <p className="text-aaa-primary font-bold text-[12px] uppercase tracking-widest mb-6 border-b border-slate-50 pb-6">
                     {member.role}
                   </p>

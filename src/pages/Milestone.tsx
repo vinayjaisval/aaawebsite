@@ -103,7 +103,7 @@ export default function Milestone() {
         {/* --- ELITE INSTITUTIONAL HERO --- */}
         <section className="relative py-12 lg:py-16 bg-white border-b border-slate-100 overflow-hidden z-20">
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,rgba(252,43,42,0.015),transparent_70%)]" />
-          <div className="container mx-auto px-4 sm:px-6 relative z-10" style={{ maxWidth: "1150px" }}>
+          <div className="container mx-auto px-4 sm:px-6 relative z-10" style={{ maxWidth: "1250px" }}>
             <div className="flex flex-col md:flex-row md:items-center justify-between gap-12">
               <motion.div initial={{ opacity: 0, x: -30 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.8 }}>
                 <nav className="flex items-center gap-2 mb-4 text-[9px] font-black uppercase tracking-[0.4em] text-slate-400">
@@ -111,17 +111,12 @@ export default function Milestone() {
                   <ChevronRight className="w-2.5 h-2.5 text-slate-200" />
                   <span className="text-aaa-primary uppercase tracking-[0.4em]">Our Milestone</span>
                 </nav>
-                <h1 className="text-slate-900 font-black uppercase tracking-tight">
-                  <span className="text-[32px] sm:text-[45px] lg:text-[55px] leading-tight block">
-                    Our <span className="text-aaa-primary italic uppercase tracking-tight">Milestone</span>
-                  </span>
+                <h1 className="text-slate-900 font-black uppercase tracking-tight text-4xl sm:text-5xl lg:text-7xl leading-tight italic">
+                  Our <span className="text-aaa-primary not-italic">Milestone</span>
                 </h1>
-                <div className="mt-6 flex items-start gap-4">
-                  <div className="w-1.5 h-12 bg-aaa-primary shadow-[0_0_15px_rgba(252,43,42,0.3)] rounded-full" />
-                  <p className="text-slate-600 text-[15.5px] lg:text-[16px] font-bold italic leading-relaxed max-w-lg">
-                    A legacy represented by two decades of uncompromising trust and digital resilience since 2000.
-                  </p>
-                </div>
+                <p className="mt-6 text-slate-600 text-sm sm:text-base lg:text-lg font-medium italic leading-relaxed max-w-xl border-l-4 border-aaa-primary/20 pl-6 py-2 bg-slate-50/50 rounded-r-lg">
+                  A legacy represented by two decades of uncompromising trust and digital resilience since 2000.
+                </p>
               </motion.div>
               <motion.div 
                 initial={{ opacity: 0, scale: 0.98 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 1 }}
