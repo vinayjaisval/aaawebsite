@@ -26,9 +26,6 @@ import {
   Shield,
   Eye
 } from "lucide-react";
-import { Header } from "../components/header";
-import { HeaderUtilityBar } from "../components/header-utility-bar";
-import { NewsletterFooter } from "../components/newsletter-footer";
 import { BackToTop } from "../components/back-to-top";
 
 const investorCategories = [
@@ -253,10 +250,8 @@ export default function InvestorRelations() {
 
   return (
     <div className="min-h-screen bg-white text-slate-900 selection:bg-gray-100 transition-all font-sans overflow-x-hidden">
-      <HeaderUtilityBar />
       <div className="sticky top-0 z-[100] bg-white border-b border-gray-100">
-        <Header />
-      </div>
+        </div>
 
       <main className="bg-white">
         <section className="relative py-12 lg:py-16 bg-white border-b border-slate-100 overflow-hidden z-20">
@@ -264,15 +259,15 @@ export default function InvestorRelations() {
           <div className="container mx-auto px-4 sm:px-6 relative z-10" style={{ maxWidth: "1250px" }}>
             <div className="flex flex-col md:flex-row md:items-center justify-between gap-12 lg:gap-20">
               <div className="flex-1 max-w-2xl">
-                <nav className="flex items-center gap-2.5 mb-6 text-[9px] font-bold uppercase tracking-[0.2em] text-slate-400">
+                <nav className="flex items-center gap-2.5 mb-6 text-xs font-bold uppercase tracking-[0.2em] text-slate-400">
                   <Link to="/" className="hover:text-aaa-primary transition-all duration-300">Home</Link>
                   <div className="w-1 h-1 rounded-full bg-slate-200" />
-                  <span className="text-aaa-primary font-black italic tracking-[0.1em]">Investor Relations</span>
+                  <span className="text-aaa-primary font-bold italic tracking-[0.1em]">Investor Relations</span>
                 </nav>
-                <h1 className="text-slate-900 font-black uppercase tracking-tight text-4xl sm:text-5xl lg:text-7xl leading-[0.9] italic mb-8">
+                <h1 className="text-slate-900 font-bold uppercase tracking-tight text-4xl sm:text-5xl lg:text-7xl leading-[0.9] italic mb-8">
                   Investor <span className="text-aaa-primary not-italic">Relations</span>
                 </h1>
-                <p className="text-slate-500 text-sm sm:text-[15px] font-medium italic leading-relaxed border-l-4 border-aaa-primary/10 pl-6 py-2 bg-slate-50/30 rounded-r-xl max-w-2xl">
+                <p className="text-slate-500 text-sm sm:text-[0.95rem] font-medium italic leading-relaxed border-l-4 border-aaa-primary/10 pl-6 py-2 bg-slate-50/30 rounded-r-xl max-w-2xl">
                   Ensuring transparency and corporate excellence through dedicated investor communication and statutory disclosures.
                 </p>
               </div>
@@ -292,14 +287,16 @@ export default function InvestorRelations() {
           <div className="container mx-auto px-4 sm:px-6 lg:px-8" style={{ maxWidth: "1350px" }}>
             <div className="flex flex-col lg:flex-row gap-12 items-start">
 
-              {/* SIDEBAR: COMPACT CATEGORIES */}
-              <aside className="lg:w-[320px] shrink-0 w-full sticky top-32">
-                <div className="bg-white rounded-[2rem] shadow-[0_8px_30px_rgb(0,0,0,0.02)] border border-slate-100 p-8">
-                  <h3 className="text-[11px] font-black text-slate-900 uppercase tracking-[0.25em] mb-8 flex items-center gap-3">
-                    <div className="w-6 h-[2px] bg-red-600" />
-                    Categories
-                  </h3>
-                  <div className="space-y-2">
+              {/* SIDEBAR: PROFESSIONAL CLEAN STYLE (redBus pattern) */}
+              <aside className="lg:w-[300px] shrink-0 w-full sticky top-32 z-10">
+                <div className="bg-white border border-slate-200 shadow-sm overflow-hidden rounded-lg">
+                  <div className="p-5 border-b border-slate-100 bg-slate-50/50">
+                    <h3 className="text-[13px] font-bold text-slate-900 uppercase tracking-wider flex items-center gap-2">
+                      <Folder className="w-4 h-4 text-red-600" />
+                      Investor Categories
+                    </h3>
+                  </div>
+                  <div className="flex lg:flex-col overflow-x-auto lg:overflow-x-visible no-scrollbar">
                     {investorCategories.map((cat) => (
                       <button
                         key={cat.id}
@@ -307,13 +304,13 @@ export default function InvestorRelations() {
                           setActiveCategory(cat.id);
                           setSelectedYear("All");
                         }}
-                        className={`w-full flex items-center justify-between px-5 py-4 rounded-2xl text-[12px] font-black uppercase tracking-[0.1em] transition-all duration-300 ${activeCategory === cat.id
-                          ? "bg-red-600 text-white"
-                          : "text-slate-500 hover:bg-slate-50 hover:text-red-600"
+                        className={`flex-shrink-0 lg:w-full flex items-center justify-between px-6 py-4 text-[14px] font-medium transition-all duration-200 border-b lg:border-b-0 lg:border-l-4 ${activeCategory === cat.id
+                          ? "bg-red-50/50 border-red-600 text-red-600"
+                          : "text-slate-600 hover:bg-slate-50 hover:text-red-600 border-transparent"
                           }`}
                       >
-                        {cat.title}
-                        <ChevronRight className={`w-3.5 h-3.5 transition-transform duration-500 ${activeCategory === cat.id ? "rotate-90" : ""}`} />
+                        <span className="whitespace-nowrap">{cat.title}</span>
+                        <ChevronRight className={`hidden lg:block w-4 h-4 transition-transform duration-300 ${activeCategory === cat.id ? "translate-x-1" : "opacity-0 group-hover:opacity-100"}`} />
                       </button>
                     ))}
                   </div>
@@ -325,7 +322,7 @@ export default function InvestorRelations() {
                 <div className="mb-10 flex flex-col sm:flex-row sm:items-center justify-between gap-6 border-b border-slate-100 pb-8">
                   <div className="flex items-center gap-3 text-aaa-primary">
                     <div className="w-6 h-[2px] bg-aaa-primary" />
-                    <span className="text-[10px] font-black uppercase tracking-[0.3em]">
+                    <span className="text-xs font-bold uppercase tracking-[0.3em]">
                       {investorCategories.find(c => c.id === activeCategory)?.title}
                     </span>
                   </div>
@@ -336,7 +333,7 @@ export default function InvestorRelations() {
                       <button
                         key={year}
                         onClick={() => setSelectedYear(year)}
-                        className={`px-4 py-2 rounded-xl text-[10px] font-black uppercase tracking-widest transition-all duration-300 border ${selectedYear === year
+                        className={`px-4 py-2 rounded-xl text-xs font-bold uppercase tracking-widest transition-all duration-300 border ${selectedYear === year
                           ? "bg-aaa-primary text-white border-aaa-primary shadow-lg shadow-aaa-primary/20"
                           : "bg-white text-slate-400 border-slate-100 hover:border-aaa-primary hover:text-aaa-primary"
                           }`}
@@ -373,12 +370,12 @@ export default function InvestorRelations() {
                             </div>
                           </div>
 
-                          <h4 className="text-[11px] font-black text-slate-800 uppercase tracking-tight leading-tight group-hover:text-aaa-primary transition-colors mb-2 line-clamp-3 px-1">
+                          <h4 className="text-[0.75rem] font-bold text-slate-800 uppercase tracking-tight leading-tight group-hover:text-aaa-primary transition-colors mb-2 line-clamp-3 px-1">
                             {doc.title}
                           </h4>
 
                           <div className="flex items-center gap-1.5">
-                            <span className="text-[8px] font-black text-slate-400 uppercase tracking-widest">
+                            <span className="text-[8px] font-bold text-slate-400 uppercase tracking-widest">
                               {doc.year === "Current" ? "Official" : doc.year}
                             </span>
                             <div className="w-1 h-1 rounded-full bg-slate-200" />
@@ -395,8 +392,8 @@ export default function InvestorRelations() {
                     ) : (
                       <div className="col-span-full py-20 text-center bg-white rounded-3xl border border-dashed border-slate-200">
                         <Search className="w-8 h-8 text-slate-200 mx-auto mb-4" />
-                        <h3 className="text-xl font-black text-slate-900 uppercase italic tracking-tighter">No Records</h3>
-                        <p className="text-slate-400 text-[10px] uppercase tracking-widest mt-2">
+                        <h3 className="text-xl font-bold text-slate-900 uppercase italic tracking-tighter">No Records</h3>
+                        <p className="text-slate-400 text-xs uppercase tracking-widest mt-2">
                           No documents found for the selected criteria.
                         </p>
                       </div>
@@ -410,7 +407,6 @@ export default function InvestorRelations() {
         </section>
       </main>
 
-      <NewsletterFooter />
       <BackToTop />
     </div>
   );

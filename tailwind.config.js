@@ -7,6 +7,9 @@ export default {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        sans: ['Manrope', 'sans-serif'],
+      },
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
@@ -43,26 +46,20 @@ export default {
         },
 
         /* AAA Technologies brand palette */
-        "aaa-primary":   "var(--aaa-primary)",
+        "aaa-primary": "var(--aaa-primary)",
         "aaa-secondary": "var(--aaa-secondary)",
-        "aaa-tertiary":  "var(--aaa-tertiary)",
-        "aaa-neutral":   "var(--aaa-neutral)",
+        "aaa-tertiary": "var(--aaa-tertiary)",
+        "aaa-neutral": "var(--aaa-neutral)",
 
         /* Legacy aliases */
-        "advance-primary":   "var(--aaa-primary)",
+        "advance-primary": "var(--aaa-primary)",
         "advance-secondary": "var(--aaa-secondary)",
-        "advance-neutral":   "var(--aaa-neutral)",
+        "advance-neutral": "var(--aaa-neutral)",
       },
       borderRadius: {
-        none: "0",
-        sm:   "0",
-        DEFAULT: "0",
-        md:   "0",
-        lg:   "0",
-        xl:   "0",
-        "2xl":"0",
-        "3xl":"0",
-        full: "0",
+        lg: "var(--radius)",
+        md: "calc(var(--radius) - 2px)",
+        sm: "calc(var(--radius) - 4px)",
       },
       boxShadow: {
         "brand-sm": "0 2px 8px 0 rgba(252, 43, 42, 0.12)",
@@ -70,9 +67,9 @@ export default {
         "brand-lg": "0 8px 40px 0 rgba(252, 43, 42, 0.22)",
       },
       backgroundImage: {
-        "brand-gradient":    "linear-gradient(135deg, #fc2b2a 0%, #008253 100%)",
-        "brand-gradient-r":  "linear-gradient(135deg, #008253 0%, #fc2b2a 100%)",
-        "brand-gradient-v":  "linear-gradient(180deg, #fc2b2a 0%, #008253 100%)",
+        "brand-gradient": "linear-gradient(135deg, #fc2b2a 0%, #008253 100%)",
+        "brand-gradient-r": "linear-gradient(135deg, #008253 0%, #fc2b2a 100%)",
+        "brand-gradient-v": "linear-gradient(180deg, #fc2b2a 0%, #008253 100%)",
       },
     },
   },

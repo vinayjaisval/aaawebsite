@@ -2,9 +2,6 @@ import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { ChevronRight, Target, Rocket, Heart } from "lucide-react";
-import { Header } from "../components/header";
-import { HeaderUtilityBar } from "../components/header-utility-bar";
-import { NewsletterFooter } from "../components/newsletter-footer";
 import { BackToTop } from "../components/back-to-top";
 
 export default function VisionMission() {
@@ -15,26 +12,32 @@ export default function VisionMission() {
 
   return (
     <div className="min-h-screen bg-white text-slate-900 selection:bg-aaa-primary/10 transition-colors">
-      <HeaderUtilityBar />
-      <Header />
-
       <main>
-        {/* Header section matches corporate style */}
+        {/* --- SECTION: INSTITUTIONAL PAGE HEADER (HERO) - MATCHING MANAGEMENT PATTERN --- */}
         <section className="relative py-12 lg:py-16 bg-white border-b border-slate-100 overflow-hidden z-20">
-          <div className="absolute inset-0 z-0 pointer-events-none bg-white" />
-          <div className="container mx-auto px-4 sm:px-6 relative z-10">
-            <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
-               <nav className="flex items-center gap-2 mb-8 text-[10px] font-bold uppercase tracking-widest text-slate-400">
-                <Link to="/" className="hover:text-aaa-primary">Home</Link>
-                <ChevronRight className="w-3 h-3 text-slate-200" />
-                <span className="text-slate-400">About</span>
-                <ChevronRight className="w-3 h-3 text-slate-200" />
-                <span className="text-aaa-primary">Vision & Mission</span>
-              </nav>
-              <h1 className="text-slate-900 font-black uppercase tracking-tight text-4xl sm:text-5xl lg:text-7xl leading-tight italic">
-                Vision & <span className="text-aaa-primary not-italic">Mission</span>
-              </h1>
-            </motion.div>
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,rgba(252,43,42,0.012),transparent_70%)]" />
+          <div className="container mx-auto px-4 sm:px-6 relative z-10" style={{ maxWidth: "1250px" }}>
+            <div className="flex flex-col md:flex-row md:items-center justify-between gap-10">
+              <div className="flex-1">
+                {/* NAVIGATION: INSTITUTIONAL HIERARCHY PATHWAY */}
+                <nav className="flex items-center gap-2 mb-4 text-xs font-bold uppercase tracking-[0.4em] text-slate-400">
+                  <Link to="/" className="hover:text-aaa-primary transition-colors text-slate-900 text-xs">Home</Link>
+                  <ChevronRight className="w-2.5 h-2.5 text-slate-200" />
+                  <span className="text-aaa-primary uppercase tracking-[0.4em]">Vision & Mission</span>
+                </nav>
+                <h1 className="text-slate-900 font-bold uppercase tracking-tight text-4xl sm:text-5xl lg:text-7xl leading-tight italic">
+                  Vision & <span className="text-aaa-primary not-italic">Mission</span>
+                </h1>
+                <p className="mt-6 text-slate-600 text-sm sm:text-base lg:text-lg font-medium italic leading-relaxed max-w-xl border-l-4 border-aaa-primary/20 pl-6 py-2 bg-slate-50/50 rounded-r-lg">
+                  Defining our purpose and charting the course for global leadership in cybersecurity and IT assurance.
+                </p>
+              </div>
+              <div
+                className="hidden md:block relative h-[160px] lg:h-[220px] w-[350px] lg:w-[450px] rounded-[30px] overflow-hidden shadow-[0_20px_60px_-15px_rgba(0,0,0,0.2)] border border-white shrink-0"
+              >
+                <img src="/images/it-audit-hero.png" className="w-full h-full object-cover" alt="Vision & Mission" />
+              </div>
+            </div>
           </div>
         </section>
 
@@ -79,7 +82,7 @@ export default function VisionMission() {
                 <div className="flex items-center justify-center gap-3 font-bold text-xs text-aaa-primary uppercase tracking-[0.3em] mb-4">
                    Core Values
                 </div>
-                <h2 className="text-4xl sm:text-5xl font-black text-slate-900 uppercase italic">What Defines <span className="text-aaa-primary">Us</span></h2>
+                <h2 className="text-4xl sm:text-5xl font-bold text-slate-900 uppercase italic">What Defines <span className="text-aaa-primary">Us</span></h2>
               </div>
 
               <div className="grid md:grid-cols-3 gap-8">
@@ -107,7 +110,6 @@ export default function VisionMission() {
         </section>
       </main>
 
-      <NewsletterFooter />
       <BackToTop />
     </div>
   );

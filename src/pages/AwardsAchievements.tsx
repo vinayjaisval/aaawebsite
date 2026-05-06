@@ -2,9 +2,6 @@ import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { ChevronRight } from "lucide-react";
-import { Header } from "../components/header";
-import { HeaderUtilityBar } from "../components/header-utility-bar";
-import { NewsletterFooter } from "../components/newsletter-footer";
 import { BackToTop } from "../components/back-to-top";
 
 const awardsList = [
@@ -143,10 +140,6 @@ export default function AwardsAchievements() {
 
   return (
     <div className="min-h-screen bg-white text-slate-900 selection:bg-gray-100 transition-all font-sans overflow-x-hidden">
-      <HeaderUtilityBar />
-      <div className="sticky top-0 z-[100] bg-white border-b border-gray-100">
-        <Header />
-      </div>
 
       <main className="bg-white overflow-hidden relative">
 
@@ -162,12 +155,12 @@ export default function AwardsAchievements() {
                 className="flex-1"
               >
                 {/* NAVIGATION: INSTITUTIONAL CONTENT HIERARCHY */}
-                <nav className="flex items-center gap-2 mb-4 text-[9px] font-black uppercase tracking-[0.4em] text-slate-400">
-                  <Link to="/" className="hover:text-aaa-primary transition-colors text-slate-900 text-[10px]">Home</Link>
+                <nav className="flex items-center gap-2 mb-4 text-xs font-bold uppercase tracking-[0.4em] text-slate-400">
+                  <Link to="/" className="hover:text-aaa-primary transition-colors text-slate-900 text-xs">Home</Link>
                   <ChevronRight className="w-2.5 h-2.5 text-slate-200" />
                   <span className="text-aaa-primary uppercase tracking-[0.4em]">Awards & Achievements</span>
                 </nav>
-                <h1 className="text-slate-900 font-black uppercase tracking-tight text-4xl sm:text-5xl lg:text-7xl leading-tight italic">
+                <h1 className="text-slate-900 font-bold uppercase tracking-tight text-4xl sm:text-5xl lg:text-7xl leading-tight italic">
                   Awards & <span className="text-aaa-primary not-italic">Achievements</span>
                 </h1>
                 <p className="mt-6 text-slate-600 text-sm sm:text-base lg:text-lg font-medium italic leading-relaxed max-w-xl border-l-4 border-aaa-primary/20 pl-6 py-2 bg-slate-50/50 rounded-r-lg">
@@ -209,23 +202,23 @@ export default function AwardsAchievements() {
                     />
 
                     {/* Year Badge (AAA Red - High Contrast) */}
-                    <div className="absolute top-0 left-0 px-6 py-2 bg-aaa-primary text-white text-[10px] font-black uppercase tracking-[0.3em] z-20 shadow-sm">
+                    <div className="absolute top-0 left-0 px-6 py-2 bg-aaa-primary text-white text-xs font-bold uppercase tracking-[0.3em] z-20 shadow-sm">
                       {award.year}
                     </div>
                   </div>
 
                   {/* --- CONTENT AREA (Professional Corporate Spacing) --- */}
                   <div className="p-5 flex-1 flex flex-col bg-white">
-                    <h3 className="text-[17.5px] font-black text-slate-900 leading-tight mb-1.5 group-hover:text-aaa-primary transition-colors uppercase tracking-tight">
+                    <h3 className="text-[1.05rem] font-bold text-slate-900 leading-tight mb-1.5 group-hover:text-aaa-primary transition-colors uppercase tracking-tight">
                       {award.title}
                     </h3>
-                    <p className="text-slate-500 text-[14px] font-medium leading-relaxed mb-4">
+                    <p className="text-slate-500 text-[0.9rem] font-medium leading-relaxed mb-4">
                       {award.desc}
                     </p>
 
                     {/* Footer Button (Corporate Black) */}
                     <div className="mt-auto">
-                      <div className="w-full py-2.5 bg-slate-900 text-white rounded-sm text-center text-[11px] font-black uppercase tracking-[0.2em] group-hover:bg-aaa-primary transition-all duration-500">
+                      <div className="w-full py-2.5 bg-slate-900 text-white rounded-sm text-center text-[0.75rem] font-bold uppercase tracking-[0.2em] group-hover:bg-aaa-primary transition-all duration-500">
                         Award Recognition
                       </div>
                     </div>
@@ -237,8 +230,6 @@ export default function AwardsAchievements() {
         </section>
       </main>
 
-      <NewsletterFooter />
-      <BackToTop />
     </div>
   );
 }

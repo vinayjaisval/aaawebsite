@@ -2,9 +2,6 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { ChevronRight } from "lucide-react";
-import { Header } from "../components/header";
-import { HeaderUtilityBar } from "../components/header-utility-bar";
-import { NewsletterFooter } from "../components/newsletter-footer";
 import { BackToTop } from "../components/back-to-top";
 
 const committees = [
@@ -57,10 +54,8 @@ export default function BoardCommittees() {
 
   return (
     <div className="min-h-screen bg-white text-slate-900 selection:bg-gray-100 transition-all font-sans overflow-x-hidden">
-      <HeaderUtilityBar />
       <div className="sticky top-0 z-[100] bg-white border-b border-gray-100">
-        <Header />
-      </div>
+        </div>
 
       <main className="bg-white">
         {/* --- SECTION: INSTITUTIONAL PAGE HEADER (HERO SECTION) --- */}
@@ -69,12 +64,12 @@ export default function BoardCommittees() {
           <div className="container mx-auto px-4 sm:px-6 relative z-10" style={{ maxWidth: "1250px" }}>
             <div className="flex flex-col md:flex-row md:items-center justify-between gap-10">
               <div className="flex-1">
-                <nav className="flex items-center gap-2 mb-4 text-[9px] font-black uppercase tracking-[0.4em] text-slate-400">
-                  <Link to="/" className="hover:text-aaa-primary transition-colors text-slate-900 text-[10px]">Home</Link>
+                <nav className="flex items-center gap-2 mb-4 text-xs font-bold uppercase tracking-[0.4em] text-slate-400">
+                  <Link to="/" className="hover:text-aaa-primary transition-colors text-slate-900 text-xs">Home</Link>
                   <ChevronRight className="w-2.5 h-2.5 text-slate-200" />
                   <span className="text-aaa-primary uppercase tracking-[0.4em]">Investors</span>
                 </nav>
-                <h1 className="text-slate-900 font-black uppercase tracking-tight text-4xl sm:text-5xl lg:text-7xl leading-tight italic">
+                <h1 className="text-slate-900 font-bold uppercase tracking-tight text-4xl sm:text-5xl lg:text-7xl leading-tight italic">
                   Committees of <br className="hidden lg:block" />
                   <span className="text-aaa-primary not-italic">the Board</span>
                 </h1>
@@ -94,22 +89,29 @@ export default function BoardCommittees() {
           <div className="container mx-auto px-4 sm:px-6 relative z-10" style={{ maxWidth: "1250px" }}>
             <div className="flex flex-col lg:flex-row gap-4 lg:gap-6">
 
-              {/* COMMITTEE SELECTION SIDEBAR (NAVIGATION) */}
-              <aside className="lg:w-[320px] shrink-0">
-                <div className="sticky top-32 flex flex-col border border-slate-200 shadow-sm">
-                  {committees.map((item) => (
-                    <button
-                      key={item.id}
-                      onClick={() => setActiveTab(item.id)}
-                      className={`w-full group flex items-center justify-between px-8 py-[0.75rem] text-[13px] font-bold uppercase tracking-widest transition-all duration-300 border-b border-slate-100 last:border-0 rounded-none ${activeTab === item.id
-                        ? "text-white bg-aaa-primary shadow-md"
-                        : "text-slate-500 bg-white hover:bg-slate-100"
-                        }`}
-                    >
-                      <span className="text-left leading-tight">{item.title}</span>
-                      <ChevronRight className={`w-4 h-4 transition-transform ${activeTab === item.id ? "translate-x-1" : "opacity-30"}`} />
-                    </button>
-                  ))}
+              {/* COMMITTEE SELECTION SIDEBAR (redBus pattern) */}
+              <aside className="lg:w-[320px] shrink-0 w-full sticky top-32 z-10">
+                <div className="bg-white border border-slate-200 shadow-sm overflow-hidden rounded-lg">
+                  <div className="p-5 border-b border-slate-100 bg-slate-50/50">
+                    <h3 className="text-[13px] font-bold text-slate-900 uppercase tracking-wider flex items-center gap-2">
+                      Governance Committees
+                    </h3>
+                  </div>
+                  <div className="flex lg:flex-col overflow-x-auto lg:overflow-x-visible no-scrollbar">
+                    {committees.map((item) => (
+                      <button
+                        key={item.id}
+                        onClick={() => setActiveTab(item.id)}
+                        className={`flex-shrink-0 lg:w-full flex items-center justify-between px-6 py-4 text-[14px] font-medium transition-all duration-200 border-b lg:border-b-0 lg:border-l-4 ${activeTab === item.id
+                          ? "bg-red-50/50 border-red-600 text-red-600"
+                          : "text-slate-600 hover:bg-slate-50 hover:text-red-600 border-transparent"
+                          }`}
+                      >
+                        <span className="whitespace-nowrap">{item.title}</span>
+                        <ChevronRight className={`hidden lg:block w-4 h-4 transition-transform duration-300 ${activeTab === item.id ? "translate-x-1" : "opacity-0"}`} />
+                      </button>
+                    ))}
+                  </div>
                 </div>
               </aside>
 
@@ -126,7 +128,7 @@ export default function BoardCommittees() {
                   >
                     <div className="mb-6">
                       <div className="h-[2px] w-10 bg-aaa-primary mb-3" />
-                      <h2 className="text-2xl md:text-3xl font-black text-slate-900 tracking-tight leading-tight uppercase italic underline decoration-aaa-primary/10 decoration-8 underline-offset-4 mb-4">
+                      <h2 className="text-2xl md:text-3xl font-bold text-slate-900 tracking-tight leading-tight uppercase italic underline decoration-aaa-primary/10 decoration-8 underline-offset-4 mb-4">
                         {activeCommittee.title}
                       </h2>
                     </div>
@@ -137,21 +139,21 @@ export default function BoardCommittees() {
                         <table className="w-full text-left border-collapse">
                           <thead>
                             <tr className="bg-[#F1F1F1]">
-                              <th className="px-5 py-3 text-[11px] font-black text-slate-400 border border-[#DEE2E6] uppercase tracking-[0.2em]">Name of the Member</th>
-                              <th className="px-5 py-3 text-[11px] font-black text-slate-400 border border-[#DEE2E6] uppercase tracking-[0.2em]">Nature of Directorship</th>
-                              <th className="px-5 py-3 text-[11px] font-black text-slate-400 border border-[#DEE2E6] uppercase tracking-[0.2em]">Designation</th>
+                              <th className="px-5 py-3 text-[0.75rem] font-bold text-slate-400 border border-[#DEE2E6] uppercase tracking-[0.2em]">Name of the Member</th>
+                              <th className="px-5 py-3 text-[0.75rem] font-bold text-slate-400 border border-[#DEE2E6] uppercase tracking-[0.2em]">Nature of Directorship</th>
+                              <th className="px-5 py-3 text-[0.75rem] font-bold text-slate-400 border border-[#DEE2E6] uppercase tracking-[0.2em]">Designation</th>
                             </tr>
                           </thead>
                           <tbody>
                             {activeCommittee.members.map((member, i) => (
                               <tr key={i} className={`${i % 2 === 0 ? "bg-[#F1F1F1]" : "bg-white"} transition-colors hover:bg-slate-50`}>
-                                <td className="px-5 py-3 text-[13px] font-bold text-[#212529] border border-[#DEE2E6]">
+                                <td className="px-5 py-3 text-[0.85rem] font-bold text-[#212529] border border-[#DEE2E6]">
                                   {member.name}
                                 </td>
-                                <td className="px-5 py-3 text-[13px] font-medium text-slate-500 border border-[#DEE2E6]">
+                                <td className="px-5 py-3 text-[0.85rem] font-medium text-slate-500 border border-[#DEE2E6]">
                                   {member.nature}
                                 </td>
-                                <td className="px-5 py-3 text-[13px] font-bold text-[#212529] border border-[#DEE2E6]">
+                                <td className="px-5 py-3 text-[0.85rem] font-bold text-[#212529] border border-[#DEE2E6]">
                                   {member.designation}
                                 </td>
                               </tr>
@@ -169,7 +171,6 @@ export default function BoardCommittees() {
         </section>
       </main>
 
-      <NewsletterFooter />
       <BackToTop />
     </div>
   );

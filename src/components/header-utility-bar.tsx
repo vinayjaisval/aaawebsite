@@ -5,7 +5,7 @@ export function HeaderUtilityBar() {
   const [selectedLanguage, setSelectedLanguage] = useState("en");
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
-  const timeoutRef = useRef<NodeJS.Timeout | null>(null);
+  const timeoutRef = useRef<any>(null);
 
   const languages = [
     { code: "en", name: "English", flag: "🇺🇸" },

@@ -1,9 +1,6 @@
 import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { ChevronRight } from "lucide-react";
-import { Header } from "../components/header";
-import { HeaderUtilityBar } from "../components/header-utility-bar";
-import { NewsletterFooter } from "../components/newsletter-footer";
 import { BackToTop } from "../components/back-to-top";
 
 export default function InvestorGrievances() {
@@ -13,10 +10,8 @@ export default function InvestorGrievances() {
 
   return (
     <div className="min-h-screen bg-white text-slate-900 selection:bg-gray-100 transition-all font-sans overflow-x-hidden">
-      <HeaderUtilityBar />
       <div className="sticky top-0 z-[100] bg-white border-b border-gray-100">
-        <Header />
-      </div>
+        </div>
 
       <main className="bg-white">
         {/* --- SECTION: INSTITUTIONAL HERO (RESTORED TO GLOBAL SCALE) --- */}
@@ -25,12 +20,12 @@ export default function InvestorGrievances() {
           <div className="container mx-auto px-4 sm:px-6 relative z-10" style={{ maxWidth: "1250px" }}>
             <div className="flex flex-col md:flex-row md:items-center justify-between gap-10">
               <div className="flex-1">
-                <nav className="flex items-center gap-2 mb-4 text-[9px] font-black uppercase tracking-[0.4em] text-slate-400">
-                  <Link to="/" className="hover:text-aaa-primary transition-colors text-slate-900 text-[10px]">Home</Link>
+                <nav className="flex items-center gap-2 mb-4 text-xs font-bold uppercase tracking-[0.4em] text-slate-400">
+                  <Link to="/" className="hover:text-aaa-primary transition-colors text-slate-900 text-xs">Home</Link>
                   <ChevronRight className="w-2.5 h-2.5 text-slate-200" />
                   <span className="text-aaa-primary uppercase tracking-[0.4em]">Investors</span>
                 </nav>
-                <h1 className="text-slate-900 font-black uppercase tracking-tight text-4xl sm:text-5xl lg:text-7xl leading-tight italic">
+                <h1 className="text-slate-900 font-bold uppercase tracking-tight text-4xl sm:text-5xl lg:text-7xl leading-tight italic">
                   Investor <span className="text-aaa-primary not-italic">Grievances</span>
                 </h1>
                 <p className="mt-6 text-slate-500 text-sm sm:text-base lg:text-lg font-medium italic leading-relaxed max-w-xl border-l-4 border-aaa-primary/20 pl-6 py-2 bg-slate-50/50 rounded-r-lg">
@@ -52,7 +47,7 @@ export default function InvestorGrievances() {
             <div className="bg-white border border-slate-200 shadow-sm rounded-none overflow-hidden">
               <div className="p-6 lg:p-10">
                 <div className="mb-6">
-                  <h2 className="text-2xl md:text-3xl font-black text-slate-900 tracking-tight leading-tight uppercase italic underline decoration-aaa-primary/10 decoration-8 underline-offset-4 mb-4">
+                  <h2 className="text-2xl md:text-3xl font-bold text-slate-900 tracking-tight leading-tight uppercase italic underline decoration-aaa-primary/10 decoration-8 underline-offset-4 mb-4">
                     Company Secretary and Compliance Officer
                   </h2>
                 </div>
@@ -61,24 +56,24 @@ export default function InvestorGrievances() {
                   <table className="w-full text-left border-collapse">
                     <tbody>
                       <tr className="bg-[#F1F1F1]">
-                        <td className="px-5 py-3 text-[11px] font-black text-slate-400 uppercase tracking-widest border border-[#DEE2E6] w-[250px] lg:w-[350px]">Name</td>
-                        <td className="px-5 py-3 text-[13px] font-bold text-[#212529] border border-[#DEE2E6]">Mr. Sagar Shah</td>
+                        <td className="px-5 py-3 text-[0.75rem] font-bold text-slate-400 uppercase tracking-widest border border-[#DEE2E6] w-[250px] lg:w-[350px]">Name</td>
+                        <td className="px-5 py-3 text-[0.85rem] font-bold text-[#212529] border border-[#DEE2E6]">Mr. Sagar Shah</td>
                       </tr>
                       <tr className="bg-white">
-                        <td className="px-5 py-3 text-[11px] font-black text-slate-400 uppercase tracking-widest border border-[#DEE2E6]">Address</td>
-                        <td className="px-5 py-3 text-[13px] font-medium text-slate-500 border border-[#DEE2E6] leading-relaxed">
+                        <td className="px-5 py-3 text-[0.75rem] font-bold text-slate-400 uppercase tracking-widest border border-[#DEE2E6]">Address</td>
+                        <td className="px-5 py-3 text-[0.85rem] font-medium text-slate-500 border border-[#DEE2E6] leading-relaxed">
                           278-280, F Wing, Solaris 1, Saki Vihar Road, <br />
                           Opp. L&T Gate No. 6, Powai, Andheri (East); <br />
                           Mumbai - 400072, Maharashtra, India.
                         </td>
                       </tr>
                       <tr className="bg-[#F1F1F1]">
-                        <td className="px-5 py-3 text-[11px] font-black text-slate-400 uppercase tracking-widest border border-[#DEE2E6]">Mobile No.</td>
-                        <td className="px-5 py-3 text-[13px] font-bold text-[#212529] border border-[#DEE2E6]">9920702677</td>
+                        <td className="px-5 py-3 text-[0.75rem] font-bold text-slate-400 uppercase tracking-widest border border-[#DEE2E6]">Mobile No.</td>
+                        <td className="px-5 py-3 text-[0.85rem] font-bold text-[#212529] border border-[#DEE2E6]">9920702677</td>
                       </tr>
                       <tr className="bg-white">
-                        <td className="px-5 py-3 text-[11px] font-black text-slate-400 uppercase tracking-widest border border-[#DEE2E6]">Email Address</td>
-                        <td className="px-5 py-3 text-[13px] font-bold text-[#212529] border border-[#DEE2E6]">
+                        <td className="px-5 py-3 text-[0.75rem] font-bold text-slate-400 uppercase tracking-widest border border-[#DEE2E6]">Email Address</td>
+                        <td className="px-5 py-3 text-[0.85rem] font-bold text-[#212529] border border-[#DEE2E6]">
                           <a href="mailto:cs@aaatechnologies.co.in" className="hover:text-aaa-primary transition-colors decoration-aaa-primary/20 underline underline-offset-4">
                             cs@aaatechnologies.co.in
                           </a>
@@ -94,7 +89,6 @@ export default function InvestorGrievances() {
         </section>
       </main>
 
-      <NewsletterFooter />
       <BackToTop />
     </div>
   );

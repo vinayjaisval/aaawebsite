@@ -1,243 +1,131 @@
-"use client";
-
+import { ShieldCheck, TrendingUp, Award, Users } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Star } from "lucide-react";
-import { useState, useEffect, useRef } from "react";
-
-import hero1 from "@/assets/hero-1.jpg";
-import hero2 from "@/assets/hero-2.jpg";
-import hero3 from "@/assets/hero-3.jpg";
-import hero4 from "@/assets/hero-4.jpg";
-import hero5 from "@/assets/hero-5.jpg";
-
-const heroImages = [
-  { src: hero1, alt: "IT audit professional reviewing management controls" },
-  { src: hero2, alt: "Cyber security expert analysing threat data" },
-  { src: hero3, alt: "IT governance team reviewing compliance frameworks" },
-  { src: hero4, alt: "Digital information security infrastructure" },
-  { src: hero5, alt: "Information systems audit in progress" },
-];
-
-const rotatingTexts = [
-  "IT Systems Audit",
-  "Cyber Security",
-  "IT Governance",
-  "IT Assurance",
-  "IS Audit",
-  "Compliance",
-];
-
-const SLIDE_INTERVAL  = 5000; // ms between slides
-const FADE_DURATION   = 1000; // ms — keep in sync with CSS transition below
-const TEXT_INTERVAL   = 3000;
 
 export function HeroSection() {
-  const [currentImage, setCurrentImage] = useState(0);
-  const [currentText,  setCurrentText]  = useState(0);
-  const [textOut,      setTextOut]       = useState(false);
-
-  // Detect user's motion preference
-  const prefersReduced =
-    typeof window !== "undefined" &&
-    window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-
-  // ── Image crossfade timer ────────────────────────────────────────────────
-  const imageTimer = useRef<ReturnType<typeof setInterval> | null>(null);
-
-  useEffect(() => {
-    if (prefersReduced) return; // skip animation for reduced-motion users
-    imageTimer.current = setInterval(() => {
-      setCurrentImage((prev) => (prev + 1) % heroImages.length);
-    }, SLIDE_INTERVAL);
-    return () => { if (imageTimer.current) clearInterval(imageTimer.current); };
-  }, [prefersReduced]);
-
-  // ── Rotating headline text ───────────────────────────────────────────────
-  useEffect(() => {
-    if (prefersReduced) return;
-    const id = setInterval(() => {
-      setTextOut(true);
-      setTimeout(() => {
-        setCurrentText((prev) => (prev + 1) % rotatingTexts.length);
-        setTextOut(false);
-      }, 250);
-    }, TEXT_INTERVAL);
-    return () => clearInterval(id);
-  }, [prefersReduced]);
-
-  // Manual dot navigation
-  const goToSlide = (index: number) => {
-    setCurrentImage(index);
-    // Reset timer on manual nav
-    if (imageTimer.current) clearInterval(imageTimer.current);
-    if (!prefersReduced) {
-      imageTimer.current = setInterval(() => {
-        setCurrentImage((prev) => (prev + 1) % heroImages.length);
-      }, SLIDE_INTERVAL);
-    }
-  };
-
   return (
-    <section
-      id="hero"
-      aria-labelledby="hero-heading"
-      className="bg-background py-10 sm:py-14 lg:py-16"
-    >
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid lg:grid-cols-[5fr_7fr] gap-8 lg:gap-12 items-stretch">
+    <div className="flex flex-col w-full">
+      {/* Part 1: Light Hero Text Section */}
+      <section 
+        className="w-full bg-[#F4F3FB] text-center px-4" 
+        style={{ paddingTop: '100px', paddingBottom: '160px' }}
+      >
+        <div className="container mx-auto">
+          <div className="max-w-4xl mx-auto flex flex-col items-center">
+            <span 
+              className="inline-block px-5 py-2 rounded-full text-[13px] font-bold mb-8"
+              style={{
+                background: 'var(--red-50)',
+                color: 'var(--red-600)',
+                border: '1px solid var(--red-200)',
+                letterSpacing: '0.06em',
+                animationName: 'slideInDown',
+                animationDuration: '700ms',
+                animationTimingFunction: 'ease',
+                animationDelay: '0ms',
+                animationDirection: 'normal',
+                animationFillMode: 'both'
+              }}
+            >
+              CERT-In Empanelled Since 2005
+            </span>
 
-          {/* ── Left: text content ──────────────────────────────────────── */}
-          <div className="flex flex-col justify-center space-y-8 order-2 lg:order-1">
+            <h1 
+              className="mb-8 leading-[1.18] tracking-tight"
+              style={{
+                fontSize: 'clamp(2.2rem, 5vw, 3.4rem)',
+                fontWeight: 800,
+                color: '#1A1040'
+              }}
+            >
+              India's Premier Cybersecurity <br />
+              <span className="text-[#35268F] underline decoration-[#35268F]/20 underline-offset-8">Audit & Consulting</span> Firm
+            </h1>
 
-            {/* Headline */}
-            <div className="space-y-5">
-              <h1
-                id="hero-heading"
-                className="text-3xl sm:text-4xl md:text-5xl xl:text-6xl font-bold leading-tight"
+            <p className="text-[#60697b] text-[18px] md:text-[20px] leading-relaxed mb-10 max-w-2xl mx-auto font-medium">
+              We have protected 120+ organisations across 12+ industries for over 22+ years. 
+              Listed on NSE and BSE. Certified to ISO 9001:2015 and ISO 27001:2013.
+            </p>
+
+            <div className="flex flex-wrap justify-center gap-4">
+              <Button 
+                className="bg-[#35268F] hover:bg-[#251b64] text-white px-8 py-7 rounded-[8px] text-[16px] font-bold"
               >
-                India's leading independent{" "}
-                <span
-                  aria-live="polite"
-                  aria-atomic="true"
-                  className="inline-block"
-                >
-                  <span
-                    className={`text-advance-primary underline decoration-advance-secondary decoration-4
-                      inline-block transition-all duration-500 ease-in-out
-                      ${textOut
-                        ? "opacity-0 -translate-y-2 scale-95"
-                        : "opacity-100 translate-y-0 scale-100"
-                      }`}
-                    style={{ minWidth: "clamp(160px, 30vw, 260px)" }}
-                  >
-                    {rotatingTexts[currentText]}
-                  </span>
-                </span>{" "}
-                firm
-              </h1>
-
-              <p className="text-base sm:text-lg text-muted-foreground max-w-lg leading-relaxed">
-                India's 1st and only listed company focused exclusively on
-                Information Technology &amp; Cyber Security Audit. Over 22 years
-                of independent auditing, assurance, and governance expertise
-                across 25+ industry sectors.
-              </p>
-            </div>
-
-            {/* CTA */}
-            <div className="flex flex-col sm:flex-row gap-3 w-full max-w-md">
-              <label htmlFor="hero-email" className="sr-only">Email address</label>
-              <Input
-                id="hero-email"
-                type="email"
-                placeholder="Enter your email"
-                autoComplete="email"
-                className="flex-1 min-h-[44px]"
-              />
-              <Button
-                className="bg-advance-primary hover:bg-advance-primary/90 text-white px-6 min-h-[44px] whitespace-nowrap"
+                See All Services
+              </Button>
+              <Button 
+                variant="outline" 
+                className="border-[#35268F] text-[#35268F] hover:bg-[#35268F] hover:text-white px-8 py-7 rounded-[8px] text-[16px] font-bold"
               >
-                Request an Audit
+                Request a Free Assessment
               </Button>
             </div>
-
-            {/* Stats */}
-            <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-2 xl:grid-cols-4 gap-6 pt-2">
-              {[
-                { value: "22+",   label: "Years of expertise" },
-                { value: "1000+", label: "Man-years of experience" },
-                { value: "25+",   label: "Industry sectors" },
-                { value: "2005",  label: "CERT-In empanelled since" },
-              ].map(({ value, label }) => (
-                <div key={label}>
-                  <div className="text-2xl font-bold text-advance-primary">{value}</div>
-                  <div className="text-xs text-muted-foreground leading-snug mt-0.5">{label}</div>
-                </div>
-              ))}
-            </div>
-
-            {/* Certifications bar */}
-            <div
-              className="flex items-center gap-2 flex-wrap"
-              aria-label="Certifications and credentials"
-            >
-              <div className="flex" aria-hidden="true">
-                {[...Array(5)].map((_, i) => (
-                  <Star
-                    key={i}
-                    className="h-4 w-4 fill-advance-secondary text-advance-secondary"
-                    aria-hidden="true"
-                  />
-                ))}
-              </div>
-              <span className="text-xs text-muted-foreground">
-                CERT-In Empanelled · ISO 9001:2015 · ISO 27001:2013 · NSE &amp; BSE Listed
-              </span>
-            </div>
           </div>
-
-          {/* ── Right: crossfade image carousel ─────────────────────────── */}
-          <div className="relative order-1 lg:order-2 h-64 sm:h-96 lg:h-auto min-h-0 lg:min-h-[580px] overflow-hidden">
-
-            {/* Images stacked — CSS opacity crossfade */}
-            {heroImages.map((img, index) => (
-              <img
-                key={img.src}
-                src={img.src}
-                alt={img.alt}
-                width={1170}
-                height={780}
-                fetchPriority={index === 0 ? "high" : "low"}
-                decoding="async"
-                className="absolute inset-0 w-full h-full object-cover"
-                style={{
-                  opacity: index === currentImage ? 1 : 0,
-                  transition: prefersReduced
-                    ? "none"
-                    : `opacity ${FADE_DURATION}ms ease-in-out`,
-                  willChange: "opacity",
-                }}
-                aria-hidden={index !== currentImage}
-              />
-            ))}
-
-            {/* Subtle dark gradient so dots are legible */}
-            <div
-              className="absolute inset-x-0 bottom-0 h-20 pointer-events-none"
-              style={{
-                background:
-                  "linear-gradient(to top, rgba(0,0,0,0.45) 0%, transparent 100%)",
-              }}
-              aria-hidden="true"
-            />
-
-            {/* Dot indicators */}
-            <div
-              className="absolute bottom-3 left-1/2 -translate-x-1/2 flex gap-2"
-              role="group"
-              aria-label="Slide navigation"
-            >
-              {heroImages.map((img, index) => (
-                <button
-                  key={index}
-                  type="button"
-                  onClick={() => goToSlide(index)}
-                  aria-label={`Show slide ${index + 1}: ${img.alt}`}
-                  aria-pressed={index === currentImage}
-                  className={`w-2 h-2 transition-all duration-300 focus-visible:outline-none
-                    focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-1
-                    ${index === currentImage
-                      ? "bg-white w-5"
-                      : "bg-white/50 hover:bg-white/80"
-                    }`}
-                />
-              ))}
-            </div>
-          </div>
-
         </div>
-      </div>
-    </section>
+      </section>
+
+      {/* Part 2: Dark Section — Overlapping Image + USPs */}
+      <section className="w-full bg-[#1A1040] text-white px-4 relative">
+        <div className="container mx-auto">
+          {/* Overlapping Image — Negative margin pull-up */}
+          <div className="relative -mt-24 md:-mt-32 lg:-mt-40 mb-16 max-w-6xl mx-auto">
+            <div className="rounded-[10px] overflow-hidden shadow-2xl bg-white">
+              <img 
+                src="/assets/img/photos/banner1.png" 
+                alt="Cybersecurity Audit" 
+                className="w-full h-auto object-cover"
+                onError={(e) => {
+                  e.currentTarget.src = "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&q=80&w=1200";
+                }}
+              />
+            </div>
+          </div>
+
+          <div className="text-center max-w-3xl mx-auto mb-16">
+            <h2 className="text-2xl md:text-3xl lg:text-[34px] font-bold leading-tight text-white" style={{ color: '#fff !important' }}>
+              India's first and only stock-exchange-listed company focused entirely on IT and Cybersecurity Audit.
+            </h2>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-x-12 gap-y-16 text-center pb-20">
+            <div className="flex flex-col items-center">
+              <div className="w-16 h-16 rounded-full bg-[#35268F] flex items-center justify-center mb-6">
+                <ShieldCheck className="h-7 w-7 text-white" />
+              </div>
+              <h4 className="text-[19px] font-bold mb-3 text-white" style={{ color: '#fff !important' }}>CERT-In Empanelled</h4>
+              <p className="text-white/70 text-[14px] leading-relaxed">
+                India's computer security authority has approved us to conduct IT security audits since 2005.
+              </p>
+            </div>
+            <div className="flex flex-col items-center">
+              <div className="w-16 h-16 rounded-full bg-[#35268F] flex items-center justify-center mb-6">
+                <TrendingUp className="h-7 w-7 text-white" />
+              </div>
+              <h4 className="text-[19px] font-bold mb-3 text-white" style={{ color: '#fff !important' }}>NSE & BSE Listed</h4>
+              <p className="text-white/70 text-[14px] leading-relaxed">
+                From November 28, 2022, we trade on both the NSE and BSE main boards.
+              </p>
+            </div>
+            <div className="flex flex-col items-center">
+              <div className="w-16 h-16 rounded-full bg-[#35268F] flex items-center justify-center mb-6">
+                <Award className="h-7 w-7 text-white" />
+              </div>
+              <h4 className="text-[19px] font-bold mb-3 text-white" style={{ color: '#fff !important' }}>ISO 27001 Certified</h4>
+              <p className="text-white/70 text-[14px] leading-relaxed">
+                We hold ISO 9001:2015 and ISO 27001:2013 certification.
+              </p>
+            </div>
+            <div className="flex flex-col items-center">
+              <div className="w-16 h-16 rounded-full bg-[#35268F] flex items-center justify-center mb-6">
+                <Users className="h-7 w-7 text-white" />
+              </div>
+              <h4 className="text-[19px] font-bold mb-3 text-white" style={{ color: '#fff !important' }}>Our Expertise</h4>
+              <p className="text-white/70 text-[14px] leading-relaxed">
+                Our team's collective experience adds up to over 1,000 years.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
   );
 }

@@ -1,9 +1,6 @@
 import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { ChevronRight, Trophy } from "lucide-react";
-import { Header } from "../components/header";
-import { HeaderUtilityBar } from "../components/header-utility-bar";
-import { NewsletterFooter } from "../components/newsletter-footer";
 import { BackToTop } from "../components/back-to-top";
 
 const boardMembers = [
@@ -81,10 +78,8 @@ export default function BoardOfDirectors() {
 
   return (
     <div className="min-h-screen bg-white text-slate-900 selection:bg-gray-100 transition-all font-sans overflow-x-hidden">
-      <HeaderUtilityBar />
       <div className="sticky top-0 z-[100] bg-white border-b border-gray-100">
-        <Header />
-      </div>
+        </div>
 
       <main className="bg-white">
         {/* --- SECTION: INSTITUTIONAL GOVERNANCE HEADER (HERO) --- */}
@@ -94,14 +89,14 @@ export default function BoardOfDirectors() {
             <div className="flex flex-col md:flex-row md:items-center justify-between gap-10">
               <div className="flex-1">
                 {/* NAVIGATION: INSTITUTIONAL HIERARCHY PATHWAY */}
-                <nav className="flex items-center gap-2 mb-4 text-[9px] font-black uppercase tracking-[0.4em] text-slate-400">
-                  <Link to="/" className="hover:text-aaa-primary transition-colors text-slate-900 text-[10px]">Home</Link>
+                <nav className="flex items-center gap-2 mb-4 text-xs font-bold uppercase tracking-[0.4em] text-slate-400">
+                  <Link to="/" className="hover:text-aaa-primary transition-colors text-slate-900 text-xs">Home</Link>
                   <ChevronRight className="w-2.5 h-2.5 text-slate-200" />
                   <Link to="/investors/relations" className="hover:text-aaa-primary transition-colors text-slate-400">Investors</Link>
                   <ChevronRight className="w-2.5 h-2.5 text-slate-200" />
                   <span className="text-aaa-primary uppercase tracking-[0.4em]">Board of Directors</span>
                 </nav>
-                <h1 className="text-slate-900 font-black uppercase tracking-tight text-4xl sm:text-5xl lg:text-7xl leading-tight italic">
+                <h1 className="text-slate-900 font-bold uppercase tracking-tight text-4xl sm:text-5xl lg:text-7xl leading-tight italic">
                   Board of <span className="text-aaa-primary not-italic">Directors</span>
                 </h1>
                 <p className="mt-6 text-slate-500 text-sm sm:text-base lg:text-lg font-medium italic leading-relaxed max-w-xl border-l-4 border-aaa-primary/20 pl-6 py-2 bg-slate-50/50 rounded-r-lg">
@@ -126,10 +121,10 @@ export default function BoardOfDirectors() {
                   key={member.name}
                   className="bg-white border border-slate-100 p-6 lg:p-10 shadow-sm rounded-[40px] transition-all duration-500 w-full hover:shadow-xl group"
                 >
-                    <h2 className="text-2xl md:text-3xl font-black text-slate-900 tracking-tight leading-tight uppercase italic underline decoration-aaa-primary/10 decoration-8 underline-offset-4 mb-4 group-hover:text-aaa-primary transition-colors">
+                    <h2 className="text-2xl md:text-3xl font-bold text-slate-900 tracking-tight leading-tight uppercase italic underline decoration-aaa-primary/10 decoration-8 underline-offset-4 mb-4 group-hover:text-aaa-primary transition-colors">
                       {member.name}
                     </h2>
-                  <p className="text-aaa-primary font-bold text-[12px] uppercase tracking-widest mb-6 border-b border-slate-50 pb-6">
+                  <p className="text-aaa-primary font-bold text-[0.8rem] uppercase tracking-widest mb-6 border-b border-slate-50 pb-6">
                     {member.role}
                   </p>
 
@@ -137,7 +132,7 @@ export default function BoardOfDirectors() {
                     {member.bullets.map((item, i) => (
                       <div key={i} className="flex gap-3 items-start">
                         <Trophy className="w-3.5 h-3.5 text-aaa-primary/60 mt-1 shrink-0" />
-                        <span className="text-slate-600 text-[13.5px] font-bold leading-snug">
+                        <span className="text-slate-600 text-[0.85rem] font-bold leading-snug">
                           {item}
                         </span>
                       </div>
@@ -150,7 +145,6 @@ export default function BoardOfDirectors() {
         </section>
       </main>
 
-      <NewsletterFooter />
       <BackToTop />
     </div>
   );

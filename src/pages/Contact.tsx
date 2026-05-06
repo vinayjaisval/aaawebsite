@@ -1,0 +1,244 @@
+import React, { useEffect } from "react";
+import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
+import { 
+  Phone, 
+  Mail, 
+  MapPin, 
+  Send, 
+  ChevronRight,
+  ShieldCheck,
+  Zap,
+  Lock,
+  ArrowRight,
+  Clock,
+  Sparkles,
+  ShieldAlert,
+  Globe2,
+  Activity,
+  UserCheck,
+  Cpu
+} from "lucide-react";
+import { BackToTop } from "../components/back-to-top";
+
+const fadeInUp = {
+  initial: { opacity: 0, y: 15 },
+  animate: { opacity: 1, y: 0 },
+  transition: { duration: 0.5, ease: [0.22, 1, 0.36, 1] }
+};
+
+const staggerContainer = {
+  animate: {
+    transition: {
+      staggerChildren: 0.08
+    }
+  }
+};
+
+export default function Contact() {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+    document.documentElement.classList.remove("dark");
+  }, []);
+
+  return (
+    <div className="min-h-screen bg-white font-sans selection:bg-[#35268F]/10 antialiased overflow-hidden">
+      <main>
+        {/* --- PREMIUM COMPACT HERO: With Professional Visual Effects --- */}
+        <section className="bg-[#F4F3FB] relative overflow-hidden py-8 md:py-12 border-b border-[#EBE9F9]">
+          
+          {/* Animated Background Effects */}
+          <motion.div 
+            animate={{ 
+              scale: [1, 1.2, 1],
+              opacity: [0.15, 0.3, 0.15],
+            }}
+            transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
+            className="absolute top-0 right-0 w-[500px] h-[500px] bg-gradient-to-br from-[#35268F]/10 to-[#00a8ff]/10 rounded-full blur-[100px] -translate-y-1/2 translate-x-1/4 pointer-events-none" 
+          />
+          
+          {/* Cyber Grid with Animated Data Streak */}
+          <div className="absolute inset-0 opacity-[0.08] pointer-events-none" style={{ backgroundImage: 'radial-gradient(#35268F 1.5px, transparent 1.5px)', backgroundSize: '30px 30px' }} />
+          <motion.div 
+             animate={{ x: ['-100%', '200%'] }}
+             transition={{ duration: 4, repeat: Infinity, ease: "linear" }}
+             className="absolute top-1/2 left-0 w-48 h-[1px] bg-gradient-to-r from-transparent via-[#00a8ff] to-transparent opacity-30 pointer-events-none"
+          />
+
+          {/* Right-Side Glassmorphic Trust Elements (Filling the Gap) */}
+          <div className="absolute right-[10%] top-1/2 -translate-y-1/2 hidden lg:flex flex-col gap-6 z-0 opacity-60">
+             {[
+               { icon: ShieldCheck, color: "text-[#35268F]", bg: "bg-[#35268F]/10", label: "Global Standards", x: 20 },
+               { icon: Activity, color: "text-[#008253]", bg: "bg-[#008253]/10", label: "Real-time Monitoring", x: 0 },
+               { icon: UserCheck, color: "text-[#00a8ff]", bg: "bg-[#00a8ff]/10", label: "Certified Team", x: 40 }
+             ].map((item, idx) => (
+               <motion.div 
+                 key={idx}
+                 animate={{ y: [0, -8, 0], x: [item.x, item.x + 5, item.x] }} 
+                 transition={{ duration: 4 + idx, repeat: Infinity, ease: "easeInOut" }}
+                 className="flex items-center gap-4 bg-white/60 backdrop-blur-md p-4 rounded-2xl border border-white/40 shadow-sm"
+               >
+                  <div className={`w-10 h-10 rounded-xl ${item.bg} flex items-center justify-center ${item.color} shadow-inner`}>
+                     <item.icon className="w-5 h-5" />
+                  </div>
+                  <div>
+                     <p className="text-[10px] font-black uppercase tracking-widest text-[#1A1040]">{item.label}</p>
+                  </div>
+               </motion.div>
+             ))}
+          </div>
+
+          <div className="container mx-auto px-4 lg:px-8 relative z-10">
+            <motion.div 
+              variants={staggerContainer}
+              initial="initial"
+              animate="animate"
+              className="max-w-3xl"
+            >
+              <motion.nav variants={fadeInUp} className="flex items-center gap-2 text-[9px] font-black uppercase tracking-[0.3em] text-[#60697b] mb-4">
+                <Link to="/" className="hover:text-[#35268F] transition-all">Home</Link>
+                <ChevronRight className="w-2.5 h-2.5 text-slate-300" />
+                <span className="text-[#35268F]">Contact Us</span>
+              </motion.nav>
+
+              <div className="space-y-5">
+                <motion.div variants={fadeInUp} className="flex flex-wrap gap-2">
+                  <span 
+                    className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-[10px] font-black uppercase tracking-widest border border-[#FFDADA]"
+                    style={{ background: 'linear-gradient(to right, #FFF5F5, #FFF)', color: '#DC2626' }}
+                  >
+                    <Sparkles className="w-3.5 h-3.5" /> 24/7 Support
+                  </span>
+                  <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-[10px] font-black uppercase tracking-widest bg-white border border-[#EBE9F9] text-[#35268F] shadow-sm">
+                    <ShieldAlert className="w-3.5 h-3.5" /> CERT-In Empanelled
+                  </span>
+                </motion.div>
+                
+                <motion.h1 variants={fadeInUp} className="font-[900] tracking-tighter text-[#1A1040] leading-[1.1]" style={{
+                  fontSize: 'clamp(2.4rem, 5vw, 3.6rem)'
+                }}>
+                  How Can We Help <br />
+                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#35268F] to-[#00a8ff]">Secure Your Assets?</span>
+                </motion.h1>
+                
+                <motion.p variants={fadeInUp} className="text-[#60697b] text-[17px] md:text-[19px] leading-snug max-w-2xl font-[700] opacity-90">
+                  Connect with India's most trusted cybersecurity audit firm. Our team of certified auditors is ready to assist you.
+                </motion.p>
+              </div>
+            </motion.div>
+          </div>
+        </section>
+
+        {/* --- MAIN CONTENT AREA: Tightened Height & Matched Alignment --- */}
+        <section className="py-12 md:py-16 bg-white px-4 relative">
+          <div className="container mx-auto px-4 lg:px-8">
+            <div className="flex flex-col lg:flex-row gap-12 items-start">
+
+              {/* Left Column: Direct Contact Details */}
+              <div className="w-full lg:w-5/12 space-y-6">
+                <div className="space-y-1 mb-8">
+                  <span className="inline-block bg-[#EBE9F9] text-[#35268F] font-black uppercase tracking-[0.2em] text-[0.7rem] px-4 py-1.5 rounded-full">Contact Info</span>
+                  <h2 className="text-[1.8rem] font-[900] text-[#1A1040] leading-tight tracking-tight uppercase">Direct Communication</h2>
+                </div>
+
+                <div className="grid gap-4">
+                  {[
+                    { icon: MapPin, title: "Registered Office", val: "301, Krishna Chambers, Mumbai 020, India" },
+                    { icon: Phone, title: "Direct Hotlines", val: "+91 22 2857 3815 / 16" },
+                    { icon: Mail, title: "Official Email", val: "info@aaatechnologies.co.in" }
+                  ].map((item, i) => (
+                    <div key={i} className="flex gap-5 p-5 rounded-2xl border border-[#EBE9F9] hover:border-[#35268F]/20 transition-all duration-300 group bg-white shadow-sm">
+                      <div className="w-12 h-12 bg-[#F4F3FB] rounded-xl flex items-center justify-center text-[#35268F] group-hover:bg-[#35268F] group-hover:text-white transition-all shrink-0">
+                        <item.icon className="w-5 h-5" />
+                      </div>
+                      <div>
+                        <h4 className="text-[13px] font-black text-[#1A1040] mb-0.5 uppercase tracking-tight">{item.title}</h4>
+                        <p className="text-[13px] text-[#60697b] leading-tight font-[800]">{item.val}</p>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+
+                {/* Compact Trust Badge */}
+                <div className="p-6 bg-[#1A1040] rounded-2xl text-white relative overflow-hidden shadow-lg mt-8">
+                  <div className="absolute top-0 right-0 w-[120px] h-[120px] bg-[#35268F]/30 rounded-full blur-[40px]" />
+                  <div className="relative z-10 flex items-center gap-4">
+                    <ShieldCheck className="w-6 h-6 text-[#00d1ff]" />
+                    <div>
+                      <h4 className="font-black text-[11px] uppercase tracking-[0.2em] text-[#00d1ff]">CERT-In Empanelled</h4>
+                      <p className="text-white/40 text-[9px] font-black uppercase tracking-widest mt-0.5 italic">Institutional Verification Active</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Right Column: Tightened Form to Match Left Height */}
+              <div className="w-full lg:w-7/12">
+                <div className="bg-white p-6 md:p-10 rounded-[2.5rem] border border-[#EBE9F9] shadow-2xl relative overflow-hidden">
+                  <div className="absolute top-0 right-0 w-24 h-24 bg-gradient-to-bl from-[#35268F]/5 to-transparent rounded-bl-full pointer-events-none" />
+
+                  <div className="mb-6">
+                    <h3 className="text-[22px] font-[900] text-[#1A1040] tracking-tighter mb-1 uppercase">Business Inquiry Form</h3>
+                    <div className="flex items-center gap-2">
+                      <div className="w-1 h-5 bg-[#35268F] rounded-full" />
+                      <p className="text-[#60697b] text-[11px] font-black uppercase tracking-widest opacity-80 italic">Swift 24-hour response guaranteed.</p>
+                    </div>
+                  </div>
+
+                  <form className="space-y-4">
+                    <div className="grid md:grid-cols-2 gap-6">
+                      <div className="space-y-2">
+                        <label className="text-[10px] font-black text-[#1A1040] uppercase tracking-[0.3em] ml-1">Full Name</label>
+                        <input type="text" className="w-full bg-[#F4F3FB] border-0 rounded-xl px-6 py-3.5 text-[#1A1040] focus:ring-4 focus:ring-[#35268F]/5 transition-all font-bold text-[15px] outline-none placeholder:text-slate-400" placeholder="Anjay Agarwal" />
+                      </div>
+                      <div className="space-y-2">
+                        <label className="text-[10px] font-black text-[#1A1040] uppercase tracking-[0.3em] ml-1">Work Email</label>
+                        <input type="email" className="w-full bg-[#F4F3FB] border-0 rounded-xl px-6 py-3.5 text-[#1A1040] focus:ring-4 focus:ring-[#35268F]/5 transition-all font-bold text-[15px] outline-none placeholder:text-slate-400" placeholder="office@company.com" />
+                      </div>
+                    </div>
+
+                    <div className="grid md:grid-cols-2 gap-6">
+                      <div className="space-y-2">
+                        <label className="text-[10px] font-black text-[#1A1040] uppercase tracking-[0.3em] ml-1">Phone Number</label>
+                        <input type="tel" className="w-full bg-[#F4F3FB] border-0 rounded-xl px-6 py-3.5 text-[#1A1040] focus:ring-4 focus:ring-[#35268F]/5 transition-all font-bold text-[15px] outline-none placeholder:text-slate-400" placeholder="+91 00000 00000" />
+                      </div>
+                      <div className="space-y-2">
+                        <label className="text-[10px] font-black text-[#1A1040] uppercase tracking-[0.3em] ml-1">Service interest</label>
+                        <div className="relative">
+                          <select className="w-full bg-[#F4F3FB] border-0 rounded-xl px-6 py-3.5 text-[#1A1040] focus:ring-4 focus:ring-[#35268F]/5 transition-all font-bold text-[15px] appearance-none outline-none cursor-pointer">
+                            <option>IT Security Audit</option>
+                            <option>Cyber Security Audit</option>
+                            <option>IT Assurance & Compliance</option>
+                          </select>
+                          <ChevronRight className="absolute right-6 top-1/2 -translate-y-1/2 rotate-90 w-4 h-4 text-slate-400 pointer-events-none" />
+                        </div>
+                      </div>
+                    </div>
+
+                    <div className="space-y-2">
+                      <label className="text-[10px] font-black text-[#1A1040] uppercase tracking-[0.3em] ml-1">Requirements</label>
+                      <textarea rows={2} className="w-full bg-[#F4F3FB] border-0 rounded-xl px-6 py-3.5 text-[#1A1040] focus:ring-4 focus:ring-[#35268F]/5 transition-all font-bold text-[15px] outline-none resize-none placeholder:text-slate-400" placeholder="Briefly describe your goals..."></textarea>
+                    </div>
+
+                    <div className="flex flex-col sm:flex-row items-center justify-between gap-6 pt-4">
+                      <div className="flex items-center gap-3 text-[#008253]">
+                        <Lock className="w-5 h-5" />
+                        <span className="text-[10px] font-black uppercase tracking-[0.3em]">Secure Submission</span>
+                      </div>
+
+                      <button type="submit" className="w-full sm:w-auto bg-[#35268F] hover:bg-[#251b64] text-white font-[900] px-12 py-5 rounded-xl shadow-xl transition-all uppercase tracking-[0.3em] text-[12px] flex items-center justify-center gap-3 group">
+                        Submit Enquiry <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                      </button>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <BackToTop />
+    </div>
+  );
+}

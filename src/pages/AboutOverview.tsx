@@ -2,9 +2,6 @@ import { useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import { motion, useInView } from "framer-motion";
 import { BarChart3, ShieldCheck, Globe2, Layers, Briefcase, Cpu, Landmark, HeartPulse, ShieldAlert, ArrowRight, Target, Award, CheckCircle2, ChevronRight } from "lucide-react";
-import { Header } from "../components/header";
-import { HeaderUtilityBar } from "../components/header-utility-bar";
-import { NewsletterFooter } from "../components/newsletter-footer";
 import { BackToTop } from "../components/back-to-top";
 
 const industriesRecap = [
@@ -57,36 +54,10 @@ export default function AboutOverview() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-white text-black transition-colors overflow-x-hidden font-sans selection:bg-aaa-primary/10 relative">
-      {/* --- INSTITUTIONAL ARCHITECTURAL WATERMARK --- */}
-      <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden opacity-[0.02] sm:opacity-[0.03] select-none grayscale font-black text-black">
-        <div className="absolute top-[10%] left-[-15%] sm:left-[-5%] text-[50vw] sm:text-[30vw] leading-none rotate-[-10deg]">AAA</div>
-        <div className="absolute bottom-[20%] right-[-15%] sm:right-[-5%] text-[30vw] sm:text-[20vw] leading-none rotate-[15deg]">TECH</div>
-      </div>
+    <div className="min-h-screen bg-white">
 
-      {/* --- FLOATING INSTITUTIONAL SIDE-INDEX --- */}
-      <div className="fixed right-4 sm:right-8 top-1/2 -translate-y-1/2 z-[100] hidden xl:flex flex-col gap-6 items-end group/nav text-black">
-        {[
-          { label: "Overview", id: "hero" },
-          { label: "History", id: "chronicle" },
-          { label: "Expertise", id: "stats" },
-          { label: "Ecosystem", id: "ecosystem" }
-        ].map((item, i) => (
-          <div key={i} className="flex items-center gap-4 group/item cursor-pointer">
-            <span className="text-[9px] font-black uppercase tracking-[0.4em] opacity-0 group-hover/item:opacity-100 group-hover/nav:opacity-40 transition-all text-slate-400">
-              {item.label}
-            </span>
-            <div className="w-1.5 h-1.5 rounded-full bg-slate-200 group-hover/item:bg-aaa-primary group-hover/item:scale-150 transition-all duration-300" />
-          </div>
-        ))}
-      </div>
 
-      <HeaderUtilityBar />
-      <div className="sticky top-0 z-[100] bg-white border-b border-slate-100 transition-all duration-300">
-        <Header />
-      </div>
-
-      <main className="relative z-10">
+      <main>
 
         <section id="hero">
           {/* --- 1. BALANCED HERO (Mobile Optimized) --- */}
@@ -100,17 +71,17 @@ export default function AboutOverview() {
                 >
                     <div className="flex flex-col space-y-6 sm:space-y-8">
                       {/* INSTITUTIONAL BREADCRUMB */}
-                      <nav className="flex items-center gap-2 mb-2 text-[9px] font-black uppercase tracking-[0.4em] text-slate-400">
-                        <Link to="/" className="hover:text-aaa-primary transition-colors text-slate-900 text-[10px]">Home</Link>
+                      <nav className="flex items-center gap-2 mb-2 text-xs font-bold uppercase tracking-[0.4em] text-slate-400">
+                        <Link to="/" className="hover:text-aaa-primary transition-colors text-slate-900 text-xs">Home</Link>
                         <ChevronRight className="w-2.5 h-2.5 text-slate-200" />
                         <span className="text-aaa-primary uppercase tracking-[0.4em]">Overview</span>
                       </nav>
-                      <h1 className="text-black uppercase tracking-tight font-black text-4xl sm:text-5xl lg:text-7xl leading-tight italic">
+                      <h1 className="text-black uppercase tracking-tight font-bold text-4xl sm:text-5xl lg:text-7xl leading-tight italic">
                         Enabling <br /> <span className="text-aaa-primary not-italic">Organizations</span>
                       </h1>
-                      <div className="text-[16px] sm:text-[18px] lg:text-[20px] text-slate-600 leading-relaxed border-l-[4px] border-aaa-primary/20 pl-8 block max-w-4xl italic font-medium bg-slate-50/50 py-6 rounded-r-2xl shadow-sm transition-all duration-500">
+                      <div className="text-[1rem] sm:text-[1.1rem] lg:text-[1.2rem] text-slate-600 leading-relaxed border-l-[4px] border-aaa-primary/20 pl-8 block max-w-4xl italic font-medium bg-slate-50/50 py-6 rounded-r-2xl shadow-sm transition-all duration-500">
                         To Identify Issues Of Cyber Security & IT Corporate Governance And Providing
-                        <span className="not-italic text-aaa-primary font-black uppercase tracking-widest text-[12px] sm:text-[14px] block mt-4 tracking-[0.2em]">Accurate | Reliable | Innovative Services</span>
+                        <span className="not-italic text-aaa-primary font-bold uppercase tracking-widest text-[0.8rem] sm:text-[0.9rem] block mt-4 tracking-[0.2em]">Accurate | Reliable | Innovative Services</span>
                       </div>
                     </div>
                 </motion.div>
@@ -176,7 +147,7 @@ export default function AboutOverview() {
                         className="group/p flex flex-col h-full overflow-hidden relative z-10"
                       >
                         <div className="pb-8 pr-8">
-                          <p className="text-black text-[15px] sm:text-[16px] text-justify leading-[1.8] font-medium">
+                          <p className="text-black text-[0.95rem] sm:text-[1rem] text-justify leading-[1.8] font-medium">
                             AAA Technologies Private Limited was incorporated at Mumbai as a Private Limited Company in October 2000 with a vision of a world where each day is safer and more secure than the one before.
                           </p>
                         </div>
@@ -192,15 +163,15 @@ export default function AboutOverview() {
                           <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-70" />
                           <div className="absolute bottom-6 left-8 flex items-center gap-3">
                             <div className="w-1.5 h-1.5 rounded-full bg-aaa-primary animate-pulse" />
-                            <span className="text-[10px] font-black uppercase tracking-[0.4em] text-white/80">Est. Oct 2000</span>
+                            <span className="text-xs font-bold uppercase tracking-[0.4em] text-white/80">Est. Oct 2000</span>
                           </div>
                         </div>
                       </motion.div>
 
                       <div className="space-y-5 sm:space-y-6 relative z-10">
                         <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.8, delay: 0.2 }} className="p-6 sm:p-8 rounded-[24px] sm:rounded-[32px] bg-white border border-neutral-200 shadow-sm hover:shadow-lg transition-all duration-500 group/point relative">
-                          <p className="text-black text-[14.5px] sm:text-[15.5px] text-justify leading-[1.7] sm:leading-[1.8] font-medium italic">
-                            Subsequently, the company was converted into a Public Limited Company and consequently the name was changed to <strong className="text-aaa-primary uppercase underline underline-offset-8 decoration-aaa-primary/30 group-hover/point:decoration-aaa-primary transition-all duration-500 font-black">“AAA Technologies Limited”</strong> w.e.f. 03-08-2020.
+                          <p className="text-black text-[0.9rem] sm:text-[0.95rem] text-justify leading-[1.7] sm:leading-[1.8] font-medium italic">
+                            Subsequently, the company was converted into a Public Limited Company and consequently the name was changed to <strong className="text-aaa-primary uppercase underline underline-offset-8 decoration-aaa-primary/30 group-hover/point:decoration-aaa-primary transition-all duration-500 font-bold">“AAA Technologies Limited”</strong> w.e.f. 03-08-2020.
                           </p>
                         </motion.div>
 
@@ -209,8 +180,8 @@ export default function AboutOverview() {
                             <BarChart3 className="w-5 h-5 text-[#0f172a]" />
                           </div>
                           <div>
-                            <h4 className="text-[10px] sm:text-[11px] font-black uppercase tracking-[0.4em] text-slate-400 mb-1.5 group-hover/milestone:text-white transition-colors">Exchange Listing</h4>
-                            <p className="text-black text-[13.5px] sm:text-[14.5px] text-justify leading-relaxed font-bold group-hover/milestone:text-white/80 transition-colors italic">
+                            <h4 className="text-xs sm:text-[0.75rem] font-bold uppercase tracking-[0.4em] text-slate-400 mb-1.5 group-hover/milestone:text-white transition-colors">Exchange Listing</h4>
+                            <p className="text-black text-[0.85rem] sm:text-[0.9rem] text-justify leading-relaxed font-bold group-hover/milestone:text-white/80 transition-colors italic">
                               AAA Technologies Limited was listed on National Stock Exchange Limited - Emerge Platform on 13th October, 2020. Migrated to NSE & BSE Main Board on 28th Novmber, 2022.
                             </p>
                           </div>
@@ -221,8 +192,8 @@ export default function AboutOverview() {
                             <ShieldCheck className="w-5 h-5 text-[#0f172a]" />
                           </div>
                           <div>
-                            <h4 className="text-[10px] sm:text-[11px] font-black uppercase tracking-[0.4em] text-slate-400 mb-1.5 group-hover/cert:text-white transition-colors">Quality Standard</h4>
-                            <p className="text-black text-[13.5px] sm:text-[14.5px] text-justify leading-relaxed font-bold group-hover/cert:text-white/80 transition-colors italic">
+                            <h4 className="text-xs sm:text-[0.75rem] font-bold uppercase tracking-[0.4em] text-slate-400 mb-1.5 group-hover/cert:text-white transition-colors">Quality Standard</h4>
+                            <p className="text-black text-[0.85rem] sm:text-[0.9rem] text-justify leading-relaxed font-bold group-hover/cert:text-white/80 transition-colors italic">
                               The Company is a world-class ISO 9001:2015 and ISO 27001:2013 Certified Company.
                             </p>
                           </div>
@@ -241,29 +212,29 @@ export default function AboutOverview() {
           <section className="py-10 bg-white relative border-y border-slate-100 overflow-hidden">
             <div className="container mx-auto px-4 sm:px-6" style={{ maxWidth: "1150px" }}>
               <div className="max-w-5xl mx-auto py-8 sm:py-10">
-                <p className="text-black text-[14.5px] sm:text-[15.5px] text-justify md:text-center leading-[1.7] sm:leading-[1.8] font-bold italic mb-10 sm:mb-12 opacity-80 decoration-aaa-primary/10 underline underline-offset-8">
+                <p className="text-black text-[0.9rem] sm:text-[0.95rem] text-justify md:text-center leading-[1.7] sm:leading-[1.8] font-bold italic mb-10 sm:mb-12 opacity-80 decoration-aaa-primary/10 underline underline-offset-8">
                   Focusing exclusively on IT Systems Audit and Cyber Security since incorporation, rendering specialized services for 22+ Years with 1000+ man years of expertise.
                 </p>
                 <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
                   <div className="text-center group/stat relative p-4 sm:p-6 rounded-2xl sm:rounded-3xl transition-all duration-500 hover:bg-slate-50 border border-transparent hover:border-slate-100">
-                    <span className="text-4xl sm:text-5xl lg:text-5xl font-black text-aaa-primary block mb-2 tracking-tighter transition-all group-hover/stat:scale-110 uppercase">22+</span>
-                    <span className="text-[9px] sm:text-[11px] font-black uppercase tracking-[0.3em] sm:tracking-[0.4em] text-slate-400 group-hover/stat:text-black transition-colors">Years Depth</span>
+                    <span className="text-4xl sm:text-5xl lg:text-5xl font-bold text-aaa-primary block mb-2 tracking-tighter transition-all group-hover/stat:scale-110 uppercase">22+</span>
+                    <span className="text-xs sm:text-[0.75rem] font-bold uppercase tracking-[0.3em] sm:tracking-[0.4em] text-slate-400 group-hover/stat:text-black transition-colors">Years Depth</span>
                   </div>
                   <div className="text-center group/stat relative p-4 sm:p-6 rounded-2xl sm:rounded-3xl transition-all duration-500 hover:bg-slate-50 border border-transparent hover:border-slate-100">
-                    <span className="text-4xl sm:text-5xl lg:text-5xl font-black text-aaa-primary block mb-2 tracking-tighter transition-all group-hover/stat:scale-110 uppercase">1000+</span>
-                    <span className="text-[9px] sm:text-[11px] font-black uppercase tracking-[0.3em] sm:tracking-[0.4em] text-slate-400 group-hover/stat:text-black transition-colors">Man Years</span>
+                    <span className="text-4xl sm:text-5xl lg:text-5xl font-bold text-aaa-primary block mb-2 tracking-tighter transition-all group-hover/stat:scale-110 uppercase">1000+</span>
+                    <span className="text-xs sm:text-[0.75rem] font-bold uppercase tracking-[0.3em] sm:tracking-[0.4em] text-slate-400 group-hover/stat:text-black transition-colors">Man Years</span>
                   </div>
                   <div className="text-center group/stat p-4 sm:p-6 border-l border-slate-100 relative">
                     <div className="w-12 h-12 sm:w-14 sm:h-14 bg-white border border-slate-100 rounded-xl sm:rounded-2xl flex items-center justify-center mx-auto mb-3 sm:mb-4 shadow-sm group-hover/stat:shadow-lg transition-all duration-500">
                       <ShieldCheck className="w-6 h-6 sm:w-7 sm:h-7 text-aaa-primary" />
                     </div>
-                    <span className="text-[9px] sm:text-[11px] font-black uppercase tracking-[0.3em] sm:tracking-[0.4em] text-slate-400 group-hover/stat:text-black transition-colors">ISO Standards</span>
+                    <span className="text-xs sm:text-[0.75rem] font-bold uppercase tracking-[0.3em] sm:tracking-[0.4em] text-slate-400 group-hover/stat:text-black transition-colors">ISO Standards</span>
                   </div>
                   <div className="text-center group/stat p-4 sm:p-6 border-l border-slate-100 relative">
                     <div className="w-12 h-12 sm:w-14 sm:h-14 bg-white border border-slate-100 rounded-xl sm:rounded-2xl flex items-center justify-center mx-auto mb-3 sm:mb-4 shadow-sm group-hover/stat:shadow-lg transition-all duration-500">
                       <Globe2 className="w-6 h-6 sm:w-7 sm:h-7 text-aaa-primary" />
                     </div>
-                    <span className="text-[9px] sm:text-[11px] font-black uppercase tracking-[0.3em] sm:tracking-[0.4em] text-slate-400 group-hover/stat:text-black transition-colors">Global Mastery</span>
+                    <span className="text-xs sm:text-[0.75rem] font-bold uppercase tracking-[0.3em] sm:tracking-[0.4em] text-slate-400 group-hover/stat:text-black transition-colors">Global Mastery</span>
                   </div>
                 </div>
               </div>
@@ -283,7 +254,7 @@ export default function AboutOverview() {
                   </h2>
                 </div>
                 <div className="max-w-4xl mb-12">
-                  <p className="text-black text-[15px] sm:text-[17px] text-justify leading-relaxed font-bold uppercase tracking-tight italic border-l-4 border-aaa-primary/20 pl-6 py-2 bg-slate-50/50 rounded-r-lg">
+                  <p className="text-black text-[0.95rem] sm:text-[1.05rem] text-justify leading-relaxed font-bold uppercase tracking-tight italic border-l-4 border-aaa-primary/20 pl-6 py-2 bg-slate-50/50 rounded-r-lg">
                     The Company is agnostic and has no dependency on any single industry for business.
                   </p>
                 </div>
@@ -295,7 +266,7 @@ export default function AboutOverview() {
                           <div className="relative z-10 shrink-0 w-9 h-9 sm:w-10 sm:h-10 rounded-lg sm:rounded-xl bg-slate-50 border border-slate-100 flex items-center justify-center shadow-sm group-hover/card:bg-white transition-all duration-500">
                             <tag.icon className="w-4 h-4 sm:w-5 sm:h-5 text-[#0f172a]" />
                           </div>
-                          <span className="relative z-10 text-[10px] sm:text-[11px] font-black uppercase tracking-[0.05em] text-black group-hover/card:text-white leading-tight transition-colors duration-300">
+                          <span className="relative z-10 text-xs sm:text-[0.75rem] font-bold uppercase tracking-[0.05em] text-black group-hover/card:text-white leading-tight transition-colors duration-300">
                             {tag.name}
                           </span>
                         </div>
@@ -309,8 +280,6 @@ export default function AboutOverview() {
         </section>
       </main>
 
-      <NewsletterFooter />
-      <BackToTop />
     </div>
   );
 }

@@ -1,9 +1,6 @@
 import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { ChevronRight, Linkedin, Award, Briefcase, GraduationCap, Trophy } from "lucide-react";
-import { Header } from "../components/header";
-import { HeaderUtilityBar } from "../components/header-utility-bar";
-import { NewsletterFooter } from "../components/newsletter-footer";
 import { BackToTop } from "../components/back-to-top";
 
 const leaders = [
@@ -86,10 +83,8 @@ export default function Management() {
 
   return (
     <div className="min-h-screen bg-white text-slate-900 selection:bg-gray-100 transition-all font-sans overflow-x-hidden">
-      <HeaderUtilityBar />
       <div className="sticky top-0 z-[100] bg-white border-b border-gray-100">
-        <Header />
-      </div>
+        </div>
 
       <main className="bg-white">
         {/* --- SECTION: INSTITUTIONAL LEADERSHIP OVERVIEW (HERO) --- */}
@@ -99,12 +94,12 @@ export default function Management() {
             <div className="flex flex-col md:flex-row md:items-center justify-between gap-10">
               <div className="flex-1">
                 {/* NAVIGATION: INSTITUTIONAL HIERARCHY PATHWAY */}
-                <nav className="flex items-center gap-2 mb-4 text-[9px] font-black uppercase tracking-[0.4em] text-slate-400">
-                  <Link to="/" className="hover:text-aaa-primary transition-colors text-slate-900 text-[10px]">Home</Link>
+                <nav className="flex items-center gap-2 mb-4 text-xs font-bold uppercase tracking-[0.4em] text-slate-400">
+                  <Link to="/" className="hover:text-aaa-primary transition-colors text-slate-900 text-xs">Home</Link>
                   <ChevronRight className="w-2.5 h-2.5 text-slate-200" />
                   <span className="text-aaa-primary uppercase tracking-[0.4em]">Our Management</span>
                 </nav>
-                <h1 className="text-slate-900 font-black uppercase tracking-tight text-4xl sm:text-5xl lg:text-7xl leading-tight italic">
+                <h1 className="text-slate-900 font-bold uppercase tracking-tight text-4xl sm:text-5xl lg:text-7xl leading-tight italic">
                   Our <span className="text-aaa-primary not-italic">Management</span>
                 </h1>
                 <p className="mt-6 text-slate-600 text-sm sm:text-base lg:text-lg font-medium italic leading-relaxed max-w-xl border-l-4 border-aaa-primary/20 pl-6 py-2 bg-slate-50/50 rounded-r-lg">
@@ -145,21 +140,21 @@ export default function Management() {
 
                   {/* LEADERSHIP BIOGRAPHY AND PROFESSIONAL CREDENTIALS */}
                   <div className={`md:col-span-8 flex flex-col justify-center ${idx % 2 === 0 ? "md:order-2" : "md:order-1"}`}>
-                    <h2 className="text-2xl md:text-3xl font-black text-slate-900 tracking-tight leading-tight uppercase italic underline decoration-aaa-primary/10 decoration-8 underline-offset-4 mb-4">
+                    <h2 className="text-2xl md:text-3xl font-bold text-slate-900 tracking-tight leading-tight uppercase italic underline decoration-aaa-primary/10 decoration-8 underline-offset-4 mb-4">
                       {leader.name}
                     </h2>
-                    <p className="text-aaa-primary font-bold text-[13px] uppercase tracking-[0.2em] mb-8 italic">{leader.role}</p>
+                    <p className="text-aaa-primary font-bold text-[0.85rem] uppercase tracking-[0.2em] mb-8 italic">{leader.role}</p>
 
                     <div className="space-y-4 mb-6">
                       <div className="flex gap-4 items-start">
                         <Briefcase className="w-5 h-5 text-aaa-primary/80 shrink-0 mt-1" />
-                        <p className="text-slate-600 leading-relaxed text-[15px] font-medium">
+                        <p className="text-slate-600 leading-relaxed text-[0.95rem] font-medium">
                           {leader.experience}
                         </p>
                       </div>
                       <div className="flex gap-4 items-start">
                         <GraduationCap className="w-5 h-5 text-aaa-primary/80 shrink-0 mt-1" />
-                        <p className="text-slate-600 leading-relaxed text-[15px] font-medium">
+                        <p className="text-slate-600 leading-relaxed text-[0.95rem] font-medium">
                           {leader.qualifications}
                         </p>
                       </div>
@@ -169,7 +164,7 @@ export default function Management() {
                       {leader.bullets.map((item, i) => (
                         <div key={i} className="flex gap-3 items-start">
                           <Trophy className="w-3.5 h-3.5 text-aaa-primary/60 mt-1 shrink-0" />
-                          <span className="text-slate-600 text-[13.5px] font-bold leading-snug">{item}</span>
+                          <span className="text-slate-600 text-[0.85rem] font-bold leading-snug">{item}</span>
                         </div>
                       ))}
                     </div>
@@ -181,7 +176,6 @@ export default function Management() {
         </section>
       </main>
 
-      <NewsletterFooter />
       <BackToTop />
     </div>
   );

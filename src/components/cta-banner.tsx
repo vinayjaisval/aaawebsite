@@ -1,74 +1,38 @@
 import { Button } from "@/components/ui/button";
 import { Play } from "lucide-react";
-import { useEffect, useRef } from "react";
 
 export function CTABanner() {
-  const parallaxRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      if (parallaxRef.current) {
-        const scrolled = window.pageYOffset;
-        const element = parallaxRef.current;
-        const rect = element.getBoundingClientRect();
-        const elementTop = rect.top + scrolled;
-        const elementHeight = rect.height;
-        const windowHeight = window.innerHeight;
-
-        // Only apply parallax if element is in viewport
-        if (scrolled + windowHeight > elementTop && scrolled < elementTop + elementHeight) {
-          const yPos = -(scrolled - elementTop) * 0.5;
-          element.style.backgroundPosition = `center ${yPos}px`;
-        }
-      }
-    };
-
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
   return (
     <section
-      ref={parallaxRef}
       id="cta"
       aria-labelledby="cta-heading"
-      className="py-20 px-4 bg-advance-primary text-white relative overflow-hidden"
-      style={{
-        backgroundImage: "url('/banner-4.jpg')",
-        backgroundSize: "cover",
-        backgroundPosition: "center",
-        backgroundAttachment: "fixed",
-      }}
+      className="py-24 px-4 bg-[#35268F] text-white relative overflow-hidden"
     >
       <div className="container mx-auto">
-        <div className="grid lg:grid-cols-1 gap-12 items-center">
-          {/* Left Content */}
-          <div className="space-y-6">
-            <h2 id="cta-heading" className="text-3xl md:text-4xl font-bold text-balance">
+        <div className="flex flex-col lg:flex-row items-center gap-12">
+          <div className="lg:w-2/3 space-y-6">
+            <h2 id="cta-heading" className="text-3xl md:text-5xl font-bold leading-tight">
               Strengthen your IT security posture with India's most trusted
               independent audit firm.
             </h2>
-            <p className="text-lg text-white/90 text-pretty">
+            <p className="text-lg text-white/80 max-w-3xl leading-relaxed">
               With over 22 years of experience, CERT-In empanelment since 2005,
               and ISO-certified processes, AAA Technologies delivers audits you
-              can rely on — across 25+ industry sectors nationwide.
+              can rely on — across all major industry sectors nationwide.
             </p>
           </div>
 
-          {/* Right Content - Image Placeholder */}
-          <div className="relative">
-            <div className="flex flex-col sm:flex-row gap-4">
-              <Button
-                variant="ghost"
-                className="text-white border-white hover:bg-white hover:text-advance-primary"
-              >
-                <Play className="h-4 w-4 mr-2" aria-hidden="true" />
-                Know More
-              </Button>
-              <Button className="bg-advance-secondary hover:bg-advance-secondary/90 text-black">
-                Request an Audit
-              </Button>
-            </div>
+          <div className="lg:w-1/3 flex flex-wrap gap-4 justify-center lg:justify-end">
+            <Button
+              variant="outline"
+              className="border-white text-white hover:bg-white hover:text-[#35268F] px-8 py-7 rounded-[8px] font-bold"
+            >
+              <Play className="h-4 w-4 mr-2 fill-current" />
+              Know More
+            </Button>
+            <Button className="bg-[#008253] hover:bg-[#006b44] text-white px-8 py-7 rounded-[8px] font-bold border-none shadow-xl">
+              Request an Audit
+            </Button>
           </div>
         </div>
       </div>
