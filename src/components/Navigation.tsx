@@ -130,7 +130,7 @@ export const industriesData = [
 
 export function HeaderUtilityBar() {
   return (
-    <div className="bg-[#1A1040] text-white py-[11px] hidden md:block border-b border-white/5">
+    <div className="bg-[#1A1040] text-white py-[11px] hidden md:block">
       <div className="container mx-auto px-4 flex justify-between items-center text-[13px] leading-none">
         <div className="flex items-center gap-2 transition-opacity cursor-default">
           <MapPin className="h-[14px] w-[14px] text-white" strokeWidth={2.5} />
@@ -200,7 +200,7 @@ export function Header() {
             )}
           </div>
 
-          <Link to="/industries" className="px-3 py-6 hover:text-[#35268F] transition-colors duration-300">Industries</Link>
+          {/* <Link to="/industries" className="px-3 py-6 hover:text-[#35268F] transition-colors duration-300">Industries</Link> */}
 
           <div className="relative group py-6" onMouseEnter={() => openDropdown("investor")} onMouseLeave={closeDropdown}>
             <button className={`flex items-center gap-1 px-3 py-2 transition-colors duration-300 ${activeDropdown === "investor" ? "text-[#35268F]" : "hover:text-[#35268F]"}`}>
@@ -258,7 +258,7 @@ export function Header() {
                 <Link to="/it-governance" className="text-[16px]" onClick={() => setIsMenuOpen(false)}>IT Governance</Link>
               </div>
             </div>
-            <Link to="/industries" className="text-[18px] border-b border-slate-50 pb-2" onClick={() => setIsMenuOpen(false)}>Industries</Link>
+            {/* <Link to="/industries" className="text-[18px] border-b border-slate-50 pb-2" onClick={() => setIsMenuOpen(false)}>Industries</Link> */}
             <div className="space-y-3">
               <p className="text-[12px] uppercase tracking-widest text-[#35268F] opacity-50">Investors</p>
               <div className="flex flex-col gap-3 pl-2 border-l-2 border-[#35268F]/10">
@@ -339,7 +339,7 @@ export function Footer() {
             <ul style={{ listStyle: 'none', padding: 0, margin: 0, fontSize: '0.875rem' }}>
               {[
                 { label: 'About Us', to: '/about/overview' },
-                { label: 'Industries', to: '/industries' },
+                // { label: 'Industries', to: '/industries' },
                 { label: 'Events & News', to: '/about/gallery-events' },
                 { label: 'Investor Relations', to: '/investors/relations' },
                 { label: 'Careers', to: '/careers' },

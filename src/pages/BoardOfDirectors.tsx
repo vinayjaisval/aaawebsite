@@ -77,10 +77,7 @@ export default function BoardOfDirectors() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-white text-slate-900 selection:bg-gray-100 transition-all font-sans overflow-x-hidden">
-      <div className="sticky top-0 z-[100] bg-white border-b border-gray-100">
-        </div>
-
+    <>
       <main className="bg-white">
         {/* --- SECTION: INSTITUTIONAL GOVERNANCE HEADER (HERO) --- */}
         <section className="relative py-12 lg:py-16 bg-white border-b border-slate-100 overflow-hidden z-20">
@@ -146,6 +143,6 @@ export default function BoardOfDirectors() {
       </main>
 
       <BackToTop />
-    </div>
+    </>
   );
 }

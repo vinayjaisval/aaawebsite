@@ -244,10 +244,7 @@ export default function InvestorRelations() {
 
   return (
     <div className="min-h-screen bg-white text-slate-900 selection:bg-gray-100 transition-all font-sans overflow-x-hidden">
-      <div className="sticky top-0 z-[100] bg-white border-b border-gray-100">
-        </div>
-
-      <main className="bg-white">
+        <main className="bg-white">
         <section className="relative py-12 lg:py-16 bg-white border-b border-slate-100 overflow-hidden z-20">
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,rgba(252,43,42,0.012),transparent_70%)]" />
           <div className="container mx-auto px-4 sm:px-6 relative z-10" style={{ maxWidth: "1250px" }}>

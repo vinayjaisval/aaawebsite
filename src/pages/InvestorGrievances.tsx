@@ -9,10 +9,7 @@ export default function InvestorGrievances() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-white text-slate-900 selection:bg-gray-100 transition-all font-sans overflow-x-hidden">
-      <div className="sticky top-0 z-[100] bg-white border-b border-gray-100">
-        </div>
-
+    <>
       <main className="bg-white">
         {/* --- SECTION: INSTITUTIONAL HERO (RESTORED TO GLOBAL SCALE) --- */}
         <section className="relative py-12 lg:py-16 bg-white border-b border-slate-100 overflow-hidden z-20">
@@ -39,11 +36,9 @@ export default function InvestorGrievances() {
           </div>
         </section>
 
-        {/* --- SECTION: GRIEVANCES CONTENT (TIGHT SPACING PARITY) --- */}
+        {/* --- SECTION: GRIEVANCES CONTENT --- */}
         <section className="pt-10 lg:pt-12 pb-12 lg:pb-16 bg-slate-50 relative min-h-[500px]">
           <div className="container mx-auto px-4 sm:px-6 relative z-10" style={{ maxWidth: "1150px" }}>
-
-            {/* THE ONLY OFFICIAL BLOCK: COMPANY SECRETARY AND COMPLIANCE OFFICER */}
             <div className="bg-white border border-slate-200 shadow-sm rounded-none overflow-hidden">
               <div className="p-6 lg:p-10">
                 <div className="mb-6">
@@ -51,7 +46,6 @@ export default function InvestorGrievances() {
                     Company Secretary and Compliance Officer
                   </h2>
                 </div>
-
                 <div className="border border-[#DEE2E6] overflow-hidden rounded-none">
                   <table className="w-full text-left border-collapse">
                     <tbody>
@@ -84,12 +78,10 @@ export default function InvestorGrievances() {
                 </div>
               </div>
             </div>
-
           </div>
         </section>
       </main>
-
       <BackToTop />
-    </div>
+    </>
   );
 }

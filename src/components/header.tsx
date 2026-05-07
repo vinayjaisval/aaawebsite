@@ -55,137 +55,137 @@ const servicesData = [
   },
 ];
 
-const industriesData = [
-  {
-    title: "Banking, Financial Services & Insurance",
-    path: "/#industries",
-    items: [
-      "Core Banking IT Audit",
-      "NBFC & Insurance Compliance Review",
-      "Fraud Risk & Financial Systems Audit",
-    ],
-  },
-  {
-    title: "Government & Public Sector",
-    path: "/#industries",
-    items: [
-      "e-Governance IT Audit",
-      "Public Sector Cyber Security Assessment",
-      "Regulatory Compliance for PSUs",
-    ],
-  },
-  {
-    title: "Healthcare & Pharmaceuticals",
-    path: "/#industries",
-    items: [
-      "Hospital IT Systems Audit",
-      "Clinical Data Security & Compliance",
-      "Pharma IT Governance Review",
-    ],
-  },
-  {
-    title: "Manufacturing & Industry",
-    path: "/#industries",
-    items: [
-      "OT & SCADA Security Audit",
-      "ERP Systems Audit",
-      "Industrial Cyber Security Assessment",
-    ],
-  },
-  {
-    title: "Telecom & Media",
-    path: "/#industries",
-    items: [
-      "Network Infrastructure Security Audit",
-      "Telecom Regulatory Compliance",
-      "Data Privacy & Protection Review",
-    ],
-  },
-  {
-    title: "Retail & E-commerce",
-    path: "/#industries",
-    items: [
-      "PCI-DSS Compliance Audit",
-      "E-commerce Platform Security Review",
-      "Customer Data Protection Audit",
-    ],
-  },
-  {
-    title: "IT & IT-Enabled Services",
-    path: "/#industries",
-    items: [
-      "ISO 27001 Implementation Audit",
-      "SOC & ITES Security Assessment",
-      "Third-Party Vendor Risk Review",
-    ],
-  },
-  {
-    title: "Energy & Utilities",
-    path: "/#industries",
-    items: [
-      "Critical Infrastructure Security Audit",
-      "SCADA & ICS Cyber Security Review",
-      "Energy Sector Compliance Assessment",
-    ],
-  },
-];
+// const industriesData = [
+//   {
+//     title: "Banking, Financial Services & Insurance",
+//     path: "/#industries",
+//     items: [
+//       "Core Banking IT Audit",
+//       "NBFC & Insurance Compliance Review",
+//       "Fraud Risk & Financial Systems Audit",
+//     ],
+//   },
+//   {
+//     title: "Government & Public Sector",
+//     path: "/#industries",
+//     items: [
+//       "e-Governance IT Audit",
+//       "Public Sector Cyber Security Assessment",
+//       "Regulatory Compliance for PSUs",
+//     ],
+//   },
+//   {
+//     title: "Healthcare & Pharmaceuticals",
+//     path: "/#industries",
+//     items: [
+//       "Hospital IT Systems Audit",
+//       "Clinical Data Security & Compliance",
+//       "Pharma IT Governance Review",
+//     ],
+//   },
+//   {
+//     title: "Manufacturing & Industry",
+//     path: "/#industries",
+//     items: [
+//       "OT & SCADA Security Audit",
+//       "ERP Systems Audit",
+//       "Industrial Cyber Security Assessment",
+//     ],
+//   },
+//   {
+//     title: "Telecom & Media",
+//     path: "/#industries",
+//     items: [
+//       "Network Infrastructure Security Audit",
+//       "Telecom Regulatory Compliance",
+//       "Data Privacy & Protection Review",
+//     ],
+//   },
+//   {
+//     title: "Retail & E-commerce",
+//     path: "/#industries",
+//     items: [
+//       "PCI-DSS Compliance Audit",
+//       "E-commerce Platform Security Review",
+//       "Customer Data Protection Audit",
+//     ],
+//   },
+//   {
+//     title: "IT & IT-Enabled Services",
+//     path: "/#industries",
+//     items: [
+//       "ISO 27001 Implementation Audit",
+//       "SOC & ITES Security Assessment",
+//       "Third-Party Vendor Risk Review",
+//     ],
+//   },
+//   {
+//     title: "Energy & Utilities",
+//     path: "/#industries",
+//     items: [
+//       "Critical Infrastructure Security Audit",
+//       "SCADA & ICS Cyber Security Review",
+//       "Energy Sector Compliance Assessment",
+//     ],
+//   },
+// ];
 
-const aboutData = [
-  {
-    title: "Overview",
-    path: "/about/overview",
-    items: [
-      "Company Profile",
-      "Corporate Philosophy",
-      "Why AAA Technologies",
-    ],
-  },
-  {
-    title: "Vision & Mission",
-    path: "/about/vision-mission",
-    items: [
-      "Our Vision",
-      "Our Mission",
-      "Quality Objectives",
-    ],
-  },
-  {
-    title: "Our Milestone",
-    path: "/about/milestone",
-    items: [
-      "Historical Growth",
-      "Key Achievements",
-      "Company Timeline",
-    ],
-  },
-  {
-    title: "Awards & Achievements",
-    path: "/about/awards-achievements",
-    items: [
-      "Industry Recognitions",
-      "Certification Portfolio",
-      "Academic Excellence",
-    ],
-  },
-  {
-    title: "Our Management",
-    path: "/about/management",
-    items: [
-      "Board of Directors",
-      "Leadership Team",
-      "Technical Advisory",
-    ],
-  },
-  {
-    title: "Gallery & Events",
-    path: "/about/gallery-events",
-    items: [
-      "Corporate Gallery",
-      "Recent Events",
-      "Media Presence",
-    ],
-  },
-];
+// const aboutData = [
+//   {
+//     title: "Overview",
+//     path: "/about/overview",
+//     items: [
+//       "Company Profile",
+//       "Corporate Philosophy",
+//       "Why AAA Technologies",
+//     ],
+//   },
+//   {
+//     title: "Vision & Mission",
+//     path: "/about/vision-mission",
+//     items: [
+//       "Our Vision",
+//       "Our Mission",
+//       "Quality Objectives",
+//     ],
+//   },
+//   {
+//     title: "Our Milestone",
+//     path: "/about/milestone",
+//     items: [
+//       "Historical Growth",
+//       "Key Achievements",
+//       "Company Timeline",
+//     ],
+//   },
+//   {
+//     title: "Awards & Achievements",
+//     path: "/about/awards-achievements",
+//     items: [
+//       "Industry Recognitions",
+//       "Certification Portfolio",
+//       "Academic Excellence",
+//     ],
+//   },
+//   {
+//     title: "Our Management",
+//     path: "/about/management",
+//     items: [
+//       "Board of Directors",
+//       "Leadership Team",
+//       "Technical Advisory",
+//     ],
+//   },
+//   {
+//     title: "Gallery & Events",
+//     path: "/about/gallery-events",
+//     items: [
+//       "Corporate Gallery",
+//       "Recent Events",
+//       "Media Presence",
+//     ],
+//   },
+// ];
 
 const investorData = [
   {
@@ -503,6 +503,7 @@ export function Header() {
               </li>
 
               {/* Mobile — Industries accordion */}
+{/* 
               <li>
                 <button
                   type="button"
@@ -546,8 +547,10 @@ export function Header() {
                   </ul>
                 )}
               </li>
+*/}
 
               {/* Mobile — About accordion */}
+{/* 
               <li>
                 <button
                   type="button"
@@ -590,6 +593,7 @@ export function Header() {
                   </ul>
                 )}
               </li>
+*/}
 
               {/* Mobile — Investor accordion */}
               <li>
@@ -701,6 +705,7 @@ export function Header() {
       )}
 
       {/* ── Industries mega-dropdown ───────────────────────────────────────── */}
+{/* 
       {activeDropdown === "industries" && (
         <div
           id="industries-dropdown"
@@ -740,7 +745,9 @@ export function Header() {
           </div>
         </div>
       )}
+*/}
       {/* ── About mega-dropdown ───────────────────────────────────────────── */}
+{/* 
       {activeDropdown === "about" && (
         <div
           id="about-dropdown"
@@ -780,6 +787,7 @@ export function Header() {
           </div>
         </div>
       )}
+*/}
       {/* ── Investor mega-dropdown ───────────────────────────────────────────── */}
       {activeDropdown === "investor" && (
         <div

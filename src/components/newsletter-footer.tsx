@@ -13,7 +13,7 @@ export function NewsletterFooter() {
           <div className="space-y-6">
             <img src={aaaLogo} alt="AAA Technologies" className="h-12 w-auto mb-6 brightness-0 invert" />
             <p className="text-white/60 text-sm leading-relaxed">
-              India's 1st and only listed company focused exclusively on IT & Cyber Security Audit. 
+              India's 1st and only listed company focused exclusively on IT & Cyber Security Audit.
               CERT-In empanelled since 2005.
             </p>
           </div>
@@ -35,7 +35,7 @@ export function NewsletterFooter() {
             <h5 className="text-xs font-bold uppercase tracking-widest text-white">Company</h5>
             <ul className="space-y-3 text-sm text-white/60">
               <li><Link to="/about/overview" className="hover:text-white transition-colors">About Us</Link></li>
-              <li><Link to="/#industries" className="hover:text-white transition-colors">Industries</Link></li>
+              {/* <li><Link to="/#industries" className="hover:text-white transition-colors">Industries</Link></li> */}
               <li><Link to="/about/gallery-events" className="hover:text-white transition-colors">Events & News</Link></li>
               <li><Link to="/investors/relations" className="hover:text-white transition-colors">Investor Relations</Link></li>
               <li><Link to="/contact" className="hover:text-white transition-colors">Contact Us</Link></li>
@@ -64,7 +64,7 @@ export function NewsletterFooter() {
 
         <div className="border-t border-white/10 pt-8 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-white/40 font-medium">
           <p>
-            &copy; {currentYear} AAA Technologies Ltd. All rights reserved. &nbsp; | &nbsp; 
+            &copy; {currentYear} AAA Technologies Ltd. All rights reserved. &nbsp; | &nbsp;
             <Link to="/privacy" className="hover:text-white ml-2">Privacy Policy</Link>
             <Link to="/terms" className="hover:text-white ml-4">Terms of Use</Link>
           </p>

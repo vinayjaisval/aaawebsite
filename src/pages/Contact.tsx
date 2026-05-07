@@ -1,10 +1,10 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import { 
-  Phone, 
-  Mail, 
-  MapPin, 
+import {
+  Phone,
+  Mail,
+  MapPin,
   ChevronRight,
   ShieldCheck,
   Lock,
@@ -31,6 +31,8 @@ const staggerContainer = {
 };
 
 export default function Contact() {
+  const [isServiceOpen, setIsServiceOpen] = useState(false);
+  const [selectedService, setSelectedService] = useState("Select Service");
   useEffect(() => {
     window.scrollTo(0, 0);
     document.documentElement.classList.remove("dark");
@@ -41,50 +43,50 @@ export default function Contact() {
       <main>
         {/* --- PREMIUM COMPACT HERO: With Professional Visual Effects --- */}
         <section className="bg-[#F4F3FB] relative overflow-hidden py-8 md:py-12 border-b border-[#EBE9F9]">
-          
+
           {/* Animated Background Effects */}
-          <motion.div 
-            animate={{ 
+          <motion.div
+            animate={{
               scale: [1, 1.2, 1],
               opacity: [0.15, 0.3, 0.15],
             }}
             transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
-            className="absolute top-0 right-0 w-[500px] h-[500px] bg-gradient-to-br from-[#35268F]/10 to-[#00a8ff]/10 rounded-full blur-[100px] -translate-y-1/2 translate-x-1/4 pointer-events-none" 
+            className="absolute top-0 right-0 w-[500px] h-[500px] bg-gradient-to-br from-[#35268F]/10 to-[#00a8ff]/10 rounded-full blur-[100px] -translate-y-1/2 translate-x-1/4 pointer-events-none"
           />
-          
+
           {/* Cyber Grid with Animated Data Streak */}
           <div className="absolute inset-0 opacity-[0.08] pointer-events-none" style={{ backgroundImage: 'radial-gradient(#35268F 1.5px, transparent 1.5px)', backgroundSize: '30px 30px' }} />
-          <motion.div 
-             animate={{ x: ['-100%', '200%'] }}
-             transition={{ duration: 4, repeat: Infinity, ease: "linear" }}
-             className="absolute top-1/2 left-0 w-48 h-[1px] bg-gradient-to-r from-transparent via-[#00a8ff] to-transparent opacity-30 pointer-events-none"
+          <motion.div
+            animate={{ x: ['-100%', '200%'] }}
+            transition={{ duration: 4, repeat: Infinity, ease: "linear" }}
+            className="absolute top-1/2 left-0 w-48 h-[1px] bg-gradient-to-r from-transparent via-[#00a8ff] to-transparent opacity-30 pointer-events-none"
           />
 
           {/* Right-Side Glassmorphic Trust Elements (Filling the Gap) */}
           <div className="absolute right-[10%] top-1/2 -translate-y-1/2 hidden lg:flex flex-col gap-6 z-0 opacity-60">
-             {[
-               { icon: ShieldCheck, color: "text-[#35268F]", bg: "bg-[#35268F]/10", label: "Global Standards", x: 20 },
-               { icon: Activity, color: "text-[#008253]", bg: "bg-[#008253]/10", label: "Real-time Monitoring", x: 0 },
-               { icon: UserCheck, color: "text-[#00a8ff]", bg: "bg-[#00a8ff]/10", label: "Certified Team", x: 40 }
-             ].map((item, idx) => (
-               <motion.div 
-                 key={idx}
-                 animate={{ y: [0, -8, 0], x: [item.x, item.x + 5, item.x] }} 
-                 transition={{ duration: 4 + idx, repeat: Infinity, ease: "easeInOut" }}
-                 className="flex items-center gap-4 bg-white/60 backdrop-blur-md p-4 rounded-2xl border border-white/40 shadow-sm"
-               >
-                  <div className={`w-10 h-10 rounded-xl ${item.bg} flex items-center justify-center ${item.color} shadow-inner`}>
-                     <item.icon className="w-5 h-5" />
-                  </div>
-                  <div>
-                     <p className="text-[10px] font-black uppercase tracking-widest text-[#1A1040]">{item.label}</p>
-                  </div>
-               </motion.div>
-             ))}
+            {[
+              { icon: ShieldCheck, color: "text-[#35268F]", bg: "bg-[#35268F]/10", label: "Global Standards", x: 20 },
+              { icon: Activity, color: "text-[#008253]", bg: "bg-[#008253]/10", label: "Real-time Monitoring", x: 0 },
+              { icon: UserCheck, color: "text-[#00a8ff]", bg: "bg-[#00a8ff]/10", label: "Certified Team", x: 40 }
+            ].map((item, idx) => (
+              <motion.div
+                key={idx}
+                animate={{ y: [0, -8, 0], x: [item.x, item.x + 5, item.x] }}
+                transition={{ duration: 4 + idx, repeat: Infinity, ease: "easeInOut" }}
+                className="flex items-center gap-4 bg-white/60 backdrop-blur-md p-4 rounded-2xl border border-white/40 shadow-sm"
+              >
+                <div className={`w-10 h-10 rounded-xl ${item.bg} flex items-center justify-center ${item.color} shadow-inner`}>
+                  <item.icon className="w-5 h-5" />
+                </div>
+                <div>
+                  <p className="text-[10px] font-black uppercase tracking-widest text-[#1A1040]">{item.label}</p>
+                </div>
+              </motion.div>
+            ))}
           </div>
 
           <div className="container mx-auto px-4 lg:px-8 relative z-10">
-            <motion.div 
+            <motion.div
               variants={staggerContainer}
               initial="initial"
               animate="animate"
@@ -98,7 +100,7 @@ export default function Contact() {
 
               <div className="space-y-5">
                 <motion.div variants={fadeInUp} className="flex flex-wrap gap-2">
-                  <span 
+                  <span
                     className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-[10px] font-black uppercase tracking-widest border border-[#FFDADA]"
                     style={{ background: 'linear-gradient(to right, #FFF5F5, #FFF)', color: '#DC2626' }}
                   >
@@ -108,14 +110,14 @@ export default function Contact() {
                     <ShieldAlert className="w-3.5 h-3.5" /> CERT-In Empanelled
                   </span>
                 </motion.div>
-                
+
                 <motion.h1 variants={fadeInUp} className="font-[900] tracking-tighter text-[#1A1040] leading-[1.1]" style={{
                   fontSize: 'clamp(2.4rem, 5vw, 3.6rem)'
                 }}>
                   How Can We Help <br />
                   <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#35268F] to-[#00a8ff]">Secure Your Assets?</span>
                 </motion.h1>
-                
+
                 <motion.p variants={fadeInUp} className="text-[#60697b] text-[17px] md:text-[19px] leading-snug max-w-2xl font-[700] opacity-90">
                   Connect with India's most trusted cybersecurity audit firm. Our team of certified auditors is ready to assist you.
                 </motion.p>
@@ -125,7 +127,7 @@ export default function Contact() {
         </section>
 
         {/* --- MAIN CONTENT AREA: Tightened Height & Matched Alignment --- */}
-        <section className="py-12 md:py-16 bg-white px-4 relative">
+        <section className="py-12 md:py-24 bg-white px-4 relative">
           <div className="container mx-auto px-4 lg:px-8">
             <div className="flex flex-col lg:flex-row gap-12 items-start">
 
@@ -143,9 +145,9 @@ export default function Contact() {
                     </div>
                     <div>
                       <h4 className="text-[13px] font-black text-[#1A1040] mb-0.5 uppercase tracking-tight">Registered Office</h4>
-                      <a 
-                        href="https://www.google.com/maps/search/?api=1&query=301,+Krishna+Chambers,+Sir+Vithaldas+Thackersay+Marg,+Mumbai+400020" 
-                        target="_blank" 
+                      <a
+                        href="https://www.google.com/maps/search/?api=1&query=301,+Krishna+Chambers,+Sir+Vithaldas+Thackersay+Marg,+Mumbai+400020"
+                        target="_blank"
                         rel="noopener noreferrer"
                         className="text-[13px] text-[#60697b] leading-tight font-[800] hover:text-[#35268F] transition-colors"
                       >
@@ -196,7 +198,7 @@ export default function Contact() {
 
               {/* Right Column: Tightened Form to Match Left Height */}
               <div className="w-full lg:w-7/12">
-                <div className="bg-white p-6 md:p-10 rounded-[2.5rem] border border-[#EBE9F9] shadow-2xl relative overflow-hidden">
+                <div className="bg-white p-6 md:p-10 rounded-[2.5rem] border border-[#EBE9F9] shadow-2xl relative">
                   <div className="absolute top-0 right-0 w-24 h-24 bg-gradient-to-bl from-[#35268F]/5 to-transparent rounded-bl-full pointer-events-none" />
 
                   <div className="mb-6">
@@ -222,17 +224,54 @@ export default function Contact() {
                     <div className="grid md:grid-cols-2 gap-6">
                       <div className="space-y-2">
                         <label className="text-[10px] font-black text-[#1A1040] uppercase tracking-[0.3em] ml-1">Phone Number</label>
-                        <input type="tel" className="w-full bg-[#F4F3FB] border-0 rounded-xl px-6 py-3.5 text-[#1A1040] focus:ring-4 focus:ring-[#35268F]/5 transition-all font-bold text-[15px] outline-none placeholder:text-slate-400" placeholder="+91 00000 00000" />
+                        <input
+                          type="tel"
+                          minLength={10}
+                          maxLength={10}
+                          pattern="[0-9]{10}"
+                          required
+                          className="w-full bg-[#F4F3FB] border-0 rounded-xl px-6 py-3.5 text-[#1A1040] focus:ring-4 focus:ring-[#35268F]/5 transition-all font-bold text-[15px] outline-none placeholder:text-slate-400"
+                          placeholder="0000000000"
+                        />
                       </div>
                       <div className="space-y-2">
                         <label className="text-[10px] font-black text-[#1A1040] uppercase tracking-[0.3em] ml-1">Service interest</label>
                         <div className="relative">
-                          <select className="w-full bg-[#F4F3FB] border-0 rounded-xl px-6 py-3.5 text-[#1A1040] focus:ring-4 focus:ring-[#35268F]/5 transition-all font-bold text-[15px] appearance-none outline-none cursor-pointer">
-                            <option>IT Security Audit</option>
-                            <option>Cyber Security Audit</option>
-                            <option>IT Assurance & Compliance</option>
-                          </select>
-                          <ChevronRight className="absolute right-6 top-1/2 -translate-y-1/2 rotate-90 w-4 h-4 text-slate-400 pointer-events-none" />
+                          <button
+                            type="button"
+                            onClick={() => setIsServiceOpen(!isServiceOpen)}
+                            className="w-full bg-[#F4F3FB] border-0 rounded-xl px-6 py-3.5 text-[#1A1040] focus:ring-4 focus:ring-[#35268F]/5 transition-all font-bold text-[15px] flex items-center justify-between outline-none cursor-pointer"
+                          >
+                            <span className={selectedService === "Select Service" ? "text-slate-400" : "text-[#1A1040]"}>
+                              {selectedService}
+                            </span>
+                            <ChevronRight className={`w-4 h-4 text-slate-400 transition-transform duration-300 ${isServiceOpen ? 'rotate-90' : ''}`} />
+                          </button>
+                          
+                          {isServiceOpen && (
+                            <>
+                              <div className="fixed inset-0 z-[100]" onClick={() => setIsServiceOpen(false)} />
+                              <motion.div
+                                initial={{ opacity: 0, y: 10 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                className="absolute top-full left-0 right-0 mt-2 bg-white border border-[#EBE9F9] rounded-xl shadow-2xl z-[110] overflow-hidden"
+                              >
+                                {["IT Security Audit", "Cyber Security Audit", "IT Assurance & Compliance", "IT Systems audit", "IT Governance"].map((service) => (
+                                  <button
+                                    key={service}
+                                    type="button"
+                                    onClick={() => {
+                                      setSelectedService(service);
+                                      setIsServiceOpen(false);
+                                    }}
+                                    className="w-full text-left px-6 py-3 text-[14px] font-bold text-[#60697b] hover:bg-[#F4F3FB] hover:text-[#35268F] transition-all"
+                                  >
+                                    {service}
+                                  </button>
+                                ))}
+                              </motion.div>
+                            </>
+                          )}
                         </div>
                       </div>
                     </div>

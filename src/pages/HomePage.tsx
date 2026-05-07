@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import {
   ShieldCheck, Award, Users,
-  Search, ClipboardCheck, MonitorCheck, ShieldAlert, Network, HelpCircle,
+  Search, ShieldAlert, Network, HelpCircle, Server, ClipboardList,
   Landmark, Building2, BarChart3, Globe2, HeartPulse, Store, Bolt, GraduationCap, Briefcase, Truck, Quote
 } from "lucide-react";
 
@@ -34,7 +34,7 @@ function useScrollCue() {
 
 function Hero() {
   return (
-    <div className="flex flex-col w-full font-sans" style={{ marginTop: '-29px' }}>
+    <div className="flex flex-col  font-sans" style={{ marginTop: '-50px' }}>
       <section className="bg-[#F4F3FB] text-center px-4 flex items-center pt-32 pb-64 md:pt-16 md:pb-80 md:min-h-screen">
         <div className="container mx-auto">
           <div className="max-w-4xl mx-auto flex flex-col items-center">
@@ -157,8 +157,8 @@ function ClientTicker() {
 function Services() {
   const services = [
     { icon: Search, title: "IT Security Audit", path: "/it-security-audit", desc: "We examine how well your organisation protects its information. You get a clear picture of weak points and a practical plan to fix them." },
-    { icon: ClipboardCheck, title: "IT Assurance & Compliance", path: "/it-assurance-compliance", desc: "We help your organisation meet the rules set by regulators such as RBI, SEBI, and IRDAI. No last-minute scrambles before an audit." },
-    { icon: MonitorCheck, title: "IT Systems Audit", path: "/it-systems-audit", desc: "We review the controls inside your IT systems to confirm they are reliable, accurate, and secure for day-to-day business use." },
+    { icon: ClipboardList, title: "IT Assurance & Compliance", path: "/it-assurance-compliance", desc: "We help your organisation meet the rules set by regulators such as RBI, SEBI, and IRDAI. No last-minute scrambles before an audit." },
+    { icon: Server, title: "IT Systems Audit", path: "/it-systems-audit", desc: "We review the controls inside your IT systems to confirm they are reliable, accurate, and secure for day-to-day business use." },
     { icon: ShieldAlert, title: "Cyber Security Audit", path: "/cyber-security-audit", desc: "We test your defences the way a real attacker would, then tell you exactly what to fix and how ready you are to respond." },
     { icon: Network, title: "IT Governance", path: "/it-governance", desc: "We help leadership ensure IT decisions support business goals. We design policies and risk frameworks built on COBIT and ISO standards." }
   ];
