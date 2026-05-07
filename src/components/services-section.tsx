@@ -1,5 +1,4 @@
 import { 
-  ShieldCheck, 
   Search, 
   ClipboardCheck, 
   MonitorCheck, 
@@ -7,6 +6,7 @@ import {
   Network, 
   HelpCircle 
 } from "lucide-react";
+import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 
 const services = [
@@ -58,7 +58,7 @@ export function ServicesSection() {
           {services.map((service, index) => (
             <Link 
               key={index}
-              to={service.path}
+              to={service.href}
               className="bg-white p-8 rounded-xl border border-[#EBE9F9] shadow-sm hover:shadow-2xl transition-all duration-300 group flex flex-col items-start text-left decoration-none hover:-translate-y-1"
             >
               <div className="w-14 h-14 bg-[#EBE9F9] rounded-[14px] flex items-center justify-center mb-6 text-[#35268F] group-hover:bg-[#35268F] group-hover:text-white transition-all duration-300">

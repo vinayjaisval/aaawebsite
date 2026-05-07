@@ -2,7 +2,6 @@ import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { ChevronRight, Lock, ShieldCheck } from "lucide-react";
-import { BackToTop } from "../components/back-to-top";
 
 const auditTypes = [
   "Vulnerability and Penetration Testing",
@@ -73,8 +72,8 @@ export default function ITSecurityAuditPremium() {
                     <div className="relative p-12 bg-white/[0.02] backdrop-blur-3xl rounded-[50px] border border-white/10 shadow-[0_0_80px_rgba(252,43,42,0.1)] overflow-hidden">
                       <div className="absolute inset-0 bg-gradient-to-br from-white/10 via-transparent to-transparent opacity-50" />
                       <div className="relative">
-                        <div className="absolute inset-0 blur-3xl bg-aaa-primary opacity-20" />
-                        <ShieldCheck className="w-32 h-32 text-aaa-primary relative z-10 drop-shadow-[0_0_15px_rgba(252,43,42,0.6)]" />
+                        <div className="absolute inset-0 blur-3xl bg-[#FC2B2A] opacity-20" />
+                        <ShieldCheck className="w-32 h-32 text-[#FC2B2A] relative z-10 drop-shadow-[0_0_15px_rgba(252,43,42,0.6)]" />
                       </div>
                       <motion.div
                         animate={{ x: ["-150%", "150%"] }}

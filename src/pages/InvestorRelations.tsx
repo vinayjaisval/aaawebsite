@@ -10,8 +10,6 @@ import {
   PieChart,
   ShieldCheck,
   FileBadge,
-  ArrowLeft,
-  File,
   Bell,
   Mail,
   Scale,
@@ -19,11 +17,7 @@ import {
   UserCheck,
   BookOpen,
   MoreHorizontal,
-  ExternalLink,
   Search,
-  Trophy,
-  Award,
-  Shield,
   Eye
 } from "lucide-react";
 import { BackToTop } from "../components/back-to-top";

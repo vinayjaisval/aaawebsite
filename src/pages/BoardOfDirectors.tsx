@@ -116,7 +116,7 @@ export default function BoardOfDirectors() {
         <section className="py-16 bg-slate-50 relative overflow-hidden">
           <div className="container mx-auto px-4 sm:px-6 relative z-10" style={{ maxWidth: "1200px" }}>
             <div className="space-y-10 lg:space-y-16">
-              {boardMembers.map((member, idx) => (
+              {boardMembers.map((member) => (
                 <div
                   key={member.name}
                   className="bg-white border border-slate-100 p-6 lg:p-10 shadow-sm rounded-[40px] transition-all duration-500 w-full hover:shadow-xl group"

@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { Link } from "react-router-dom";
-import { ChevronRight, Linkedin, Award, Briefcase, GraduationCap, Trophy } from "lucide-react";
+import { ChevronRight, Briefcase, GraduationCap, Trophy } from "lucide-react";
 import { BackToTop } from "../components/back-to-top";
 
 const leaders = [

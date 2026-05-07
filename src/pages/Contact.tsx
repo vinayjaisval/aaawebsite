@@ -1,23 +1,18 @@
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { 
   Phone, 
   Mail, 
   MapPin, 
-  Send, 
   ChevronRight,
   ShieldCheck,
-  Zap,
   Lock,
   ArrowRight,
-  Clock,
   Sparkles,
   ShieldAlert,
-  Globe2,
   Activity,
-  UserCheck,
-  Cpu
+  UserCheck
 } from "lucide-react";
 import { BackToTop } from "../components/back-to-top";
 
@@ -142,21 +137,48 @@ export default function Contact() {
                 </div>
 
                 <div className="grid gap-4">
-                  {[
-                    { icon: MapPin, title: "Registered Office", val: "301, Krishna Chambers, Mumbai 020, India" },
-                    { icon: Phone, title: "Direct Hotlines", val: "+91 22 2857 3815 / 16" },
-                    { icon: Mail, title: "Official Email", val: "info@aaatechnologies.co.in" }
-                  ].map((item, i) => (
-                    <div key={i} className="flex gap-5 p-5 rounded-2xl border border-[#EBE9F9] hover:border-[#35268F]/20 transition-all duration-300 group bg-white shadow-sm">
-                      <div className="w-12 h-12 bg-[#F4F3FB] rounded-xl flex items-center justify-center text-[#35268F] group-hover:bg-[#35268F] group-hover:text-white transition-all shrink-0">
-                        <item.icon className="w-5 h-5" />
-                      </div>
-                      <div>
-                        <h4 className="text-[13px] font-black text-[#1A1040] mb-0.5 uppercase tracking-tight">{item.title}</h4>
-                        <p className="text-[13px] text-[#60697b] leading-tight font-[800]">{item.val}</p>
+                  <div className="flex gap-5 p-5 rounded-2xl border border-[#EBE9F9] hover:border-[#35268F]/20 transition-all duration-300 group bg-white shadow-sm">
+                    <div className="w-12 h-12 bg-[#F4F3FB] rounded-xl flex items-center justify-center text-[#35268F] group-hover:bg-[#35268F] group-hover:text-white transition-all shrink-0">
+                      <MapPin className="w-5 h-5" />
+                    </div>
+                    <div>
+                      <h4 className="text-[13px] font-black text-[#1A1040] mb-0.5 uppercase tracking-tight">Registered Office</h4>
+                      <a 
+                        href="https://www.google.com/maps/search/?api=1&query=301,+Krishna+Chambers,+Sir+Vithaldas+Thackersay+Marg,+Mumbai+400020" 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        className="text-[13px] text-[#60697b] leading-tight font-[800] hover:text-[#35268F] transition-colors"
+                      >
+                        301, Krishna Chambers, Mumbai 020, India
+                      </a>
+                    </div>
+                  </div>
+
+                  <div className="flex gap-5 p-5 rounded-2xl border border-[#EBE9F9] hover:border-[#35268F]/20 transition-all duration-300 group bg-white shadow-sm">
+                    <div className="w-12 h-12 bg-[#F4F3FB] rounded-xl flex items-center justify-center text-[#35268F] group-hover:bg-[#35268F] group-hover:text-white transition-all shrink-0">
+                      <Phone className="w-5 h-5" />
+                    </div>
+                    <div>
+                      <h4 className="text-[13px] font-black text-[#1A1040] mb-0.5 uppercase tracking-tight">Direct Hotlines</h4>
+                      <div className="flex gap-2 text-[13px] text-[#60697b] leading-tight font-[800]">
+                        <a href="tel:+912228573815" className="hover:text-[#35268F] transition-colors">+91 22 2857 3815</a>
+                        <span>/</span>
+                        <a href="tel:+912228573816" className="hover:text-[#35268F] transition-colors">16</a>
                       </div>
                     </div>
-                  ))}
+                  </div>
+
+                  <div className="flex gap-5 p-5 rounded-2xl border border-[#EBE9F9] hover:border-[#35268F]/20 transition-all duration-300 group bg-white shadow-sm">
+                    <div className="w-12 h-12 bg-[#F4F3FB] rounded-xl flex items-center justify-center text-[#35268F] group-hover:bg-[#35268F] group-hover:text-white transition-all shrink-0">
+                      <Mail className="w-5 h-5" />
+                    </div>
+                    <div>
+                      <h4 className="text-[13px] font-black text-[#1A1040] mb-0.5 uppercase tracking-tight">Official Email</h4>
+                      <a href="mailto:info@aaatechnologies.co.in" className="text-[13px] text-[#60697b] leading-tight font-[800] hover:text-[#35268F] transition-colors">
+                        info@aaatechnologies.co.in
+                      </a>
+                    </div>
+                  </div>
                 </div>
 
                 {/* Compact Trust Badge */}

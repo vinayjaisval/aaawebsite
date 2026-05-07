@@ -1,8 +1,8 @@
-import React, { useState, useEffect, useRef } from "react";
+import { useState, useRef } from "react";
 import { Link } from "react-router-dom";
-import { 
-  Phone, Mail, MapPin, 
-  ChevronDown, Menu, X 
+import {
+  Phone, Mail, MapPin,
+  ChevronDown, Menu, X
 } from "lucide-react";
 
 export const servicesData = [
@@ -166,9 +166,9 @@ export function Header() {
         <Link to="/" className="flex items-center">
           <img src="/assets/img/logo-dark.png" alt="AAA Technologies" className="h-[42px] w-auto" />
         </Link>
-        
+
         <nav className="hidden lg:flex items-center gap-8 font-bold text-[#343f52] text-[15px] tracking-tight" ref={dropdownRef}>
-          
+
           <div className="relative group py-6" onMouseEnter={() => openDropdown("about")} onMouseLeave={closeDropdown}>
             <button className={`flex items-center gap-1 px-3 py-2 transition-colors duration-300 ${activeDropdown === "about" ? "text-[#35268F]" : "hover:text-[#35268F]"}`}>
               About Us <ChevronDown className={`h-4 w-4 transition-transform duration-300 ${activeDropdown === "about" ? "rotate-180" : ""}`} />
@@ -222,8 +222,8 @@ export function Header() {
         </nav>
 
         <div className="flex items-center gap-4">
-          <Link 
-            to="/contact" 
+          <Link
+            to="/contact"
             className="hidden md:block bg-[#35268F] text-white text-[13px] font-extrabold px-6 py-2.5 rounded hover:bg-[#2b1f7a] transition-all uppercase tracking-wider"
           >
             Get Consultation
@@ -233,7 +233,7 @@ export function Header() {
           </button>
         </div>
       </div>
-      
+
       {isMenuOpen && (
         <div className="lg:hidden bg-white border-t border-slate-100 h-[calc(100vh-80px)] overflow-y-auto absolute w-full shadow-2xl animate-in slide-in-from-top duration-300 z-[999]">
           <nav className="flex flex-col p-6 gap-6 font-bold text-[#1A1040]">

@@ -1,10 +1,9 @@
-import React, { useState, useEffect, useRef } from "react";
+import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import {
-  Phone, Mail, MapPin,
-  ShieldCheck, TrendingUp, Award, Users,
+  ShieldCheck, Award, Users,
   Search, ClipboardCheck, MonitorCheck, ShieldAlert, Network, HelpCircle,
-  ArrowUp, Menu, X, Landmark, Building2, BarChart3, Globe2, HeartPulse, Store, Bolt, GraduationCap, Briefcase, Truck, ChevronDown, Quote
+  Landmark, Building2, BarChart3, Globe2, HeartPulse, Store, Bolt, GraduationCap, Briefcase, Truck, Quote
 } from "lucide-react";
 
 // ── Scroll-cue observer: adds 'is-visible' to [data-cue] elements on scroll ──

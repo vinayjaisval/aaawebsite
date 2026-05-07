@@ -1,8 +1,7 @@
-import { useEffect, useRef } from "react";
+import React, { useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import { motion, useInView } from "framer-motion";
-import { BarChart3, ShieldCheck, Globe2, Layers, Briefcase, Cpu, Landmark, HeartPulse, ShieldAlert, ArrowRight, Target, Award, CheckCircle2, ChevronRight } from "lucide-react";
-import { BackToTop } from "../components/back-to-top";
+import { BarChart3, ShieldCheck, Globe2, Layers, Briefcase, Cpu, Landmark, HeartPulse, ShieldAlert, Target, Award, ChevronRight } from "lucide-react";
 
 const industriesRecap = [
   { name: "Banking", icon: Landmark },
@@ -32,7 +31,7 @@ const industriesRecap = [
   { name: "Refineries", icon: Cpu }
 ];
 
-const AnimatedModule = ({ children, delay = 0 }) => {
+const AnimatedModule = ({ children, delay = 0 }: { children: React.ReactNode; delay?: number }) => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-50px" });
   return (
@@ -69,21 +68,21 @@ export default function AboutOverview() {
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
                 >
-                    <div className="flex flex-col space-y-6 sm:space-y-8">
-                      {/* INSTITUTIONAL BREADCRUMB */}
-                      <nav className="flex items-center gap-2 mb-2 text-xs font-bold uppercase tracking-[0.4em] text-slate-400">
-                        <Link to="/" className="hover:text-aaa-primary transition-colors text-slate-900 text-xs">Home</Link>
-                        <ChevronRight className="w-2.5 h-2.5 text-slate-200" />
-                        <span className="text-aaa-primary uppercase tracking-[0.4em]">Overview</span>
-                      </nav>
-                      <h1 className="text-black uppercase tracking-tight font-bold text-4xl sm:text-5xl lg:text-7xl leading-tight italic">
-                        Enabling <br /> <span className="text-aaa-primary not-italic">Organizations</span>
-                      </h1>
-                      <div className="text-[1rem] sm:text-[1.1rem] lg:text-[1.2rem] text-slate-600 leading-relaxed border-l-[4px] border-aaa-primary/20 pl-8 block max-w-4xl italic font-medium bg-slate-50/50 py-6 rounded-r-2xl shadow-sm transition-all duration-500">
-                        To Identify Issues Of Cyber Security & IT Corporate Governance And Providing
-                        <span className="not-italic text-aaa-primary font-bold uppercase tracking-widest text-[0.8rem] sm:text-[0.9rem] block mt-4 tracking-[0.2em]">Accurate | Reliable | Innovative Services</span>
-                      </div>
+                  <div className="flex flex-col space-y-6 sm:space-y-8">
+                    {/* INSTITUTIONAL BREADCRUMB */}
+                    <nav className="flex items-center gap-2 mb-2 text-xs font-bold uppercase tracking-[0.4em] text-slate-400">
+                      <Link to="/" className="hover:text-aaa-primary transition-colors text-slate-900 text-xs">Home</Link>
+                      <ChevronRight className="w-2.5 h-2.5 text-slate-200" />
+                      <span className="text-aaa-primary uppercase tracking-[0.4em]">Overview</span>
+                    </nav>
+                    <h1 className="text-black uppercase tracking-tight font-bold text-4xl sm:text-5xl lg:text-7xl leading-tight italic">
+                      Enabling <br /> <span className="text-aaa-primary not-italic">Organizations</span>
+                    </h1>
+                    <div className="text-[1rem] sm:text-[1.1rem] lg:text-[1.2rem] text-slate-600 leading-relaxed border-l-[4px] border-aaa-primary/20 pl-8 block max-w-4xl italic font-medium bg-slate-50/50 py-6 rounded-r-2xl shadow-sm transition-all duration-500">
+                      To Identify Issues Of Cyber Security & IT Corporate Governance And Providing
+                      <span className="not-italic text-aaa-primary font-bold uppercase tracking-widest text-[0.8rem] sm:text-[0.9rem] block mt-4 tracking-[0.2em]">Accurate | Reliable | Innovative Services</span>
                     </div>
+                  </div>
                 </motion.div>
 
                 {/* THE REVERTED STABLE LOGO GRAPHIC (SVG version) */}
@@ -102,8 +101,8 @@ export default function AboutOverview() {
                       <div className="absolute inset-0 opacity-[0.03] bg-[radial-gradient(white_1px,transparent_1px)] bg-[size:12px_12px] sm:bg-[size:15px_15px]" />
                       <div className="absolute inset-0 bg-gradient-to-br from-white/10 via-transparent to-black" />
                       <motion.div animate={{ y: [0, -10, 0] }} transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }} className="relative z-10 scale-90 sm:scale-100">
-                         <ShieldCheck className="w-24 h-24 sm:w-32 sm:h-32 text-white drop-shadow-[0_0_35px_rgba(252,43,42,0.45)]" />
-                         <motion.div animate={{ x: ["-100%", "200%"] }} transition={{ duration: 3, repeat: Infinity, ease: "easeInOut", repeatDelay: 1.5 }} className="absolute top-0 left-0 w-full h-full bg-gradient-to-r from-transparent via-white/20 to-transparent skew-x-[-20deg]" />
+                        <ShieldCheck className="w-24 h-24 sm:w-32 sm:h-32 text-white drop-shadow-[0_0_35px_rgba(252,43,42,0.45)]" />
+                        <motion.div animate={{ x: ["-100%", "200%"] }} transition={{ duration: 3, repeat: Infinity, ease: "easeInOut", repeatDelay: 1.5 }} className="absolute top-0 left-0 w-full h-full bg-gradient-to-r from-transparent via-white/20 to-transparent skew-x-[-20deg]" />
                       </motion.div>
                       <motion.div animate={{ top: ["-100%", "200%"] }} transition={{ duration: 5, repeat: Infinity, ease: "linear" }} className="absolute left-0 right-0 h-1.5 bg-gradient-to-r from-transparent via-aaa-primary/60 to-transparent blur-[6px] z-20" />
                     </div>
@@ -151,7 +150,7 @@ export default function AboutOverview() {
                             AAA Technologies Private Limited was incorporated at Mumbai as a Private Limited Company in October 2000 with a vision of a world where each day is safer and more secure than the one before.
                           </p>
                         </div>
-                        
+
                         {/* BROAD IMMERSIVE IMAGE (No Box) */}
                         <div className="mt-auto relative w-full h-[320px] sm:h-[400px] group/img overflow-hidden rounded-[32px]">
                           <img

@@ -67,7 +67,7 @@ export default function ITAssuranceCompliance() {
 
                 {/* The "Sundar" Magnetic Shield Emblem */}
                 <div className="absolute top-1/2 -right-20 -translate-y-1/2 hidden xl:flex items-center justify-center w-[500px] h-[500px] pointer-events-none">
-                  <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] bg-aaa-primary/10 blur-[120px] rounded-full animate-pulse" />
+                  <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] bg-[#FC2B2A]/10 blur-[120px] rounded-full animate-pulse" />
                   <div className="absolute inset-0 flex items-center justify-center">
                     <motion.div
                       animate={{ rotate: 360 }} transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
@@ -82,8 +82,8 @@ export default function ITAssuranceCompliance() {
                     <div className="relative p-12 bg-white/[0.02] backdrop-blur-3xl rounded-[50px] border border-white/10 shadow-[0_0_80px_rgba(252,43,42,0.1)] overflow-hidden">
                       <div className="absolute inset-0 bg-gradient-to-br from-white/10 via-transparent to-transparent opacity-50" />
                       <div className="relative">
-                        <div className="absolute inset-0 blur-3xl bg-aaa-primary opacity-20" />
-                        <ShieldCheck className="w-32 h-32 text-aaa-primary relative z-10 drop-shadow-[0_0_15px_rgba(252,43,42,0.6)]" />
+                        <div className="absolute inset-0 blur-3xl bg-[#FC2B2A] opacity-20" />
+                        <ShieldCheck className="w-32 h-32 text-[#FC2B2A] relative z-10 drop-shadow-[0_0_15px_rgba(252,43,42,0.6)]" />
                       </div>
                       <motion.div
                         animate={{ x: ["-150%", "150%"] }}

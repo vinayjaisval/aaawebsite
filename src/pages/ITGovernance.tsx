@@ -30,12 +30,6 @@ const frameworks = [
   }
 ];
 
-const governanceInputs = [
-  "External Mandates",
-  "Strategic Plans",
-  "Campus Needs"
-];
-
 const governancePillars = [
   "Principles",
   "Policies",
@@ -86,7 +80,7 @@ export default function ITGovernance() {
                 </div>
 
                 <div className="absolute top-1/2 -right-20 -translate-y-1/2 hidden xl:flex items-center justify-center w-[500px] h-[500px] pointer-events-none">
-                  <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] bg-[#35268F]/10 blur-[120px] rounded-full animate-pulse" />
+                  <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] bg-[#FC2B2A]/10 blur-[120px] rounded-full animate-pulse" />
                   <div className="absolute inset-0 flex items-center justify-center">
                     <motion.div
                       animate={{ rotate: 360 }} transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
@@ -98,8 +92,8 @@ export default function ITGovernance() {
                     transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
                     className="relative z-10"
                   >
-                    <div className="relative p-12 bg-white/[0.02] backdrop-blur-3xl rounded-[50px] border border-white/10 shadow-[0_0_80px_rgba(53,38,143,0.1)] overflow-hidden">
-                      <ShieldCheck className="w-32 h-32 text-[#35268F] relative z-10 drop-shadow-[0_0_15px_rgba(53,38,143,0.6)]" />
+                    <div className="relative p-12 bg-white/[0.02] backdrop-blur-3xl rounded-[50px] border border-white/10 shadow-[0_0_80px_rgba(252,43,42,0.1)] overflow-hidden">
+                      <ShieldCheck className="w-32 h-32 text-[#FC2B2A] relative z-10 drop-shadow-[0_0_15px_rgba(252,43,42,0.6)]" />
                     </div>
                   </motion.div>
                 </div>

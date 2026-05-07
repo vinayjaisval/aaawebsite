@@ -2,7 +2,6 @@ import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { ChevronRight } from "lucide-react";
-import { BackToTop } from "../components/back-to-top";
 
 const awardsList = [
   {
