@@ -34,7 +34,7 @@ function useScrollCue() {
 
 function Hero() {
   return (
-    <div className="flex flex-col w-full font-sans">
+    <div className="flex flex-col w-full font-sans" style={{ marginTop: '-29px' }}>
       <section className="bg-[#F4F3FB] text-center px-4 flex items-center pt-32 pb-64 md:pt-16 md:pb-80 md:min-h-screen">
         <div className="container mx-auto">
           <div className="max-w-4xl mx-auto flex flex-col items-center">
