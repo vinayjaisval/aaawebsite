@@ -102,14 +102,14 @@ export default function Milestone() {
             <div className="flex flex-col md:flex-row md:items-center justify-between gap-12">
               <motion.div initial={{ opacity: 0, x: -30 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.8 }}>
                 <nav className="flex items-center gap-2 mb-4 text-xs font-bold uppercase tracking-[0.4em] text-slate-400">
-                  <Link to="/" className="hover:text-aaa-primary transition-colors text-slate-900">Home</Link>
+                  <Link to="/" className="hover:text-aaa-primary transition-colors text-[#1A1040]">Home</Link>
                   <ChevronRight className="w-2.5 h-2.5 text-slate-200" />
                   <span className="text-aaa-primary uppercase tracking-[0.4em]">Our Milestone</span>
                 </nav>
-                <h1 className="text-slate-900 font-bold uppercase tracking-tight text-4xl sm:text-5xl lg:text-7xl leading-tight italic">
-                  Our <span className="text-aaa-primary not-italic">Milestone</span>
+                <h1 className="text-[#1A1040] font-extrabold tracking-tight leading-tight" style={{ fontSize: 'clamp(2rem, 5vw, 3.8rem)', lineHeight: '1.1' }}>
+                  Our <span className="text-aaa-primary">Milestone</span>
                 </h1>
-                <p className="mt-6 text-slate-600 text-sm sm:text-base lg:text-lg font-medium italic leading-relaxed max-w-xl border-l-4 border-aaa-primary/20 pl-6 py-2 bg-slate-50/50 rounded-r-lg">
+                <p className="mt-6 text-[#60697B] text-[17px] md:text-[19px] font-medium leading-relaxed max-w-xl border-l-4 border-aaa-primary/20 pl-6 py-2 bg-slate-50/50 rounded-r-lg">
                   A legacy represented by two decades of uncompromising trust and digital resilience since 2000.
                 </p>
               </motion.div>
@@ -146,16 +146,16 @@ export default function Milestone() {
                     {/* ABSOLUTE DARK HOVER SHADOW RECTANGLE (Max Depth Shadow) */}
                     <motion.div
                       initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.8 }}
-                      className={`group relative bg-white border border-slate-100/60 rounded-[32px] p-8 lg:p-9 shadow-sm hover:shadow-[0_60px_150px_-35px_rgba(0,0,0,0.65)] transition-all duration-700 hover:border-aaa-primary/20 flex items-start gap-8 hover:-translate-y-6 cursor-default`}
+                      className={`group relative bg-white border border-slate-100/60 rounded-[20px] p-8 lg:p-9 shadow-sm hover:shadow-[0_60px_150px_-35px_rgba(0,0,0,0.65)] transition-all duration-700 hover:border-aaa-primary/20 flex items-start gap-8 hover:-translate-y-6 cursor-default`}
                     >
-                      <div className="flex-shrink-0 w-14 h-14 rounded-2xl bg-slate-50 border border-slate-100 flex items-center justify-center text-slate-400 group-hover:bg-aaa-primary group-hover:text-white transition-all duration-500 shadow-sm z-10">
+                      <div className="flex-shrink-0 w-14 h-14 rounded-xl bg-slate-50 border border-slate-100 flex items-center justify-center text-slate-400 group-hover:bg-aaa-primary group-hover:text-white transition-all duration-500 shadow-sm z-10">
                         {(() => { const Icon = pair[0].icon; return <Icon className="w-7 h-7" />; })()}
                       </div>
                       <div className="flex-1 z-10">
-                        <div className="text-[36px] sm:text-[42px] font-bold text-slate-900 italic tracking-tighter leading-none group-hover:text-aaa-primary transition-all duration-500 mb-3 select-none">
+                        <div className="text-[36px] sm:text-[42px] font-bold text-[#1A1040] tracking-tighter leading-none group-hover:text-aaa-primary transition-all duration-500 mb-3 select-none">
                           {pair[0].year}
                         </div>
-                        <p className="text-slate-600 text-[0.95rem] font-bold italic leading-relaxed group-hover:text-slate-900 transition-colors duration-500">
+                        <p className="text-[#60697B] text-[0.95rem] font-bold leading-relaxed group-hover:text-slate-900 transition-colors duration-500">
                           {pair[0].desc}
                         </p>
                       </div>
@@ -165,16 +165,16 @@ export default function Milestone() {
                     {!isSingle && (
                       <motion.div
                         initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.8, delay: 0.1 }}
-                        className={`group relative bg-white border border-slate-100/60 rounded-[32px] p-8 lg:p-9 shadow-sm hover:shadow-[0_60px_150px_-35px_rgba(0,0,0,0.65)] transition-all duration-700 hover:border-aaa-primary/20 flex items-start gap-8 hover:-translate-y-6 cursor-default`}
+                        className={`group relative bg-white border border-slate-100/60 rounded-[20px] p-8 lg:p-9 shadow-sm hover:shadow-[0_60px_150px_-35px_rgba(0,0,0,0.65)] transition-all duration-700 hover:border-aaa-primary/20 flex items-start gap-8 hover:-translate-y-6 cursor-default`}
                       >
-                        <div className="flex-shrink-0 w-14 h-14 rounded-2xl bg-slate-50 border border-slate-100 flex items-center justify-center text-slate-400 group-hover:bg-aaa-primary group-hover:text-white transition-all duration-500 shadow-sm z-10">
+                        <div className="flex-shrink-0 w-14 h-14 rounded-xl bg-slate-50 border border-slate-100 flex items-center justify-center text-slate-400 group-hover:bg-aaa-primary group-hover:text-white transition-all duration-500 shadow-sm z-10">
                           {(() => { const Icon = pair[1].icon; return <Icon className="w-7 h-7" />; })()}
                         </div>
                         <div className="flex-1 z-10">
-                          <div className="text-[36px] sm:text-[42px] font-bold text-slate-900 italic tracking-tighter leading-none group-hover:text-aaa-primary transition-all duration-500 mb-3 select-none">
+                          <div className="text-[36px] sm:text-[42px] font-bold text-[#1A1040] tracking-tighter leading-none group-hover:text-aaa-primary transition-all duration-500 mb-3 select-none">
                             {pair[1].year}
                           </div>
-                          <p className="text-slate-600 text-[0.95rem] font-bold italic leading-relaxed group-hover:text-slate-900 transition-colors duration-500">
+                          <p className="text-[#60697B] text-[0.95rem] font-bold leading-relaxed group-hover:text-slate-900 transition-colors duration-500">
                             {pair[1].desc}
                           </p>
                         </div>

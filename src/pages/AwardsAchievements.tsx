@@ -155,14 +155,14 @@ export default function AwardsAchievements() {
               >
                 {/* NAVIGATION: INSTITUTIONAL CONTENT HIERARCHY */}
                 <nav className="flex items-center gap-2 mb-4 text-xs font-bold uppercase tracking-[0.4em] text-slate-400">
-                  <Link to="/" className="hover:text-aaa-primary transition-colors text-slate-900 text-xs">Home</Link>
+                  <Link to="/" className="hover:text-aaa-primary transition-colors text-[#1A1040] text-xs">Home</Link>
                   <ChevronRight className="w-2.5 h-2.5 text-slate-200" />
                   <span className="text-aaa-primary uppercase tracking-[0.4em]">Awards & Achievements</span>
                 </nav>
-                <h1 className="text-slate-900 font-bold uppercase tracking-tight text-4xl sm:text-5xl lg:text-7xl leading-tight italic">
-                  Awards & <span className="text-aaa-primary not-italic">Achievements</span>
+                <h1 className="text-[#1A1040] font-extrabold tracking-tight leading-tight" style={{ fontSize: 'clamp(2rem, 5vw, 3.8rem)', lineHeight: '1.1' }}>
+                  Awards & <span className="text-aaa-primary">Achievements</span>
                 </h1>
-                <p className="mt-6 text-slate-600 text-sm sm:text-base lg:text-lg font-medium italic leading-relaxed max-w-xl border-l-4 border-aaa-primary/20 pl-6 py-2 bg-slate-50/50 rounded-r-lg">
+                <p className="mt-6 text-[#60697B] text-[17px] md:text-[19px] font-medium leading-relaxed max-w-xl border-l-4 border-aaa-primary/20 pl-6 py-2 bg-slate-50/50 rounded-r-lg">
                   We have grown in size and won many prestigious awards over the past few years.
                 </p>
               </motion.div>
@@ -183,14 +183,14 @@ export default function AwardsAchievements() {
           <div className="container mx-auto relative z-10" style={{ maxWidth: "1600px" }}>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
               {awardsList.map((award, idx) => (
-                <motion.div
-                  key={idx}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.7, delay: idx * 0.05 }}
-                  className="group relative bg-white border border-gray-200 rounded-lg cursor-default overflow-hidden flex flex-col h-full"
-                >
+                  <motion.div
+                    key={idx}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.7, delay: idx * 0.05 }}
+                    className="group relative bg-white border border-gray-200 rounded-xl cursor-default overflow-hidden flex flex-col h-full hover:shadow-xl transition-all duration-500"
+                  >
                   {/* VISUAL COMPONENT: NORMALIZED AWARD EVIDENCE RENDERER */}
                   <div className="relative h-[350px] w-full overflow-hidden bg-white">
                     <img
@@ -208,16 +208,16 @@ export default function AwardsAchievements() {
 
                   {/* --- CONTENT AREA (Professional Corporate Spacing) --- */}
                   <div className="p-5 flex-1 flex flex-col bg-white">
-                    <h3 className="text-[1.05rem] font-bold text-slate-900 leading-tight mb-1.5 group-hover:text-aaa-primary transition-colors uppercase tracking-tight">
+                    <h3 className="text-[15px] font-bold text-[#1A1040] leading-tight mb-2 group-hover:text-aaa-primary transition-colors tracking-tight">
                       {award.title}
                     </h3>
-                    <p className="text-slate-500 text-[0.9rem] font-medium leading-relaxed mb-4">
+                    <p className="text-[#60697B] text-[0.95rem] font-medium leading-relaxed mb-4">
                       {award.desc}
                     </p>
 
                     {/* Footer Button (Corporate Black) */}
                     <div className="mt-auto">
-                      <div className="w-full py-2.5 bg-slate-900 text-white rounded-sm text-center text-[0.75rem] font-bold uppercase tracking-[0.2em] group-hover:bg-aaa-primary transition-all duration-500">
+                      <div className="w-full py-2.5 bg-[#1A1040] text-white rounded-lg text-center text-[0.75rem] font-bold uppercase tracking-[0.2em] group-hover:bg-aaa-primary transition-all duration-500">
                         Award Recognition
                       </div>
                     </div>
