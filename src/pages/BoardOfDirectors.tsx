@@ -80,56 +80,54 @@ export default function BoardOfDirectors() {
     <>
       <main className="bg-white">
         {/* --- SECTION: INSTITUTIONAL GOVERNANCE HEADER (HERO) --- */}
-        <section className="relative py-12 lg:py-16 bg-white border-b border-slate-100 overflow-hidden z-20">
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,rgba(252,43,42,0.012),transparent_70%)]" />
+        <section className="relative py-12 lg:py-20 bg-white border-b border-slate-100 overflow-hidden z-20">
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,rgba(53,38,143,0.02),transparent_70%)]" />
           <div className="container mx-auto px-4 sm:px-6 relative z-10" style={{ maxWidth: "1250px" }}>
-            <div className="flex flex-col md:flex-row md:items-center justify-between gap-10">
-              <div className="flex-1">
+            <div className="flex flex-col md:flex-row md:items-center justify-between gap-12 lg:gap-20">
+              <div className="flex-1 max-w-2xl">
                 {/* NAVIGATION: INSTITUTIONAL HIERARCHY PATHWAY */}
-                <nav className="flex items-center gap-2 mb-4 text-xs font-bold uppercase tracking-[0.4em] text-slate-400">
-                  <Link to="/" className="hover:text-aaa-primary transition-colors text-slate-900 text-xs">Home</Link>
-                  <ChevronRight className="w-2.5 h-2.5 text-slate-200" />
-                  <Link to="/investors/relations" className="hover:text-aaa-primary transition-colors text-slate-400">Investors</Link>
-                  <ChevronRight className="w-2.5 h-2.5 text-slate-200" />
-                  <span className="text-aaa-primary uppercase tracking-[0.4em]">Board of Directors</span>
+                <nav className="flex items-center gap-2 mb-8 text-[11px] font-extrabold uppercase tracking-[0.3em] text-slate-400 overflow-x-auto no-scrollbar whitespace-nowrap">
+                  <Link to="/" className="text-slate-400 hover:text-aaa-primary transition-colors">Home</Link>
+                  <ChevronRight className="w-3 h-3 text-slate-200 shrink-0" />
+                  <Link to="/investors/relations" className="text-slate-400 hover:text-aaa-primary transition-colors">Investors</Link>
+                  <ChevronRight className="w-3 h-3 text-slate-200 shrink-0" />
+                  <span className="text-aaa-primary shrink-0 uppercase tracking-widest font-extrabold">Board of Directors</span>
                 </nav>
-                <h1 className="text-slate-900 font-bold uppercase tracking-tight text-4xl sm:text-5xl lg:text-7xl leading-tight italic">
+                <h1 className="text-[#1A1040] font-extrabold uppercase tracking-tight text-4xl sm:text-5xl lg:text-7xl leading-[0.9] italic mb-8">
                   Board of <span className="text-aaa-primary not-italic">Directors</span>
                 </h1>
-                <p className="mt-6 text-slate-500 text-sm sm:text-base lg:text-lg font-medium italic leading-relaxed max-w-xl border-l-4 border-aaa-primary/20 pl-6 py-2 bg-slate-50/50 rounded-r-lg">
+                <div className="mt-6 text-[17px] md:text-[19px] text-[#60697B] leading-relaxed border-l-[4px] border-aaa-primary/20 pl-8 block max-w-2xl font-medium bg-slate-50/50 py-6 rounded-r-2xl shadow-sm transition-all duration-500">
                   Governance through wisdom, expertise, and principled leadership.
-                </p>
+                </div>
               </div>
-              <div
-                className="hidden md:block relative h-[160px] lg:h-[220px] w-[350px] lg:w-[450px] rounded-[30px] overflow-hidden shadow-[0_20px_60px_-15px_rgba(0,0,0,0.2)] border border-white shrink-0"
-              >
-                <img src="/management_hero_visual.png" className="w-full h-full object-cover" alt="Board of Directors" />
+              <div className="hidden md:block relative h-[160px] lg:h-[250px] w-[350px] lg:w-[450px] rounded-[30px] overflow-hidden shadow-[0_20px_60px_-15px_rgba(0,0,0,0.2)] border border-white shrink-0 group">
+                <img src="/management_hero_visual.png" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" alt="Board of Directors" />
               </div>
             </div>
           </div>
         </section>
 
         {/* --- SECTION: BOARD OF DIRECTORS PORTFOLIO --- */}
-        <section className="py-16 bg-slate-50 relative overflow-hidden">
-          <div className="container mx-auto px-4 sm:px-6 relative z-10" style={{ maxWidth: "1200px" }}>
-            <div className="space-y-10 lg:space-y-16">
+        <section className="py-20 bg-slate-50/50 relative overflow-hidden selection:bg-aaa-primary/10">
+          <div className="container mx-auto px-4 sm:px-6 relative z-10" style={{ maxWidth: "1250px" }}>
+            <div className="space-y-12 lg:space-y-20">
               {boardMembers.map((member) => (
                 <div
                   key={member.name}
-                  className="bg-white border border-slate-100 p-6 lg:p-10 shadow-sm rounded-[40px] transition-all duration-500 w-full hover:shadow-xl group"
+                  className="bg-white border border-slate-100 p-8 lg:p-12 shadow-sm rounded-[40px] transition-all duration-500 w-full hover:shadow-[0_40px_80px_rgba(26,16,64,0.08)] group"
                 >
-                    <h2 className="text-2xl md:text-3xl font-bold text-slate-900 tracking-tight leading-tight uppercase italic underline decoration-aaa-primary/10 decoration-8 underline-offset-4 mb-4 group-hover:text-aaa-primary transition-colors">
+                    <h2 className="text-2xl md:text-3xl lg:text-4xl font-extrabold text-[#1A1040] tracking-tight leading-tight uppercase italic underline decoration-aaa-primary/10 decoration-8 underline-offset-4 mb-6 group-hover:text-aaa-primary transition-colors">
                       {member.name}
                     </h2>
-                  <p className="text-aaa-primary font-bold text-[0.8rem] uppercase tracking-widest mb-6 border-b border-slate-50 pb-6">
+                  <p className="text-aaa-primary font-extrabold text-[11px] uppercase tracking-[0.3em] mb-8 border-b border-slate-50 pb-8">
                     {member.role}
                   </p>
 
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-y-2 gap-x-8 pt-4">
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-y-4 gap-x-12 pt-4">
                     {member.bullets.map((item, i) => (
-                      <div key={i} className="flex gap-3 items-start">
-                        <Trophy className="w-3.5 h-3.5 text-aaa-primary/60 mt-1 shrink-0" />
-                        <span className="text-slate-600 text-[0.85rem] font-bold leading-snug">
+                      <div key={i} className="flex gap-4 items-start group/bullet">
+                        <Trophy className="w-4 h-4 text-aaa-primary/40 mt-1 shrink-0 group-hover/bullet:text-aaa-primary transition-colors" />
+                        <span className="text-[#60697B] text-[0.95rem] font-medium leading-[1.8] text-justify">
                           {item}
                         </span>
                       </div>

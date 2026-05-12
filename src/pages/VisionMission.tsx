@@ -46,9 +46,9 @@ export default function VisionMission() {
           <div className="container mx-auto px-4 sm:px-6">
             <div className="grid lg:grid-cols-2 gap-12">
               {/* Vision */}
-              <motion.div 
-                initial={{ opacity: 0, x: -20 }} 
-                whileInView={{ opacity: 1, x: 0 }} 
+              <motion.div
+                initial={{ opacity: 0, x: -20 }}
+                whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
                 className="p-12 rounded-[40px] bg-slate-50 border border-slate-100 relative overflow-hidden group"
               >
@@ -61,9 +61,9 @@ export default function VisionMission() {
               </motion.div>
 
               {/* Mission */}
-              <motion.div 
-                initial={{ opacity: 0, x: 20 }} 
-                whileInView={{ opacity: 1, x: 0 }} 
+              <motion.div
+                initial={{ opacity: 0, x: 20 }}
+                whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
                 className="p-12 rounded-[40px] bg-[#0a0a0a] border border-white/5 relative overflow-hidden group"
               >
@@ -80,7 +80,7 @@ export default function VisionMission() {
             <div className="mt-32">
               <div className="text-center mb-20">
                 <div className="flex items-center justify-center gap-3 font-bold text-xs text-aaa-primary uppercase tracking-[0.3em] mb-4">
-                   Core Values
+                  Core Values
                 </div>
                 <h2 className="text-4xl sm:text-5xl font-bold text-slate-900 uppercase italic">What Defines <span className="text-aaa-primary">Us</span></h2>
               </div>
@@ -91,7 +91,7 @@ export default function VisionMission() {
                   { title: "Excellence", desc: "Striving for perfection and delivering superior quality consistently.", color: "green" },
                   { title: "Innovation", desc: "Continuously evolving our methodologies to counter emerging threats.", color: "red" }
                 ].map((val, i) => (
-                  <motion.div 
+                  <motion.div
                     key={val.title}
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}

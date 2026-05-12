@@ -56,41 +56,42 @@ export default function BoardCommittees() {
     <>
       <main className="bg-white">
         {/* --- SECTION: INSTITUTIONAL PAGE HEADER (HERO SECTION) --- */}
-        <section className="relative py-12 lg:py-16 bg-white border-b border-slate-100 overflow-hidden z-20">
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,rgba(252,43,42,0.012),transparent_70%)]" />
+        <section className="relative py-12 lg:py-20 bg-white border-b border-slate-100 overflow-hidden z-20">
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,rgba(53,38,143,0.02),transparent_70%)]" />
           <div className="container mx-auto px-4 sm:px-6 relative z-10" style={{ maxWidth: "1250px" }}>
-            <div className="flex flex-col md:flex-row md:items-center justify-between gap-10">
-              <div className="flex-1">
-                <nav className="flex items-center gap-2 mb-4 text-xs font-bold uppercase tracking-[0.4em] text-slate-400">
-                  <Link to="/" className="hover:text-aaa-primary transition-colors text-slate-900 text-xs">Home</Link>
-                  <ChevronRight className="w-2.5 h-2.5 text-slate-200" />
-                  <span className="text-aaa-primary uppercase tracking-[0.4em]">Investors</span>
+            <div className="flex flex-col md:flex-row md:items-center justify-between gap-12 lg:gap-20">
+              <div className="flex-1 max-w-2xl">
+                <nav className="flex items-center gap-2 mb-8 text-[11px] font-extrabold uppercase tracking-[0.3em] text-slate-400 overflow-x-auto no-scrollbar whitespace-nowrap">
+                  <Link to="/" className="text-slate-400 hover:text-aaa-primary transition-colors">Home</Link>
+                  <ChevronRight className="w-3 h-3 text-slate-200 shrink-0" />
+                  <span className="text-aaa-primary shrink-0 uppercase tracking-widest font-extrabold">Board Committees</span>
                 </nav>
-                <h1 className="text-slate-900 font-bold uppercase tracking-tight text-4xl sm:text-5xl lg:text-7xl leading-tight italic">
+                <h1 className="text-[#1A1040] font-extrabold uppercase tracking-tight text-4xl sm:text-5xl lg:text-7xl leading-[0.9] italic mb-8">
                   Committees of <br className="hidden lg:block" />
                   <span className="text-aaa-primary not-italic">the Board</span>
                 </h1>
-                <p className="mt-6 text-slate-500 text-sm sm:text-base lg:text-lg font-medium italic leading-relaxed max-w-xl border-l-4 border-aaa-primary/20 pl-6 py-2 bg-slate-50/50 rounded-r-lg">
+                <div className="mt-6 text-[17px] md:text-[19px] text-[#60697B] leading-relaxed border-l-[4px] border-aaa-primary/20 pl-8 block max-w-2xl font-medium bg-slate-50/50 py-6 rounded-r-2xl shadow-sm transition-all duration-500">
                   Ensuring transparency, accountability and corporate excellence through dedicated governance oversight.
-                </p>
+                </div>
               </div>
-              <div className="hidden md:block relative h-[160px] lg:h-[220px] w-[350px] lg:w-[450px] rounded-[30px] overflow-hidden shadow-[0_20px_60px_-15px_rgba(0,0,0,0.2)] border border-white shrink-0">
-                <img src="/board_committees_hero.png" className="w-full h-full object-cover" alt="Committees" />
+              <div className="hidden md:block relative h-[160px] lg:h-[250px] w-[350px] lg:w-[450px] rounded-[30px] overflow-hidden shadow-[0_20px_60px_-15px_rgba(0,0,0,0.2)] border border-white shrink-0 group">
+                <img src="/board_committees_hero.png" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" alt="Committees" />
               </div>
             </div>
           </div>
         </section>
 
         {/* --- SECTION: GOVERNANCE COMMITTEES MAIN CONTENT --- */}
-        <section className="pt-10 lg:pt-12 pb-12 lg:pb-16 bg-slate-50 relative">
+        <section className="pt-10 lg:pt-12 pb-12 lg:pb-16 bg-slate-50/50 relative selection:bg-aaa-primary/10">
           <div className="container mx-auto px-4 sm:px-6 relative z-10" style={{ maxWidth: "1250px" }}>
-            <div className="flex flex-col lg:flex-row gap-4 lg:gap-6">
+            <div className="flex flex-col lg:flex-row gap-6 lg:gap-12">
 
               {/* COMMITTEE SELECTION SIDEBAR (redBus pattern) */}
               <aside className="lg:w-[320px] shrink-0 w-full sticky top-32 z-10">
                 <div className="bg-white border border-slate-200 shadow-sm overflow-hidden rounded-lg">
                   <div className="p-5 border-b border-slate-100 bg-slate-50/50">
-                    <h3 className="text-[13px] font-bold text-slate-900 uppercase tracking-wider flex items-center gap-2">
+                    <h3 className="text-[11px] font-extrabold text-[#1A1040] uppercase tracking-[0.3em] flex items-center gap-2">
+                      <div className="w-2 h-2 rounded-full bg-aaa-primary" />
                       Governance Committees
                     </h3>
                   </div>
@@ -99,12 +100,12 @@ export default function BoardCommittees() {
                       <button
                         key={item.id}
                         onClick={() => setActiveTab(item.id)}
-                        className={`flex-shrink-0 lg:w-full flex items-center justify-between px-6 py-4 text-[14px] font-medium transition-all duration-200 border-b lg:border-b-0 lg:border-l-4 ${activeTab === item.id
-                          ? "bg-red-50/50 border-red-600 text-red-600"
-                          : "text-slate-600 hover:bg-slate-50 hover:text-red-600 border-transparent"
+                        className={`flex-shrink-0 lg:w-full flex items-center justify-between px-6 py-4 text-[13px] font-bold transition-all duration-200 border-b lg:border-b-0 lg:border-l-4 ${activeTab === item.id
+                          ? "bg-red-50/50 border-aaa-primary text-aaa-primary"
+                          : "text-[#60697B] hover:bg-slate-50 hover:text-aaa-primary border-transparent"
                           }`}
                       >
-                        <span className="whitespace-nowrap">{item.title}</span>
+                        <span className="whitespace-nowrap uppercase tracking-tight">{item.title}</span>
                         <ChevronRight className={`hidden lg:block w-4 h-4 transition-transform duration-300 ${activeTab === item.id ? "translate-x-1" : "opacity-0"}`} />
                       </button>
                     ))}
@@ -117,15 +118,15 @@ export default function BoardCommittees() {
                 <AnimatePresence mode="wait">
                   <motion.div
                     key={activeTab}
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    exit={{ opacity: 0 }}
-                    transition={{ duration: 0.2 }}
-                    className="bg-white border border-slate-200 p-6 lg:p-8 shadow-sm rounded-none"
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -10 }}
+                    transition={{ duration: 0.3 }}
+                    className="bg-white border border-slate-200 p-6 lg:p-10 shadow-sm rounded-none"
                   >
-                    <div className="mb-6">
-                      <div className="h-[2px] w-10 bg-aaa-primary mb-3" />
-                      <h2 className="text-2xl md:text-3xl font-bold text-slate-900 tracking-tight leading-tight uppercase italic underline decoration-aaa-primary/10 decoration-8 underline-offset-4 mb-4">
+                    <div className="mb-8">
+                      <div className="h-[3px] w-12 bg-aaa-primary mb-4" />
+                      <h2 className="text-2xl md:text-3xl lg:text-4xl font-extrabold text-[#1A1040] tracking-tight leading-tight uppercase italic underline decoration-aaa-primary/10 decoration-8 underline-offset-4 mb-4">
                         {activeCommittee.title}
                       </h2>
                     </div>
@@ -136,21 +137,21 @@ export default function BoardCommittees() {
                         <table className="w-full text-left border-collapse">
                           <thead>
                             <tr className="bg-[#F1F1F1]">
-                              <th className="px-5 py-3 text-[0.75rem] font-bold text-slate-400 border border-[#DEE2E6] uppercase tracking-[0.2em]">Name of the Member</th>
-                              <th className="px-5 py-3 text-[0.75rem] font-bold text-slate-400 border border-[#DEE2E6] uppercase tracking-[0.2em]">Nature of Directorship</th>
-                              <th className="px-5 py-3 text-[0.75rem] font-bold text-slate-400 border border-[#DEE2E6] uppercase tracking-[0.2em]">Designation</th>
+                              <th className="px-5 py-4 text-[11px] font-extrabold text-slate-400 border border-[#DEE2E6] uppercase tracking-[0.3em]">Name of the Member</th>
+                              <th className="px-5 py-4 text-[11px] font-extrabold text-slate-400 border border-[#DEE2E6] uppercase tracking-[0.3em]">Nature of Directorship</th>
+                              <th className="px-5 py-4 text-[11px] font-extrabold text-slate-400 border border-[#DEE2E6] uppercase tracking-[0.3em]">Designation</th>
                             </tr>
                           </thead>
                           <tbody>
                             {activeCommittee.members.map((member, i) => (
                               <tr key={i} className={`${i % 2 === 0 ? "bg-[#F1F1F1]" : "bg-white"} transition-colors hover:bg-slate-50`}>
-                                <td className="px-5 py-3 text-[0.85rem] font-bold text-[#212529] border border-[#DEE2E6]">
+                                <td className="px-5 py-4 text-[0.95rem] font-bold text-[#1A1040] border border-[#DEE2E6]">
                                   {member.name}
                                 </td>
-                                <td className="px-5 py-3 text-[0.85rem] font-medium text-slate-500 border border-[#DEE2E6]">
+                                <td className="px-5 py-4 text-[0.95rem] font-medium text-[#60697B] border border-[#DEE2E6] leading-relaxed">
                                   {member.nature}
                                 </td>
-                                <td className="px-5 py-3 text-[0.85rem] font-bold text-[#212529] border border-[#DEE2E6]">
+                                <td className="px-5 py-4 text-[0.95rem] font-bold text-[#1A1040] border border-[#DEE2E6]">
                                   {member.designation}
                                 </td>
                               </tr>

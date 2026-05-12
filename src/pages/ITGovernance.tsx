@@ -112,7 +112,7 @@ export default function ITGovernance() {
               {/* Sidebar Column (5/12 to fix left space) */}
               <motion.div className="w-full lg:w-5/12 lg:sticky lg:top-32 h-fit">
                 <div className="relative group mb-10">
-                  <div className="overflow-hidden rounded-[32px] shadow-2xl relative border border-slate-100 bg-white h-[250px] sm:h-[400px] lg:h-[500px]">
+                  <div className="overflow-hidden rounded-[32px] shadow-2xl relative border border-slate-100 bg-white h-[250px] sm:h-[400px] lg:h-[450px]">
                     <img src="/images/it-governance-hero.png" alt="IT Governance" className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105" />
                   </div>
                   <div className="absolute -bottom-6 -right-6 bg-white p-4 sm:p-6 shadow-2xl rounded-2xl border border-slate-50 hidden md:block text-aaa-primary text-center">
@@ -120,15 +120,26 @@ export default function ITGovernance() {
                   </div>
                 </div>
 
-                {/* Five Core Pillars (Moved to Sidebar) */}
-                <div className="p-8 bg-white border border-slate-100 rounded-[32px] shadow-sm relative overflow-hidden">
+                {/* Governance Division Chart (Added back to fill space) */}
+                <div className="p-6 bg-white border border-slate-100 rounded-[32px] shadow-sm mb-10 group overflow-hidden">
                   <div className="flex items-center gap-3 font-bold text-[10px] text-slate-400 uppercase tracking-[0.3em] mb-6">
+                    <div className="h-[2px] w-8 bg-aaa-primary/20" /> Governance Division
+                  </div>
+                  <div className="rounded-2xl overflow-hidden border border-slate-50 shadow-inner bg-[#f8fafc] p-2">
+                    <img src="https://www.aaatechnologies.co.in/img/governace.png" alt="Chart" className="w-full h-auto transition-transform duration-700 group-hover:scale-105" />
+                  </div>
+                </div>
+
+                {/* Five Core Pillars (Institutional Style) */}
+                <div className="p-8 bg-white border border-slate-100 rounded-[32px] shadow-sm relative overflow-hidden">
+                  <div className="flex items-center gap-3 font-bold text-[11px] text-slate-400 uppercase tracking-[0.3em] mb-6">
                     <div className="h-[2px] w-8 bg-aaa-primary/20" /> Five Core Pillars
                   </div>
-                  <div className="grid grid-cols-2 gap-3">
+                  <div className="grid grid-cols-1 gap-3">
                     {governancePillars.map((pillar, idx) => (
-                      <div key={idx} className="flex flex-col items-center justify-center p-4 bg-slate-50 border border-slate-100 rounded-2xl hover:bg-aaa-primary transition-all group cursor-default shadow-sm text-center">
-                        <span className="text-[10px] font-bold uppercase tracking-widest text-slate-800 group-hover:text-white">{pillar}</span>
+                      <div key={idx} className="flex items-center gap-3 p-4 bg-slate-50 border border-slate-100 rounded-2xl hover:bg-aaa-primary hover:text-white transition-all group cursor-default shadow-sm">
+                        <div className="w-1.5 h-1.5 rounded-full bg-aaa-primary group-hover:bg-white" />
+                        <span className="text-[13px] font-bold uppercase tracking-widest text-slate-800 group-hover:text-white">{pillar}</span>
                       </div>
                     ))}
                   </div>
@@ -138,61 +149,68 @@ export default function ITGovernance() {
               {/* Text Detailed Column (7/12) */}
               <motion.div initial={{ opacity: 0, x: 20 }} whileInView={{ opacity: 1, x: 0 }} transition={{ duration: 0.6 }} className="w-full lg:w-7/12">
                 <div className="space-y-4 mb-8">
-                  <div className="flex items-center gap-2 font-bold text-xs text-[#35268F] uppercase tracking-widest">
+                  <div className="flex items-center gap-2 font-bold text-[11px] text-[#35268F] uppercase tracking-[0.3em]">
                     <div className="h-[1px] w-6 sm:w-8 bg-[#35268F]" /> Service Overview
                   </div>
                   <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-[#1A1040] tracking-tight leading-tight uppercase underline decoration-[#35268F]/10 decoration-8 underline-offset-4">
-                    Analytical <span className="text-[#35268F]">Objectives</span>
+                    IT <span className="text-[#35268F]">Governance</span>
                   </h2>
                 </div>
 
                 <div className="text-slate-600 sm:text-[1.05rem] leading-relaxed mb-8">
+                  <p className="text-[#60697B] text-justify leading-[1.8] text-[0.95rem] font-medium mb-6">
+                    IT Governance is the system by which IT activities in a Company or enterprise are directed and controlled to achieve business objectives with the ultimate objective to achieve stakeholder needs.
+                  </p>
+                  
                   <p className="text-[#60697B] text-justify leading-[1.8] text-[0.95rem] font-medium mb-10">
                     IT governance emphasizes Information Technology Systems, their risk management, and its performance. It ensures that the investments made on IT yield fruitful results, which mitigate IT-associated risks and threats.
                   </p>
 
-                  <div className="p-8 bg-gradient-to-br from-[#0f172a] to-[#0a0a0a] rounded-[2.5rem] shadow-2xl relative overflow-hidden group">
-                    <div className="absolute top-0 right-0 w-64 h-64 bg-aaa-primary/10 blur-[100px]" />
-                    <div className="relative z-10">
-                      <h3 className="text-xl font-bold text-white uppercase tracking-tighter mb-8 italic">
-                        Why do you need <span className="text-aaa-primary">IT Governance?</span>
-                      </h3>
-                      <div className="rounded-2xl overflow-hidden bg-white p-4">
-                        <img src="https://www.aaatechnologies.co.in/img/12.png" alt="Rationale" className="w-full h-auto" />
+                  <p className="text-[#60697B] text-justify leading-[1.8] text-[0.95rem] font-medium mb-10">
+                    IT Governance It can be divided in two parts:
+                  </p>
+                    
+                    <h3 className="text-xl font-extrabold text-[#1A1040] uppercase tracking-tighter mb-8 italic">
+                      Why do you need <span className="text-aaa-primary">IT Governance?</span>
+                    </h3>
+                    <div className="rounded-[32px] overflow-hidden border border-slate-100 shadow-xl bg-white p-6 group mb-12">
+                      <img src="https://www.aaatechnologies.co.in/img/12.png" alt="Lifecycle" className="w-full h-auto transition-transform duration-700 group-hover:scale-105" />
+                    </div>
+
+                    {/* Value Optimization Objectives */}
+                    <div className="space-y-6">
+                      <div className="flex items-center gap-4">
+                        <h3 className="text-[11px] font-bold text-slate-400 uppercase tracking-[0.3em] whitespace-nowrap">Value Optimization</h3>
+                        <div className="h-px w-full bg-slate-200" />
+                      </div>
+                      <p className="text-[#60697B] text-justify leading-[1.8] text-[0.95rem] font-medium mb-6">
+                        IT Governance helps to optimize the value of an organization’s IT-enabled investments by:
+                      </p>
+                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        {valueOptimization.map((p, i) => (
+                          <div key={i} className="flex items-start gap-4 p-5 bg-white border border-slate-100 rounded-xl hover:bg-aaa-primary hover:text-white hover:shadow-2xl transition-all duration-300 group shadow-sm cursor-default">
+                            <div className="w-1.5 h-1.5 rounded-full bg-aaa-primary group-hover:bg-white mt-2 shrink-0 transition-colors" />
+                            <span className="text-[13px] font-bold text-slate-700 group-hover:text-white uppercase tracking-tight leading-snug">{p}</span>
+                          </div>
+                        ))}
                       </div>
                     </div>
                   </div>
-                </div>
-              </motion.div>
+                </motion.div>
             </div>
 
-            {/* --- VALUE OPTIMIZATION (Full Width) --- */}
-            <div className="mt-12 space-y-8">
-              <div className="flex items-center gap-4">
-                <h3 className="text-[11px] font-bold text-slate-400 uppercase tracking-[0.3em] whitespace-nowrap italic">Value Optimization Objectives</h3>
+            {/* --- AUDIT STANDARDS (Institutional Grid) --- */}
+            <div className="mt-20 space-y-10">
+              <div className="flex items-center gap-6">
+                <h3 className="text-[11px] font-bold text-slate-400 uppercase tracking-[0.4em] whitespace-nowrap">Broadly our Company provides IT Governance audits according to following standards / models:</h3>
                 <div className="h-px w-full bg-slate-200" />
               </div>
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-                {valueOptimization.map((p, i) => (
-                  <div key={i} className="flex items-start gap-4 p-5 bg-white border border-slate-100 rounded-xl hover:shadow-2xl hover:border-aaa-primary/20 transition-all duration-300 group shadow-sm">
-                    <div className="w-1.5 h-1.5 rounded-full bg-aaa-primary mt-2 group-hover:scale-150 transition-all shrink-0" />
-                    <span className="text-[13px] font-bold text-slate-700 uppercase tracking-tight leading-relaxed">{p}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            {/* --- AUDIT STANDARDS (Full Width) --- */}
-            <div className="mt-16 space-y-8">
-              <div className="flex items-center gap-4">
-                <h3 className="text-[11px] font-bold text-slate-400 uppercase tracking-[0.3em] whitespace-nowrap italic">Audit Standards</h3>
-                <div className="h-px w-full bg-slate-200" />
-              </div>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
                 {frameworks.map((f, i) => (
-                  <div key={i} className="p-8 bg-white border border-slate-100 rounded-2xl hover:shadow-2xl hover:border-aaa-primary/20 transition-all duration-300 group">
-                    <h5 className="font-extrabold text-[#1A1040] mb-3 uppercase tracking-tighter text-[14px]">{f.t}</h5>
-                    <p className="text-[0.95rem] font-medium text-[#60697B] leading-[1.8]">{f.d}</p>
+                  <div key={i} className="p-8 bg-white border border-slate-100 rounded-[32px] hover:shadow-[0_20px_50px_rgba(53,38,143,0.1)] hover:-translate-y-1 transition-all duration-500 group shadow-sm border-l-4 border-l-aaa-primary/20 relative overflow-hidden">
+                    <div className="absolute top-0 right-0 w-32 h-32 bg-aaa-primary/[0.02] blur-3xl" />
+                    <h5 className="font-extrabold text-[#1A1040] mb-4 uppercase tracking-tighter text-[15px] group-hover:text-aaa-primary transition-colors">{f.t}</h5>
+                    <p className="text-[0.95rem] font-medium text-[#60697B] leading-[1.8] text-justify relative z-10">{f.d}</p>
                   </div>
                 ))}
               </div>
