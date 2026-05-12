@@ -20,7 +20,7 @@ export default function ITSecurityAuditPremium() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-white text-slate-900 selection:bg-aaa-primary/10 transition-colors">
+    <div className="min-h-screen bg-white font-sans selection:bg-[#35268F]/10 overflow-x-hidden">
 
       <main>
         {/* Banner Section (Matched with IT Systems Audit) */}
@@ -50,7 +50,7 @@ export default function ITSecurityAuditPremium() {
                     <span className="leading-[0.8] tracking-tighter">IT Security</span>
                     <span className="text-2xl sm:text-3xl lg:text-4xl text-[#00a8ff] font-bold tracking-[0.2em] transition-all">Audit</span>
                   </h1>
-                  <p className="mt-4 text-white/40 text-xs sm:text-sm md:text-base lg:text-lg max-w-2xl leading-relaxed">
+                  <p className="mt-4 text-white/60 text-xs sm:text-sm md:text-base lg:text-lg max-w-2xl leading-relaxed font-medium">
                     It is an audit on the level of information security in an organization. Most commonly the controls being audited can be categorized to technical, physical and administrative.
                   </p>
                 </div>
@@ -88,90 +88,82 @@ export default function ITSecurityAuditPremium() {
           </div>
         </section>
 
-        {/* Content Section (Matched with IT Systems Audit Layout) */}
-        <section className="py-12 sm:py-24 bg-white relative">
-          <div className="container mx-auto px-4 sm:px-6">
-            <div className="flex flex-col lg:flex-row gap-12 lg:gap-16 items-start">
-
-              {/* Sidebar Column */}
+        <section className="py-8 sm:py-12 bg-slate-50 relative overflow-hidden">
+          {/* Subtle Institutional Background Pattern */}
+          <div className="absolute inset-0 opacity-[0.03] select-none pointer-events-none" style={{ backgroundImage: 'radial-gradient(#1A1040 1px, transparent 1px)', backgroundSize: '40px 40px' }} />
+          
+          <div className="container mx-auto px-4 sm:px-6 relative z-10" style={{ maxWidth: "1150px" }}>
+            <div className="flex flex-col lg:flex-row gap-10 lg:gap-16 items-start">
+              {/* Sidebar Column (Standard 5/12) */}
               <motion.div className="w-full lg:w-5/12 lg:sticky lg:top-32 h-fit">
                 <div className="relative group">
-                  <div className="overflow-hidden rounded-xl shadow-2xl relative border border-slate-100 bg-white h-[200px] sm:h-[300px] lg:h-[340px]">
+                  <div className="overflow-hidden rounded-[32px] shadow-2xl relative border border-slate-100 bg-white h-[200px] sm:h-[300px] lg:h-[340px]">
                     <img
                       src="/images/it-security-914.jpg"
                       alt="IT Security Audit"
                       className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105"
                     />
                   </div>
-                  <div className="absolute -bottom-6 -right-6 bg-white p-4 sm:p-6 shadow-2xl rounded-xl border border-slate-50 hidden md:block text-aaa-primary text-center">
+                  <div className="absolute -bottom-6 -right-6 bg-white p-4 sm:p-6 shadow-2xl rounded-2xl border border-slate-50 hidden md:block text-aaa-primary text-center">
                     <Lock className="w-8 h-8 sm:w-10 sm:h-10 mx-auto" />
                   </div>
                 </div>
-
-                <div className="mt-12 sm:mt-16 p-6 sm:p-8 bg-slate-50/80 border border-slate-100 rounded-xl relative overflow-hidden text-left group">
-                  <div className="absolute top-0 right-0 w-32 h-32 bg-aaa-primary/5 blur-3xl opacity-50" />
-                  <h3 className="text-base sm:text-lg font-bold text-slate-900 mb-3 sm:mb-4 uppercase tracking-tighter italic border-b border-slate-200 pb-2">Holistic Guard</h3>
-                  <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-medium">
-                    Identifying vulnerabilities across data centers and databases to ensure protection.
-                  </p>
-                </div>
               </motion.div>
 
-              {/* Text Column (Matched Font Sizes) */}
+              {/* Text Column (Standard 7/12) */}
               <motion.div initial={{ opacity: 0, x: 20 }} whileInView={{ opacity: 1, x: 0 }} transition={{ duration: 0.6 }} className="w-full lg:w-7/12">
-                <div className="space-y-4 mb-10 sm:mb-12">
-                  <div className="flex items-center gap-2 font-bold text-xs sm:text-xs text-[#35268F] uppercase tracking-widest">
+                <div className="space-y-4 mb-8">
+                  <div className="flex items-center gap-2 font-bold text-xs text-[#35268F] uppercase tracking-widest">
                     <div className="h-[1px] w-6 sm:w-8 bg-[#35268F]" /> Service Overview
                   </div>
-                  <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-slate-900 tracking-tight leading-tight uppercase italic underline decoration-[#35268F]/10 decoration-8 underline-offset-4">
+                  <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-[#1A1040] tracking-tight leading-tight uppercase underline decoration-[#35268F]/10 decoration-8 underline-offset-4">
                     Security <span className="text-[#35268F]">Assessment</span>
                   </h2>
                 </div>
 
-                <div className="text-slate-600 sm:text-[1.05rem] leading-relaxed mb-12">
-                  <div className="space-y-6 mb-12">
-                    <p className="font-medium text-slate-800 mb-8 sm:mb-10 text-sm sm:text-base border-l-4 border-[#35268F]/10 pl-4 sm:pl-6 py-2 bg-slate-50/30 rounded-r-xl italic shadow-sm leading-relaxed">
-                      "Auditing information security covers topics from auditing the physical security of data centers to auditing the logical security of databases and highlights key components to look for and different methods for auditing these areas. When centered on the IT aspects, it encompasses much more than just Information Technology."
+                <div className="text-slate-600 sm:text-[1.05rem] leading-relaxed mb-8">
+                  <div className="space-y-4 mb-8">
+                    <p className="text-[#60697B] text-justify leading-[1.8] text-[0.95rem] font-medium">
+                      Auditing information security covers topics from auditing the physical security of data centers to auditing the logical security of databases and highlights key components to look for and different methods for auditing these areas. When centered on the IT aspects, it encompasses much more than just Information Technology.
                     </p>
                   </div>
 
-                  {/* Audit Principles Box */}
-                  <div className="bg-slate-900 p-6 sm:p-10 rounded-3xl mb-12 sm:mb-16 text-white relative overflow-hidden group">
-                    <div className="absolute top-0 right-0 w-32 h-32 bg-[#35268F]/10 blur-3xl opacity-50" />
-                    <h4 className="text-[#35268F] font-bold mb-4 flex items-center gap-2 uppercase tracking-widest text-xs sm:text-[0.75rem]">
-                      <ShieldCheck className="w-5 h-5" /> Audit Principles
-                    </h4>
-                    <p className="text-white/70 leading-relaxed text-xs sm:text-sm mb-8 italic">
+                  {/* Audit Principles (Clean Style, No Box) */}
+                  <div className="mb-10">
+                    <div className="flex items-center gap-3 font-bold text-xs text-slate-400 uppercase tracking-[0.3em] mb-4">
+                      <div className="h-[2px] w-10 bg-slate-200" /> Audit Principles
+                    </div>
+                    <p className="text-[#60697B] text-justify leading-[1.8] text-[0.95rem] font-medium mb-6">
                       Conducted on the following basic Principles of audit:
                     </p>
-                    <div className="flex justify-center p-4 sm:p-8 bg-white/5 rounded-2xl border border-white/5 group-hover:bg-white/10 transition-all duration-700">
-                      <img src="/images/it-security-11.png" alt="Principles Diagram" className="max-w-full h-auto opacity-90 transition-transform group-hover:scale-105" />
-                    </div>
-                  </div>
-
-                  <div className="space-y-8 sm:space-y-12">
-                    <div className="flex items-center gap-6">
-                      <h3 className="text-xs font-bold text-slate-400 uppercase tracking-[0.4em] whitespace-nowrap italic">Audit Portfolio</h3>
-                      <div className="h-px w-full bg-slate-100" />
-                    </div>
-
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
-                      {auditTypes.map((type, i) => (
-                        <div key={i} className="flex items-center gap-4 p-4 sm:p-5 bg-white border border-slate-100 rounded-2xl hover:bg-[#35268F] hover:text-white transition-all duration-300 group cursor-default shadow-sm italic">
-                          <div className="w-1.5 h-1.5 rounded-full bg-slate-300 group-hover:bg-white transition-all" />
-                          <span className="text-[0.75rem] sm:text-[0.85rem] font-bold text-slate-700 uppercase tracking-tight group-hover:text-white transition-colors leading-snug">{type}</span>
-                        </div>
-                      ))}
+                    <div className="flex justify-center p-4 sm:p-6 bg-white border border-slate-100 rounded-3xl shadow-sm">
+                      <img src="/images/it-security-11.png" alt="Principles Diagram" className="max-w-full h-auto opacity-95" />
                     </div>
                   </div>
                 </div>
               </motion.div>
+            </div>
 
+            {/* --- COMPACT AUDIT PORTFOLIO --- */}
+            <div className="mt-8 sm:mt-10 space-y-6">
+              <div className="flex items-center gap-4">
+                <h3 className="text-[11px] font-bold text-slate-400 uppercase tracking-[0.3em] whitespace-nowrap">Audit Portfolio</h3>
+                <div className="h-px w-full bg-slate-200" />
+              </div>
+
+              <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+                {auditTypes.map((type, i) => (
+                  <div key={i} className="flex items-center gap-3 p-5 bg-white border border-slate-100 rounded-xl hover:shadow-2xl hover:border-aaa-primary/20 transition-all duration-300 group cursor-default shadow-sm text-left">
+                    <div className="w-1 h-1 rounded-full bg-aaa-primary group-hover:scale-150 transition-transform" />
+                    <span className="text-[13px] font-bold text-slate-700 uppercase tracking-tight leading-snug">{type}</span>
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
         </section>
-      </main>
 
+      </main>
     </div>
   );
 }

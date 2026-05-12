@@ -138,14 +138,14 @@ export default function AwardsAchievements() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-white text-slate-900 selection:bg-gray-100 transition-all font-sans overflow-x-hidden">
+    <div className="min-h-screen bg-white font-sans selection:bg-[#35268F]/10 overflow-x-hidden">
 
       <main className="bg-white overflow-hidden relative">
 
         {/* --- SECTION: ANALYTICAL AWARDS OVERVIEW (FINAL MORNING HERO) --- */}
         <section className="relative py-12 lg:py-16 bg-white border-b border-slate-100 overflow-hidden z-20">
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,rgba(252,43,42,0.012),transparent_70%)]" />
-          <div className="container mx-auto px-4 sm:px-6 relative z-10" style={{ maxWidth: "1250px" }}>
+          <div className="container mx-auto px-4 sm:px-6 relative z-10" style={{ maxWidth: "1150px" }}>
             <div className="flex flex-col md:flex-row md:items-center justify-between gap-10">
               <motion.div
                 initial={{ opacity: 0, x: -30 }}
@@ -154,17 +154,17 @@ export default function AwardsAchievements() {
                 className="flex-1"
               >
                 {/* NAVIGATION: INSTITUTIONAL CONTENT HIERARCHY */}
-                <nav className="flex items-center gap-2 mb-4 text-xs font-bold uppercase tracking-[0.4em] text-slate-400">
-                  <Link to="/" className="hover:text-aaa-primary transition-colors text-[#1A1040] text-xs">Home</Link>
+                <nav className="flex items-center gap-2 mb-2 text-xs font-bold uppercase tracking-[0.4em] text-slate-400">
+                  <Link to="/" className="hover:text-aaa-primary transition-colors text-slate-900 text-xs">Home</Link>
                   <ChevronRight className="w-2.5 h-2.5 text-slate-200" />
                   <span className="text-aaa-primary uppercase tracking-[0.4em]">Awards & Achievements</span>
                 </nav>
                 <h1 className="text-[#1A1040] font-extrabold tracking-tight leading-tight" style={{ fontSize: 'clamp(2rem, 5vw, 3.8rem)', lineHeight: '1.1' }}>
                   Awards & <span className="text-aaa-primary">Achievements</span>
                 </h1>
-                <p className="mt-6 text-[#60697B] text-[17px] md:text-[19px] font-medium leading-relaxed max-w-xl border-l-4 border-aaa-primary/20 pl-6 py-2 bg-slate-50/50 rounded-r-lg">
+                <div className="mt-6 text-[17px] md:text-[19px] text-[#60697B] leading-relaxed border-l-[4px] border-aaa-primary/20 pl-8 block max-w-2xl font-medium bg-slate-50/50 py-6 rounded-r-2xl shadow-sm transition-all duration-500">
                   We have grown in size and won many prestigious awards over the past few years.
-                </p>
+                </div>
               </motion.div>
               <motion.div
                 initial={{ opacity: 0, scale: 0.98 }}
@@ -179,18 +179,18 @@ export default function AwardsAchievements() {
         </section>
 
         {/* --- SECTION: CHRONOLOGICAL ACHIEVEMENT PORTFOLIO (4-COLUMN GRID) --- */}
-        <section className="relative px-4 pt-4 pb-20 z-10">
-          <div className="container mx-auto relative z-10" style={{ maxWidth: "1600px" }}>
+        <section className="relative px-4 pt-4 pb-20 bg-slate-50 z-10">
+          <div className="container mx-auto relative z-10" style={{ maxWidth: "1150px" }}>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
               {awardsList.map((award, idx) => (
-                  <motion.div
-                    key={idx}
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.7, delay: idx * 0.05 }}
-                    className="group relative bg-white border border-gray-200 rounded-xl cursor-default overflow-hidden flex flex-col h-full hover:shadow-xl transition-all duration-500"
-                  >
+                <motion.div
+                  key={idx}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.7, delay: idx * 0.05 }}
+                  className="group relative bg-white border border-gray-200 rounded-xl cursor-default overflow-hidden flex flex-col h-full hover:shadow-xl transition-all duration-500"
+                >
                   {/* VISUAL COMPONENT: NORMALIZED AWARD EVIDENCE RENDERER */}
                   <div className="relative h-[350px] w-full overflow-hidden bg-white">
                     <img
@@ -211,7 +211,7 @@ export default function AwardsAchievements() {
                     <h3 className="text-[15px] font-bold text-[#1A1040] leading-tight mb-2 group-hover:text-aaa-primary transition-colors tracking-tight">
                       {award.title}
                     </h3>
-                    <p className="text-[#60697B] text-[0.95rem] font-medium leading-relaxed mb-4">
+                    <p className="text-[#60697B] text-[0.95rem] text-justify leading-[1.8] font-medium mb-4">
                       {award.desc}
                     </p>
 

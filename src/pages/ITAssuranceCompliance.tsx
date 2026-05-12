@@ -34,7 +34,7 @@ export default function ITAssuranceCompliance() {
     <div className="min-h-screen bg-white text-slate-900 selection:bg-aaa-primary/10 transition-colors">
       <main>
         {/* Banner Section (Strictly Matching Master Format) */}
-        <section className="relative pt-24 pb-12 sm:pb-16 bg-[#0a0a0a] overflow-hidden border-b border-white/5">
+        <section className="relative pt-20 pb-10 sm:pb-12 bg-[#0a0a0a] overflow-hidden border-b border-white/5">
           <div className="absolute inset-0 z-0 pointer-events-none">
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] bg-aaa-primary/5 blur-[120px] rounded-full" />
             <motion.div
@@ -56,18 +56,18 @@ export default function ITAssuranceCompliance() {
 
               <div className="relative">
                 <div className="max-w-4xl relative z-10">
-                  <h1 className="text-4xl sm:text-5xl lg:text-7xl font-bold text-white leading-tight tracking-tight uppercase italic flex flex-col gap-1 md:gap-2 font-outfit">
+                  <h1 className="text-4xl sm:text-5xl lg:text-7xl font-bold text-white leading-tight tracking-tight uppercase italic flex flex-col gap-1 md:gap-2">
                     <span className="leading-[0.8] tracking-tighter">IT Assurance &</span>
                     <span className="text-2xl sm:text-3xl lg:text-4xl text-[#00a8ff] font-bold tracking-[0.2em] transition-all">Compliance</span>
                   </h1>
-                  <p className="mt-4 text-white/40 text-xs sm:text-sm md:text-base lg:text-lg max-w-2xl leading-relaxed italic">
+                  <p className="mt-4 text-white/60 text-xs sm:text-sm md:text-base lg:text-lg max-w-2xl leading-relaxed font-medium">
                     Broadly our services in IT Assurance & Compliance consist of BCP, Computer Crime Investigations, IT training and Policy compliance.
                   </p>
                 </div>
 
                 {/* The "Sundar" Magnetic Shield Emblem */}
                 <div className="absolute top-1/2 -right-20 -translate-y-1/2 hidden xl:flex items-center justify-center w-[500px] h-[500px] pointer-events-none">
-                  <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] bg-[#FC2B2A]/10 blur-[120px] rounded-full animate-pulse" />
+                  <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] bg-aaa-primary/10 blur-[120px] rounded-full animate-pulse" />
                   <div className="absolute inset-0 flex items-center justify-center">
                     <motion.div
                       animate={{ rotate: 360 }} transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
@@ -98,68 +98,95 @@ export default function ITAssuranceCompliance() {
           </div>
         </section>
 
-        {/* Content Section (Side-by-Side Layout) */}
-        <section className="py-12 sm:py-24 bg-white relative">
-          <div className="container mx-auto px-4 sm:px-6">
-            <div className="flex flex-col lg:flex-row gap-12 lg:gap-16 items-start">
+        <section className="py-8 sm:py-12 bg-slate-50 relative overflow-hidden">
+          {/* Subtle Institutional Background Pattern */}
+          <div className="absolute inset-0 opacity-[0.03] select-none pointer-events-none" style={{ backgroundImage: 'radial-gradient(#1A1040 1px, transparent 1px)', backgroundSize: '40px 40px' }} />
+          
+          <div className="container mx-auto px-4 sm:px-6 relative z-10" style={{ maxWidth: "1150px" }}>
+            <div className="flex flex-col lg:flex-row gap-10 lg:gap-16 items-start">
 
-              {/* Sidebar Image Column */}
-              <motion.div className="w-full lg:w-5/12 lg:sticky lg:top-32">
+              {/* Sidebar Column (5/12 to fix left space) */}
+              <motion.div className="w-full lg:w-5/12 lg:sticky lg:top-32 h-fit">
                 <div className="relative group">
-                  <div className="overflow-hidden rounded-xl shadow-2xl relative border border-slate-100 bg-white h-[200px] sm:h-[300px] lg:h-[340px]">
+                  <div className="overflow-hidden rounded-[32px] shadow-2xl relative border border-slate-100 bg-white h-[250px] sm:h-[350px] lg:h-[420px]">
                     <img
                       src="/images/it-assurance-hero.png"
                       alt="IT Assurance & Compliance"
-                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                      className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105"
                     />
                   </div>
-                  <div className="absolute -bottom-6 -right-6 bg-white p-4 sm:p-6 shadow-2xl rounded-xl border border-slate-50 hidden md:block text-[#35268F]">
-                    <Scale className="w-8 h-8 sm:w-10 sm:h-10" />
+                  <div className="absolute -bottom-6 -right-6 bg-white p-4 sm:p-6 shadow-2xl rounded-2xl border border-slate-50 hidden md:block text-aaa-primary text-center">
+                    <Scale className="w-8 h-8 sm:w-10 sm:h-10 mx-auto" />
                   </div>
-                </div>
-
-                <div className="mt-12 sm:mt-16 p-6 sm:p-8 bg-slate-50/80 border border-slate-100 rounded-xl relative overflow-hidden group">
-                  <div className="absolute top-0 right-0 w-32 h-32 bg-[#35268F]/5 blur-3xl opacity-50" />
-                  <h3 className="text-base sm:text-lg font-bold text-slate-900 mb-3 sm:mb-4 uppercase tracking-tighter italic border-b border-slate-200 pb-2">Assurance Scope</h3>
-                  <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-medium">
-                    Providing independent assurance through specialized forensic and continuity protocols.
-                  </p>
                 </div>
               </motion.div>
 
-              {/* Text Detailed Column */}
-              <motion.div className="w-full lg:w-7/12">
-                <div className="space-y-4 mb-10 sm:mb-12">
-                  <div className="flex items-center gap-2 font-bold text-xs sm:text-xs text-[#008253] uppercase tracking-widest">
-                    <div className="h-[1px] w-6 sm:w-8 bg-[#008253]" /> Detailed Services
+              {/* Text Detailed Column (7/12 for better balance) */}
+              <motion.div initial={{ opacity: 0, x: 20 }} whileInView={{ opacity: 1, x: 0 }} transition={{ duration: 0.6 }} className="w-full lg:w-7/12">
+                <div className="space-y-4 mb-8">
+                  <div className="flex items-center gap-2 font-bold text-xs text-[#35268F] uppercase tracking-widest">
+                    <div className="h-[1px] w-6 sm:w-8 bg-[#35268F]" /> Detailed Services
                   </div>
-                  <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-slate-900 tracking-tight leading-tight uppercase italic underline decoration-[#35268F]/10 decoration-8 underline-offset-4">
+                  <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-[#1A1040] tracking-tight leading-tight uppercase underline decoration-[#35268F]/10 decoration-8 underline-offset-4">
                     Assurance <span className="text-[#35268F]">& Compliance</span>
                   </h2>
                 </div>
 
-                <div className="text-slate-600 sm:text-[1.05rem] leading-relaxed mb-12">
-                  <p className="font-medium text-slate-800 mb-8 sm:mb-10 text-sm sm:text-base leading-relaxed border-l-4 border-[#35268F]/10 pl-4 sm:pl-6 py-2 bg-slate-50/50 rounded-r-xl italic shadow-sm">
-                    "The assurance service provides an independent review and examination of records and activities to assess the adequacy of system controls, to ensure compliance with established policies and operational procedures."
+                <div className="text-slate-600 sm:text-[1.05rem] leading-relaxed mb-8">
+                  <p className="text-[#60697B] text-justify leading-[1.8] text-[0.95rem] font-medium mb-10">
+                    The assurance service provides an independent review and examination of records and activities to assess the adequacy of system controls, to ensure compliance with established policies and operational procedures.
                   </p>
 
-                  {/* Computer Crime List */}
-                  <div className="pt-8 sm:pt-12">
-                    <div className="flex items-center gap-6 mb-8">
-                      <h3 className="text-xs font-bold text-slate-400 uppercase tracking-[0.4em] mb-0 italic whitespace-nowrap">Computer Crime Investigation</h3>
-                      <div className="h-px w-full bg-slate-100" />
+                  {/* a) Business Continuity Planning */}
+                  <div className="mb-8">
+                    <div className="flex items-center gap-3 font-bold text-xs text-slate-400 uppercase tracking-[0.3em] mb-4">
+                      <div className="h-[2px] w-10 bg-slate-200" /> a) Business Continuity Planning
                     </div>
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
-                      {computerCrimeDetails.map((detail, i) => (
-                        <div key={i} className="flex items-center gap-4 p-4 sm:p-5 bg-white border border-slate-100 rounded-2xl hover:bg-[#35268F] hover:text-white transition-all duration-300 group shadow-sm italic">
-                          <div className="w-1.5 h-1.5 rounded-full bg-slate-300 group-hover:bg-white transition-all" />
-                          <span className="text-[0.75rem] sm:text-[0.85rem] font-bold uppercase tracking-tight leading-snug">{detail}</span>
-                        </div>
-                      ))}
+                    <p className="text-[#60697B] text-justify leading-[1.8] text-[0.95rem] font-medium mb-6">
+                      It is the process a company undergoes to create a prevention and recovery system from potential threats such as natural disasters or cyber-attacks. BCP is designed to protect personnel and assets and make sure they can function quickly when disaster strikes.
+                    </p>
+                  </div>
+
+                  {/* b) Computer Crime Investigations */}
+                  <div className="mb-8">
+                    <div className="flex items-center gap-3 font-bold text-xs text-slate-400 uppercase tracking-[0.3em] mb-4">
+                      <div className="h-[2px] w-10 bg-slate-200" /> b) Computer Crime Investigations
+                    </div>
+                    <p className="text-[#60697B] text-justify leading-[1.8] text-[0.95rem] font-medium mb-8">
+                      This involves audit of any crimes committed, likely to be committed or can be committed by anyone having access to the computer systems of the Company. It ranges from recovering file systems on computers that have been hacked or damaged test security systems that are currently in place. At corporations, computer crime investigators also maximize optimal computer system performance levels.
+                    </p>
+                  </div>
+
+                  {/* c) & d) */}
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
+                    <div className="p-5 bg-white border border-slate-100 rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300">
+                      <h4 className="text-[11px] font-bold text-slate-400 uppercase tracking-widest mb-2">c) IT Training</h4>
+                      <p className="text-slate-700 text-[13px] font-bold uppercase tracking-tight">Training in Information Technology</p>
+                    </div>
+                    <div className="p-5 bg-white border border-slate-100 rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300">
+                      <h4 className="text-[11px] font-bold text-slate-400 uppercase tracking-widest mb-2">d) Policy Compliance</h4>
+                      <p className="text-slate-700 text-[13px] font-bold uppercase tracking-tight">Compliance with IS policies and procedures</p>
                     </div>
                   </div>
                 </div>
               </motion.div>
+            </div>
+
+            {/* --- COMPUTER CRIME DETAILS --- */}
+            <div className="mt-8 space-y-6">
+              <div className="flex items-center gap-4">
+                <h3 className="text-[11px] font-bold text-slate-400 uppercase tracking-[0.3em] whitespace-nowrap">Investigation Involves</h3>
+                <div className="h-px w-full bg-slate-200" />
+              </div>
+
+              <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+                {computerCrimeDetails.map((detail, i) => (
+                  <div key={i} className="flex items-center gap-3 p-5 bg-white border border-slate-100 rounded-xl hover:shadow-2xl hover:border-aaa-primary/20 transition-all duration-300 group cursor-default shadow-sm text-left">
+                    <div className="w-1 h-1 rounded-full bg-aaa-primary group-hover:scale-150 transition-transform" />
+                    <span className="text-[13px] font-bold text-slate-700 uppercase tracking-tight leading-snug">{detail}</span>
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
         </section>
