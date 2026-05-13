@@ -7,6 +7,7 @@ const boardMembers = [
   {
     name: "Mr. Anjay Agarwal",
     role: "Chairman & Managing Director",
+    image: "https://www.aaatechnologies.co.in/img/Team/4764%20(1)%20(2).png",
     bullets: [
       "Over 29+ years of overall experience and 26+ years of experience in Information Security Audit / Cyber Security Audit.",
       "Eminent Information Security professional who has served both the National and International security community for over 20 years.",
@@ -22,6 +23,7 @@ const boardMembers = [
   {
     name: "Mr. Venugopal M. Dhoot",
     role: "Whole Time Director, Director (Finance) & CFO",
+    image: "https://www.aaatechnologies.co.in/img/Team/4767%20(1)%20(2).png",
     bullets: [
       "Over 36+ years of overall experience and 18+ years of experience in Information Security Audit.",
       "Qualified Chartered Accountant and LLB.",
@@ -31,6 +33,7 @@ const boardMembers = [
   {
     name: "Mrs. Ruchi Agarwal",
     role: "Executive Director (HR & Administration)",
+    image: "https://www.aaatechnologies.co.in/img/Team/4761%20(1)%20(1).png",
     bullets: [
       "Over 16+ years of experience in IT Audit.",
       "Master`s in Arts From Kanpur University and Bachelor in Arts from Lucknow University.",
@@ -40,6 +43,7 @@ const boardMembers = [
   {
     name: "Mr. Rajesh Chandra Verma",
     role: "Independent Director",
+    image: "https://www.aaatechnologies.co.in/img/Team/Rajesh%20Pic.jpg",
     bullets: [
       "Qualification includes M. Sc, CAIIB (India) and CAIB (UK).",
       "Has more than 40 years of experience in the Banking and Financing sector.",
@@ -50,6 +54,7 @@ const boardMembers = [
   {
     name: "Mr. Naveen Kumar Srivastava",
     role: "Independent Director",
+    image: "https://www.aaatechnologies.co.in/img/Team/Naveen%20Srivastava.jpg",
     bullets: [
       "Qualification includes M.A. (Economics), CISA, CISB and ISO 27001 Lead Auditor.",
       "Has more than 40 years of experience in the Banking and Information Technology and Security Sector.",
@@ -61,6 +66,7 @@ const boardMembers = [
   {
     name: "Mr. Nabankur Sen",
     role: "Independent Director",
+    image: "https://www.aaatechnologies.co.in/img/Team/Nabankur%20Sen-photo.jpg",
     bullets: [
       "Qualifications includes B. Sc (Physics Honors), CISA, CISM, CRISC from ISACA, Illinois, Chicago, USA, and ISO 27001 Lead Auditor and Implementer.",
       "Has more than 45 years of experience in the Banking and Cyber Security and Information Technology and Security sector.",
@@ -111,27 +117,41 @@ export default function BoardOfDirectors() {
         <section className="py-20 bg-slate-50/50 relative overflow-hidden selection:bg-aaa-primary/10">
           <div className="container mx-auto px-4 sm:px-6 relative z-10" style={{ maxWidth: "1250px" }}>
             <div className="space-y-12 lg:space-y-20">
-              {boardMembers.map((member) => (
+              {boardMembers.map((member, idx) => (
                 <div
                   key={member.name}
-                  className="bg-white border border-slate-100 p-8 lg:p-12 shadow-sm rounded-[40px] transition-all duration-500 w-full hover:shadow-[0_40px_80px_rgba(26,16,64,0.08)] group"
+                  className="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-16 items-center bg-white border border-slate-100 p-8 lg:p-12 shadow-sm rounded-[40px] transition-all duration-500 w-full hover:shadow-[0_40px_80px_rgba(26,16,64,0.08)] group"
                 >
+                  {/* Portrait Section */}
+                  <div className={`md:col-span-4 flex justify-center ${idx % 2 === 0 ? "md:order-1" : "md:order-2"}`}>
+                    <div className="relative w-full max-w-[330px] aspect-[4/5] overflow-hidden rounded-[30px] border border-slate-100 shadow-xl transition-transform duration-500 group-hover:scale-[1.02]">
+                      <img
+                        src={member.image}
+                        className="w-full h-full object-cover object-top"
+                        alt={member.name}
+                      />
+                    </div>
+                  </div>
+
+                  {/* Details Section */}
+                  <div className={`md:col-span-8 flex flex-col justify-center ${idx % 2 === 0 ? "md:order-2" : "md:order-1"}`}>
                     <h2 className="text-2xl md:text-3xl lg:text-4xl font-extrabold text-[#1A1040] tracking-tight leading-tight uppercase italic underline decoration-aaa-primary/10 decoration-8 underline-offset-4 mb-6 group-hover:text-aaa-primary transition-colors">
                       {member.name}
                     </h2>
-                  <p className="text-aaa-primary font-extrabold text-[11px] uppercase tracking-[0.3em] mb-8 border-b border-slate-50 pb-8">
-                    {member.role}
-                  </p>
+                    <p className="text-aaa-primary font-extrabold text-[11px] uppercase tracking-[0.3em] mb-8 border-b border-slate-50 pb-8">
+                      {member.role}
+                    </p>
 
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-y-4 gap-x-12 pt-4">
-                    {member.bullets.map((item, i) => (
-                      <div key={i} className="flex gap-4 items-start group/bullet">
-                        <Trophy className="w-4 h-4 text-aaa-primary/40 mt-1 shrink-0 group-hover/bullet:text-aaa-primary transition-colors" />
-                        <span className="text-[#60697B] text-[0.95rem] font-medium leading-[1.8] text-justify">
-                          {item}
-                        </span>
-                      </div>
-                    ))}
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-y-4 gap-x-12 pt-4">
+                      {member.bullets.map((item, i) => (
+                        <div key={i} className="flex gap-4 items-start group/bullet">
+                          <Trophy className="w-4 h-4 text-aaa-primary/40 mt-1 shrink-0 group-hover/bullet:text-aaa-primary transition-colors" />
+                          <span className="text-[#60697B] text-[0.95rem] font-medium leading-[1.8] text-justify">
+                            {item}
+                          </span>
+                        </div>
+                      ))}
+                    </div>
                   </div>
                 </div>
               ))}

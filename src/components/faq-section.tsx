@@ -24,7 +24,7 @@ const faqs = [
   {
     question: "What certifications does AAA Technologies hold?",
     answer:
-      "AAA Technologies is certified under ISO 9001:2015 (Quality Management) and ISO 27001:2013 (Information Security Management). We are also NSE and BSE Main Board listed — the first and only company in India listed exclusively for IT & Cyber Security Audit services.",
+      "AAA Technologies is certified under ISO 9001:2015 (Quality Management) and ISO 27001:2022 (Information Security Management). We are also NSE and BSE Main Board listed — the first and only company in India listed exclusively for IT & Cyber Security Audit services.",
   },
   {
     question: "How can I contact AAA Technologies?",

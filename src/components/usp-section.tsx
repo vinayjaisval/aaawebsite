@@ -14,7 +14,7 @@ const usps = [
   {
     icon: Award,
     title: "ISO 27001 Certified",
-    description: "We hold ISO 9001:2015 and ISO 27001:2013 certification. We follow the same standards we audit for our clients."
+    description: "We hold ISO 9001:2015 and ISO 27001:2022 certification. We follow the same standards we audit for our clients."
   },
   {
     icon: Users,

@@ -46,10 +46,17 @@ export function NewsletterFooter() {
           <div className="space-y-6">
             <h5 className="text-xs font-bold uppercase tracking-widest text-white">Get in Touch</h5>
             <address className="not-italic text-sm text-white/60 leading-relaxed space-y-4">
-              <div className="flex items-start gap-3">
-                <MapPin className="h-5 w-5 text-[#008253] shrink-0" />
-                <span>301, Krishna Chambers, Sir Vithaldas Thackersay Marg, Mumbai 400 020, India</span>
-              </div>
+              <a 
+                href="https://goo.gl/maps/PwcBgjC3kywUGtvv7" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="flex items-start gap-3 group no-underline"
+              >
+                <MapPin className="h-5 w-5 text-[#008253] shrink-0 group-hover:text-white transition-colors" />
+                <span className="text-sm text-white/60 leading-relaxed group-hover:text-white transition-colors">
+                  278-280, F Wing, Solaris 1, Saki Vihar Road, Opp. L&T Gate No.6, Powai, Andheri East, Mumbai 400 072, INDIA
+                </span>
+              </a>
               <div className="flex items-center gap-3">
                 <Phone className="h-5 w-5 text-[#008253] shrink-0" />
                 <a href="tel:+912228573815" className="hover:text-white transition-colors">+91 22 2857 3815 / 16</a>

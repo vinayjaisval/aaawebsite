@@ -5,13 +5,13 @@ export function HeroSection() {
   return (
     <div className="flex flex-col w-full">
       {/* Part 1: Light Hero Text Section */}
-      <section 
-        className="w-full bg-[#F4F3FB] text-center px-4" 
+      <section
+        className="w-full bg-[#F4F3FB] text-center px-4"
         style={{ paddingTop: '100px', paddingBottom: '160px' }}
       >
         <div className="container mx-auto">
           <div className="max-w-4xl mx-auto flex flex-col items-center">
-            <span 
+            <span
               className="inline-block px-5 py-2 rounded-full text-[13px] font-bold mb-8"
               style={{
                 background: 'var(--red-50)',
@@ -29,7 +29,7 @@ export function HeroSection() {
               CERT-In Empanelled Since 2005
             </span>
 
-            <h1 
+            <h1
               className="mb-8 leading-[1.18] tracking-tight"
               style={{
                 fontSize: 'clamp(2.2rem, 5vw, 3.4rem)',
@@ -42,18 +42,18 @@ export function HeroSection() {
             </h1>
 
             <p className="text-[#60697b] text-[18px] md:text-[20px] leading-relaxed mb-10 max-w-2xl mx-auto font-medium">
-              We have protected 120+ organisations across 12+ industries for over 22+ years. 
-              Listed on NSE and BSE. Certified to ISO 9001:2015 and ISO 27001:2013.
+              We have protected 120+ organisations across 12+ industries for over 22+ years.
+              Listed on NSE and BSE. Certified to ISO 9001:2015 and ISO 27001:2022.
             </p>
 
             <div className="flex flex-wrap justify-center gap-4">
-              <Button 
+              <Button
                 className="bg-[#35268F] hover:bg-[#251b64] text-white px-8 py-7 rounded-[8px] text-[16px] font-bold"
               >
                 See All Services
               </Button>
-              <Button 
-                variant="outline" 
+              <Button
+                variant="outline"
                 className="border-[#35268F] text-[#35268F] hover:bg-[#35268F] hover:text-white px-8 py-7 rounded-[8px] text-[16px] font-bold"
               >
                 Request a Free Assessment
@@ -69,9 +69,9 @@ export function HeroSection() {
           {/* Overlapping Image — Negative margin pull-up */}
           <div className="relative -mt-24 md:-mt-32 lg:-mt-40 mb-16 max-w-6xl mx-auto">
             <div className="rounded-[10px] overflow-hidden shadow-2xl bg-white">
-              <img 
-                src="/assets/img/photos/banner1.png" 
-                alt="Cybersecurity Audit" 
+              <img
+                src="/assets/img/photos/banner1.png"
+                alt="Cybersecurity Audit"
                 className="w-full h-auto object-cover"
                 onError={(e) => {
                   e.currentTarget.src = "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&q=80&w=1200";
@@ -111,7 +111,7 @@ export function HeroSection() {
               </div>
               <h4 className="text-[19px] font-bold mb-3 text-white" style={{ color: '#fff !important' }}>ISO 27001 Certified</h4>
               <p className="text-white/70 text-[14px] leading-relaxed">
-                We hold ISO 9001:2015 and ISO 27001:2013 certification.
+                We hold ISO 9001:2015 and ISO 27001:2022 certification.
               </p>
             </div>
             <div className="flex flex-col items-center">

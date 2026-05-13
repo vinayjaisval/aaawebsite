@@ -48,7 +48,7 @@ export default function GalleryEvents() {
     : galleryItems.filter(item => item.category === activeCategory);
 
   return (
-    <div className="min-h-screen bg-white text-slate-900 selection:bg-aaa-primary/10 transition-colors overflow-x-hidden">
+    <div className="min-h-screen bg-white text-slate-900 selection:bg-aaa-primary/10 transition-colors overflow-x-hidden font-sans">
       <main className="bg-white">
         {/* --- SECTION: GALLERY HERO - MATCHING INVESTOR RELATIONS PATTERN --- */}
         <section className="relative py-12 lg:py-20 bg-white border-b border-slate-100 overflow-hidden z-20">
@@ -60,12 +60,12 @@ export default function GalleryEvents() {
                 <nav className="flex items-center gap-2 mb-8 text-[11px] font-extrabold uppercase tracking-[0.3em] text-slate-400 overflow-x-auto no-scrollbar whitespace-nowrap">
                   <Link to="/" className="text-slate-400 hover:text-aaa-primary transition-colors">Home</Link>
                   <ChevronRight className="w-3 h-3 text-slate-200 shrink-0" />
-                  <span className="text-aaa-primary shrink-0 uppercase tracking-widest font-extrabold font-sans">Gallery & Events</span>
+                  <span className="text-aaa-primary shrink-0 uppercase tracking-widest font-extrabold">Gallery & Events</span>
                 </nav>
-                <h1 className="text-[#1A1040] font-extrabold uppercase tracking-tight text-4xl sm:text-5xl lg:text-7xl leading-[0.9] italic mb-8">
-                  Gallery & <span className="text-aaa-primary not-italic">Events</span>
+                <h1 className="text-[#1A1040] font-extrabold tracking-tight leading-tight" style={{ fontSize: 'clamp(2rem, 5vw, 3.8rem)', lineHeight: '1.1' }}>
+                  Gallery & <span className="text-aaa-primary">Events</span>
                 </h1>
-                <div className="mt-6 text-[17px] md:text-[19px] text-[#60697B] leading-relaxed border-l-[4px] border-aaa-primary/20 pl-8 block max-w-2xl font-medium bg-slate-50/50 py-6 rounded-r-2xl shadow-sm transition-all duration-500">
+                <div className="text-[17px] md:text-[19px] text-[#60697B] leading-relaxed border-l-[4px] border-aaa-primary/20 pl-8 block max-w-2xl font-medium bg-slate-50/50 py-6 rounded-r-2xl shadow-sm transition-all duration-500 mt-6">
                   Capturing moments of professional excellence and corporate culture.
                 </div>
               </div>
@@ -97,7 +97,7 @@ export default function GalleryEvents() {
                       <button
                         key={cat}
                         onClick={() => setActiveCategory(cat)}
-                        className={`flex-shrink-0 lg:w-full flex items-center justify-between px-6 py-4 text-[13px] font-bold transition-all duration-200 border-b lg:border-b-0 lg:border-l-4 ${activeCategory === cat
+                        className={`flex-shrink-0 lg:w-full flex items-center justify-between px-6 py-4 text-[13px] font-extrabold transition-all duration-200 border-b lg:border-b-0 lg:border-l-4 ${activeCategory === cat
                           ? "bg-red-50/50 border-aaa-primary text-aaa-primary"
                           : "text-[#60697B] hover:bg-slate-50 hover:text-aaa-primary border-transparent"
                           }`}
@@ -140,10 +140,10 @@ export default function GalleryEvents() {
                         {/* Overlay on Hover */}
                         <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500">
                           <div className="absolute bottom-0 left-0 right-0 p-6">
-                            <div className="flex items-center gap-2 text-white/70 text-xs font-bold uppercase tracking-[0.2em] mb-2">
+                            <div className="flex items-center gap-2 text-white/80 text-[11px] font-extrabold uppercase tracking-[0.2em] mb-2">
                               <Calendar className="w-3 h-3" /> {item.date}
                             </div>
-                            <h3 className="text-white font-bold text-base leading-tight mb-2 uppercase tracking-tight">{item.title}</h3>
+                            <h3 className="text-white font-extrabold text-lg leading-tight mb-2 uppercase tracking-tight italic">{item.title}</h3>
                             <div className="w-8 h-8 rounded-full bg-aaa-primary flex items-center justify-center text-white scale-0 group-hover:scale-100 transition-transform duration-500 delay-100 shadow-lg">
                               <Maximize2 className="w-4 h-4" />
                             </div>
@@ -152,7 +152,7 @@ export default function GalleryEvents() {
 
                         {/* Category Tag */}
                         <div className="absolute top-4 left-4">
-                          <span className="px-3 py-1 bg-white/95 backdrop-blur-sm border border-slate-100 rounded-full text-xs font-bold text-slate-900 uppercase tracking-widest shadow-sm">
+                          <span className="px-3 py-1 bg-white/95 backdrop-blur-sm border border-slate-100 rounded-full text-[10px] font-extrabold text-slate-900 uppercase tracking-[0.15em] shadow-sm">
                             {item.category}
                           </span>
                         </div>

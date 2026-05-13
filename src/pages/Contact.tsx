@@ -16,6 +16,10 @@ import {
 } from "lucide-react";
 import { BackToTop } from "../components/back-to-top";
 
+/**
+ * AAA Technologies Institutional Contact Portal
+ * STANDARDIZATION: Synced tracking (0.4em), labels (11px), and form validation with Careers.tsx.
+ */
 const fadeInUp = {
   initial: { opacity: 0, y: 15 },
   animate: { opacity: 1, y: 0 },
@@ -79,7 +83,7 @@ export default function Contact() {
                   <item.icon className="w-5 h-5" />
                 </div>
                 <div>
-                  <p className="text-[10px] font-black uppercase tracking-widest text-[#1A1040]">{item.label}</p>
+                  <p className="text-[11px] font-extrabold uppercase tracking-[0.4em] text-[#1A1040]">{item.label}</p>
                 </div>
               </motion.div>
             ))}
@@ -92,7 +96,7 @@ export default function Contact() {
               animate="animate"
               className="max-w-3xl"
             >
-              <motion.nav variants={fadeInUp} className="flex items-center gap-2 text-[9px] font-black uppercase tracking-[0.3em] text-[#60697b] mb-4">
+              <motion.nav variants={fadeInUp} className="flex items-center gap-2 text-[11px] font-extrabold uppercase tracking-[0.4em] text-slate-400 mb-4">
                 <Link to="/" className="hover:text-[#35268F] transition-all">Home</Link>
                 <ChevronRight className="w-2.5 h-2.5 text-slate-300" />
                 <span className="text-[#35268F]">Contact Us</span>
@@ -101,26 +105,26 @@ export default function Contact() {
               <div className="space-y-5">
                 <motion.div variants={fadeInUp} className="flex flex-wrap gap-2">
                   <span
-                    className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-[10px] font-black uppercase tracking-widest border border-[#FFDADA]"
+                    className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-[11px] font-extrabold uppercase tracking-[0.2em] border border-[#FFDADA]"
                     style={{ background: 'linear-gradient(to right, #FFF5F5, #FFF)', color: '#DC2626' }}
                   >
                     <Sparkles className="w-3.5 h-3.5" /> 24/7 Support
                   </span>
-                  <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-[10px] font-black uppercase tracking-widest bg-white border border-[#EBE9F9] text-[#35268F] shadow-sm">
+                  <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-[11px] font-extrabold uppercase tracking-[0.2em] bg-white border border-[#EBE9F9] text-[#35268F] shadow-sm">
                     <ShieldAlert className="w-3.5 h-3.5" /> CERT-In Empanelled
                   </span>
                 </motion.div>
 
-                <motion.h1 variants={fadeInUp} className="font-[900] tracking-tighter text-[#1A1040] leading-[1.1]" style={{
-                  fontSize: 'clamp(2.4rem, 5vw, 3.6rem)'
+                <motion.h1 variants={fadeInUp} className="text-[#1A1040] font-extrabold uppercase tracking-tight leading-[0.9] italic mb-8" style={{
+                  fontSize: 'clamp(2.4rem, 5vw, 3.8rem)'
                 }}>
                   How Can We Help <br />
-                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#35268F] to-[#00a8ff]">Secure Your Assets?</span>
+                  <span className="text-aaa-primary not-italic">Secure Your Assets?</span>
                 </motion.h1>
 
-                <motion.p variants={fadeInUp} className="text-[#60697b] text-[17px] md:text-[19px] leading-snug max-w-2xl font-[700] opacity-90">
+                <div className="text-[17px] md:text-[19px] text-[#60697B] leading-relaxed border-l-[4px] border-aaa-primary/20 pl-8 block max-w-2xl font-medium bg-slate-50/50 py-6 rounded-r-2xl shadow-sm transition-all duration-500 mt-6">
                   Connect with India's most trusted cybersecurity audit firm. Our team of certified auditors is ready to assist you.
-                </motion.p>
+                </div>
               </div>
             </motion.div>
           </div>
@@ -134,8 +138,8 @@ export default function Contact() {
               {/* Left Column: Direct Contact Details */}
               <div className="w-full lg:w-5/12 space-y-6">
                 <div className="space-y-1 mb-8">
-                  <span className="inline-block bg-[#EBE9F9] text-[#35268F] font-black uppercase tracking-[0.2em] text-[0.7rem] px-4 py-1.5 rounded-full">Contact Info</span>
-                  <h2 className="text-[1.8rem] font-[900] text-[#1A1040] leading-tight tracking-tight uppercase">Direct Communication</h2>
+                  <span className="inline-block bg-[#EBE9F9] text-[#35268F] font-extrabold uppercase tracking-[0.4em] text-[11px] px-4 py-1.5 rounded-full">Contact Info</span>
+                  <h2 className="text-[1.8rem] font-extrabold text-[#1A1040] leading-tight tracking-tight uppercase italic underline decoration-aaa-primary/10 decoration-8 underline-offset-4">Direct Communication</h2>
                 </div>
 
                 <div className="grid gap-4">
@@ -144,14 +148,14 @@ export default function Contact() {
                       <MapPin className="w-5 h-5" />
                     </div>
                     <div>
-                      <h4 className="text-[13px] font-black text-[#1A1040] mb-0.5 uppercase tracking-tight">Registered Office</h4>
+                      <h4 className="text-[11px] font-extrabold text-[#1A1040] mb-0.5 uppercase tracking-[0.2em]">Mumbai Office</h4>
                       <a
-                        href="https://www.google.com/maps/search/?api=1&query=301,+Krishna+Chambers,+Sir+Vithaldas+Thackersay+Marg,+Mumbai+400020"
+                        href="https://goo.gl/maps/PwcBgjC3kywUGtvv7"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="text-[13px] text-[#60697b] leading-tight font-[800] hover:text-[#35268F] transition-colors"
+                        className="text-[0.95rem] text-[#60697B] leading-relaxed font-medium hover:text-aaa-primary transition-colors block"
                       >
-                        301, Krishna Chambers, Mumbai 020, India
+                        278-280, F Wing, Solaris 1, Saki Vihar Road, Opp. L&T Gate No.6, Powai, Andheri East, Mumbai 400 072, INDIA
                       </a>
                     </div>
                   </div>
@@ -161,11 +165,11 @@ export default function Contact() {
                       <Phone className="w-5 h-5" />
                     </div>
                     <div>
-                      <h4 className="text-[13px] font-black text-[#1A1040] mb-0.5 uppercase tracking-tight">Direct Hotlines</h4>
-                      <div className="flex gap-2 text-[13px] text-[#60697b] leading-tight font-[800]">
-                        <a href="tel:+912228573815" className="hover:text-[#35268F] transition-colors">+91 22 2857 3815</a>
+                      <h4 className="text-[11px] font-extrabold text-[#1A1040] mb-0.5 uppercase tracking-[0.2em]">Direct Hotlines</h4>
+                      <div className="flex gap-2 text-[0.95rem] text-[#60697B] leading-relaxed font-medium">
+                        <a href="tel:+912228573815" className="hover:text-aaa-primary transition-colors">+91 22 2857 3815</a>
                         <span>/</span>
-                        <a href="tel:+912228573816" className="hover:text-[#35268F] transition-colors">16</a>
+                        <a href="tel:+912228573816" className="hover:text-aaa-primary transition-colors">16</a>
                       </div>
                     </div>
                   </div>
@@ -175,8 +179,8 @@ export default function Contact() {
                       <Mail className="w-5 h-5" />
                     </div>
                     <div>
-                      <h4 className="text-[13px] font-black text-[#1A1040] mb-0.5 uppercase tracking-tight">Official Email</h4>
-                      <a href="mailto:info@aaatechnologies.co.in" className="text-[13px] text-[#60697b] leading-tight font-[800] hover:text-[#35268F] transition-colors">
+                      <h4 className="text-[11px] font-extrabold text-[#1A1040] mb-0.5 uppercase tracking-[0.2em]">Official Email</h4>
+                      <a href="mailto:info@aaatechnologies.co.in" className="text-[0.95rem] text-[#60697B] leading-relaxed font-medium hover:text-aaa-primary transition-colors">
                         info@aaatechnologies.co.in
                       </a>
                     </div>
@@ -189,8 +193,8 @@ export default function Contact() {
                   <div className="relative z-10 flex items-center gap-4">
                     <ShieldCheck className="w-6 h-6 text-[#00d1ff]" />
                     <div>
-                      <h4 className="font-black text-[11px] uppercase tracking-[0.2em] text-[#00d1ff]">CERT-In Empanelled</h4>
-                      <p className="text-white/40 text-[9px] font-black uppercase tracking-widest mt-0.5 italic">Institutional Verification Active</p>
+                      <h4 className="font-extrabold text-[11px] uppercase tracking-[0.2em] text-[#00d1ff]">CERT-In Empanelled</h4>
+                      <p className="text-white/40 text-[9px] font-extrabold uppercase tracking-widest mt-0.5 italic">Institutional Verification Active</p>
                     </div>
                   </div>
                 </div>
@@ -202,52 +206,55 @@ export default function Contact() {
                   <div className="absolute top-0 right-0 w-24 h-24 bg-gradient-to-bl from-[#35268F]/5 to-transparent rounded-bl-full pointer-events-none" />
 
                   <div className="mb-6">
-                    <h3 className="text-[22px] font-[900] text-[#1A1040] tracking-tighter mb-1 uppercase">Business Inquiry Form</h3>
+                    <h3 className="text-[22px] font-extrabold text-[#1A1040] tracking-tighter mb-1 uppercase">Business Inquiry Form</h3>
                     <div className="flex items-center gap-2">
                       <div className="w-1 h-5 bg-[#35268F] rounded-full" />
-                      <p className="text-[#60697b] text-[11px] font-black uppercase tracking-widest opacity-80 italic">Swift 24-hour response guaranteed.</p>
+                      <p className="text-[#60697B] text-[11px] font-extrabold uppercase tracking-widest opacity-80 italic">Swift 24-hour response guaranteed.</p>
                     </div>
                   </div>
 
                   <form className="space-y-4">
                     <div className="grid md:grid-cols-2 gap-6">
                       <div className="space-y-2">
-                        <label className="text-[10px] font-black text-[#1A1040] uppercase tracking-[0.3em] ml-1">Full Name</label>
-                        <input type="text" className="w-full bg-[#F4F3FB] border-0 rounded-xl px-6 py-3.5 text-[#1A1040] focus:ring-4 focus:ring-[#35268F]/5 transition-all font-bold text-[15px] outline-none placeholder:text-slate-400" placeholder="Anjay Agarwal" />
+                        <label className="text-[11px] font-extrabold text-[#1A1040] uppercase tracking-[0.4em] ml-1">Full Name</label>
+                        <input type="text" className="w-full bg-slate-50 border-0 rounded-xl px-6 py-3.5 text-[#1A1040] focus:ring-4 focus:ring-aaa-primary/5 transition-all font-medium text-[0.95rem] outline-none placeholder:text-slate-400" placeholder="Enter your full name" />
                       </div>
                       <div className="space-y-2">
-                        <label className="text-[10px] font-black text-[#1A1040] uppercase tracking-[0.3em] ml-1">Work Email</label>
-                        <input type="email" className="w-full bg-[#F4F3FB] border-0 rounded-xl px-6 py-3.5 text-[#1A1040] focus:ring-4 focus:ring-[#35268F]/5 transition-all font-bold text-[15px] outline-none placeholder:text-slate-400" placeholder="office@company.com" />
+                        <label className="text-[11px] font-extrabold text-[#1A1040] uppercase tracking-[0.4em] ml-1">Work Email</label>
+                        <input type="email" className="w-full bg-slate-50 border-0 rounded-xl px-6 py-3.5 text-[#1A1040] focus:ring-4 focus:ring-aaa-primary/5 transition-all font-medium text-[0.95rem] outline-none placeholder:text-slate-400" placeholder="office@company.com" />
                       </div>
                     </div>
 
                     <div className="grid md:grid-cols-2 gap-6">
                       <div className="space-y-2">
-                        <label className="text-[10px] font-black text-[#1A1040] uppercase tracking-[0.3em] ml-1">Phone Number</label>
+                        <label className="text-[11px] font-extrabold text-[#1A1040] uppercase tracking-[0.4em] ml-1">Phone Number</label>
                         <input
                           type="tel"
-                          minLength={10}
+                          required
                           maxLength={10}
                           pattern="[0-9]{10}"
-                          required
-                          className="w-full bg-[#F4F3FB] border-0 rounded-xl px-6 py-3.5 text-[#1A1040] focus:ring-4 focus:ring-[#35268F]/5 transition-all font-bold text-[15px] outline-none placeholder:text-slate-400"
-                          placeholder="0000000000"
+                          inputMode="numeric"
+                          onInput={(e) => {
+                            e.currentTarget.value = e.currentTarget.value.replace(/[^0-9]/g, '');
+                          }}
+                          className="w-full bg-slate-50 border-0 rounded-xl px-6 py-3.5 text-[#1A1040] focus:ring-4 focus:ring-aaa-primary/5 transition-all font-medium text-[0.95rem] outline-none placeholder:text-slate-400"
+                          placeholder="10-Digit Mobile Number"
                         />
                       </div>
                       <div className="space-y-2">
-                        <label className="text-[10px] font-black text-[#1A1040] uppercase tracking-[0.3em] ml-1">Service interest</label>
+                        <label className="text-[11px] font-extrabold text-[#1A1040] uppercase tracking-[0.4em] ml-1">Service interest</label>
                         <div className="relative">
                           <button
                             type="button"
                             onClick={() => setIsServiceOpen(!isServiceOpen)}
-                            className="w-full bg-[#F4F3FB] border-0 rounded-xl px-6 py-3.5 text-[#1A1040] focus:ring-4 focus:ring-[#35268F]/5 transition-all font-bold text-[15px] flex items-center justify-between outline-none cursor-pointer"
+                            className="w-full bg-slate-50 border-0 rounded-xl px-6 py-3.5 text-[#1A1040] focus:ring-4 focus:ring-aaa-primary/5 transition-all font-medium text-[0.95rem] flex items-center justify-between outline-none cursor-pointer"
                           >
                             <span className={selectedService === "Select Service" ? "text-slate-400" : "text-[#1A1040]"}>
                               {selectedService}
                             </span>
                             <ChevronRight className={`w-4 h-4 text-slate-400 transition-transform duration-300 ${isServiceOpen ? 'rotate-90' : ''}`} />
                           </button>
-                          
+
                           {isServiceOpen && (
                             <>
                               <div className="fixed inset-0 z-[100]" onClick={() => setIsServiceOpen(false)} />
@@ -264,7 +271,7 @@ export default function Contact() {
                                       setSelectedService(service);
                                       setIsServiceOpen(false);
                                     }}
-                                    className="w-full text-left px-6 py-3 text-[14px] font-bold text-[#60697b] hover:bg-[#F4F3FB] hover:text-[#35268F] transition-all"
+                                    className="w-full text-left px-6 py-3 text-[0.95rem] font-bold text-[#60697B] hover:bg-slate-50 hover:text-aaa-primary transition-all"
                                   >
                                     {service}
                                   </button>
@@ -277,17 +284,17 @@ export default function Contact() {
                     </div>
 
                     <div className="space-y-2">
-                      <label className="text-[10px] font-black text-[#1A1040] uppercase tracking-[0.3em] ml-1">Requirements</label>
-                      <textarea rows={2} className="w-full bg-[#F4F3FB] border-0 rounded-xl px-6 py-3.5 text-[#1A1040] focus:ring-4 focus:ring-[#35268F]/5 transition-all font-bold text-[15px] outline-none resize-none placeholder:text-slate-400" placeholder="Briefly describe your goals..."></textarea>
+                      <label className="text-[11px] font-extrabold text-[#1A1040] uppercase tracking-[0.4em] ml-1">Requirements</label>
+                      <textarea rows={2} className="w-full bg-slate-50 border-0 rounded-xl px-6 py-3.5 text-[#1A1040] focus:ring-4 focus:ring-aaa-primary/5 transition-all font-medium text-[0.95rem] outline-none resize-none placeholder:text-slate-400" placeholder="Briefly describe your goals..."></textarea>
                     </div>
 
                     <div className="flex flex-col sm:flex-row items-center justify-between gap-6 pt-4">
                       <div className="flex items-center gap-3 text-[#008253]">
                         <Lock className="w-5 h-5" />
-                        <span className="text-[10px] font-black uppercase tracking-[0.3em]">Secure Submission</span>
+                        <span className="text-[11px] font-extrabold uppercase tracking-[0.4em]">Secure Submission</span>
                       </div>
 
-                      <button type="submit" className="w-full sm:w-auto bg-[#35268F] hover:bg-[#251b64] text-white font-[900] px-12 py-5 rounded-xl shadow-xl transition-all uppercase tracking-[0.3em] text-[12px] flex items-center justify-center gap-3 group">
+                      <button type="submit" className="w-full sm:w-auto bg-aaa-primary hover:bg-[#251b64] text-white font-extrabold px-12 py-5 rounded-xl shadow-xl transition-all uppercase tracking-[0.2em] text-[12px] flex items-center justify-center gap-3 group">
                         Submit Enquiry <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
                       </button>
                     </div>

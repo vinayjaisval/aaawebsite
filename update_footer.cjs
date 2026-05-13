@@ -86,14 +86,23 @@ const newFooter = `export function Footer() {
           <div>
             <h5 style={{ color: '#fff', fontSize: '0.8rem', fontWeight: 700, letterSpacing: '0.12em', textTransform: 'uppercase', marginBottom: '1.25rem' }}>Get in Touch</h5>
             <address style={{ fontStyle: 'normal', color: 'rgba(255,255,255,0.6)', fontSize: '0.875rem', lineHeight: 1.75, marginBottom: '1rem' }}>
-              301, Krishna Chambers,<br />
-              Sir Vithaldas Thackersay Marg,<br />
-              Mumbai 400 020, India
+              <a 
+                href="https://goo.gl/maps/PwcBgjC3kywUGtvv7" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                style={{ color: 'inherit', textDecoration: 'none' }}
+                onMouseOver={e => (e.currentTarget.style.color = '#fff')}
+                onMouseOut={e => (e.currentTarget.style.color = 'inherit')}
+              >
+                278-280, F Wing, Solaris 1,<br />
+                Saki Vihar Road, Opp. L&T Gate No.6,<br />
+                Powai, Andheri East, Mumbai 400 072, INDIA
+              </a>
             </address>
-            <a href="tel:+912222001010" style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', color: 'rgba(255,255,255,0.7)', fontSize: '0.875rem', textDecoration: 'none', marginBottom: '0.6rem', transition: 'color 0.15s' }}
+            <a href="tel:+912228573815" style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', color: 'rgba(255,255,255,0.7)', fontSize: '0.875rem', textDecoration: 'none', marginBottom: '0.6rem', transition: 'color 0.15s' }}
               onMouseOver={e => (e.currentTarget.style.color = '#fff')}
               onMouseOut={e => (e.currentTarget.style.color = 'rgba(255,255,255,0.7)')}>
-              <Phone className="h-4 w-4" style={{ color: '#4ade80' }} /> +91 22 2200 1010
+              <Phone className="h-4 w-4" style={{ color: '#4ade80' }} /> +91 22 2857 3815 / 16
             </a>
             <a href="mailto:info@aaatechnologies.co.in" style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', color: 'rgba(255,255,255,0.7)', fontSize: '0.875rem', textDecoration: 'none', transition: 'color 0.15s' }}
               onMouseOver={e => (e.currentTarget.style.color = '#fff')}
@@ -118,7 +127,7 @@ const newFooter = `export function Footer() {
               onMouseOut={e => (e.currentTarget.style.color = 'rgba(255,255,255,0.45)')}>Terms of Use</Link>
           </p>
           <p style={{ color: 'rgba(255,255,255,0.3)', fontSize: '0.75rem', letterSpacing: '0.04em', margin: 0 }}>
-            CERT-In Empanelled &nbsp;·&nbsp; ISO 9001:2015 & ISO 27001:2013 &nbsp;·&nbsp; NSE & BSE Listed
+            CERT-In Empanelled &nbsp;·&nbsp; ISO 9001:2015 & ISO 27001:2022 &nbsp;·&nbsp; NSE & BSE Listed
           </p>
         </div>
       </div>

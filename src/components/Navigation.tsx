@@ -130,16 +130,23 @@ export const industriesData = [
 
 export function HeaderUtilityBar() {
   return (
-    <div className="bg-[#1A1040] text-white py-[11px] hidden md:block">
-      <div className="container mx-auto px-4 flex justify-between items-center text-[13px] leading-none">
-        <div className="flex items-center gap-2 transition-opacity cursor-default">
-          <MapPin className="h-[14px] w-[14px] text-white" strokeWidth={2.5} />
-          <address className="not-italic font-medium text-white/85">301, Krishna Chambers, Sir V.T. Marg, Mumbai 400 020</address>
-        </div>
-        <div className="flex items-center gap-10">
+    <div className="bg-[#1A1040] text-white py-[8px] lg:py-[11px] hidden md:block">
+      <div className="container mx-auto px-4 flex flex-col xl:flex-row justify-between items-center text-[11px] lg:text-[13px] leading-normal gap-2 xl:gap-0">
+        <a
+          href="https://goo.gl/maps/PwcBgjC3kywUGtvv7"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="flex items-center gap-2 hover:opacity-80 transition-opacity cursor-pointer group no-underline"
+        >
+          <MapPin className="h-[14px] w-[14px] text-white group-hover:text-white" strokeWidth={2.5} />
+          <span className="not-italic font-medium text-white/85 group-hover:text-white transition-colors">
+            278-280, F Wing, Solaris 1, Saki Vihar Road, Opp. L&T Gate No.6, Powai, Andheri East, Mumbai 400 072, INDIA
+          </span>
+        </a>
+        <div className="flex items-center gap-4 lg:gap-10">
           <div className="flex items-center gap-2 hover:opacity-80 transition-opacity cursor-pointer">
             <Phone className="h-[13px] w-[13px] text-white" strokeWidth={2.5} />
-            <a href="tel:+912222001010" className="no-underline font-medium text-white/90 hover:text-white transition-colors">+91 22 2200 1010</a>
+            <a href="tel:+912228573815" className="no-underline font-medium text-white/90 hover:text-white transition-colors">+91 22 2857 3815 / 16</a>
           </div>
           <div className="flex items-center gap-2 hover:opacity-80 transition-opacity cursor-pointer">
             <Mail className="h-[13px] w-[13px] text-white" strokeWidth={2.5} />
@@ -271,8 +278,8 @@ export function Header() {
             <div className="flex flex-col gap-4 mt-4 pt-6 border-t border-slate-100">
               <Link to="/careers" className="text-[18px]" onClick={() => setIsMenuOpen(false)}>Careers</Link>
               <Link to="/contact" className="text-[18px]" onClick={() => setIsMenuOpen(false)}>Contact Us</Link>
-              <a href="tel:+912222001010" className="flex items-center gap-2 text-[#35268F] mt-2">
-                <Phone size={18} /> +91 22 2200 1010
+              <a href="tel:+912228573815" className="flex items-center gap-2 text-[#35268F] mt-2">
+                <Phone size={18} /> +91 22 2857 3815 / 16
               </a>
             </div>
           </nav>
@@ -358,14 +365,24 @@ export function Footer() {
           <div>
             <h5 style={{ color: '#fff', fontSize: '0.8rem', fontWeight: 700, letterSpacing: '0.12em', textTransform: 'uppercase', marginBottom: '1.25rem' }}>Get in Touch</h5>
             <address style={{ fontStyle: 'normal', color: 'rgba(255,255,255,0.6)', fontSize: '0.875rem', lineHeight: 1.75, marginBottom: '1rem' }}>
-              301, Krishna Chambers,<br />
-              Sir Vithaldas Thackersay Marg,<br />
-              Mumbai 400 020, India
+              <a
+                href="https://goo.gl/maps/PwcBgjC3kywUGtvv7"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="no-underline"
+                style={{ color: 'inherit', textDecoration: 'none' }}
+                onMouseOver={e => (e.currentTarget.style.color = '#fff')}
+                onMouseOut={e => (e.currentTarget.style.color = 'inherit')}
+              >
+                278-280, F Wing, Solaris 1,<br />
+                Saki Vihar Road, Opp. L&T Gate No.6,<br />
+                Powai, Andheri East, Mumbai 400 072, INDIA
+              </a>
             </address>
-            <a href="tel:+912222001010" style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', color: 'rgba(255,255,255,0.7)', fontSize: '0.875rem', textDecoration: 'none', marginBottom: '0.6rem', transition: 'color 0.15s' }}
+            <a href="tel:+912228573815" style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', color: 'rgba(255,255,255,0.7)', fontSize: '0.875rem', textDecoration: 'none', marginBottom: '0.6rem', transition: 'color 0.15s' }}
               onMouseOver={e => (e.currentTarget.style.color = '#fff')}
               onMouseOut={e => (e.currentTarget.style.color = 'rgba(255,255,255,0.7)')}>
-              <Phone className="h-4 w-4" style={{ color: '#4ade80' }} /> +91 22 2200 1010
+              <Phone className="h-4 w-4" style={{ color: '#4ade80' }} /> +91 22 2857 3815 / 16
             </a>
             <a href="mailto:info@aaatechnologies.co.in" style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', color: 'rgba(255,255,255,0.7)', fontSize: '0.875rem', textDecoration: 'none', transition: 'color 0.15s' }}
               onMouseOver={e => (e.currentTarget.style.color = '#fff')}
@@ -387,7 +404,7 @@ export function Footer() {
               onMouseOut={e => (e.currentTarget.style.color = 'rgba(255,255,255,0.45)')}>Terms of Use</Link>
           </p>
           <p style={{ color: 'rgba(255,255,255,0.3)', fontSize: '0.75rem', letterSpacing: '0.04em', margin: 0 }}>
-            CERT-In Empanelled &nbsp;·&nbsp; ISO 9001:2015 & ISO 27001:2013 &nbsp;·&nbsp; NSE & BSE Listed
+            CERT-In Empanelled &nbsp;·&nbsp; ISO 9001:2015 & ISO 27001:2022 &nbsp;·&nbsp; NSE & BSE Listed
           </p>
         </div>
       </div>

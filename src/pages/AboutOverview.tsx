@@ -63,10 +63,10 @@ export default function AboutOverview() {
   const scroll = (direction: 'left' | 'right') => {
     if (scrollRef.current) {
       const { scrollLeft, clientWidth } = scrollRef.current;
-      const scrollTo = direction === 'left' 
-        ? scrollLeft - clientWidth / 2 
+      const scrollTo = direction === 'left'
+        ? scrollLeft - clientWidth / 2
         : scrollLeft + clientWidth / 2;
-      
+
       scrollRef.current.scrollTo({ left: scrollTo, behavior: 'smooth' });
     }
   };
@@ -212,7 +212,7 @@ export default function AboutOverview() {
                           <div>
                             <h4 className="text-xs sm:text-[0.75rem] font-bold uppercase tracking-[0.4em] text-slate-400 mb-1.5 group-hover/cert:text-white transition-colors">Quality Standard</h4>
                             <p className="text-[#60697B] text-[0.95rem] text-justify leading-relaxed font-bold group-hover/cert:text-white transition-colors">
-                              The Company is an ISO 9001:2015 and ISO 27001:2013 Certified Company.
+                              The Company is an ISO 9001:2015 and ISO 27001:2022 Certified Company.
                             </p>
                           </div>
                         </motion.div>
@@ -266,31 +266,31 @@ export default function AboutOverview() {
             <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-slate-100 to-transparent" />
             <div className="container mx-auto px-4 sm:px-6 relative z-10" style={{ maxWidth: "1150px" }}>
               <div className="space-y-8 sm:space-y-10">
-              <div className="text-center mb-16">
-                <span className="text-[#35268F] font-bold uppercase tracking-[0.12em] text-[13px] mb-4 block">Industries We Serve</span>
-                <h2 className="text-[32px] md:text-[40px] font-extrabold text-[#1A1040] leading-tight">We Work Across 25+ Industries</h2>
-                <p className="text-[#60697b] mt-4 font-medium leading-relaxed max-w-4xl mx-auto">
-                  The Company is agnostic and consequently it has no dependency on any single industry for procuring business. The Company has successfully completed assignments of Companies/ Institutions across various industries like banking, insurance, Financial Institutions, NBFCs, Regulatory Bodies, Government, Municipalities Corporations, Payment Gateways, Stock Brokers, Education, Travel and Transport, Hospitality, Manufacturing and Engineering, Infrastructure, Healthcare, Information Technology, IT Enabled Services (ITeS), Ports, Power, Trading Corporations, Entertainment, E-Tendering, Defense and refineries and many more.
-                </p>
-              </div>
-              
-              <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-6">
-                {industriesRecap.map((tag, i) => (
-                  <motion.div
-                    key={i}
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.5, delay: i * 0.02 }}
-                    className="bg-white p-6 sm:p-8 rounded-[12px] shadow-sm hover:shadow-2xl transition-all text-center flex flex-col items-center border border-slate-100 group/ind"
-                  >
-                    <div className="w-12 h-12 bg-[#F4F3FB] rounded-full flex items-center justify-center mb-4 group-hover/ind:scale-110 transition-transform duration-300">
-                      <tag.icon className="h-6 w-6 text-[#35268F]" />
-                    </div>
-                    <span className="font-bold text-[#1A1040] text-sm tracking-tight">{tag.name}</span>
-                  </motion.div>
-                ))}
-              </div>
+                <div className="text-center mb-16">
+                  <span className="text-[#35268F] font-bold uppercase tracking-[0.12em] text-[13px] mb-4 block">Industries We Serve</span>
+                  <h2 className="text-[32px] md:text-[40px] font-extrabold text-[#1A1040] leading-tight">We Work Across 25+ Industries</h2>
+                  <p className="text-[#60697b] mt-4 font-medium leading-relaxed max-w-4xl mx-auto">
+                    The Company is agnostic and consequently it has no dependency on any single industry for procuring business. The Company has successfully completed assignments of Companies/ Institutions across various industries like banking, insurance, Financial Institutions, NBFCs, Regulatory Bodies, Government, Municipalities Corporations, Payment Gateways, Stock Brokers, Education, Travel and Transport, Hospitality, Manufacturing and Engineering, Infrastructure, Healthcare, Information Technology, IT Enabled Services (ITeS), Ports, Power, Trading Corporations, Entertainment, E-Tendering, Defense and refineries and many more.
+                  </p>
+                </div>
+
+                <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-6">
+                  {industriesRecap.map((tag, i) => (
+                    <motion.div
+                      key={i}
+                      initial={{ opacity: 0, y: 20 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 0.5, delay: i * 0.02 }}
+                      className="bg-white p-6 sm:p-8 rounded-[12px] shadow-sm hover:shadow-2xl transition-all text-center flex flex-col items-center border border-slate-100 group/ind"
+                    >
+                      <div className="w-12 h-12 bg-[#F4F3FB] rounded-full flex items-center justify-center mb-4 group-hover/ind:scale-110 transition-transform duration-300">
+                        <tag.icon className="h-6 w-6 text-[#35268F]" />
+                      </div>
+                      <span className="font-bold text-[#1A1040] text-sm tracking-tight">{tag.name}</span>
+                    </motion.div>
+                  ))}
+                </div>
               </div>
             </div>
           </section>
@@ -304,18 +304,18 @@ export default function AboutOverview() {
               </p>
             </div>
           </div>
-          
+
           <div className="relative group/carousel px-4 md:px-12">
             {/* Navigation Arrows */}
-            <button 
+            <button
               onClick={() => scroll('left')}
               className="absolute left-0 md:left-2 top-1/2 -translate-y-1/2 z-20 w-10 h-10 bg-white shadow-lg rounded-full flex items-center justify-center text-[#1A1040] hover:bg-[#35268F] hover:text-white transition-all border border-slate-100"
               aria-label="Previous"
             >
               <ChevronLeft className="w-5 h-5" />
             </button>
-            
-            <button 
+
+            <button
               onClick={() => scroll('right')}
               className="absolute right-0 md:right-2 top-1/2 -translate-y-1/2 z-20 w-10 h-10 bg-white shadow-lg rounded-full flex items-center justify-center text-[#1A1040] hover:bg-[#35268F] hover:text-white transition-all border border-slate-100"
               aria-label="Next"
@@ -323,7 +323,7 @@ export default function AboutOverview() {
               <ChevronRight className="w-5 h-5" />
             </button>
 
-            <div 
+            <div
               ref={scrollRef}
               className="flex gap-6 items-center overflow-x-auto whitespace-nowrap scrollbar-hide py-4 px-2 no-scrollbar"
               style={{ scrollSnapType: 'x mandatory' }}

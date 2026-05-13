@@ -66,7 +66,7 @@ function Hero() {
             </h1>
             <p data-cue className="text-[#60697b] text-[17px] md:text-[19px] leading-relaxed mb-10 font-medium max-w-3xl mx-auto">
               We have protected 120+ organisations across 12+ industries for over 22+ years. <br className="hidden md:block" />
-              Listed on NSE and BSE. Certified to ISO 9001:2015 and ISO 27001:2013.
+              Listed on NSE and BSE. Certified to ISO 9001:2015 and ISO 27001:2022.
             </p>
             <div data-cue className="flex flex-wrap justify-center gap-3">
               <button className="bg-[#35268F] hover:bg-[#251b64] text-white px-8 py-3 rounded-[8px] text-[15px] font-bold transition-all shadow-xl shadow-[#35268F]/20">
@@ -108,7 +108,7 @@ function Hero() {
             {[
               { icon: ShieldCheck, title: "CERT-In Empanelled", desc: "India's computer security authority has approved us since 2005. That approval has been renewed every year." },
               { icon: BarChart3, title: "NSE & BSE Listed", desc: "From November 28, 2022, we trade on both the NSE and BSE main boards. Public listing means full financial transparency." },
-              { icon: Award, title: "ISO 27001 Certified", desc: "We hold ISO 9001:2015 and ISO 27001:2013 certification. We follow the same standards we audit for our clients." },
+              { icon: Award, title: "ISO 27001 Certified", desc: "We hold ISO 9001:2015 and ISO 27001:2022 certification. We follow the same standards we audit for our clients." },
               { icon: Users, title: "Our Expertise", desc: "Our team's experience adds up to over 1,000 years. That depth covers every major industry in India." }
             ].map((usp, i) => (
               <div key={i} data-cue className="flex flex-col items-center">
