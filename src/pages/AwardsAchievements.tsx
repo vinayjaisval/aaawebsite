@@ -178,10 +178,10 @@ export default function AwardsAchievements() {
           </div>
         </section>
 
-        {/* --- SECTION: CHRONOLOGICAL ACHIEVEMENT PORTFOLIO (4-COLUMN GRID) --- */}
+        {/* --- SECTION: CHRONOLOGICAL ACHIEVEMENT PORTFOLIO (GALLERY GRID) --- */}
         <section className="relative px-4 pt-4 pb-20 bg-slate-50 z-10">
-          <div className="container mx-auto relative z-10" style={{ maxWidth: "1150px" }}>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
+          <div className="container mx-auto relative z-10" style={{ maxWidth: "1200px" }}>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-10">
               {awardsList.map((award, idx) => (
                 <motion.div
                   key={idx}
@@ -189,37 +189,30 @@ export default function AwardsAchievements() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.7, delay: idx * 0.05 }}
-                  className="group relative bg-white border border-gray-200 rounded-xl cursor-default overflow-hidden flex flex-col h-full hover:shadow-xl transition-all duration-500"
+                  className="group relative bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-2xl transition-all duration-700"
                 >
-                  {/* VISUAL COMPONENT: NORMALIZED AWARD EVIDENCE RENDERER */}
-                  <div className="relative h-[350px] w-full overflow-hidden bg-white">
+                  <div className="relative aspect-square w-full overflow-hidden bg-white flex items-center justify-center p-6">
                     <img
                       src={award.image}
-                      className={`w-full h-full object-cover object-top transition-transform duration-700 ease-in-out ${award.title.includes('Forbes') ? 'scale-[2.3] group-hover:scale-[2.45]' : 'scale-[1.75] group-hover:scale-[1.85]'}`}
+                      className="max-w-full max-h-full object-contain transition-all duration-1000 group-hover:scale-110 drop-shadow-md"
                       alt={award.title}
                       onError={(e) => { e.currentTarget.src = "https://www.aaatechnologies.co.in/img/logo.png"; }}
                     />
 
-                    {/* Year Badge (AAA Red - High Contrast) */}
-                    <div className="absolute top-0 left-0 px-6 py-2 bg-aaa-primary text-white text-xs font-bold uppercase tracking-[0.3em] z-20 shadow-sm">
-                      {award.year}
-                    </div>
-                  </div>
-
-                  {/* --- CONTENT AREA (Professional Corporate Spacing) --- */}
-                  <div className="p-5 flex-1 flex flex-col bg-white">
-                    <h3 className="text-[15px] font-bold text-[#1A1040] leading-tight mb-2 group-hover:text-aaa-primary transition-colors tracking-tight">
-                      {award.title}
-                    </h3>
-                    <p className="text-[#60697B] text-[0.95rem] text-justify leading-[1.8] font-medium mb-4">
-                      {award.desc}
-                    </p>
-
-                    {/* Footer Button (Corporate Black) */}
-                    <div className="mt-auto">
-                      <div className="w-full py-2.5 bg-[#1A1040] text-white rounded-lg text-center text-[0.75rem] font-bold uppercase tracking-[0.2em] group-hover:bg-aaa-primary transition-all duration-500">
-                        Award Recognition
+                    {/* INSTITUTIONAL OVERLAY: Appears on Hover (Matches Reference Site) */}
+                    <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-all duration-400 flex flex-col items-center justify-center text-center p-6 z-30">
+                      <div className="flex flex-col items-center scale-90 group-hover:scale-100 transition-transform duration-400">
+                        <span className="text-white font-bold text-3xl mb-1">{award.year}</span>
+                        <div className="h-0.5 w-8 bg-white/50 my-3" />
+                        <p className="text-white text-[13px] font-medium leading-relaxed px-2 line-clamp-4">
+                          {award.desc}
+                        </p>
                       </div>
+                    </div>
+
+                    {/* Constant Year Badge (Top Left) */}
+                    <div className="absolute top-0 left-0 px-4 py-1.5 bg-aaa-primary text-white text-[11px] font-bold uppercase tracking-[0.2em] z-20 shadow-md rounded-br-xl group-hover:opacity-0 transition-opacity duration-300">
+                      {award.year}
                     </div>
                   </div>
                 </motion.div>
