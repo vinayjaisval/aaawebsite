@@ -129,7 +129,7 @@ export default function Careers() {
               {[
                 { label: "Total Team", value: "200+" },
                 { label: "First Listed", value: "2020" },
-                { label: "Experience", value: "22+ Yrs" },
+                { label: "Experience", value: "25+ Yrs" },
                 { label: "Audit depth", value: "10,000+" }
               ].map((stat, i) => (
                 <div key={i} className="border-l-2 border-slate-50 pl-6">

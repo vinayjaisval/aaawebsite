@@ -311,7 +311,7 @@ export function Footer() {
               </span>
             </div>
             <p style={{ color: 'rgba(255,255,255,0.55)', fontSize: '0.875rem', lineHeight: 1.7, maxWidth: '280px' }}>
-              India's premier CERT-In empanelled cybersecurity audit and IT assurance company. Securing cyber assets of the nation since 2002.
+              India's premier CERT-In empanelled Cyber Security audit and IT assurance company. Securing cyber assets of the nation since 2002.
             </p>
             <div className="flex flex-wrap gap-2 mt-5 mb-6">
               {['CERT-In', 'ISO 27001', 'NSE & BSE'].map(chip => (

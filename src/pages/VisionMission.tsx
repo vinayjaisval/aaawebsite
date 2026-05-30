@@ -29,7 +29,7 @@ export default function VisionMission() {
                   Vision & <span className="text-aaa-primary not-italic">Mission</span>
                 </h1>
                 <p className="mt-6 text-slate-600 text-sm sm:text-base lg:text-lg font-medium italic leading-relaxed max-w-xl border-l-4 border-aaa-primary/20 pl-6 py-2 bg-slate-50/50 rounded-r-lg">
-                  Defining our purpose and charting the course for global leadership in cybersecurity and IT assurance.
+                  Defining our purpose and charting the course for global leadership in Cyber Security and IT assurance.
                 </p>
               </div>
               <div

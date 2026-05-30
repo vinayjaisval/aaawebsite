@@ -14,7 +14,7 @@ const usps = [
   {
     icon: Award,
     title: "ISO 27001 Certified",
-    description: "We hold ISO 9001:2015 and ISO 27001:2022 certification. We follow the same standards we audit for our clients."
+    description: "We hold ISO 9001:2015, ISO 20001 (ITSM), ISO 27001:2022 and CMMI Level 3 certification. We follow the same standards we audit for our clients."
   },
   {
     icon: Users,
@@ -29,7 +29,7 @@ export function USPSection() {
       <div className="container mx-auto">
         <div className="text-center max-w-3xl mx-auto mb-16">
           <h2 className="text-2xl md:text-3xl font-bold leading-tight text-white" style={{ color: '#fff !important' }}>
-            India's first and only stock-exchange-listed company focused entirely on IT and Cybersecurity Audit.
+            India's first and only stock-exchange-listed company focused entirely on IT and Cyber Security Audit.
           </h2>
         </div>
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-12 text-center">

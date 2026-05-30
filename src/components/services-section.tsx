@@ -55,7 +55,7 @@ export function ServicesSection() {
           </span>
 
           <h2 className="text-[32px] md:text-[36px] font-extrabold text-[#1A1040] leading-[1.2] mb-4">
-            Cybersecurity and IT Audit<br />Services We Offer
+            Cyber Security and IT Audit<br />Services We Offer
           </h2>
 
           <p className="text-[#60697b] text-[16px] md:text-[18px] leading-relaxed">

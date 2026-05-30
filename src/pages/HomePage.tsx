@@ -61,20 +61,20 @@ function Hero() {
               letterSpacing: '-0.01em'
             }}>
               India's Premier<br />
-              Cybersecurity<br />
+              Cyber Security<br />
               <span className="decoration-aaa">Audit &amp; Consulting</span> Firm
             </h1>
             <p data-cue className="text-[#60697b] text-[17px] md:text-[19px] leading-relaxed mb-10 font-medium max-w-3xl mx-auto">
-              We have protected 120+ organisations across 12+ industries for over 22+ years. <br className="hidden md:block" />
-              Listed on NSE and BSE. Certified to ISO 9001:2015 and ISO 27001:2022.
+             We have protected 635+ organisations across 12+ industries for over 25+ years.<br className="hidden md:block" />
+              Listed on NSE and BSE. Certified to ISO 9001:2015, ISO 20001 (ITSM), ISO 27001:2022 and CMMI Level 3.
             </p>
             <div data-cue className="flex flex-wrap justify-center gap-3">
               <button className="bg-[#35268F] hover:bg-[#251b64] text-white px-8 py-3 rounded-[8px] text-[15px] font-bold transition-all shadow-xl shadow-[#35268F]/20">
                 See All Services
               </button>
-              <button className="border-2 border-[#35268F] text-[#35268F] hover:bg-[#35268F] hover:text-white px-8 py-3 rounded-[8px] text-[15px] font-bold transition-all">
+              <Link to="/contact" className="border-2 border-[#35268F] text-[#35268F] hover:bg-[#35268F] hover:text-white px-8 py-3 rounded-[8px] text-[15px] font-bold transition-all decoration-none inline-flex items-center">
                 Request a Free Assessment
-              </button>
+              </Link>
             </div>
           </div>
         </div>
@@ -88,7 +88,7 @@ function Hero() {
               {/* Image */}
               <img
                 src="/assets/img/photos/banner0.png"
-                alt="Cybersecurity Excellence"
+                alt="Cyber Security Excellence"
                 className="w-full h-auto block"
               />
 
@@ -101,7 +101,7 @@ function Hero() {
           </figure>
           <div data-cue className="text-center max-w-3xl mx-auto mb-16 md:mb-20 px-4">
             <h2 className="text-xl md:text-[32px] lg:text-[34px] font-bold leading-tight text-white" style={{ color: '#fff !important' }}>
-              India's first and only stock-exchange-listed company focused entirely on IT and Cybersecurity Audit.
+              India's first and only stock-exchange-listed company focused entirely on IT and Cyber Security Audit.
             </h2>
           </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-12 text-center">
@@ -136,7 +136,7 @@ function ClientTicker() {
   return (
     <section className="py-16 bg-white overflow-hidden border-b border-slate-50 font-sans">
       <div className="container mx-auto px-4 mb-10">
-        <p className="text-center text-[13px] font-bold uppercase tracking-[0.12em] text-slate-400">Empanelled & Trusted By</p>
+        <p className="text-center text-[13px] font-bold uppercase tracking-[0.12em] text-slate-400">Past and Present Empanelment</p>
       </div>
       <div className="relative flex">
         <div className="flex animate-marquee gap-16 items-center whitespace-nowrap px-8">
@@ -168,7 +168,7 @@ function Services() {
       <div className="container mx-auto">
         <div className="text-center max-w-2xl mx-auto mb-16">
           <span className="inline-block bg-[#EBE9F9] text-[#35268F] font-bold uppercase tracking-[0.12em] text-[0.75rem] px-4 py-1.5 rounded-full mb-4">What We Do</span>
-          <h2 className="text-[calc(1.285rem+0.42vw)] md:text-[2.25rem] font-extrabold text-[#1A1040] leading-[1.2] mb-4">Cybersecurity and IT Audit<br />Services We Offer</h2>
+          <h2 className="text-[calc(1.285rem+0.42vw)] md:text-[2.25rem] font-extrabold text-[#1A1040] leading-[1.2] mb-4">Cyber Security and IT Audit<br />Services We Offer</h2>
           <p className="text-[#60697b] text-[0.9rem] leading-relaxed">From checking for vulnerabilities to building full governance frameworks, we cover every layer of IT security and assurance.</p>
         </div>
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -224,7 +224,7 @@ function TrackRecord() {
           <div className="max-w-4xl mx-auto mb-12">
             <h2 data-cue className="text-[0.75rem] font-bold uppercase tracking-[0.12em] text-[#35268F] bg-[#EBE9F9] inline-block px-4 py-1.5 rounded-full mb-4">Our Track Record</h2>
             <h3 data-cue className="text-[calc(1.325rem+0.9vw)] lg:text-[2.6rem] font-extrabold text-[#1A1040] mb-12 px-2 lg:px-24 leading-[1.2]">
-              Numbers that reflect more than two decades of focused work in cybersecurity audit.
+              Numbers that reflect more than two decades of focused work in Cyber Security audit.
             </h3>
           </div>
         </div>
@@ -288,14 +288,14 @@ function CTABand() {
 
 function Journey() {
   const milestones = [
-    { num: "01", year: "2002", title: "Founded", desc: "AAA Technologies opened its doors in Mumbai as an IT and cybersecurity audit firm." },
-    { num: "02", year: "2005", title: "CERT-In Empanelled", desc: "India's national cybersecurity authority approved us to conduct IT security audits." },
+    { num: "01", year: "2002", title: "Founded", desc: "AAA Technologies opened its doors in Mumbai as an IT and Cyber Security audit firm." },
+    { num: "02", year: "2005", title: "CERT-In Empanelled", desc: "India's national Cyber Security authority approved us to conduct IT security audits." },
     { num: "03", year: "2009", title: "Maharashtra IT Award", desc: "The state government recognised our work in IT audit and information security." },
     { num: "04", year: "2015", title: "ISO Certified", desc: "We earned dual ISO certification and committed to following global quality standards." },
     { num: "05", year: "2020", title: "IPO", desc: "We went public on NSE Emerge and were featured in Forbes India." },
     { num: "06", year: "2022", title: "Main Board Listed", desc: "We moved up to both the NSE and BSE main boards, making us the first in India." },
     { num: "07", year: "2023", title: "CEO Magazine Award", desc: "Honoured with a Certificate of Excellence in IS Audit and Cyber Security." },
-    { num: "08", year: "2024", title: "Governor's Award", desc: "The Governor of Maharashtra recognised our cybersecurity contributions." }
+    { num: "08", year: "2024", title: "Governor's Award", desc: "The Governor of Maharashtra recognised our Cyber Security contributions." }
   ];
 
   return (
@@ -303,8 +303,8 @@ function Journey() {
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <span className="inline-block bg-[#EBE9F9] text-[#35268F] font-bold uppercase tracking-[0.12em] text-[0.75rem] px-4 py-1.5 rounded-full mb-4">Our Journey</span>
-          <h2 className="text-[calc(1.325rem+0.9vw)] md:text-[2.6rem] font-extrabold text-[#1A1040] mb-4 leading-tight">24 Years. One Focus. Cybersecurity Audit.</h2>
-          <p className="text-[#60697b] max-w-3xl mx-auto text-[1.1rem] md:text-[1.2rem] font-medium leading-relaxed opacity-90">From a two-person IS audit firm in 2002 to India's only stock-exchange-listed cybersecurity audit company, here is how we got here.</p>
+          <h2 className="text-[calc(1.325rem+0.9vw)] md:text-[2.6rem] font-extrabold text-[#1A1040] mb-4 leading-tight">24 Years. One Focus. Cyber Security Audit.</h2>
+          <p className="text-[#60697b] max-w-3xl mx-auto text-[1.1rem] md:text-[1.2rem] font-medium leading-relaxed opacity-90">From a two-person IS audit firm in 2002 to India's only stock-exchange-listed Cyber Security audit company, here is how we got here.</p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-y-16 gap-x-12 relative max-w-6xl mx-auto">
@@ -421,7 +421,7 @@ function Awards() {
   const awards = [
     { year: "2022", title: "ET Change Makers Award", desc: "Awarded the ET Change Makers Award in Cyber Security by the Economic Times.", img: "ECT.png" },
     { year: "2022", title: "CEO Magazine: Excellence", desc: "Recognised for excellence in IS Audit and Cyber Security by CEO Magazine.", img: "2022.png" },
-    { year: "2021", title: "Business Leader of the Year", desc: "Honoured as Business Leader of the Year for leadership in cybersecurity.", img: "15.png" },
+    { year: "2021", title: "Business Leader of the Year", desc: "Honoured as Business Leader of the Year for leadership in Cyber Security.", img: "15.png" },
     { year: "2020", title: "Most Trusted Company", desc: "Named Most Trusted Cyber Security Auditing and Consulting firm.", img: "RC3.png" }
   ];
 

@@ -37,7 +37,7 @@ export function HeroSection() {
                 color: '#1A1040'
               }}
             >
-              India's Premier Cybersecurity <br />
+              India's Premier Cyber Security <br />
               <span className="text-[#35268F] underline decoration-[#35268F]/20 underline-offset-8">Audit & Consulting</span> Firm
             </h1>
 
@@ -71,7 +71,7 @@ export function HeroSection() {
             <div className="rounded-[10px] overflow-hidden shadow-2xl bg-white">
               <img
                 src="/assets/img/photos/banner1.png"
-                alt="Cybersecurity Audit"
+                alt="Cyber Security Audit"
                 className="w-full h-auto object-cover"
                 onError={(e) => {
                   e.currentTarget.src = "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&q=80&w=1200";
@@ -82,7 +82,7 @@ export function HeroSection() {
 
           <div className="text-center max-w-3xl mx-auto mb-16">
             <h2 className="text-2xl md:text-3xl lg:text-[34px] font-bold leading-tight text-white" style={{ color: '#fff !important' }}>
-              India's first and only stock-exchange-listed company focused entirely on IT and Cybersecurity Audit.
+              India's first and only stock-exchange-listed company focused entirely on IT and Cyber Security Audit.
             </h2>
           </div>
 

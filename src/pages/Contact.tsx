@@ -123,7 +123,7 @@ export default function Contact() {
                 </motion.h1>
 
                 <div className="text-[17px] md:text-[19px] text-[#60697B] leading-relaxed border-l-[4px] border-aaa-primary/20 pl-8 block max-w-2xl font-medium bg-slate-50/50 py-6 rounded-r-2xl shadow-sm transition-all duration-500 mt-6">
-                  Connect with India's most trusted cybersecurity audit firm. Our team of certified auditors is ready to assist you.
+                  Connect with India's most trusted Cyber Security audit firm. Our team of certified auditors is ready to assist you.
                 </div>
               </div>
             </motion.div>
@@ -156,6 +156,23 @@ export default function Contact() {
                         className="text-[0.95rem] text-[#60697B] leading-relaxed font-medium hover:text-aaa-primary transition-colors block"
                       >
                         278-280, F Wing, Solaris 1, Saki Vihar Road, Opp. L&T Gate No.6, Powai, Andheri East, Mumbai 400 072, INDIA
+                      </a>
+                    </div>
+                  </div>
+
+                  <div className="flex gap-5 p-5 rounded-2xl border border-[#EBE9F9] hover:border-[#35268F]/20 transition-all duration-300 group bg-white shadow-sm">
+                    <div className="w-12 h-12 bg-[#F4F3FB] rounded-xl flex items-center justify-center text-[#35268F] group-hover:bg-[#35268F] group-hover:text-white transition-all shrink-0">
+                      <MapPin className="w-5 h-5" />
+                    </div>
+                    <div>
+                      <h4 className="text-[11px] font-extrabold text-[#1A1040] mb-0.5 uppercase tracking-[0.2em]">Noida Office</h4>
+                      <a
+                        href="https://maps.google.com/?q=B-37,+Sector+2,+Noida,+Uttar+Pradesh+201301"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-[0.95rem] text-[#60697B] leading-relaxed font-medium hover:text-aaa-primary transition-colors block"
+                      >
+                        Corporate Office: B-37, 1st Floor, Sector 2, Noida, Uttar Pradesh 201301, INDIA
                       </a>
                     </div>
                   </div>
@@ -242,44 +259,53 @@ export default function Contact() {
                         />
                       </div>
                       <div className="space-y-2">
-                        <label className="text-[11px] font-extrabold text-[#1A1040] uppercase tracking-[0.4em] ml-1">Service interest</label>
-                        <div className="relative">
-                          <button
-                            type="button"
-                            onClick={() => setIsServiceOpen(!isServiceOpen)}
-                            className="w-full bg-slate-50 border-0 rounded-xl px-6 py-3.5 text-[#1A1040] focus:ring-4 focus:ring-aaa-primary/5 transition-all font-medium text-[0.95rem] flex items-center justify-between outline-none cursor-pointer"
-                          >
-                            <span className={selectedService === "Select Service" ? "text-slate-400" : "text-[#1A1040]"}>
-                              {selectedService}
-                            </span>
-                            <ChevronRight className={`w-4 h-4 text-slate-400 transition-transform duration-300 ${isServiceOpen ? 'rotate-90' : ''}`} />
-                          </button>
+                        <label className="text-[11px] font-extrabold text-[#1A1040] uppercase tracking-[0.4em] ml-1">Organization Name</label>
+                        <input
+                          type="text"
+                          className="w-full bg-slate-50 border-0 rounded-xl px-6 py-3.5 text-[#1A1040] focus:ring-4 focus:ring-aaa-primary/5 transition-all font-medium text-[0.95rem] outline-none placeholder:text-slate-400"
+                          placeholder="Company or Organization Name"
+                        />
+                      </div>
+                    </div>
 
-                          {isServiceOpen && (
-                            <>
-                              <div className="fixed inset-0 z-[100]" onClick={() => setIsServiceOpen(false)} />
-                              <motion.div
-                                initial={{ opacity: 0, y: 10 }}
-                                animate={{ opacity: 1, y: 0 }}
-                                className="absolute top-full left-0 right-0 mt-2 bg-white border border-[#EBE9F9] rounded-xl shadow-2xl z-[110] overflow-hidden"
-                              >
-                                {["IT Security Audit", "Cyber Security Audit", "IT Assurance & Compliance", "IT Systems audit", "IT Governance"].map((service) => (
-                                  <button
-                                    key={service}
-                                    type="button"
-                                    onClick={() => {
-                                      setSelectedService(service);
-                                      setIsServiceOpen(false);
-                                    }}
-                                    className="w-full text-left px-6 py-3 text-[0.95rem] font-bold text-[#60697B] hover:bg-slate-50 hover:text-aaa-primary transition-all"
-                                  >
-                                    {service}
-                                  </button>
-                                ))}
-                              </motion.div>
-                            </>
-                          )}
-                        </div>
+                    <div className="space-y-2">
+                      <label className="text-[11px] font-extrabold text-[#1A1040] uppercase tracking-[0.4em] ml-1">Service interest</label>
+                      <div className="relative">
+                        <button
+                          type="button"
+                          onClick={() => setIsServiceOpen(!isServiceOpen)}
+                          className="w-full bg-slate-50 border-0 rounded-xl px-6 py-3.5 text-[#1A1040] focus:ring-4 focus:ring-aaa-primary/5 transition-all font-medium text-[0.95rem] flex items-center justify-between outline-none cursor-pointer"
+                        >
+                          <span className={selectedService === "Select Service" ? "text-slate-400" : "text-[#1A1040]"}>
+                            {selectedService}
+                          </span>
+                          <ChevronRight className={`w-4 h-4 text-slate-400 transition-transform duration-300 ${isServiceOpen ? 'rotate-90' : ''}`} />
+                        </button>
+
+                        {isServiceOpen && (
+                          <>
+                            <div className="fixed inset-0 z-[100]" onClick={() => setIsServiceOpen(false)} />
+                            <motion.div
+                              initial={{ opacity: 0, y: 10 }}
+                              animate={{ opacity: 1, y: 0 }}
+                              className="absolute top-full left-0 right-0 mt-2 bg-white border border-[#EBE9F9] rounded-xl shadow-2xl z-[110] overflow-hidden"
+                            >
+                              {["IT Security Audit", "Cyber Security Audit", "IT Assurance & Compliance", "IT Systems audit", "IT Governance"].map((service) => (
+                                <button
+                                  key={service}
+                                  type="button"
+                                  onClick={() => {
+                                    setSelectedService(service);
+                                    setIsServiceOpen(false);
+                                  }}
+                                  className="w-full text-left px-6 py-3 text-[0.95rem] font-bold text-[#60697B] hover:bg-slate-50 hover:text-aaa-primary transition-all"
+                                >
+                                  {service}
+                                </button>
+                              ))}
+                            </motion.div>
+                          </>
+                        )}
                       </div>
                     </div>
 
