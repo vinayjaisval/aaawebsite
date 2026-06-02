@@ -14,7 +14,7 @@ const usps = [
   {
     icon: Award,
     title: "ISO 27001 Certified",
-    description: "We hold ISO 9001:2015, ISO 20001 (ITSM), ISO 27001:2022 and CMMI Level 3 certification. We follow the same standards we audit for our clients."
+    description: "We hold ISO 9001:2015, ISO 20000-1:2018, ISO 27001:2022 and CMMI Level 3 certification. We follow the same standards we audit for our clients."
   },
   {
     icon: Users,

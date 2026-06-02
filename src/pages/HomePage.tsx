@@ -66,7 +66,7 @@ function Hero() {
             </h1>
             <p data-cue className="text-[#60697b] text-[17px] md:text-[19px] leading-relaxed mb-10 font-medium max-w-3xl mx-auto">
              We have protected 635+ organisations across 12+ industries for over 25+ years.<br className="hidden md:block" />
-              Listed on NSE and BSE. Certified to ISO 9001:2015, ISO 20001 (ITSM), ISO 27001:2022 and CMMI Level 3.
+              Listed on NSE and BSE. Certified to ISO 9001:2015, ISO 20000-1:2018, ISO 27001:2022 and CMMI Level 3.
             </p>
             <div data-cue className="flex flex-wrap justify-center gap-3">
               <button className="bg-[#35268F] hover:bg-[#251b64] text-white px-8 py-3 rounded-[8px] text-[15px] font-bold transition-all shadow-xl shadow-[#35268F]/20">
