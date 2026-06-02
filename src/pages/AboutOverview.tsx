@@ -298,7 +298,7 @@ export default function AboutOverview() {
         <section id="empanelment" className="py-16 bg-[#F4F3FB] border-t border-slate-100 overflow-hidden">
           <div className="container mx-auto px-4 mb-12">
             <div className="text-center max-w-4xl mx-auto">
-              <h2 className="text-[28px] md:text-[32px] font-extrabold text-[#1A1040] mb-4">Current Empanelment</h2>
+              <h2 className="text-[28px] md:text-[32px] font-extrabold text-[#1A1040] mb-4">Past and Present Empanelment</h2>
               <p className="text-[#60697B] font-medium leading-relaxed text-[17px] md:text-[19px] max-w-2xl mx-auto">
                 As a testimonial to our expertise, regulatory bodies and prominent organizations have chosen to confer unto us empanelment
               </p>
