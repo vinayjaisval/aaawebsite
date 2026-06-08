@@ -126,7 +126,7 @@ export default function ITGovernance() {
                     <div className="h-[2px] w-8 bg-aaa-primary/20" /> Governance Division
                   </div>
                   <div className="rounded-2xl overflow-hidden border border-slate-50 shadow-inner bg-[#f8fafc] p-2">
-                    <img src="https://www.aaatechnologies.co.in/img/governace.png" alt="Chart" className="w-full h-auto transition-transform duration-700 group-hover:scale-105" />
+                    <img src="/images/it-governance-chart.png" alt="Chart" className="w-full h-auto transition-transform duration-700 group-hover:scale-105" />
                   </div>
                 </div>
 
@@ -174,7 +174,7 @@ export default function ITGovernance() {
                       Why do you need <span className="text-aaa-primary">IT Governance?</span>
                     </h3>
                     <div className="rounded-[32px] overflow-hidden border border-slate-100 shadow-xl bg-white p-6 group mb-12">
-                      <img src="https://www.aaatechnologies.co.in/img/12.png" alt="Lifecycle" className="w-full h-auto transition-transform duration-700 group-hover:scale-105" />
+                      <img src="/images/it-governance-lifecycle.png" alt="Lifecycle" className="w-full h-auto transition-transform duration-700 group-hover:scale-105" />
                     </div>
 
                     {/* Value Optimization Objectives */}

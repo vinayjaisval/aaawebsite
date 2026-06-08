@@ -7,7 +7,7 @@ const boardMembers = [
   {
     name: "Mr. Anjay Agarwal",
     role: "Chairman & Managing Director",
-    image: "https://www.aaatechnologies.co.in/img/Team/4764%20(1)%20(2).png",
+    image: "/images/anjay-agarwal.png",
     bullets: [
       "Over 29+ years of overall experience and 26+ years of experience in Information Security Audit / Cyber Security Audit.",
       "Eminent Information Security professional who has served both the National and International security community for over 20 years.",
@@ -33,7 +33,7 @@ const boardMembers = [
   {
     name: "Mrs. Ruchi Agarwal",
     role: "Executive Director (HR & Administration)",
-    image: "https://www.aaatechnologies.co.in/img/Team/4761%20(1)%20(1).png",
+    image: "/images/ruchi-agarwal.png",
     bullets: [
       "Over 16+ years of experience in IT Audit.",
       "Master`s in Arts From Kanpur University and Bachelor in Arts from Lucknow University.",
@@ -43,7 +43,7 @@ const boardMembers = [
   {
     name: "Mr. Rajesh Chandra Verma",
     role: "Independent Director",
-    image: "https://www.aaatechnologies.co.in/img/Team/Rajesh%20Pic.jpg",
+    image: "/images/rajesh-chandra-verma.jpg",
     bullets: [
       "Qualification includes M. Sc, CAIIB (India) and CAIB (UK).",
       "Has more than 40 years of experience in the Banking and Financing sector.",
@@ -54,7 +54,7 @@ const boardMembers = [
   {
     name: "Mr. Naveen Kumar Srivastava",
     role: "Independent Director",
-    image: "https://www.aaatechnologies.co.in/img/Team/Naveen%20Srivastava.jpg",
+    image: "/images/naveen-kumar-srivastava.jpg",
     bullets: [
       "Qualification includes M.A. (Economics), CISA, CISB and ISO 27001 Lead Auditor.",
       "Has more than 40 years of experience in the Banking and Information Technology and Security Sector.",
@@ -66,7 +66,7 @@ const boardMembers = [
   {
     name: "Mr. Nabankur Sen",
     role: "Independent Director",
-    image: "https://www.aaatechnologies.co.in/img/Team/Nabankur%20Sen-photo.jpg",
+    image: "/images/nabankur-sen-photo.jpg",
     bullets: [
       "Qualifications includes B. Sc (Physics Honors), CISA, CISM, CRISC from ISACA, Illinois, Chicago, USA, and ISO 27001 Lead Auditor and Implementer.",
       "Has more than 45 years of experience in the Banking and Cyber Security and Information Technology and Security sector.",

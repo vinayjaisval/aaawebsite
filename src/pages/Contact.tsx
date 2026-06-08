@@ -37,10 +37,88 @@ const staggerContainer = {
 export default function Contact() {
   const [isServiceOpen, setIsServiceOpen] = useState(false);
   const [selectedService, setSelectedService] = useState("Select Service");
+
+  const [formData, setFormData] = useState({
+    fullName: "",
+    email: "",
+    phone: "",
+    organization: "",
+    service:"",
+    requirements: ""
+  });
+
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<{
+    type: "success" | "error";
+    message: string;
+  } | null>(null);
+
   useEffect(() => {
     window.scrollTo(0, 0);
     document.documentElement.classList.remove("dark");
   }, []);
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+
+    if (!formData.fullName || !formData.email || !formData.phone || !formData.service) {
+      setSubmitStatus({
+        type: "error",
+        message: "Please fill out all required fields (Full Name, Work Email, Phone Number, and Service Interest)."
+      });
+      return;
+    }
+
+    setIsSubmitting(true);
+    setSubmitStatus(null);
+
+    try {
+      const response = await fetch("https://skyiot.skylabsapp.com/api/", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json"
+        },
+        body: JSON.stringify({
+          fullName: formData.fullName,
+          email: formData.email,
+          phone: formData.phone,
+          organization: formData.organization,
+          service: formData.service,
+          requirements: formData.requirements,
+        })
+      });
+
+      if (response.ok) {
+        setSubmitStatus({
+          type: "success",
+          message: "Thank you! Your enquiry has been submitted successfully. We will get back to you shortly."
+        });
+        setFormData({
+          fullName: "",
+          email: "",
+          phone: "",
+          organization: "",
+          service:"",
+          requirements: ""
+        });
+        setSelectedService("Select Service");
+      } else {
+        const errorData = await response.json().catch(() => ({}));
+        setSubmitStatus({
+          type: "error",
+          message: errorData.message || "Failed to submit. Please try again."
+        });
+      }
+    } catch (err) {
+      setSubmitStatus({
+        type: "error",
+        message: "Network error. Please check your connection and try again."
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
 
   return (
     <div className="min-h-screen bg-white font-sans selection:bg-[#35268F]/10 antialiased overflow-hidden">
@@ -230,15 +308,39 @@ export default function Contact() {
                     </div>
                   </div>
 
-                  <form className="space-y-4">
+                  <form className="space-y-4" onSubmit={handleSubmit}>
+                    {submitStatus && (
+                      <div className={`p-4 mb-4 rounded-xl text-sm font-bold leading-relaxed border ${
+                        submitStatus.type === "success" 
+                          ? "bg-emerald-50 text-emerald-800 border-emerald-200" 
+                          : "bg-red-50 text-red-800 border-red-200"
+                      }`}>
+                        {submitStatus.message}
+                      </div>
+                    )}
+
                     <div className="grid md:grid-cols-2 gap-6">
                       <div className="space-y-2">
                         <label className="text-[11px] font-extrabold text-[#1A1040] uppercase tracking-[0.4em] ml-1">Full Name</label>
-                        <input type="text" className="w-full bg-slate-50 border-0 rounded-xl px-6 py-3.5 text-[#1A1040] focus:ring-4 focus:ring-aaa-primary/5 transition-all font-medium text-[0.95rem] outline-none placeholder:text-slate-400" placeholder="Enter your full name" />
+                        <input
+                          type="text"
+                          required
+                          value={formData.fullName}
+                          onChange={(e) => setFormData({ ...formData, fullName: e.target.value })}
+                          className="w-full bg-slate-50 border-0 rounded-xl px-6 py-3.5 text-[#1A1040] transition-all font-medium text-[0.95rem] outline-none focus:!outline-none focus:!ring-0 focus-visible:!outline-none focus-visible:!ring-0 placeholder:text-slate-400"
+                          placeholder="Enter your full name"
+                        />
                       </div>
                       <div className="space-y-2">
                         <label className="text-[11px] font-extrabold text-[#1A1040] uppercase tracking-[0.4em] ml-1">Work Email</label>
-                        <input type="email" className="w-full bg-slate-50 border-0 rounded-xl px-6 py-3.5 text-[#1A1040] focus:ring-4 focus:ring-aaa-primary/5 transition-all font-medium text-[0.95rem] outline-none placeholder:text-slate-400" placeholder="office@company.com" />
+                        <input
+                          type="email"
+                          required
+                          value={formData.email}
+                          onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                          className="w-full bg-slate-50 border-0 rounded-xl px-6 py-3.5 text-[#1A1040] transition-all font-medium text-[0.95rem] outline-none focus:!outline-none focus:!ring-0 focus-visible:!outline-none focus-visible:!ring-0 placeholder:text-slate-400"
+                          placeholder="office@company.com"
+                        />
                       </div>
                     </div>
 
@@ -251,10 +353,12 @@ export default function Contact() {
                           maxLength={10}
                           pattern="[0-9]{10}"
                           inputMode="numeric"
+                          value={formData.phone}
+                          onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                           onInput={(e) => {
                             e.currentTarget.value = e.currentTarget.value.replace(/[^0-9]/g, '');
                           }}
-                          className="w-full bg-slate-50 border-0 rounded-xl px-6 py-3.5 text-[#1A1040] focus:ring-4 focus:ring-aaa-primary/5 transition-all font-medium text-[0.95rem] outline-none placeholder:text-slate-400"
+                          className="w-full bg-slate-50 border-0 rounded-xl px-6 py-3.5 text-[#1A1040] transition-all font-medium text-[0.95rem] outline-none focus:!outline-none focus:!ring-0 focus-visible:!outline-none focus-visible:!ring-0 placeholder:text-slate-400"
                           placeholder="10-Digit Mobile Number"
                         />
                       </div>
@@ -262,7 +366,9 @@ export default function Contact() {
                         <label className="text-[11px] font-extrabold text-[#1A1040] uppercase tracking-[0.4em] ml-1">Organization Name</label>
                         <input
                           type="text"
-                          className="w-full bg-slate-50 border-0 rounded-xl px-6 py-3.5 text-[#1A1040] focus:ring-4 focus:ring-aaa-primary/5 transition-all font-medium text-[0.95rem] outline-none placeholder:text-slate-400"
+                          value={formData.organization}
+                          onChange={(e) => setFormData({ ...formData, organization: e.target.value })}
+                          className="w-full bg-slate-50 border-0 rounded-xl px-6 py-3.5 text-[#1A1040] transition-all font-medium text-[0.95rem] outline-none focus:!outline-none focus:!ring-0 focus-visible:!outline-none focus-visible:!ring-0 placeholder:text-slate-400"
                           placeholder="Company or Organization Name"
                         />
                       </div>
@@ -274,7 +380,7 @@ export default function Contact() {
                         <button
                           type="button"
                           onClick={() => setIsServiceOpen(!isServiceOpen)}
-                          className="w-full bg-slate-50 border-0 rounded-xl px-6 py-3.5 text-[#1A1040] focus:ring-4 focus:ring-aaa-primary/5 transition-all font-medium text-[0.95rem] flex items-center justify-between outline-none cursor-pointer"
+                          className="w-full bg-slate-50 border-0 rounded-xl px-6 py-3.5 text-[#1A1040] transition-all font-medium text-[0.95rem] flex items-center justify-between outline-none focus:!outline-none focus:!ring-0 focus-visible:!outline-none focus-visible:!ring-0 cursor-pointer"
                         >
                           <span className={selectedService === "Select Service" ? "text-slate-400" : "text-[#1A1040]"}>
                             {selectedService}
@@ -296,6 +402,7 @@ export default function Contact() {
                                   type="button"
                                   onClick={() => {
                                     setSelectedService(service);
+                                    setFormData({ ...formData, service: service });
                                     setIsServiceOpen(false);
                                   }}
                                   className="w-full text-left px-6 py-3 text-[0.95rem] font-bold text-[#60697B] hover:bg-slate-50 hover:text-aaa-primary transition-all"
@@ -311,7 +418,13 @@ export default function Contact() {
 
                     <div className="space-y-2">
                       <label className="text-[11px] font-extrabold text-[#1A1040] uppercase tracking-[0.4em] ml-1">Requirements</label>
-                      <textarea rows={2} className="w-full bg-slate-50 border-0 rounded-xl px-6 py-3.5 text-[#1A1040] focus:ring-4 focus:ring-aaa-primary/5 transition-all font-medium text-[0.95rem] outline-none resize-none placeholder:text-slate-400" placeholder="Briefly describe your goals..."></textarea>
+                      <textarea
+                        rows={2}
+                        value={formData.requirements}
+                        onChange={(e) => setFormData({ ...formData, requirements: e.target.value })}
+                        className="w-full bg-slate-50 border-0 rounded-xl px-6 py-3.5 text-[#1A1040] transition-all font-medium text-[0.95rem] outline-none focus:!outline-none focus:!ring-0 focus-visible:!outline-none focus-visible:!ring-0 resize-none placeholder:text-slate-400"
+                        placeholder="Briefly describe your goals..."
+                      ></textarea>
                     </div>
 
                     <div className="flex flex-col sm:flex-row items-center justify-between gap-6 pt-4">
@@ -320,8 +433,12 @@ export default function Contact() {
                         <span className="text-[11px] font-extrabold uppercase tracking-[0.4em]">Secure Submission</span>
                       </div>
 
-                      <button type="submit" className="w-full sm:w-auto bg-aaa-primary hover:bg-[#251b64] text-white font-extrabold px-12 py-5 rounded-xl shadow-xl transition-all uppercase tracking-[0.2em] text-[12px] flex items-center justify-center gap-3 group">
-                        Submit Enquiry <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                      <button
+                        type="submit"
+                        disabled={isSubmitting}
+                        className="w-full sm:w-auto bg-aaa-primary hover:bg-[#251b64] text-white font-extrabold px-12 py-5 rounded-xl shadow-xl transition-all uppercase tracking-[0.2em] text-[12px] flex items-center justify-center gap-3 group disabled:opacity-50 disabled:cursor-not-allowed"
+                      >
+                        {isSubmitting ? "Submitting..." : "Submit Enquiry"} <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
                       </button>
                     </div>
                   </form>
