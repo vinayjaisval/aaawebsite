@@ -4,7 +4,8 @@ import {
   MonitorCheck,
   ShieldAlert,
   Network,
-  HelpCircle
+  HelpCircle,
+  ShieldCheck
 } from "lucide-react";
 
 import { Link } from "react-router-dom"; // ✅ ADD THIS
@@ -40,6 +41,12 @@ const services = [
     title: "IT Governance",
     description: "We help leadership ensure IT decisions support business goals. We design policies and risk frameworks built on COBIT and ISO standards.",
     href: "/it-governance"
+  },
+  {
+    icon: ShieldCheck,
+    title: "DPDP Compliance",
+    description: "We help your organisation align with India's Digital Personal Data Protection obligations through readiness assessments, data mapping, consent management, and DPO services.",
+    href: "/dpdp-compliance"
   }
 ];
 

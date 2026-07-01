@@ -27,6 +27,7 @@ export function NewsletterFooter() {
               <li><Link to="/it-systems-audit" className="hover:text-white transition-colors">IT Systems Audit</Link></li>
               <li><Link to="/cyber-security-audit" className="hover:text-white transition-colors">Cyber Security Audit</Link></li>
               <li><Link to="/it-governance" className="hover:text-white transition-colors">IT Governance</Link></li>
+              <li><Link to="/dpdp-compliance" className="hover:text-white transition-colors">DPDP Compliance</Link></li>
             </ul>
           </div>
 

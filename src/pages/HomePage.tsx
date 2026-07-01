@@ -160,7 +160,8 @@ function Services() {
     { icon: ClipboardList, title: "IT Assurance & Compliance", path: "/it-assurance-compliance", desc: "We help your organisation meet the rules set by regulators such as RBI, SEBI, and IRDAI. No last-minute scrambles before an audit." },
     { icon: Server, title: "IT Systems Audit", path: "/it-systems-audit", desc: "We review the controls inside your IT systems to confirm they are reliable, accurate, and secure for day-to-day business use." },
     { icon: ShieldAlert, title: "Cyber Security Audit", path: "/cyber-security-audit", desc: "We test your defences the way a real attacker would, then tell you exactly what to fix and how ready you are to respond." },
-    { icon: Network, title: "IT Governance", path: "/it-governance", desc: "We help leadership ensure IT decisions support business goals. We design policies and risk frameworks built on COBIT and ISO standards." }
+    { icon: Network, title: "IT Governance", path: "/it-governance", desc: "We help leadership ensure IT decisions support business goals. We design policies and risk frameworks built on COBIT and ISO standards." },
+    { icon: ShieldCheck, title: "DPDP Compliance", path: "/dpdp-compliance", desc: "We help your organisation align with India's Digital Personal Data Protection obligations through readiness assessments, data mapping, consent management, and DPO services." }
   ];
 
   return (

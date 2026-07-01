@@ -53,6 +53,15 @@ const servicesData = [
       "Board-Level IT Governance Advisory",
     ],
   },
+  {
+    title: "DPDP Compliance",
+    path: "/dpdp-compliance",
+    items: [
+      "DPDP Readiness Assessment",
+      "Significant Data Fiduciary (SDF)",
+      "Consent & DPIA Frameworks",
+    ],
+  },
 ];
 
 // const industriesData = [

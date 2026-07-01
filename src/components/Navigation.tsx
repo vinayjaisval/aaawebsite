@@ -51,6 +51,15 @@ export const servicesData = [
       { name: "Board-Level IT Governance Advisory", path: "/it-governance" },
     ],
   },
+  {
+    title: "DPDP Compliance",
+    path: "/dpdp-compliance",
+    items: [
+      { name: "DPDP Readiness Assessment", path: "/dpdp-compliance" },
+      { name: "Significant Data Fiduciary (SDF)", path: "/dpdp-compliance" },
+      { name: "Consent & DPIA Frameworks", path: "/dpdp-compliance" },
+    ],
+  },
 ];
 
 export const industriesData = [
@@ -203,6 +212,7 @@ export function Header() {
                 <Link to="/it-systems-audit" className="block px-6 py-2.5 text-[15px] font-medium text-[#60697b] hover:text-[#35268F] hover:bg-[#F4F3FB] hover:pl-7 transition-all duration-300">IT Systems Audit</Link>
                 <Link to="/cyber-security-audit" className="block px-6 py-2.5 text-[15px] font-medium text-[#60697b] hover:text-[#35268F] hover:bg-[#F4F3FB] hover:pl-7 transition-all duration-300">Cyber Security Audit</Link>
                 <Link to="/it-governance" className="block px-6 py-2.5 text-[15px] font-medium text-[#60697b] hover:text-[#35268F] hover:bg-[#F4F3FB] hover:pl-7 transition-all duration-300">IT Governance</Link>
+                <Link to="/dpdp-compliance" className="block px-6 py-2.5 text-[15px] font-medium text-[#60697b] hover:text-[#35268F] hover:bg-[#F4F3FB] hover:pl-7 transition-all duration-300">DPDP Compliance</Link>
               </div>
             )}
           </div>
@@ -263,6 +273,7 @@ export function Header() {
                 <Link to="/it-systems-audit" className="text-[16px]" onClick={() => setIsMenuOpen(false)}>IT Systems Audit</Link>
                 <Link to="/cyber-security-audit" className="text-[16px]" onClick={() => setIsMenuOpen(false)}>Cyber Security Audit</Link>
                 <Link to="/it-governance" className="text-[16px]" onClick={() => setIsMenuOpen(false)}>IT Governance</Link>
+                <Link to="/dpdp-compliance" className="text-[16px]" onClick={() => setIsMenuOpen(false)}>DPDP Compliance</Link>
               </div>
             </div>
             {/* <Link to="/industries" className="text-[18px] border-b border-slate-50 pb-2" onClick={() => setIsMenuOpen(false)}>Industries</Link> */}
@@ -330,6 +341,7 @@ export function Footer() {
                 { label: 'IT Systems Audit', to: '/it-systems-audit' },
                 { label: 'Cyber Security Audit', to: '/cyber-security-audit' },
                 { label: 'IT Governance', to: '/it-governance' },
+                { label: 'DPDP Compliance', to: '/dpdp-compliance' },
               ].map(item => (
                 <li key={item.to} className="mb-2">
                   <Link to={item.to} style={{ color: 'rgba(255,255,255,0.6)', textDecoration: 'none', transition: 'color 0.15s' }}

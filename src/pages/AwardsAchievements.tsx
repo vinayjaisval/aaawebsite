@@ -8,127 +8,127 @@ const awardsList = [
     year: "2022",
     title: "ET Change Makers Award",
     desc: "Company has been awarded with the ET Change Makers Award in the field of Cyber Security from Economic Times",
-    image: "https://www.aaatechnologies.co.in/img/awards/ECT.png"
+    image: "/images/award_et_change_makers.png"
   },
   {
     year: "2022",
     title: "Certificate of Excellence",
     desc: "Certificate of Excellence in the field of \"IS Audit And Cyber Security-2022\" from CEO Magazine.",
-    image: "https://www.aaatechnologies.co.in/img/awards/2022.png"
+    image: "/images/award_ceo_excellence.png"
   },
   {
     year: "2021",
     title: "IS Audit Excellence",
     desc: "Certificate of Excellence in the field of \"IS AUDIT AND CYBER SECURITY\"",
-    image: "https://www.aaatechnologies.co.in/img/awards/1.png"
+    image: "/images/award_is_audit_excellence.png"
   },
   {
     year: "2021",
     title: "Pride of Bharat",
     desc: "Awarded pride of Bharat",
-    image: "https://www.aaatechnologies.co.in/img/awards/SS.png"
+    image: "/images/award_pride_of_bharat.png"
   },
   {
     year: "2021",
     title: "National Honor",
     desc: "Awarded pride of Bharat",
-    image: "https://www.aaatechnologies.co.in/img/awards/6.png"
+    image: "/images/award_gold_trophy.png"
   },
   {
     year: "2021",
     title: "Business Leader of the year",
     desc: "Business Leader of the year",
-    image: "https://www.aaatechnologies.co.in/img/awards/15.png"
+    image: "/images/award_business_leader.png"
   },
   {
     year: "2020",
     title: "Most Trusted Cyber Security",
     desc: "Most Trusted Cyber Security Auditing & Consulting of the year",
-    image: "https://www.aaatechnologies.co.in/img/awards/RC3.png"
+    image: "/images/award_business_connect.png"
   },
   {
     year: "2020",
     title: "Forbes India Feature",
     desc: "Forbes India covers AAA Technologies as a premier and reputed independent auditing and consulting company",
-    image: "https://www.aaatechnologies.co.in/img/awards/2.png"
+    image: "/images/award_forbes.png"
   },
   {
     year: "2020",
     title: "Company of the year 2020",
     desc: "Company of the year 2020 and recognition for excellence in IS Audit And Cyber Security",
-    image: "https://www.aaatechnologies.co.in/img/awards/1.png"
+    image: "/images/award_ceo_excellence.png"
   },
   {
     year: "2019",
     title: "Company of the year 2019",
     desc: "Company of the year 2019 and recognition for excellence in IS Audit And Cyber Security",
-    image: "https://www.aaatechnologies.co.in/img/awards/1.png"
+    image: "/images/award_ceo_excellence.png"
   },
   {
     year: "2019",
     title: "Brand of the Year",
     desc: "Brand of the Year and Companies of the year, 2018-2019",
-    image: "https://www.aaatechnologies.co.in/img/awards/11.png"
+    image: "/images/award_pride_of_india_brands.png"
   },
   {
     year: "2018",
     title: "Fastest Growing CEOs",
     desc: "50 Fastest Growing CEOs in India and Company of the Year 2018, recognition for the excellence in IS audit and Cyber Security",
-    image: "https://www.aaatechnologies.co.in/img/awards/1.png"
+    image: "/images/award_ceo_excellence.png"
   },
   {
     year: "2018",
     title: "Most Admire Companies",
     desc: "Most Admire Companies to watch in 2018",
-    image: "https://www.aaatechnologies.co.in/img/awards/8.png"
+    image: "/images/award_silicon_review.png"
   },
   {
     year: "2017",
     title: "CIO Review Recognition",
     desc: "20 Most Promising Cyber Security Solution Providers",
-    image: "https://www.aaatechnologies.co.in/img/awards/9.png"
+    image: "/images/award_cio_review.png"
   },
   {
     year: "2017",
     title: "Best Founded Companies",
     desc: "50 Best Indian Founded Companies",
-    image: "https://www.aaatechnologies.co.in/img/awards/13.png"
+    image: "/images/award_business_connect.png"
   },
   {
     year: "2017",
     title: "Most Trusted Companies",
     desc: "10 Most Trusted Cyber Security Companies",
-    image: "https://www.aaatechnologies.co.in/img/awards/5.png"
+    image: "/images/award_insights_success.png"
   },
   {
     year: "2017",
     title: "Company of the year 2017",
     desc: "Company of the year 2017, recognition for excellence in IS Audit and Cyber Security",
-    image: "https://www.aaatechnologies.co.in/img/awards/1.png"
+    image: "/images/award_ceo_magazine.png"
   },
   {
     year: "2011",
     title: "International Achievers Summit",
     desc: "For Recognizing outstanding achievements at International Achievers Summit on Globalisation of Industries & World Peace",
-    image: "https://www.aaatechnologies.co.in/img/awards/3.png"
+    image: "/images/award_international_achievers_conference.png"
   },
   {
     year: "2011",
     title: "Technical Excellence",
     desc: "Best Cyber Security organization",
-    image: "https://www.aaatechnologies.co.in/img/awards/16.png"
+    image: "/images/award_pride_of_bharat.png"
   },
   {
     year: "2011",
     title: "Indian Achievers Award",
     desc: "Indian Achievers Award, 2011 for Industrial Excellence",
-    image: "https://www.aaatechnologies.co.in/img/awards/10.png"
+    image: "/images/award_indian_achievers.png"
   },
   {
     year: "2009",
     title: "Maharashtra IT Award",
     desc: "Maharashtra IT Award, 2009",
-    image: "https://www.aaatechnologies.co.in/img/awards/7.png"
+    image: "/images/award_maharashtra_it.png"
   }
 ];
 
@@ -191,10 +191,10 @@ export default function AwardsAchievements() {
                   transition={{ duration: 0.7, delay: idx * 0.05 }}
                   className="group relative bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-2xl transition-all duration-700"
                 >
-                  <div className="relative aspect-square w-full overflow-hidden bg-white flex items-center justify-center p-6">
+                  <div className="relative aspect-square w-full overflow-hidden bg-white flex items-center justify-center p-0">
                     <img
                       src={award.image}
-                      className="max-w-full max-h-full object-contain transition-all duration-1000 group-hover:scale-110 drop-shadow-md"
+                      className="w-full h-full object-contain transition-all duration-1000 group-hover:scale-110 drop-shadow-md"
                       alt={award.title}
                       onError={(e) => { e.currentTarget.src = "https://www.aaatechnologies.co.in/img/logo.png"; }}
                     />

@@ -23,7 +23,7 @@ const boardMembers = [
   {
     name: "Mr. Venugopal M. Dhoot",
     role: "Whole Time Director, Director (Finance) & CFO",
-    image: "https://www.aaatechnologies.co.in/img/Team/4767%20(1)%20(2).png",
+    image: "/images/venugopal-dhoot.png",
     bullets: [
       "Over 36+ years of overall experience and 18+ years of experience in Information Security Audit.",
       "Qualified Chartered Accountant and LLB.",

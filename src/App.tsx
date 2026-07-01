@@ -18,6 +18,7 @@ import InvestorRelations from './pages/InvestorRelations';
 import Management from './pages/Management';
 import Milestone from './pages/Milestone';
 import VisionMission from './pages/VisionMission';
+import DPDPCompliance from './pages/DPDPCompliance';
 
 import { Layout } from './components/Layout';
 
@@ -42,6 +43,7 @@ function App() {
           <Route path="/it-systems-audit" element={<ITSystemsAudit />} />
           <Route path="/cyber-security-audit" element={<CyberSecurityAudit />} />
           <Route path="/it-governance" element={<ITGovernance />} />
+          <Route path="/dpdp-compliance" element={<DPDPCompliance />} />
           
           {/* Investor Routes */}
           <Route path="/investors/relations" element={<InvestorRelations />} />
