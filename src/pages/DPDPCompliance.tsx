@@ -70,13 +70,13 @@ export default function DPDPCompliance() {
 
           <div className="container mx-auto px-4 sm:px-6 relative z-10">
             <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
-              {/* Breadcrumb tracking synced to 0.4em */}
-              <nav className="flex items-center gap-2 mb-8 text-xs sm:text-[0.75rem] font-bold uppercase tracking-[0.4em] text-white/50 overflow-x-auto no-scrollbar whitespace-nowrap">
+              {/* Breadcrumb tracking synced to standard format */}
+              <nav className="flex items-center gap-2 mb-8 text-xs sm:text-[0.75rem] font-bold uppercase tracking-widest text-white/50 overflow-x-auto no-scrollbar whitespace-nowrap">
                 <Link to="/" className="text-white hover:text-white/80 transition-colors">Home</Link>
                 <ChevronRight className="w-3 h-3 text-white/20 shrink-0" />
-                <span className="text-white shrink-0 uppercase tracking-[0.4em]">Services</span>
+                <span className="text-white shrink-0 uppercase tracking-widest">Services</span>
                 <ChevronRight className="w-3 h-3 text-white/20 shrink-0" />
-                <span className="text-white shrink-0 uppercase tracking-[0.4em] font-extrabold">DPDP Compliance</span>
+                <span className="text-white shrink-0 uppercase tracking-widest font-extrabold">DPDP Compliance</span>
               </nav>
 
               <div className="relative">
