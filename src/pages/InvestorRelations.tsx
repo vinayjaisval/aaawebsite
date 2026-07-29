@@ -56,8 +56,8 @@ const reportData: Record<string, any> = {
   "investor-presentation": {
     type: "folders",
     data: {
-      "2025-2026": [{ title: "Investor Presentation FY 2025-26", size: "2.6 MB", url: "/documents/annual-reports/499080867_ANNUAL REPORT 2024.pdf" }],
-      "2024-2025": [{ title: "Investor Presentation FY 2024-25", size: "2.6 MB", url: "/documents/annual-reports/499080867_ANNUAL REPORT 2024.pdf" }],
+      "2025-2026": [{ title: "Investor Presentation FY 2025-26", size: "2.8 MB", url: "/documents/annual-reports/annual-report-2025-26.pdf" }],
+      "2024-2025": [{ title: "Investor Presentation FY 2024-25", size: "14.2 MB", url: "/documents/annual-reports/annual-report-2024-25.pdf" }],
       "2023-2024": [{ title: "Investor Presentation FY 2023-24", size: "2.6 MB", url: "/documents/annual-reports/499080867_ANNUAL REPORT 2024.pdf" }],
       "2022-2023": [{ title: "Investor Presentation FY 2022-23", size: "16.7 MB", url: "/documents/annual-reports/483931699_Annual Report-2023.pdf" }],
       "2021-2022": [{ title: "Investor Presentation FY 2021-22", size: "15.3 MB", url: "/documents/annual-reports/452649839_Annual Report-2022.pdf" }],
@@ -70,8 +70,8 @@ const reportData: Record<string, any> = {
   "shareholding-pattern": {
     type: "folders",
     data: {
-      "2025-2026": [{ title: "Shareholding Pattern FY 2025-26", size: "2.6 MB", url: "/documents/annual-reports/499080867_ANNUAL REPORT 2024.pdf" }],
-      "2024-2025": [{ title: "Shareholding Pattern FY 2024-25", size: "2.6 MB", url: "/documents/annual-reports/499080867_ANNUAL REPORT 2024.pdf" }],
+      "2025-2026": [{ title: "Shareholding Pattern FY 2025-26", size: "2.8 MB", url: "/documents/annual-reports/annual-report-2025-26.pdf" }],
+      "2024-2025": [{ title: "Shareholding Pattern FY 2024-25", size: "14.2 MB", url: "/documents/annual-reports/annual-report-2024-25.pdf" }],
       "2023-2024": [{ title: "Shareholding Pattern FY 2023-24", size: "2.6 MB", url: "/documents/annual-reports/499080867_ANNUAL REPORT 2024.pdf" }],
       "2022-2023": [{ title: "Shareholding Pattern FY 2022-23", size: "16.7 MB", url: "/documents/annual-reports/483931699_Annual Report-2023.pdf" }],
       "2021-2022": [{ title: "Shareholding Pattern FY 2021-22", size: "15.3 MB", url: "/documents/annual-reports/452649839_Annual Report-2022.pdf" }],
@@ -84,8 +84,8 @@ const reportData: Record<string, any> = {
   "financial-results": {
     type: "folders",
     data: {
-      "2025-2026": [{ title: "Financial Results FY 2025-26", size: "2.6 MB", url: "/documents/annual-reports/499080867_ANNUAL REPORT 2024.pdf" }],
-      "2024-2025": [{ title: "Financial Results FY 2024-25", size: "2.6 MB", url: "/documents/annual-reports/499080867_ANNUAL REPORT 2024.pdf" }],
+      "2025-2026": [{ title: "Financial Results FY 2025-26", size: "2.8 MB", url: "/documents/annual-reports/annual-report-2025-26.pdf" }],
+      "2024-2025": [{ title: "Financial Results FY 2024-25", size: "14.2 MB", url: "/documents/annual-reports/annual-report-2024-25.pdf" }],
       "2023-2024": [{ title: "Financial Results FY 2023-24", size: "2.6 MB", url: "/documents/annual-reports/499080867_ANNUAL REPORT 2024.pdf" }],
       "2022-2023": [{ title: "Financial Results FY 2022-23", size: "16.7 MB", url: "/documents/annual-reports/483931699_Annual Report-2023.pdf" }],
       "2021-2022": [{ title: "Financial Results FY 2021-22", size: "15.3 MB", url: "/documents/annual-reports/452649839_Annual Report-2022.pdf" }],
@@ -98,8 +98,8 @@ const reportData: Record<string, any> = {
   "notices": {
     type: "folders",
     data: {
-      "2025-2026": [{ title: "Notice of AGM FY 2025-26", size: "2.6 MB", url: "/documents/annual-reports/499080867_ANNUAL REPORT 2024.pdf" }],
-      "2024-2025": [{ title: "Notice of AGM FY 2024-25", size: "2.6 MB", url: "/documents/annual-reports/499080867_ANNUAL REPORT 2024.pdf" }],
+      "2025-2026": [{ title: "Notice of AGM FY 2025-26", size: "2.8 MB", url: "/documents/annual-reports/annual-report-2025-26.pdf" }],
+      "2024-2025": [{ title: "Notice of AGM FY 2024-25", size: "14.2 MB", url: "/documents/annual-reports/annual-report-2024-25.pdf" }],
       "2023-2024": [{ title: "Notice of AGM FY 2023-24", size: "2.6 MB", url: "/documents/annual-reports/499080867_ANNUAL REPORT 2024.pdf" }],
       "2022-2023": [{ title: "Notice of AGM FY 2022-23", size: "16.7 MB", url: "/documents/annual-reports/483931699_Annual Report-2023.pdf" }],
       "2021-2022": [{ title: "Notice of AGM FY 2021-22", size: "15.3 MB", url: "/documents/annual-reports/452649839_Annual Report-2022.pdf" }],
@@ -112,8 +112,8 @@ const reportData: Record<string, any> = {
   "annual-return": {
     type: "folders",
     data: {
-      "2025-2026": [{ title: "Annual Return Form MGT-7 FY 2025-26", size: "2.6 MB", url: "/documents/annual-reports/499080867_ANNUAL REPORT 2024.pdf" }],
-      "2024-2025": [{ title: "Annual Return Form MGT-7 FY 2024-25", size: "2.6 MB", url: "/documents/annual-reports/499080867_ANNUAL REPORT 2024.pdf" }],
+      "2025-2026": [{ title: "Annual Return Form MGT-7 FY 2025-26", size: "2.8 MB", url: "/documents/annual-reports/annual-report-2025-26.pdf" }],
+      "2024-2025": [{ title: "Annual Return Form MGT-7 FY 2024-25", size: "14.2 MB", url: "/documents/annual-reports/annual-report-2024-25.pdf" }],
       "2023-2024": [{ title: "Annual Return Form MGT-7 FY 2023-24", size: "2.6 MB", url: "/documents/annual-reports/499080867_ANNUAL REPORT 2024.pdf" }],
       "2022-2023": [{ title: "Annual Return Form MGT-7 FY 2022-23", size: "16.7 MB", url: "/documents/annual-reports/483931699_Annual Report-2023.pdf" }],
       "2021-2022": [{ title: "Annual Return Form MGT-7 FY 2021-22", size: "15.3 MB", url: "/documents/annual-reports/452649839_Annual Report-2022.pdf" }],
@@ -126,8 +126,8 @@ const reportData: Record<string, any> = {
   "scrutinizers-report": {
     type: "folders",
     data: {
-      "2025-2026": [{ title: "Scrutinizers Report FY 2025-26", size: "2.6 MB", url: "/documents/annual-reports/499080867_ANNUAL REPORT 2024.pdf" }],
-      "2024-2025": [{ title: "Scrutinizers Report FY 2024-25", size: "2.6 MB", url: "/documents/annual-reports/499080867_ANNUAL REPORT 2024.pdf" }],
+      "2025-2026": [{ title: "Scrutinizers Report FY 2025-26", size: "2.8 MB", url: "/documents/annual-reports/annual-report-2025-26.pdf" }],
+      "2024-2025": [{ title: "Scrutinizers Report FY 2024-25", size: "14.2 MB", url: "/documents/annual-reports/annual-report-2024-25.pdf" }],
       "2023-2024": [{ title: "Scrutinizers Report FY 2023-24", size: "2.6 MB", url: "/documents/annual-reports/499080867_ANNUAL REPORT 2024.pdf" }],
       "2022-2023": [{ title: "Scrutinizers Report FY 2022-23", size: "16.7 MB", url: "/documents/annual-reports/483931699_Annual Report-2023.pdf" }],
       "2021-2022": [{ title: "Scrutinizers Report FY 2021-22", size: "15.3 MB", url: "/documents/annual-reports/452649839_Annual Report-2022.pdf" }],
@@ -140,8 +140,8 @@ const reportData: Record<string, any> = {
   "notice-board-meeting": {
     type: "folders",
     data: {
-      "2025-2026": [{ title: "Notice of Board Meeting FY 2025-26", size: "2.6 MB", url: "/documents/annual-reports/499080867_ANNUAL REPORT 2024.pdf" }],
-      "2024-2025": [{ title: "Notice of Board Meeting FY 2024-25", size: "2.6 MB", url: "/documents/annual-reports/499080867_ANNUAL REPORT 2024.pdf" }],
+      "2025-2026": [{ title: "Notice of Board Meeting FY 2025-26", size: "2.8 MB", url: "/documents/annual-reports/annual-report-2025-26.pdf" }],
+      "2024-2025": [{ title: "Notice of Board Meeting FY 2024-25", size: "14.2 MB", url: "/documents/annual-reports/annual-report-2024-25.pdf" }],
       "2023-2024": [{ title: "Notice of Board Meeting FY 2023-24", size: "2.6 MB", url: "/documents/annual-reports/499080867_ANNUAL REPORT 2024.pdf" }],
       "2022-2023": [{ title: "Notice of Board Meeting FY 2022-23", size: "16.7 MB", url: "/documents/annual-reports/483931699_Annual Report-2023.pdf" }],
       "2021-2022": [{ title: "Notice of Board Meeting FY 2021-22", size: "15.3 MB", url: "/documents/annual-reports/452649839_Annual Report-2022.pdf" }],
@@ -168,8 +168,8 @@ const reportData: Record<string, any> = {
   "chairman-communication": {
     type: "folders",
     data: {
-      "2025-2026": [{ title: "Chairman Communication FY 2025-26", size: "2.6 MB", url: "/documents/annual-reports/499080867_ANNUAL REPORT 2024.pdf" }],
-      "2024-2025": [{ title: "Chairman Communication FY 2024-25", size: "2.6 MB", url: "/documents/annual-reports/499080867_ANNUAL REPORT 2024.pdf" }],
+      "2025-2026": [{ title: "Chairman Communication FY 2025-26", size: "2.8 MB", url: "/documents/annual-reports/annual-report-2025-26.pdf" }],
+      "2024-2025": [{ title: "Chairman Communication FY 2024-25", size: "14.2 MB", url: "/documents/annual-reports/annual-report-2024-25.pdf" }],
       "2023-2024": [{ title: "Chairman Communication FY 2023-24", size: "2.6 MB", url: "/documents/annual-reports/499080867_ANNUAL REPORT 2024.pdf" }],
       "2022-2023": [{ title: "Chairman Communication FY 2022-23", size: "16.7 MB", url: "/documents/annual-reports/483931699_Annual Report-2023.pdf" }],
       "2021-2022": [{ title: "Chairman Communication FY 2021-22", size: "15.3 MB", url: "/documents/annual-reports/452649839_Annual Report-2022.pdf" }],
@@ -192,8 +192,8 @@ const reportData: Record<string, any> = {
   "press-release": {
     type: "folders",
     data: {
-      "2025-2026": [{ title: "Press Release FY 2025-26", size: "2.6 MB", url: "/documents/annual-reports/499080867_ANNUAL REPORT 2024.pdf" }],
-      "2024-2025": [{ title: "Press Release FY 2024-25", size: "2.6 MB", url: "/documents/annual-reports/499080867_ANNUAL REPORT 2024.pdf" }],
+      "2025-2026": [{ title: "Press Release FY 2025-26", size: "2.8 MB", url: "/documents/annual-reports/annual-report-2025-26.pdf" }],
+      "2024-2025": [{ title: "Press Release FY 2024-25", size: "14.2 MB", url: "/documents/annual-reports/annual-report-2024-25.pdf" }],
       "2023-2024": [{ title: "Press Release FY 2023-24", size: "16.7 MB", url: "/documents/annual-reports/483931699_Annual Report-2023.pdf" }],
       "2022-2023": [{ title: "Press Release FY 2022-23", size: "15.3 MB", url: "/documents/annual-reports/452649839_Annual Report-2022.pdf" }],
       "2021-2022": [{ title: "Press Release FY 2021-22", size: "23.8 MB", url: "/documents/annual-reports/716352961_Annual Report-2021.pdf" }],
