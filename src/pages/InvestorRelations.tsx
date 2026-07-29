@@ -42,8 +42,8 @@ const reportData: Record<string, any> = {
   "annual-report": {
     type: "folders",
     data: {
-      "2025-2026": [{ title: "Annual Report FY 2025-26", size: "2.6 MB", url: "/documents/annual-reports/499080867_ANNUAL REPORT 2024.pdf" }],
-      "2024-2025": [{ title: "Annual Report FY 2024-25", size: "2.6 MB", url: "/documents/annual-reports/499080867_ANNUAL REPORT 2024.pdf" }],
+      "2025-2026": [{ title: "Annual Report FY 2025-26", size: "2.8 MB", url: "/documents/annual-reports/annual-report-2025-26.pdf" }],
+      "2024-2025": [{ title: "Annual Report FY 2024-25", size: "14.2 MB", url: "/documents/annual-reports/annual-report-2024-25.pdf" }],
       "2023-2024": [{ title: "Annual Report FY 2023-24", size: "2.6 MB", url: "/documents/annual-reports/499080867_ANNUAL REPORT 2024.pdf" }],
       "2022-2023": [{ title: "Annual Report FY 2022-23", size: "16.7 MB", url: "/documents/annual-reports/483931699_Annual Report-2023.pdf" }],
       "2021-2022": [{ title: "Annual Report FY 2021-22", size: "15.3 MB", url: "/documents/annual-reports/452649839_Annual Report-2022.pdf" }],
