@@ -1,8 +1,9 @@
 import { useEffect } from "react";
 import { Link } from "react-router-dom";
-import { ChevronRight, Briefcase, GraduationCap, Trophy } from "lucide-react";
+import { ChevronRight } from "lucide-react";
 import { BackToTop } from "../components/back-to-top";
 
+/*
 const leaders = [
   {
     name: "Mr. Anjay Agarwal",
@@ -75,6 +76,7 @@ const leaders = [
     ]
   }
 ];
+*/
 
 export default function Management() {
   useEffect(() => {
@@ -118,13 +120,13 @@ export default function Management() {
           <div className="absolute top-0 bottom-0 left-1/2 -translate-x-1/2 w-[1px] bg-slate-200 hidden lg:block z-0 opacity-40" />
 
           <div className="container mx-auto px-4 relative z-10" style={{ maxWidth: "1150px" }}>
+            {/*
             <div className="space-y-10 lg:space-y-16">
               {leaders.map((leader, idx) => (
                 <div
                   key={leader.name}
                   className="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-16 items-center bg-white border border-slate-100 p-6 lg:p-10 shadow-sm rounded-[40px] transition-all duration-500 w-full overflow-hidden group"
                 >
-                  {/* LEADERSHIP PORTRAIT AND VISUAL CARD */}
                   <div className={`md:col-span-4 flex justify-center ${idx % 2 === 0 ? "md:order-1" : "md:order-2"}`}>
                     <div className="relative w-full max-w-[330px] aspect-[4/5] overflow-hidden rounded-[30px] border border-slate-100 shadow-xl transition-transform duration-500 group-hover:scale-[1.02]">
                       <img
@@ -135,7 +137,6 @@ export default function Management() {
                     </div>
                   </div>
 
-                  {/* LEADERSHIP BIOGRAPHY AND PROFESSIONAL CREDENTIALS */}
                   <div className={`md:col-span-8 flex flex-col justify-center ${idx % 2 === 0 ? "md:order-2" : "md:order-1"}`}>
                     <h2 className="text-2xl md:text-3xl font-bold text-slate-900 tracking-tight leading-tight uppercase italic underline decoration-aaa-primary/10 decoration-8 underline-offset-4 mb-4">
                       {leader.name}
@@ -168,6 +169,12 @@ export default function Management() {
                   </div>
                 </div>
               ))}
+            </div>
+            */}
+            <div className="text-center py-12">
+              <h3 className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-[#35268F] uppercase tracking-widest">
+                Coming Soon
+              </h3>
             </div>
           </div>
         </section>
