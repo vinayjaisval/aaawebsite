@@ -1,8 +1,9 @@
 import { useEffect } from "react";
 import { Link } from "react-router-dom";
-import { ChevronRight, Trophy } from "lucide-react";
+import { ChevronRight } from "lucide-react";
 import { BackToTop } from "../components/back-to-top";
 
+/*
 const boardMembers = [
   {
     name: "Mr. Anjay Agarwal",
@@ -76,6 +77,7 @@ const boardMembers = [
     ]
   }
 ];
+*/
 
 export default function BoardOfDirectors() {
   useEffect(() => {
@@ -116,13 +118,13 @@ export default function BoardOfDirectors() {
         {/* --- SECTION: BOARD OF DIRECTORS PORTFOLIO --- */}
         <section className="py-20 bg-slate-50/50 relative overflow-hidden selection:bg-aaa-primary/10">
           <div className="container mx-auto px-4 sm:px-6 relative z-10" style={{ maxWidth: "1250px" }}>
+            {/*
             <div className="space-y-12 lg:space-y-20">
               {boardMembers.map((member, idx) => (
                 <div
                   key={member.name}
                   className="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-16 items-center bg-white border border-slate-100 p-8 lg:p-12 shadow-sm rounded-[40px] transition-all duration-500 w-full hover:shadow-[0_40px_80px_rgba(26,16,64,0.08)] group"
                 >
-                  {/* Portrait Section */}
                   <div className={`md:col-span-4 flex justify-center ${idx % 2 === 0 ? "md:order-1" : "md:order-2"}`}>
                     <div className="relative w-full max-w-[330px] aspect-[4/5] overflow-hidden rounded-[30px] border border-slate-100 shadow-xl transition-transform duration-500 group-hover:scale-[1.02]">
                       <img
@@ -133,7 +135,6 @@ export default function BoardOfDirectors() {
                     </div>
                   </div>
 
-                  {/* Details Section */}
                   <div className={`md:col-span-8 flex flex-col justify-center ${idx % 2 === 0 ? "md:order-2" : "md:order-1"}`}>
                     <h2 className="text-2xl md:text-3xl lg:text-4xl font-extrabold text-[#1A1040] tracking-tight leading-tight uppercase italic underline decoration-aaa-primary/10 decoration-8 underline-offset-4 mb-6 group-hover:text-aaa-primary transition-colors">
                       {member.name}
@@ -155,6 +156,12 @@ export default function BoardOfDirectors() {
                   </div>
                 </div>
               ))}
+            </div>
+            */}
+            <div className="text-center py-12">
+              <h3 className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-[#35268F] uppercase tracking-widest">
+                Coming Soon
+              </h3>
             </div>
           </div>
         </section>

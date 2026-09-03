@@ -61,10 +61,10 @@ export default function Contact() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
-    if (!formData.fullName || !formData.email || !formData.phone || !formData.service) {
+    if (!formData.fullName || !formData.email || !formData.phone || !formData.organization || !formData.service || !formData.requirements) {
       setSubmitStatus({
         type: "error",
-        message: "Please fill out all required fields (Full Name, Work Email, Phone Number, and Service Interest)."
+        message: "Please fill out all required fields."
       });
       return;
     }
@@ -73,7 +73,7 @@ export default function Contact() {
     setSubmitStatus(null);
 
     try {
-      const response = await fetch("https://skyiot.skylabsapp.com/api/", {
+      const response = await fetch("https://skyiot.skylabsapp.com/api/aaa_mail", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -89,10 +89,12 @@ export default function Contact() {
         })
       });
 
-      if (response.ok) {
+      const responseData = await response.json().catch(() => ({}));
+
+      if (response.ok && responseData.success !== false) {
         setSubmitStatus({
           type: "success",
-          message: "Thank you! Your enquiry has been submitted successfully. We will get back to you shortly."
+          message: responseData.message || "Form submitted successfully"
         });
         setFormData({
           fullName: "",
@@ -104,10 +106,9 @@ export default function Contact() {
         });
         setSelectedService("Select Service");
       } else {
-        const errorData = await response.json().catch(() => ({}));
         setSubmitStatus({
           type: "error",
-          message: errorData.message || "Failed to submit. Please try again."
+          message: responseData.message || "Failed to submit. Please try again."
         });
       }
     } catch (err) {
@@ -366,6 +367,7 @@ export default function Contact() {
                         <label className="text-[11px] font-extrabold text-[#1A1040] uppercase tracking-[0.4em] ml-1">Organization Name</label>
                         <input
                           type="text"
+                          required
                           value={formData.organization}
                           onChange={(e) => setFormData({ ...formData, organization: e.target.value })}
                           className="w-full bg-slate-50 border-0 rounded-xl px-6 py-3.5 text-[#1A1040] transition-all font-medium text-[0.95rem] outline-none focus:!outline-none focus:!ring-0 focus-visible:!outline-none focus-visible:!ring-0 placeholder:text-slate-400"
@@ -420,6 +422,7 @@ export default function Contact() {
                       <label className="text-[11px] font-extrabold text-[#1A1040] uppercase tracking-[0.4em] ml-1">Requirements</label>
                       <textarea
                         rows={2}
+                        required
                         value={formData.requirements}
                         onChange={(e) => setFormData({ ...formData, requirements: e.target.value })}
                         className="w-full bg-slate-50 border-0 rounded-xl px-6 py-3.5 text-[#1A1040] transition-all font-medium text-[0.95rem] outline-none focus:!outline-none focus:!ring-0 focus-visible:!outline-none focus-visible:!ring-0 resize-none placeholder:text-slate-400"

@@ -1,9 +1,9 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { Link } from "react-router-dom";
-import { motion, AnimatePresence } from "framer-motion";
 import { ChevronRight } from "lucide-react";
 import { BackToTop } from "../components/back-to-top";
 
+/*
 const committees = [
   {
     id: "audit",
@@ -42,15 +42,17 @@ const committees = [
     ]
   }
 ];
+*/
 
 export default function BoardCommittees() {
+  /*
   const [activeTab, setActiveTab] = useState("audit");
+  const activeCommittee = committees.find(c => c.id === activeTab) || committees[0];
+  */
 
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
-
-  const activeCommittee = committees.find(c => c.id === activeTab) || committees[0];
 
   return (
     <>
@@ -84,9 +86,9 @@ export default function BoardCommittees() {
         {/* --- SECTION: GOVERNANCE COMMITTEES MAIN CONTENT --- */}
         <section className="pt-10 lg:pt-12 pb-12 lg:pb-16 bg-slate-50/50 relative selection:bg-aaa-primary/10">
           <div className="container mx-auto px-4 sm:px-6 relative z-10" style={{ maxWidth: "1250px" }}>
+            {/*
             <div className="flex flex-col lg:flex-row gap-6 lg:gap-12">
 
-              {/* COMMITTEE SELECTION SIDEBAR (redBus pattern) */}
               <aside className="lg:w-[320px] shrink-0 w-full sticky top-32 z-10">
                 <div className="bg-white border border-slate-200 shadow-sm overflow-hidden rounded-lg">
                   <div className="p-5 border-b border-slate-100 bg-slate-50/50">
@@ -113,7 +115,6 @@ export default function BoardCommittees() {
                 </div>
               </aside>
 
-              {/* ACTIVE COMMITTEE DETAILS AREA */}
               <div className="flex-1">
                 <AnimatePresence mode="wait">
                   <motion.div
@@ -131,7 +132,6 @@ export default function BoardCommittees() {
                       </h2>
                     </div>
 
-                    {/* OFFICIAL GOVERNANCE DATA TABLE */}
                     <div className="border border-[#DEE2E6] overflow-hidden rounded-none">
                       <div className="overflow-x-auto">
                         <table className="w-full text-left border-collapse">
@@ -164,6 +164,12 @@ export default function BoardCommittees() {
                 </AnimatePresence>
               </div>
 
+            </div>
+            */}
+            <div className="text-center py-12">
+              <h3 className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-[#35268F] uppercase tracking-widest">
+                Coming Soon
+              </h3>
             </div>
           </div>
         </section>
