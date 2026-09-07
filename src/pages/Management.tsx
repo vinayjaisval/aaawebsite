@@ -1,82 +1,88 @@
 import { useEffect } from "react";
 import { Link } from "react-router-dom";
-import { ChevronRight } from "lucide-react";
+import { ChevronRight, Briefcase, GraduationCap, Trophy } from "lucide-react";
 import { BackToTop } from "../components/back-to-top";
 
-/*
 const leaders = [
   {
-    name: "Mr. Anjay Agarwal",
-    role: "Chairman & Managing Director",
-    image: "/images/anjay-agarwal.png",
-    experience: "Over 29+ years of overall experience and 26+ years of experience in Information Security Audit / Cyber Security Audit.",
-    qualifications: "Qualified Chartered Accountant, Company Secretary, Cost Accountant and Law from Mumbai University. Holds 25 prestigious professional certification",
+    name: "Mr. Santosh Kumar Pandey",
+    role: "Whole Time Director",
+    image: "/images/santosh-kumar-pandey.jpg",
+    experience: "Mr. Santosh Kumar Pandey is a seasoned business leader with over 26 years of experience in corporate management and technology innovation. Founder of a prominent GPS and IoT solutions firm driving geospatial and industrial automation frameworks.",
+    qualifications: "Certified in CISA, ISO 27001:22 Certified Lead Auditor, ISO 42001:23, CEH and CHFI.",
     bullets: [
-      "Eminent Information Security professional who has served both the National and International security community for over 20 years.",
-      "Certifications includes such as CRISC(USA), CGEIT(USA), CISA(USA), CFE(USA), CIA(USA), ABCI(UK) FCA, ACMA, ACS, B. Com, LLB.",
-      "55th professional in World to achieve COBIT Certified Assessor Designation",
-      "1st person from Asia to be appointed as the Chairman of Governmental and Regulatory Agencies Board (GRA Board) of ISACA, International",
-      "Involved in 10,000+ Information Technology and Cyber Security Audit assignments till date.",
-      "Involved with various Government and professional bodies in various capacities including as Jury Member for the Maharashtra IT Awards; several Committees / Board of ISACA (USA) including Audit Committee / Finance Committee; President of ISACA, Mumbai Chapter in 2006-2007"
+      "Emphasizes strategic IIOT / Drone based software and hardware project management.",
+      "Aligns core technical offerings with mission-critical client objectives.",
+      "Committed to operational excellence and sustainable business growth.",
+      "Successful execution of complex, large-scale digital transformation projects."
     ]
   },
   {
-    name: "Mr. Venugopal M. Dhoot",
-    role: "Whole Time Director, Director (Finance) & CFO",
-    image: "/images/venugopal-dhoot.png",
-    experience: "Over 36+ years of overall experience and 18+ years of experience in Information Security Audit",
-    qualifications: "Qualified Chartered Accountant and LLB",
+    name: "Mr. Karan Sharma",
+    role: "Executive Director",
+    image: "/images/karan-sharma.jpg",
+    experience: "Over 10 years of professional experience in international trade, business development, and business operations across reputed organisations.",
+    qualifications: "Master's degree in International Business Management from IMT Ghaziabad and BBA from Chaudhary Charan Singh University, Meerut.",
     bullets: [
-      "Certification in DISA, DIRM, and CEH"
+      "Brings a strong blend of strategic leadership, commercial acumen, and global business expertise.",
+      "Instrumental in driving business growth and managing client & stakeholder relationships.",
+      "Overseeing business operations and identifying new opportunities in international markets.",
+      "Committed to building sustainable business relationships and creating long-term value."
     ]
   },
   {
-    name: "Mrs. Ruchi Agarwal",
-    role: "Executive Director (HR & Administration)",
-    image: "/images/ruchi-agarwal.png",
-    experience: "Over 16+ years of experience in IT Audit",
-    qualifications: "Master`s in Arts From Kanpur University and Bachelor in Arts from Lucknow University.",
-    bullets: [
-      "Certification in ISO 27001 Lead Auditor"
-    ]
-  },
-  {
-    name: "Mr. Rajesh Chandra Verma",
+    name: "Ms. Jyoti Torani",
     role: "Independent Director",
-    image: "/images/rajesh-chandra-verma.jpg",
-    experience: "Has more than 40 years of experience in the Banking and Financing sector.",
-    qualifications: "Qualification includes M. Sc, CAIIB (India) and CAIB (UK)",
+    image: "/images/jyoti-trani.jpg",
+    experience: "Qualified professional with substantial experience in the fields of audit, internal control systems, tax matters, compliance, and accounting.",
+    qualifications: "Professional background across Statutory Audit, GST Compliance, Income Tax Preparation & Financial Analysis.",
     bullets: [
-      "Held multiple positions during his tenure with SBI and was Head of Treasury (IRM Group)",
-      "Worked with DCB Bank Ltd as Executive Vice President/Sr. Vice President& Head Treasury Group from May 2009 till he retired in April 2020"
+      "Worked across statutory audit and GST compliance functions.",
+      "Extensive experience in income tax preparation and accounting.",
+      "Spans risk assessment and MIS reporting.",
+      "Expertise in financial analysis and internal control systems."
     ]
   },
   {
-    name: "Mr. Naveen Kumar Srivastava",
-    role: "Independent Director",
-    image: "/images/naveen-kumar-srivastava.jpg",
-    experience: "Has more than 40 years of experience in the Banking and Information Technology and Security Sector.",
-    qualifications: "Qualification includes M.A. (Economics), CISA, CISB and ISO 27001 Lead Auditor",
+    name: "Mr. Ashok Kumar Chordia",
+    role: "Promoter Non Executive Director",
+    image: "/images/ashok-kumar-chordia.jpg",
+    experience: "Chartered Accountant and a seasoned corporate finance professional associated with Mentor Capital Services Private Limited.",
+    qualifications: "Qualified Chartered Accountant & Seasoned Corporate Finance Professional.",
     bullets: [
-      "Served State Bank of India for 28+ Years",
-      "Has notable achievements such as being the Founder Member of Information Security Department of State Bank of India.",
-      "Has been contributor to Information Security Frameworks for Banks, IDRBT."
+      "Experience in corporate advisory and working capital finance.",
+      "Expertise in debt and equity structuring.",
+      "Involved in finance, taxation, and restructuring over the years.",
+      "Holds director-level positions in multiple companies in corporate management."
     ]
   },
   {
-    name: "Mr. Nabankur Sen",
+    name: "Mr. Premendra Singh Rajput",
     role: "Independent Director",
-    image: "/images/nabankur-sen-photo.jpg",
-    experience: "Has more than 45 years of experience in the Banking and Cyber Security and Information Technology and Security sector.",
-    qualifications: "Qualifications includes B. Sc (Physics Honors) , CISA, CISM, CRISC from ISACA, Illinois, Chicago, USA, and ISO 27001 Lead Auditor and Implementer.",
+    image: "/images/premendra-singh-rajput.jpg",
+    experience: "Over 24 years of extensive IT industry experience, specializing in global program management, delivery governance, and enterprise digital transformation.",
+    qualifications: "Specialist in Global Program Management, Enterprise Digital Transformation & Delivery Governance.",
     bullets: [
-      "Has served State Bank of India for 30+ Years",
-      "Has been Chief Information Security Officer in Axis Bank between April, 2005 and September, 2013.",
-      "Has featured among the Top-100 CISOs across the country repeatedly from 2013 till 2019 from CISO platform, Bangalore."
+      "Deep expertise in managing highly complex, data-intensive IT infrastructures.",
+      "Oversees cyber audit and strategic risk management initiatives.",
+      "Experienced in global delivery and governance of critical data & marketing platforms.",
+      "Proven track record in risk identification, team collaboration & contract management."
+    ]
+  },
+  {
+    name: "Mr. Prateek Bhansali",
+    role: "Independent Director",
+    image: "/images/prateek-bhansali.jpg",
+    experience: "Seasoned professional with extensive experience in cyber security, information systems auditing, risk advisory, and IT governance.",
+    qualifications: "Expertise across PCI DSS, SOC Compliance, VAPT, ISO standards and various audit frameworks.",
+    bullets: [
+      "Worked across PCI DSS, SOC Compliance & VAPT domains.",
+      "Handles complex technical audits and regulatory assessments.",
+      "Strategic advisory assignments in technology assurance.",
+      "Proven expertise in IT governance and risk advisory."
     ]
   }
 ];
-*/
 
 export default function Management() {
   useEffect(() => {
@@ -120,7 +126,6 @@ export default function Management() {
           <div className="absolute top-0 bottom-0 left-1/2 -translate-x-1/2 w-[1px] bg-slate-200 hidden lg:block z-0 opacity-40" />
 
           <div className="container mx-auto px-4 relative z-10" style={{ maxWidth: "1150px" }}>
-            {/*
             <div className="space-y-10 lg:space-y-16">
               {leaders.map((leader, idx) => (
                 <div
@@ -169,12 +174,6 @@ export default function Management() {
                   </div>
                 </div>
               ))}
-            </div>
-            */}
-            <div className="text-center py-12">
-              <h3 className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-[#35268F] uppercase tracking-widest">
-                Coming Soon
-              </h3>
             </div>
           </div>
         </section>

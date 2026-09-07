@@ -459,16 +459,14 @@ function Awards() {
 }
 
 function Leadership() {
-/*
   const team = [
-    { name: "Mr. Anjay Agarwal", role: "Chairman & Managing Director", img: "anjay-agarwal.png" },
-    { name: "Mr. Venugopal Dhoot", role: "Whole Time Director & CFO", img: "venugopal-dhoot.png" },
-    { name: "Mrs. Ruchi Agarwal", role: "Executive Director, HR & Admin", img: "ruchi-agarwal.png" },
-    { name: "Mr. Rajesh C. Verma", role: "Independent Director", img: "rajesh-verma.jpg" },
-    { name: "Mr. Naveen Srivastava", role: "Independent Director", img: "naveen-srivastava.jpg" },
-    { name: "Mr. Nabankur Sen", role: "Independent Director", img: "nabankur-sen.jpg" }
+    { name: "Mr. Santosh Kumar Pandey", role: "Whole Time Director", img: "/images/santosh-kumar-pandey.jpg" },
+    { name: "Mr. Karan Sharma", role: "Executive Director", img: "/images/karan-sharma.jpg" },
+    { name: "Ms. Jyoti Torani", role: "Independent Director", img: "/images/jyoti-trani.jpg" },
+    { name: "Mr. Ashok Kumar Chordia", role: "Promoter Non Executive Director", img: "/images/ashok-kumar-chordia.jpg" },
+    { name: "Mr. Premendra Singh Rajput", role: "Independent Director", img: "/images/premendra-singh-rajput.jpg" },
+    { name: "Mr. Prateek Bhansali", role: "Independent Director", img: "/images/prateek-bhansali.jpg" }
   ];
-  */
 
   return (
     <section className="py-24 bg-white font-sans border-t border-slate-50">
@@ -478,12 +476,11 @@ function Leadership() {
           <h2 className="text-[32px] md:text-[40px] font-extrabold text-[#1A1040] leading-tight mb-4">The People Who Lead AAA Technologies</h2>
           <p className="text-[#60697b] font-medium leading-relaxed">Our leadership team brings decades of hands-on experience in IT audit and information security.</p>
         </div>
-        {/*
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
           {team.map((m, i) => (
             <div key={i} className="team-card group">
               <div className="team-avatar group-hover:scale-110 transition-transform duration-300">
-                <img src={`/assets/img/team/${m.img}`} alt={m.name} className="w-full h-full object-cover" />
+                <img src={m.img} alt={m.name} className="w-full h-full object-cover object-top" />
               </div>
               <h4 className="text-[#1A1040] font-bold text-[13px] mb-2 leading-tight min-h-[2.5rem]">{m.name}</h4>
               <p className="text-[#008253] font-bold text-[11px] uppercase tracking-wider leading-tight min-h-[2.5rem]">{m.role}</p>
@@ -491,15 +488,9 @@ function Leadership() {
           ))}
         </div>
         <div className="text-center mt-12">
-          <button className="border-2 border-[#35268F] text-[#35268F] hover:bg-[#35268F] hover:text-white px-8 py-3 rounded-[8px] font-bold transition-all">
+          <Link to="/about/management" className="inline-block border-2 border-[#35268F] text-[#35268F] hover:bg-[#35268F] hover:text-white px-8 py-3 rounded-[8px] font-bold transition-all">
             Meet the Full Team
-          </button>
-        </div>
-        */}
-        <div className="text-center py-12">
-          <h3 className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-[#35268F] uppercase tracking-widest">
-            Coming Soon
-          </h3>
+          </Link>
         </div>
       </div>
     </section>

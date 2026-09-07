@@ -3,81 +3,72 @@ import { Link } from "react-router-dom";
 import { ChevronRight } from "lucide-react";
 import { BackToTop } from "../components/back-to-top";
 
-/*
 const boardMembers = [
   {
-    name: "Mr. Anjay Agarwal",
-    role: "Chairman & Managing Director",
-    image: "/images/anjay-agarwal.png",
+    name: "Mr. Santosh Kumar Pandey",
+    role: "Whole Time Director",
+    image: "/images/santosh-kumar-pandey.jpg",
     bullets: [
-      "Over 29+ years of overall experience and 26+ years of experience in Information Security Audit / Cyber Security Audit.",
-      "Eminent Information Security professional who has served both the National and International security community for over 20 years.",
-      "Qualified Chartered Accountant, Company Secretary, Cost Accountant and Law from Mumbai University.",
-      "Holds 25 prestigious professional certifications",
-      "Certifications includes such as CRISC (USA), CGEIT (USA), CISA (USA), CFE (USA), CIA (USA), ABCI (UK), FCA, ACMA, ACS, B. Com, LLB.",
-      "55th professional in World to achieve COBIT Certified Assessor Designation.",
-      "1st person from Asia to be appointed as the Chairman of Governmental and Regulatory Agencies Board (GRA Board) of ISACA, International.",
-      "Involved in 10,000+ Information Technology & Cyber Security Audit assignments till date.",
-      "Involved with various Government and professional bodies in various capacities including as Jury Member for the Maharashtra IT Awards; several Committees / Board of ISACA (USA) including Audit Committee / Finance Committee; President of ISACA, Mumbai Chapter in 2006-2007."
+      "Mr. Santosh Kumar Pandey is a seasoned business leader with over 26 years of experience in corporate management and technology innovation. As the Founder of a prominent GPS and IoT solutions firm, he has spent the last 16 years driving the development and deployment of advanced geospatial and industrial automation frameworks.",
+      "His leadership approach emphasizes strategic IIOT / Drone based rigorous software and hardware based project management, and the alignment of core technical offerings with mission-critical client objectives.",
+      "Mr. Pandey's career is defined by a commitment to operational excellence, sustainable business growth, and the successful execution of complex, large-scale digital transformation projects.",
+      "He has rich experience in Information Security protocols with certification in CISA, ISO 27001:22 Certified Lead Auditor, ISO 42001:23, CEH and CHFI."
     ]
   },
   {
-    name: "Mr. Venugopal M. Dhoot",
-    role: "Whole Time Director, Director (Finance) & CFO",
-    image: "/images/venugopal-dhoot.png",
+    name: "Mr. Karan Sharma",
+    role: "Executive Director",
+    image: "/images/karan-sharma.jpg",
     bullets: [
-      "Over 36+ years of overall experience and 18+ years of experience in Information Security Audit.",
-      "Qualified Chartered Accountant and LLB.",
-      "Certification in DISA, DIRM, and CEH."
+      "Mr. Karan Sharma holds a Master's degree in International Business Management from the Institute of Management Technology (IMT), Ghaziabad, and a Bachelor's degree in Business Administration (BBA) from Chaudhary Charan Singh University, Meerut.",
+      "With over 10 years of professional experience in international trade, business development, and business operations across reputed organisations, he brings a strong blend of strategic leadership, commercial acumen, and global business expertise.",
+      "Throughout his career, he has been instrumental in driving business growth, developing and managing client and stakeholder relationships, overseeing business operations, and identifying new opportunities in international markets. His experience reflects a strong understanding of global business practices, strategic management, operational excellence, and relationship management.",
+      "A results-oriented professional with proven leadership capabilities, Mr. Sharma is committed to building sustainable business relationships, delivering operational excellence, and creating long-term value for organisations and their stakeholders."
     ]
   },
   {
-    name: "Mrs. Ruchi Agarwal",
-    role: "Executive Director (HR & Administration)",
-    image: "/images/ruchi-agarwal.png",
-    bullets: [
-      "Over 16+ years of experience in IT Audit.",
-      "Master`s in Arts From Kanpur University and Bachelor in Arts from Lucknow University.",
-      "Certification in ISO 27001 Lead Auditor."
-    ]
-  },
-  {
-    name: "Mr. Rajesh Chandra Verma",
+    name: "Ms. Jyoti Torani",
     role: "Independent Director",
-    image: "/images/rajesh-chandra-verma.jpg",
+    image: "/images/jyoti-trani.jpg",
     bullets: [
-      "Qualification includes M. Sc, CAIIB (India) and CAIB (UK).",
-      "Has more than 40 years of experience in the Banking and Financing sector.",
-      "Held multiple positions during his tenure with SBI and was Head of Treasury (IRM Group).",
-      "Worked with DCB Bank Ltd as Executive Vice President / Sr. Vice President & Head Treasury Group from May 2009 till he retired in April 2020."
+      "Ms. Jyoti Torani is a qualified professional with substantial experience in the fields of audit, internal control systems, tax matters, compliance, and accounting.",
+      "She has worked across statutory audit, GST compliance, income tax preparation, and accounting functions.",
+      "Her background spans risk assessment, MIS reporting, and financial analysis."
     ]
   },
   {
-    name: "Mr. Naveen Kumar Srivastava",
-    role: "Independent Director",
-    image: "/images/naveen-kumar-srivastava.jpg",
+    name: "Mr. Ashok Kumar Chordia",
+    role: "Promoter Non Executive Director",
+    image: "/images/ashok-kumar-chordia.jpg",
     bullets: [
-      "Qualification includes M.A. (Economics), CISA, CISB and ISO 27001 Lead Auditor.",
-      "Has more than 40 years of experience in the Banking and Information Technology and Security Sector.",
-      "Served State Bank of India for 28+ Years.",
-      "Has notable achievements such as being the Founder Member of Information Security Department of State Bank of India.",
-      "Has been contributor to Information Security Frameworks for Banks, IDRBT."
+      "Mr. Ashok Kumar Chordia is a Chartered Accountant and a seasoned corporate finance professional.",
+      "He is associated with Mentor Capital Services Private Limited and has experience in corporate advisory, working capital finance, and debt and equity structuring.",
+      "He has been involved in finance, taxation, restructuring and business advisory functions over the years.",
+      "He also holds director-level positions in multiple companies, reflecting his long-standing exposure to corporate management and governance."
     ]
   },
   {
-    name: "Mr. Nabankur Sen",
+    name: "Mr. Premendra Singh Rajput",
     role: "Independent Director",
-    image: "/images/nabankur-sen-photo.jpg",
+    image: "/images/premendra-singh-rajput.jpg",
     bullets: [
-      "Qualifications includes B. Sc (Physics Honors), CISA, CISM, CRISC from ISACA, Illinois, Chicago, USA, and ISO 27001 Lead Auditor and Implementer.",
-      "Has more than 45 years of experience in the Banking and Cyber Security and Information Technology and Security sector.",
-      "Has served State Bank of India for 30+ Years.",
-      "Has been Chief Information Security Officer in Axis Bank between April, 2005 and September, 2013.",
-      "Has featured among the Top-100 CISOs across the country repeatedly from 2013 till 2019 from CISO platform, Bangalore."
+      "Mr Premendra Rajput joins the Board of Directors bringing over 24 years of extensive IT industry experience, specializing in global program management, delivery governance, and enterprise digital transformation.",
+      "His deep expertise in managing highly complex, data-intensive IT infrastructures helps the Company for overseeing its cyber audit and strategic risk management initiatives.",
+      "He is also experienced in the global delivery and governance of critical data and marketing platforms.",
+      "His comprehensive understanding of enterprise IT architectures, combined with his proven track record in risk identification, cross-functional team collaboration, and strict contract management, makes him an exceptional asset in shaping our board's cyber audit strategies and compliance frameworks."
+    ]
+  },
+  {
+    name: "Mr. Prateek Bhansali",
+    role: "Independent Director",
+    image: "/images/prateek-bhansali.jpg",
+    bullets: [
+      "Mr. Prateek Bhansali is a seasoned professional with extensive experience in cyber security, information systems auditing, risk advisory, and IT governance.",
+      "He has worked across domains involving PCI DSS, SOC Compliance, VAPT, ISO standards and various audit frameworks.",
+      "His core professional background includes handling complex technical audits, regulatory assessments, and strategic advisory assignments in the technology assurance domain."
     ]
   }
 ];
-*/
 
 export default function BoardOfDirectors() {
   useEffect(() => {
@@ -118,7 +109,6 @@ export default function BoardOfDirectors() {
         {/* --- SECTION: BOARD OF DIRECTORS PORTFOLIO --- */}
         <section className="py-20 bg-slate-50/50 relative overflow-hidden selection:bg-aaa-primary/10">
           <div className="container mx-auto px-4 sm:px-6 relative z-10" style={{ maxWidth: "1250px" }}>
-            {/*
             <div className="space-y-12 lg:space-y-20">
               {boardMembers.map((member, idx) => (
                 <div
@@ -143,25 +133,19 @@ export default function BoardOfDirectors() {
                       {member.role}
                     </p>
 
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-y-4 gap-x-12 pt-4">
+                    <div className="space-y-4 pt-2">
                       {member.bullets.map((item, i) => (
-                        <div key={i} className="flex gap-4 items-start group/bullet">
-                          <Trophy className="w-4 h-4 text-aaa-primary/40 mt-1 shrink-0 group-hover/bullet:text-aaa-primary transition-colors" />
-                          <span className="text-[#60697B] text-[0.95rem] font-medium leading-[1.8] text-justify">
+                        <div key={i} className="flex gap-3 items-start group/bullet">
+                          <div className="w-1.5 h-1.5 rounded-full bg-aaa-primary/60 mt-2.5 shrink-0 group-hover/bullet:bg-aaa-primary transition-colors" />
+                          <p className="text-[#60697B] text-[0.95rem] font-medium leading-[1.8] text-justify">
                             {item}
-                          </span>
+                          </p>
                         </div>
                       ))}
                     </div>
                   </div>
                 </div>
               ))}
-            </div>
-            */}
-            <div className="text-center py-12">
-              <h3 className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-[#35268F] uppercase tracking-widest">
-                Coming Soon
-              </h3>
             </div>
           </div>
         </section>
