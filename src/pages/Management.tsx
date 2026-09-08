@@ -143,10 +143,10 @@ export default function Management() {
                   </div>
 
                   <div className={`md:col-span-8 flex flex-col justify-center ${idx % 2 === 0 ? "md:order-2" : "md:order-1"}`}>
-                    <h2 className="text-2xl md:text-3xl font-bold text-slate-900 tracking-tight leading-tight uppercase italic underline decoration-aaa-primary/10 decoration-8 underline-offset-4 mb-4">
+                    <h2 className="text-2xl md:text-3xl font-bold text-[#1A1040] tracking-tight leading-tight mb-3">
                       {leader.name}
                     </h2>
-                    <p className="text-aaa-primary font-bold text-[0.85rem] uppercase tracking-[0.2em] mb-8 italic">{leader.role}</p>
+                    <p className="text-[#008253] font-bold text-[11px] uppercase tracking-wider mb-6">{leader.role}</p>
 
                     <div className="space-y-4 mb-6">
                       <div className="flex gap-4 items-start">

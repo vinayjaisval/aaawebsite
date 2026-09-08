@@ -147,7 +147,7 @@ export default function BoardCommittees() {
                                 <td className="px-5 py-4 text-[0.95rem] font-bold text-[#1A1040] border border-[#DEE2E6]">
                                   {member.name}
                                 </td>
-                                <td className="px-5 py-4 text-[0.95rem] font-medium text-[#60697B] border border-[#DEE2E6] leading-relaxed">
+                                <td className="px-5 py-4 text-[0.95rem] font-bold text-[#008253] border border-[#DEE2E6] leading-relaxed">
                                   {member.nature}
                                 </td>
                               </tr>

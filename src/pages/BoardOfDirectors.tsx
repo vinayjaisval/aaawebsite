@@ -52,7 +52,7 @@ const boardMembers = [
     role: "Independent Director",
     image: "/images/premendra-singh-rajput.jpg",
     bullets: [
-      "Mr Premendra Rajput joins the Board of Directors bringing over 24 years of extensive IT industry experience, specializing in global program management, delivery governance, and enterprise digital transformation.",
+      "Mr. Premendra Singh Rajput joins the Board of Directors bringing over 24 years of extensive IT industry experience, specializing in global program management, delivery governance, and enterprise digital transformation.",
       "His deep expertise in managing highly complex, data-intensive IT infrastructures helps the Company for overseeing its cyber audit and strategic risk management initiatives.",
       "He is also experienced in the global delivery and governance of critical data and marketing platforms.",
       "His comprehensive understanding of enterprise IT architectures, combined with his proven track record in risk identification, cross-functional team collaboration, and strict contract management, makes him an exceptional asset in shaping our board's cyber audit strategies and compliance frameworks."
@@ -126,14 +126,14 @@ export default function BoardOfDirectors() {
                   </div>
 
                   <div className={`md:col-span-8 flex flex-col justify-center ${idx % 2 === 0 ? "md:order-2" : "md:order-1"}`}>
-                    <h2 className="text-2xl md:text-3xl lg:text-4xl font-extrabold text-[#1A1040] tracking-tight leading-tight uppercase italic underline decoration-aaa-primary/10 decoration-8 underline-offset-4 mb-6 group-hover:text-aaa-primary transition-colors">
+                    <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-[#1A1040] tracking-tight leading-tight mb-3">
                       {member.name}
                     </h2>
-                    <p className="text-aaa-primary font-extrabold text-[11px] uppercase tracking-[0.3em] mb-8 border-b border-slate-50 pb-8">
+                    <p className="text-[#008253] font-bold text-[11px] uppercase tracking-wider mb-6">
                       {member.role}
                     </p>
 
-                    <div className="space-y-4 pt-2">
+                    <div className="space-y-4">
                       {member.bullets.map((item, i) => (
                         <div key={i} className="flex gap-3 items-start group/bullet">
                           <div className="w-1.5 h-1.5 rounded-full bg-aaa-primary/60 mt-2.5 shrink-0 group-hover/bullet:bg-aaa-primary transition-colors" />
