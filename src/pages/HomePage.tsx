@@ -274,12 +274,12 @@ function CTABand() {
             </p>
           </div>
           <div className="lg:w-[34%] lg:text-right">
-            <a
-              href="#contact"
+            <Link
+              to="/contact"
               className="inline-block bg-white text-[#35268F] hover:bg-white/95 px-8 py-3.5 rounded font-bold text-[1rem] transition-all duration-200 shadow-xl decoration-none"
             >
               Talk to Our Team
-            </a>
+            </Link>
           </div>
         </div>
       </div>
@@ -289,7 +289,7 @@ function CTABand() {
 
 function Journey() {
   const milestones = [
-    { num: "01", year: "2002", title: "Founded", desc: "AAA Technologies opened its doors in Mumbai as an IT and Cyber Security audit firm." },
+    { num: "01", year: "2000", title: "Founded", desc: "AAA Technologies opened its doors in Mumbai as an IT and Cyber Security audit firm." },
     { num: "02", year: "2005", title: "CERT-In Empanelled", desc: "India's national Cyber Security authority approved us to conduct IT security audits." },
     { num: "03", year: "2009", title: "Maharashtra IT Award", desc: "The state government recognised our work in IT audit and information security." },
     { num: "04", year: "2015", title: "ISO Certified", desc: "We earned dual ISO certification and committed to following global quality standards." },
@@ -304,7 +304,7 @@ function Journey() {
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <span className="inline-block bg-[#EBE9F9] text-[#35268F] font-bold uppercase tracking-[0.12em] text-[0.75rem] px-4 py-1.5 rounded-full mb-4">Our Journey</span>
-          <h2 className="text-[calc(1.325rem+0.9vw)] md:text-[2.6rem] font-extrabold text-[#1A1040] mb-4 leading-tight">24 Years. One Focus. Cyber Security Audit.</h2>
+          <h2 className="text-[calc(1.325rem+0.9vw)] md:text-[2.6rem] font-extrabold text-[#1A1040] mb-4 leading-tight">26 Years. One Focus. Cyber Security Audit.</h2>
           <p className="text-[#60697b] max-w-3xl mx-auto text-[1.1rem] md:text-[1.2rem] font-medium leading-relaxed opacity-90">From a two-person IS audit firm in 2002 to India's only stock-exchange-listed Cyber Security audit company, here is how we got here.</p>
         </div>
 
@@ -449,9 +449,12 @@ function Awards() {
           ))}
         </div>
         <div className="text-center mt-12">
-          <button className="border-2 border-[#35268F] text-[#35268F] hover:bg-[#35268F] hover:text-white px-8 py-3 rounded-[8px] font-bold transition-all">
+          <Link
+            to="/about/awards-achievements"
+            className="inline-block border-2 border-[#35268F] text-[#35268F] hover:bg-[#35268F] hover:text-white px-8 py-3 rounded-[8px] font-bold transition-all decoration-none"
+          >
             View All Awards & Achievements
-          </button>
+          </Link>
         </div>
       </div>
     </section>

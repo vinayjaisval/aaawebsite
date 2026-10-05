@@ -231,11 +231,11 @@ export default function AboutOverview() {
             <div className="container mx-auto px-4 sm:px-6" style={{ maxWidth: "1150px" }}>
               <div className="max-w-5xl mx-auto py-8 sm:py-10">
                 <p className="text-[#60697B] text-[0.95rem] text-justify md:text-center leading-[1.8] font-bold mb-10 sm:mb-12 opacity-80 decoration-aaa-primary/10 underline underline-offset-8">
-                  The Company has kept its focus exclusively on IT Systems Audit, Cyber Security Audit, IT Security Audit, IT Assurance & Compliance, IT Governance since incorporation and has been rendering these services for 22+ Years with cumulative expertise of more than 1000+ man years.
+                  The Company has kept its focus exclusively on IT Systems Audit, Cyber Security Audit, IT Security Audit, IT Assurance & Compliance, IT Governance since incorporation and has been rendering these services for 25+ Years with cumulative expertise of more than 1000+ man years.
                 </p>
                 <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
                   <div className="text-center group/stat relative p-4 sm:p-6 rounded-xl sm:rounded-2xl transition-all duration-500 hover:bg-slate-50 border border-transparent hover:border-slate-100">
-                    <span className="text-4xl sm:text-5xl lg:text-5xl font-bold text-aaa-primary block mb-2 tracking-tighter transition-all group-hover/stat:scale-110 uppercase">22+</span>
+                    <span className="text-4xl sm:text-5xl lg:text-5xl font-bold text-aaa-primary block mb-2 tracking-tighter transition-all group-hover/stat:scale-110 uppercase">25+</span>
                     <span className="text-xs sm:text-[0.75rem] font-bold uppercase tracking-[0.3em] sm:tracking-[0.4em] text-slate-400 group-hover/stat:text-black transition-colors">Years Depth</span>
                   </div>
                   <div className="text-center group/stat relative p-4 sm:p-6 rounded-xl sm:rounded-2xl transition-all duration-500 hover:bg-slate-50 border border-transparent hover:border-slate-100">
