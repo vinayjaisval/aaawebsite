@@ -1,6 +1,29 @@
-import { Mail, Phone, MapPin } from "lucide-react";
+import { Mail, Phone, MapPin, Linkedin, Facebook, Instagram, Twitter } from "lucide-react";
 import { Link } from "react-router-dom";
 import aaaLogo from "../assets/aaa-logo.png";
+
+const socialLinks = [
+  {
+    name: "LinkedIn",
+    url: "https://www.linkedin.com/company/aaa-technologies-pvt-ltd-",
+    icon: Linkedin,
+  },
+  {
+    name: "Facebook",
+    url: "https://www.facebook.com/aaatechnologies",
+    icon: Facebook,
+  },
+  {
+    name: "Instagram",
+    url: "https://www.instagram.com/technologiesaaa",
+    icon: Instagram,
+  },
+  {
+    name: "X (Twitter)",
+    url: "https://x.com/technologiesaaa",
+    icon: Twitter,
+  },
+];
 
 export function NewsletterFooter() {
   const currentYear = new Date().getFullYear();
@@ -66,6 +89,21 @@ export function NewsletterFooter() {
                 <Mail className="h-5 w-5 text-[#008253] shrink-0" />
                 <a href="mailto:info@aaatechnologies.co.in" className="hover:text-white transition-colors">info@aaatechnologies.co.in</a>
               </div>
+              <div className="flex items-center gap-3 pt-2">
+                {socialLinks.map((item) => (
+                  <a
+                    key={item.name}
+                    href={item.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={item.name}
+                    title={item.name}
+                    className="w-9 h-9 rounded-lg bg-white/5 hover:bg-[#35268F] text-white/70 hover:text-white border border-white/10 flex items-center justify-center transition-all duration-300 hover:scale-110 shadow-sm"
+                  >
+                    <item.icon className="h-4 w-4" />
+                  </a>
+                ))}
+              </div>
             </address>
           </div>
         </div>
@@ -76,9 +114,27 @@ export function NewsletterFooter() {
             <Link to="/privacy" className="hover:text-white ml-2">Privacy Policy</Link>
             <Link to="/terms" className="hover:text-white ml-4">Terms of Use</Link>
           </p>
-          <p className="uppercase tracking-widest">
-            CERT-In Empanelled · ISO 9001:2015 · NSE & BSE Listed
-          </p>
+          <div className="flex items-center gap-6">
+            <div className="flex items-center gap-3">
+              {socialLinks.map((item) => (
+                <a
+                  key={item.name}
+                  href={item.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={item.name}
+                  title={item.name}
+                  className="text-white/40 hover:text-white transition-colors"
+                >
+                  <item.icon className="h-4 w-4" />
+                </a>
+              ))}
+            </div>
+            <span className="hidden sm:inline-block text-white/20">|</span>
+            <p className="uppercase tracking-widest">
+              CERT-In Empanelled · ISO 9001:2015 · NSE & BSE Listed
+            </p>
+          </div>
         </div>
       </div>
     </footer>

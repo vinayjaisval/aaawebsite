@@ -2,8 +2,32 @@ import { useState, useRef } from "react";
 import { Link } from "react-router-dom";
 import {
   Phone, Mail, MapPin,
-  ChevronDown, Menu, X
+  ChevronDown, Menu, X,
+  Linkedin, Facebook, Instagram, Twitter
 } from "lucide-react";
+
+const socialLinks = [
+  {
+    name: "LinkedIn",
+    url: "https://www.linkedin.com/company/aaa-technologies-pvt-ltd-",
+    icon: Linkedin,
+  },
+  {
+    name: "Facebook",
+    url: "https://www.facebook.com/aaatechnologies",
+    icon: Facebook,
+  },
+  {
+    name: "Instagram",
+    url: "https://www.instagram.com/technologiesaaa",
+    icon: Instagram,
+  },
+  {
+    name: "X (Twitter)",
+    url: "https://x.com/technologiesaaa",
+    icon: Twitter,
+  },
+];
 
 export const servicesData = [
   {
@@ -401,10 +425,27 @@ export function Footer() {
               onMouseOut={e => (e.currentTarget.style.color = 'rgba(255,255,255,0.7)')}>
               <Mail className="h-4 w-4" style={{ color: '#4ade80' }} /> info@aaatechnologies.co.in
             </a>
+            <div className="flex items-center gap-2.5 mt-5">
+              {socialLinks.map((social) => {
+                const Icon = social.icon;
+                return (
+                  <a
+                    key={social.name}
+                    href={social.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={social.name}
+                    className="w-9 h-9 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center text-white/70 hover:text-white hover:bg-[#35268F] hover:border-[#35268F] transition-all duration-200"
+                  >
+                    <Icon className="w-4 h-4" />
+                  </a>
+                );
+              })}
+            </div>
           </div>
         </div>
         <div style={{ height: '1px', background: 'rgba(255,255,255,0.08)', marginBottom: '2rem' }} />
-        <div className="flex flex-col md:flex-row items-center justify-between gap-2">
+        <div className="flex flex-col md:flex-row items-center justify-between gap-4">
           <p style={{ color: 'rgba(255,255,255,0.35)', fontSize: '0.78rem', margin: 0 }}>
             © {new Date().getFullYear()} AAA Technologies Ltd. All rights reserved. &nbsp;&nbsp;
             <Link to="/privacy" style={{ color: 'rgba(255,255,255,0.45)', textDecoration: 'none' }}

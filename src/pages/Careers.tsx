@@ -83,11 +83,11 @@ export default function Careers() {
           </div>
 
           <div className="container mx-auto px-6 max-w-[1150px] relative z-10">
-            {/* MASTER TOKEN: 11px Metadata, 0.3em Tracking */}
-            <nav className="flex items-center gap-2 mb-4 text-[11px] font-extrabold uppercase tracking-[0.3em] text-white/40">
+            {/* MASTER TOKEN: 11px Metadata, tracking-wider */}
+            <nav className="flex items-center gap-2 mb-4 text-[11px] font-extrabold uppercase tracking-wider text-white/40">
               <Link to="/" className="text-white/50 hover:text-white transition-colors">Home</Link>
               <ChevronRight className="w-2.5 h-2.5 opacity-30 shrink-0" />
-              <span className="text-[#35268F] tracking-[0.3em] font-extrabold uppercase">Careers</span>
+              <span className="text-[#a78bfa] tracking-wider font-extrabold uppercase">Careers</span>
             </nav>
 
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
@@ -95,9 +95,9 @@ export default function Careers() {
                 <motion.h1
                   initial={{ opacity: 0, x: -10 }}
                   animate={{ opacity: 1, x: 0 }}
-                  className="text-white font-extrabold uppercase tracking-tighter leading-tight italic mb-3 text-[2.2rem] md:text-[3.5rem]"
+                  className="text-white font-bold leading-tight mb-4 text-3xl md:text-5xl"
                 >
-                  Join The <span className="text-[#35268F] not-italic">Expert Vanguard</span>
+                  Join The <span className="text-[#a78bfa]">Expert Vanguard</span>
                 </motion.h1>
 
                 {/* HIGH-DENSITY TEXT: No bulky boxes to preserve thin layout */}
@@ -105,13 +105,13 @@ export default function Careers() {
                   initial={{ opacity: 0, x: -10 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: 0.1 }}
-                  className="text-[16px] md:text-[18px] text-white/40 font-medium leading-relaxed max-w-2xl mb-6 border-l-2 border-[#35268F]/50 pl-6 italic"
+                  className="text-[16px] md:text-[18px] text-white/80 font-normal leading-relaxed max-w-2xl mb-6 border-l-2 border-[#e2626b] pl-6"
                 >
                   A legacy represented by two decades of uncompromising trust and digital resilience since 2000.
                 </motion.p>
 
                 <div className="flex flex-wrap gap-5">
-                  <a href="#openings" className="bg-white text-[#1A1040] px-8 py-3.5 rounded-xl font-extrabold uppercase tracking-[0.2em] text-[12px] hover:bg-[#35268F] hover:text-white transition-all shadow-lg">
+                  <a href="#openings" className="bg-[#35268F] text-white px-8 py-3.5 rounded-xl font-bold text-[14px] hover:bg-[#251b64] transition-all shadow-lg">
                     View Openings
                   </a>
                 </div>
@@ -133,8 +133,8 @@ export default function Careers() {
                 { label: "Audit depth", value: "10,000+" }
               ].map((stat, i) => (
                 <div key={i} className="border-l-2 border-slate-50 pl-6">
-                  <p className="text-aaa-primary font-extrabold text-[11px] uppercase tracking-[0.3em] mb-1">{stat.label}</p>
-                  <h3 className="text-[#1A1040] font-extrabold text-[1.8rem] leading-none italic tracking-tight">{stat.value}</h3>
+                  <p className="text-aaa-primary font-extrabold text-[11px] uppercase tracking-wider mb-1">{stat.label}</p>
+                  <h3 className="text-[#1A1040] font-extrabold text-[1.8rem] leading-none tracking-tight">{stat.value}</h3>
                 </div>
               ))}
             </div>
@@ -145,9 +145,9 @@ export default function Careers() {
         <section className="py-12 bg-white border-b border-slate-100">
           <div className="container mx-auto px-6 max-w-[1150px]">
             <div className="text-center mb-8">
-              <h4 className="text-aaa-primary font-extrabold uppercase tracking-[0.3em] text-[11px] mb-2">Roadmap</h4>
-              <h2 className="text-[#1A1040] font-extrabold uppercase tracking-tight text-[24px] md:text-[32px] italic leading-none">
-                Your Path <span className="text-aaa-primary not-italic">To Excellence</span>
+              <h4 className="text-aaa-primary font-bold uppercase tracking-wider text-xs mb-2">Roadmap</h4>
+              <h2 className="text-[#1A1040] font-bold text-2xl md:text-3xl leading-tight">
+                Your Path <span className="text-aaa-primary">To Excellence</span>
               </h2>
             </div>
 
@@ -157,8 +157,8 @@ export default function Careers() {
                   <div className="w-10 h-10 rounded-xl bg-white border border-aaa-primary/10 flex items-center justify-center text-aaa-primary font-extrabold text-[12px] shadow-sm mb-4 group-hover:bg-aaa-primary group-hover:text-white transition-all duration-500">
                     0{i + 1}
                   </div>
-                  <h3 className="text-[#1A1040] font-extrabold uppercase tracking-widest text-[11px] mb-2">{step.title}</h3>
-                  <p className="text-[#60697B] text-[15px] leading-relaxed font-medium">{step.desc}</p>
+                  <h3 className="text-[#1A1040] font-bold text-base mb-2">{step.title}</h3>
+                  <p className="text-[#60697B] text-[15px] leading-relaxed font-normal">{step.desc}</p>
                 </div>
               ))}
             </div>
@@ -169,8 +169,8 @@ export default function Careers() {
         <section id="openings" className="py-12 bg-[#FBFBFF] border-y border-slate-100">
           <div className="container mx-auto px-4 sm:px-6 max-w-[1150px]">
             <div className="mb-8 text-center lg:text-left">
-              <h2 className="text-[#1A1040] font-extrabold uppercase tracking-tight text-[28px] md:text-[38px] italic leading-none">
-                Current <span className="text-aaa-primary not-italic">Openings</span>
+              <h2 className="text-[#1A1040] font-bold text-2xl md:text-3xl leading-tight">
+                Current <span className="text-aaa-primary">Openings</span>
               </h2>
             </div>
 
@@ -184,25 +184,25 @@ export default function Careers() {
                   <div>
                     <div className="flex items-center gap-2 mb-4">
                       <Briefcase className="w-3.5 h-3.5 text-aaa-primary" />
-                      <span className="text-aaa-primary font-extrabold uppercase tracking-[0.3em] text-[11px]">{job.dept}</span>
+                      <span className="text-aaa-primary font-bold uppercase tracking-wider text-xs">{job.dept}</span>
                     </div>
-                    <h3 className="text-[#1A1040] font-extrabold text-[20px] mb-4 leading-tight group-hover:text-aaa-primary transition-colors">{job.title}</h3>
+                    <h3 className="text-[#1A1040] font-bold text-[20px] mb-4 leading-tight group-hover:text-aaa-primary transition-colors">{job.title}</h3>
 
-                    <div className="flex flex-wrap gap-4 mb-6 text-slate-400 text-[11px] font-extrabold uppercase tracking-widest border-b border-slate-50 pb-4">
+                    <div className="flex flex-wrap gap-4 mb-6 text-slate-400 text-xs font-semibold border-b border-slate-50 pb-4">
                       <span className="flex items-center gap-1.5"><MapPin className="w-3 h-3" /> {job.location}</span>
                       <span className="flex items-center gap-1.5"><Clock className="w-3 h-3" /> {job.type}</span>
                     </div>
 
                     <ul className="space-y-3 mb-8">
                       {job.bullets.map((bullet, idx) => (
-                        <li key={idx} className="flex gap-2.5 text-[15px] text-[#60697B] leading-relaxed font-medium">
+                        <li key={idx} className="flex gap-2.5 text-[15px] text-[#60697B] leading-relaxed font-normal">
                           <CheckCircle2 className="w-3.5 h-3.5 text-aaa-primary/40 mt-1 shrink-0 group-hover:text-aaa-primary transition-colors" />
                           {bullet}
                         </li>
                       ))}
                     </ul>
                   </div>
-                  <a href="#enquiry-form" className="w-full py-3.5 bg-[#1A1040] text-white rounded-xl font-extrabold uppercase tracking-[0.2em] text-[11px] hover:bg-aaa-primary transition-all text-center flex items-center justify-center gap-2.5 shadow-lg">
+                  <a href="#enquiry-form" className="w-full py-3.5 bg-[#35268F] text-white rounded-xl font-bold text-sm hover:bg-[#251b64] transition-all text-center flex items-center justify-center gap-2.5 shadow-lg">
                     Apply Now <ArrowRight className="w-4 h-4" />
                   </a>
                 </motion.div>
@@ -217,10 +217,10 @@ export default function Careers() {
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
 
               <div className="lg:col-span-6">
-                <h4 className="text-aaa-primary font-extrabold uppercase tracking-[0.3em] text-[11px] mb-3">Direct Connect</h4>
-                <h2 className="text-[#1A1040] font-extrabold uppercase tracking-tight text-[28px] md:text-[38px] italic leading-tight mb-6">
+                <h4 className="text-aaa-primary font-bold uppercase tracking-wider text-xs mb-3">Direct Connect</h4>
+                <h2 className="text-[#1A1040] font-bold text-2xl md:text-3xl leading-tight mb-6">
                   Begin Your <br />
-                  <span className="text-aaa-primary not-italic">Vanguard Journey</span>
+                  <span className="text-aaa-primary">Vanguard Journey</span>
                 </h2>
                 <p className="text-[#60697B] text-[16px] md:text-[18px] font-medium leading-relaxed max-w-md">
                   Interested in joining our elite team? Leave your details below and our talent acquisition team will reach out to you.
@@ -232,7 +232,7 @@ export default function Careers() {
                   <form className="space-y-4">
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                       <div className="space-y-2">
-                        <label className="text-[11px] font-extrabold uppercase tracking-widest text-[#1A1040] ml-1">Full Name</label>
+                        <label className="text-[11px] font-extrabold uppercase tracking-wider text-[#1A1040] ml-1">Full Name</label>
                         <div className="relative">
                           <User className="absolute left-4 top-1/2 -translate-y-1/2 w-3.5 h-3.5 text-slate-300" />
                           <input type="text" placeholder="Your Name" className="w-full bg-slate-50 border border-slate-200 rounded-lg py-3.5 pl-11 pr-4 text-[14px] font-medium text-[#1A1040] focus:outline-none focus:border-aaa-primary transition-all" />
@@ -240,7 +240,7 @@ export default function Careers() {
                       </div>
 
                       <div className="space-y-2">
-                        <label className="text-[11px] font-extrabold uppercase tracking-widest text-[#1A1040] ml-1">Email Address</label>
+                        <label className="text-[11px] font-extrabold uppercase tracking-wider text-[#1A1040] ml-1">Email Address</label>
                         <div className="relative">
                           <Mail className="absolute left-4 top-1/2 -translate-y-1/2 w-3.5 h-3.5 text-slate-300" />
                           <input type="email" placeholder="email@example.com" className="w-full bg-slate-50 border border-slate-200 rounded-lg py-3.5 pl-11 pr-4 text-[14px] font-medium text-[#1A1040] focus:outline-none focus:border-aaa-primary transition-all" />
@@ -249,7 +249,7 @@ export default function Careers() {
                     </div>
 
                     <div className="space-y-2">
-                      <label className="text-[11px] font-extrabold uppercase tracking-widest text-[#1A1040] ml-1">Contact No.</label>
+                      <label className="text-[11px] font-extrabold uppercase tracking-wider text-[#1A1040] ml-1">Contact No.</label>
                       <div className="relative">
                         <Phone className="absolute left-4 top-1/2 -translate-y-1/2 w-3.5 h-3.5 text-slate-300" />
                         <input
@@ -268,7 +268,7 @@ export default function Careers() {
                     </div>
 
                     <div className="space-y-2">
-                      <label className="text-[11px] font-extrabold uppercase tracking-widest text-[#1A1040] ml-1">Technical Expertise / Message</label>
+                      <label className="text-[11px] font-extrabold uppercase tracking-wider text-[#1A1040] ml-1">Technical Expertise / Message</label>
                       <div className="relative">
                         <MessageSquare className="absolute left-4 top-4 w-3.5 h-3.5 text-slate-300" />
                         <textarea
@@ -279,7 +279,7 @@ export default function Careers() {
                       </div>
                     </div>
 
-                    <button className="w-full py-4 bg-[#1A1040] text-white rounded-lg font-extrabold uppercase tracking-[0.2em] text-[12px] hover:bg-aaa-primary transition-all shadow-lg flex items-center justify-center gap-2.5 group mt-2">
+                    <button className="w-full py-4 bg-[#1A1040] text-white rounded-lg font-extrabold uppercase tracking-wider text-[12px] hover:bg-aaa-primary transition-all shadow-lg flex items-center justify-center gap-2.5 group mt-2">
                       Submit Application <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                     </button>
                   </form>
