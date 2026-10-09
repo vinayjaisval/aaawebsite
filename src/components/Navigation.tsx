@@ -445,7 +445,7 @@ export function Footer() {
           </div>
         </div>
         <div style={{ height: '1px', background: 'rgba(255,255,255,0.08)', marginBottom: '2rem' }} />
-        <div className="flex flex-col md:flex-row items-center justify-between gap-4">
+        <div className="flex flex-col md:flex-row items-center justify-between gap-4 md:pr-16">
           <p style={{ color: 'rgba(255,255,255,0.35)', fontSize: '0.78rem', margin: 0 }}>
             © {new Date().getFullYear()} AAA Technologies Ltd. All rights reserved. &nbsp;&nbsp;
             <Link to="/privacy" style={{ color: 'rgba(255,255,255,0.45)', textDecoration: 'none' }}

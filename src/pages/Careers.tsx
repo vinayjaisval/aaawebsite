@@ -26,12 +26,45 @@ export default function Careers() {
 
   const jobOpenings = [
     {
+      title: "Cyber Forensic Expert",
+      dept: "Cyber Security & Forensics",
+      location: "Delhi & Mumbai",
+      type: "Full-Time",
+      bullets: [
+        "3+ years in Digital Forensics & Incident Response (DFIR).",
+        "Hands-on with EnCase, FTK, Autopsy & Memory Forensics.",
+        "CHFI, EnCE, or equivalent certification preferred."
+      ]
+    },
+    {
+      title: "OT/SCADA Security Professional",
+      dept: "Technical Audit",
+      location: "Delhi & Mumbai",
+      type: "Full-Time",
+      bullets: [
+        "3+ years in Industrial Control Systems (ICS) & SCADA Security.",
+        "Knowledge of IEC 62443, NIST SP 800-82 & OT architectures.",
+        "GICSP, GRID, or SCADA audit experience preferred."
+      ]
+    },
+    {
+      title: "ISO & Data Privacy Professional",
+      dept: "Compliance & Audit",
+      location: "Delhi & Mumbai",
+      type: "Full-Time",
+      bullets: [
+        "3+ years in ISO 27001, DPDP Act 2023 & GDPR compliance.",
+        "Expertise in Privacy Impact Assessments (DPIA) & Gap Analysis.",
+        "CIPP, CIPM, or ISO 27001 Lead Auditor preferred."
+      ]
+    },
+    {
       title: "Senior Cyber Security Auditor",
       dept: "Compliance & Audit",
       location: "Mumbai / Remote",
       type: "Full-Time",
       bullets: [
-        "5+ years in InfoSec / Cyber Security Audit.",
+        "3+ years in InfoSec / Cyber Security Audit.",
         "Knowledge of ISO 27001, CERT-In, RBI guidelines.",
         "CISA, CISSP, or CEH preferred."
       ]
@@ -179,32 +212,42 @@ export default function Careers() {
                 <motion.div
                   key={i}
                   whileHover={{ y: -5 }}
-                  className="bg-white p-8 rounded-[32px] border border-slate-100 shadow-sm hover:shadow-xl transition-all duration-500 group flex flex-col justify-between"
+                  className="bg-white p-6 rounded-[28px] border border-slate-100 shadow-sm hover:shadow-md transition-all duration-500 group flex flex-col justify-between"
                 >
                   <div>
                     <div className="flex items-center gap-2 mb-4">
                       <Briefcase className="w-3.5 h-3.5 text-aaa-primary" />
                       <span className="text-aaa-primary font-bold uppercase tracking-wider text-xs">{job.dept}</span>
                     </div>
-                    <h3 className="text-[#1A1040] font-bold text-[20px] mb-4 leading-tight group-hover:text-aaa-primary transition-colors">{job.title}</h3>
+                    <h3 className="text-[#1A1040] font-bold text-[18px] mb-4 leading-tight group-hover:text-aaa-primary transition-colors">{job.title}</h3>
 
-                    <div className="flex flex-wrap gap-4 mb-6 text-slate-400 text-xs font-semibold border-b border-slate-50 pb-4">
+                    <div className="flex flex-wrap gap-3 mb-5 text-slate-400 text-xs font-semibold border-b border-slate-50 pb-4">
                       <span className="flex items-center gap-1.5"><MapPin className="w-3 h-3" /> {job.location}</span>
                       <span className="flex items-center gap-1.5"><Clock className="w-3 h-3" /> {job.type}</span>
                     </div>
 
-                    <ul className="space-y-3 mb-8">
+                    <ul className="space-y-3 mb-6">
                       {job.bullets.map((bullet, idx) => (
-                        <li key={idx} className="flex gap-2.5 text-[15px] text-[#60697B] leading-relaxed font-normal">
+                        <li key={idx} className="flex gap-2 text-[14px] text-[#60697B] leading-relaxed font-normal">
                           <CheckCircle2 className="w-3.5 h-3.5 text-aaa-primary/40 mt-1 shrink-0 group-hover:text-aaa-primary transition-colors" />
                           {bullet}
                         </li>
                       ))}
                     </ul>
                   </div>
-                  <a href="#enquiry-form" className="w-full py-3.5 bg-[#35268F] text-white rounded-xl font-bold text-sm hover:bg-[#251b64] transition-all text-center flex items-center justify-center gap-2.5 shadow-lg">
-                    Apply Now <ArrowRight className="w-4 h-4" />
-                  </a>
+
+                  <div>
+                    <div className="bg-slate-50 border border-slate-100 rounded-xl p-3 mb-4 text-xs">
+                      <div className="flex items-center gap-1.5 text-slate-600 font-semibold">
+                        <Mail className="w-3.5 h-3.5 text-aaa-primary shrink-0" />
+                        <span>Send resume: <a href="mailto:hr@aaatechnologies.co.in" className="text-aaa-primary font-bold hover:underline">hr@aaatechnologies.co.in</a></span>
+                      </div>
+                    </div>
+
+                    <a href="#enquiry-form" className="w-full py-3 bg-[#35268F] text-white rounded-xl font-bold text-sm hover:bg-[#251b64] transition-all text-center flex items-center justify-center gap-2.5">
+                      Apply Now <ArrowRight className="w-4 h-4" />
+                    </a>
+                  </div>
                 </motion.div>
               ))}
             </div>

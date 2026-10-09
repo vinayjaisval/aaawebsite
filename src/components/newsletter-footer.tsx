@@ -29,7 +29,7 @@ export function NewsletterFooter() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-[#1A1040] text-white pt-20 pb-10 px-4" role="contentinfo">
+    <footer className="bg-[#1A1040] text-white pt-20 pb-16 px-4" role="contentinfo">
       <div className="container mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
           {/* Column 1: Info */}
@@ -108,7 +108,7 @@ export function NewsletterFooter() {
           </div>
         </div>
 
-        <div className="border-t border-white/10 pt-8 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-white/40 font-medium">
+        <div className="border-t border-white/10 pt-8 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-white/40 font-medium md:pr-16">
           <p>
             &copy; {currentYear} AAA Technologies Ltd. All rights reserved. &nbsp; | &nbsp;
             <Link to="/privacy" className="hover:text-white ml-2">Privacy Policy</Link>
@@ -131,7 +131,7 @@ export function NewsletterFooter() {
               ))}
             </div>
             <span className="hidden sm:inline-block text-white/20">|</span>
-            <p className="uppercase tracking-widest">
+            <p className="uppercase tracking-widest text-[11px]">
               CERT-In Empanelled · ISO 9001:2015 · NSE & BSE Listed
             </p>
           </div>

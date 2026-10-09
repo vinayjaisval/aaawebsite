@@ -1,5 +1,6 @@
 import type { ReactNode } from "react";
 import { Header, Footer } from "./Navigation";
+import { WhatsAppFloating } from "./whatsapp-floating";
 
 interface LayoutProps {
   children: ReactNode;
@@ -11,6 +12,7 @@ export function Layout({ children }: LayoutProps) {
       <Header />
       {children}
       <Footer />
+      <WhatsAppFloating />
     </div>
   );
 }
