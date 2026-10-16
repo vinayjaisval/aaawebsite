@@ -1,6 +1,7 @@
 import type { ReactNode } from "react";
 import { Header, Footer } from "./Navigation";
 import { WhatsAppFloating } from "./whatsapp-floating";
+import { ChatBot } from "./chatbot";
 
 interface LayoutProps {
   children: ReactNode;
@@ -13,6 +14,7 @@ export function Layout({ children }: LayoutProps) {
       {children}
       <Footer />
       <WhatsAppFloating />
+      <ChatBot />
     </div>
   );
 }
