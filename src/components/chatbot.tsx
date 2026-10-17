@@ -14,7 +14,6 @@ interface ChatMessage {
 const API_URL = "https://smebuzz.com/chatbots/api/aaatechnologies/chat";
 
 const QUICK_QUESTIONS = [
-  "What services do you offer?",
   "DPDP Compliance readiness",
   "Current job openings",
   "Contact / Office location"
@@ -22,6 +21,13 @@ const QUICK_QUESTIONS = [
 
 const getTimestamp = () =>
   new Date().toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" });
+
+const createWelcomeMessage = (): ChatMessage => ({
+  id: "welcome",
+  sender: "bot",
+  text: "Hello! Welcome to AAA Technologies. How can I assist you today?",
+  timestamp: getTimestamp()
+});
 
 interface SafeUrlResult {
   leading: string;
@@ -31,35 +37,29 @@ interface SafeUrlResult {
 }
 
 /**
- * Link Safety & Protocol Verification:
- * Strictly allow ONLY trusted protocols: https: and http:
- * Disallows javascript:, data:, vbscript:, file:, etc.
- * Cleans leading/trailing punctuation while respecting balanced parentheses.
+ * Shared helper to strip leading and trailing punctuation while respecting balanced parentheses.
  */
-function parseSafeUrl(rawCandidate: string): SafeUrlResult | null {
-  let url = rawCandidate;
+function trimPunctuation(str: string): { leading: string; core: string; trailing: string } {
   let leading = "";
   let trailing = "";
+  let core = str;
 
-  // Strip leading punctuation: ( [ { < " '
-  while (url.length > 0 && /[([{"'<]/.test(url[0])) {
-    leading += url[0];
-    url = url.slice(1);
+  while (core.length > 0 && /[([{"'<]/.test(core[0])) {
+    leading += core[0];
+    core = core.slice(1);
   }
 
-  // Strip trailing punctuation: . , ; : ! ? " ' > ] }
-  // For closing parenthesis, only strip if unmatched with open parens inside url
-  while (url.length > 0) {
-    const lastChar = url.slice(-1);
+  while (core.length > 0) {
+    const lastChar = core.slice(-1);
     if (/[.,;:!?"'>\]]/.test(lastChar)) {
       trailing = lastChar + trailing;
-      url = url.slice(0, -1);
+      core = core.slice(0, -1);
     } else if (lastChar === ")") {
-      const openCount = (url.match(/\(/g) || []).length;
-      const closeCount = (url.match(/\)/g) || []).length;
+      const openCount = (core.match(/\(/g) || []).length;
+      const closeCount = (core.match(/\)/g) || []).length;
       if (closeCount > openCount) {
         trailing = lastChar + trailing;
-        url = url.slice(0, -1);
+        core = core.slice(0, -1);
       } else {
         break;
       }
@@ -68,15 +68,23 @@ function parseSafeUrl(rawCandidate: string): SafeUrlResult | null {
     }
   }
 
+  return { leading, core, trailing };
+}
+
+/**
+ * Link Safety & Protocol Verification:
+ * Strictly allow ONLY trusted protocols: https: and http:
+ * Disallows javascript:, data:, vbscript:, file:, etc.
+ */
+function parseSafeUrl(rawCandidate: string): SafeUrlResult | null {
+  const { leading, core: url, trailing } = trimPunctuation(rawCandidate);
   if (!url) return null;
 
   try {
     const parsed = new URL(url);
-    // Enforce strictly trusted web protocols
     if (parsed.protocol !== "https:" && parsed.protocol !== "http:") {
       return null;
     }
-    // Must have a valid domain hostname (at least one dot or localhost)
     if (!parsed.hostname || (!parsed.hostname.includes(".") && parsed.hostname !== "localhost")) {
       return null;
     }
@@ -96,25 +104,7 @@ function parseSafeUrl(rawCandidate: string): SafeUrlResult | null {
  * strips leading/trailing punctuation, and prevents header injection / XSS schemes.
  */
 function parseSafeEmail(rawCandidate: string): { leading: string; email: string; trailing: string } | null {
-  let email = rawCandidate;
-  let leading = "";
-  let trailing = "";
-
-  while (email.length > 0 && /[([{"'<]/.test(email[0])) {
-    leading += email[0];
-    email = email.slice(1);
-  }
-
-  while (email.length > 0) {
-    const lastChar = email.slice(-1);
-    if (/[.,;:!?"')\]}>]/.test(lastChar)) {
-      trailing = lastChar + trailing;
-      email = email.slice(0, -1);
-    } else {
-      break;
-    }
-  }
-
+  const { leading, core: email, trailing } = trimPunctuation(rawCandidate);
   const emailRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)+$/;
   if (emailRegex.test(email) && !email.includes("..")) {
     return { leading, email, trailing };
@@ -210,35 +200,55 @@ export function ChatBot() {
   const [isOpen, setIsOpen] = useState(false);
   const [inputMessage, setInputMessage] = useState("");
   const [isTyping, setIsTyping] = useState(false);
-
-  const [messages, setMessages] = useState<ChatMessage[]>([
-    {
-      id: "welcome",
-      sender: "bot",
-      text: "Hello! Welcome to AAA Technologies. How can I assist you today?",
-      timestamp: getTimestamp()
-    }
-  ]);
+  const [messages, setMessages] = useState<ChatMessage[]>([createWelcomeMessage()]);
 
   const messagesContainerRef = useRef<HTMLDivElement>(null);
   const chatContainerRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
   const launcherButtonRef = useRef<HTMLButtonElement>(null);
+  const abortControllerRef = useRef<AbortController | null>(null);
 
-  const scrollToBottom = useCallback((smooth = true) => {
-    if (messagesContainerRef.current) {
-      messagesContainerRef.current.scrollTo({
-        top: messagesContainerRef.current.scrollHeight,
-        behavior: smooth ? "smooth" : "auto"
-      });
-    }
+  const handleCloseChat = useCallback(() => {
+    setIsOpen(false);
+    launcherButtonRef.current?.focus();
   }, []);
 
+  const scrollToMessage = useCallback((smooth = true) => {
+    if (!messagesContainerRef.current) return;
+    const container = messagesContainerRef.current;
+    const lastMsg = messages[messages.length - 1];
+
+    // When bot answers, scroll precisely to the start (Point 1) of the bot's reply
+    if (lastMsg && lastMsg.sender === "bot" && lastMsg.id !== "welcome") {
+      const el = container.querySelector<HTMLElement>(`[data-msg-id="${lastMsg.id}"]`);
+      if (el) {
+        const containerRect = container.getBoundingClientRect();
+        const elRect = el.getBoundingClientRect();
+        const targetTop = container.scrollTop + (elRect.top - containerRect.top) - 10;
+        container.scrollTo({
+          top: Math.max(0, targetTop),
+          behavior: smooth ? "smooth" : "auto"
+        });
+        return;
+      }
+    }
+
+    // Otherwise (user message, typing dots, welcome message), scroll to bottom
+    container.scrollTo({
+      top: container.scrollHeight,
+      behavior: smooth ? "smooth" : "auto"
+    });
+  }, [messages]);
+
+  // Clean, single post-render scroll using standard requestAnimationFrame
   useEffect(() => {
     if (isOpen) {
-      scrollToBottom();
+      const rafId = requestAnimationFrame(() => {
+        scrollToMessage();
+      });
+      return () => cancelAnimationFrame(rafId);
     }
-  }, [messages, isTyping, isOpen, scrollToBottom]);
+  }, [messages, isTyping, isOpen, scrollToMessage]);
 
   // Autofocus input smoothly on open
   useEffect(() => {
@@ -250,18 +260,24 @@ export function ChatBot() {
     }
   }, [isOpen]);
 
+  // Cleanup pending network request on unmount
+  useEffect(() => {
+    return () => {
+      abortControllerRef.current?.abort("UNMOUNT");
+    };
+  }, []);
+
   // Accessibility: Close on Escape key and return focus to launcher button
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === "Escape" && isOpen) {
-        setIsOpen(false);
-        launcherButtonRef.current?.focus();
+        handleCloseChat();
       }
     };
 
     window.addEventListener("keydown", handleKeyDown);
     return () => window.removeEventListener("keydown", handleKeyDown);
-  }, [isOpen]);
+  }, [isOpen, handleCloseChat]);
 
   // Close when clicking outside of the chat container (supports mouse and touch)
   useEffect(() => {
@@ -285,25 +301,34 @@ export function ChatBot() {
     };
   }, [isOpen]);
 
-  const handleSendMessage = useCallback(async (textToSend?: string) => {
+  const handleSendMessage = useCallback(async (textToSend?: string, isRetry = false) => {
     const text = (textToSend || inputMessage).trim();
     if (!text || isTyping) return;
 
-    // If retrying from an error, cleanly replace the retried error message
-    if (textToSend) {
-      setMessages((prev) => prev.filter((m) => !(m.isError && m.retryText === textToSend)));
+    // If retrying from an error, cleanly replace the failed error message without duplicating the user message
+    if (isRetry) {
+      setMessages((prev) => prev.filter((m) => !(m.isError && m.retryText === text)));
+    } else {
+      const userMsg: ChatMessage = {
+        id: "user_" + Date.now(),
+        sender: "user",
+        text: text,
+        timestamp: getTimestamp()
+      };
+      setMessages((prev) => [...prev, userMsg]);
     }
 
-    const userMsg: ChatMessage = {
-      id: "user_" + Date.now(),
-      sender: "user",
-      text: text,
-      timestamp: getTimestamp()
-    };
-
-    setMessages((prev) => [...prev, userMsg]);
     setInputMessage("");
     setIsTyping(true);
+
+    // Cancel any previous in-flight request and create fresh controller
+    abortControllerRef.current?.abort("NEW_REQUEST");
+    const controller = new AbortController();
+    abortControllerRef.current = controller;
+
+    const timeoutId = setTimeout(() => {
+      controller.abort("TIMEOUT");
+    }, 30000);
 
     try {
       if (typeof navigator !== "undefined" && !navigator.onLine) {
@@ -316,8 +341,10 @@ export function ChatBot() {
           "Content-Type": "application/json"
         },
         body: JSON.stringify({ message: text }),
-        signal: AbortSignal.timeout(30000)
+        signal: controller.signal
       });
+
+      clearTimeout(timeoutId);
 
       if (!response.ok) {
         if (response.status === 429) {
@@ -332,6 +359,9 @@ export function ChatBot() {
       const data = await response.json();
       const botReply = (typeof data?.reply === "string" ? data.reply.trim() : "") || "No response received";
 
+      // If user reset chat while request was pending, ignore response
+      if (controller.signal.aborted) return;
+
       setMessages((prev) => [
         ...prev,
         {
@@ -342,12 +372,19 @@ export function ChatBot() {
         }
       ]);
     } catch (err: unknown) {
+      clearTimeout(timeoutId);
+
+      // If intentionally aborted (e.g. New Chat), do not show error bubble
+      if (controller.signal.aborted && controller.signal.reason !== "TIMEOUT") {
+        return;
+      }
+
       let errorMessage = "Unable to connect to the server. Please try again.";
 
       if (err instanceof Error) {
         if (err.message === "OFFLINE") {
           errorMessage = "You appear to be offline. Please check your internet connection.";
-        } else if (err.name === "TimeoutError" || err.name === "AbortError") {
+        } else if (controller.signal.reason === "TIMEOUT" || err.name === "TimeoutError" || err.name === "AbortError") {
           errorMessage = "Connection timed out. The server took too long to reply.";
         } else if (err.message === "RATE_LIMIT") {
           errorMessage = "Too many requests. Please wait a moment before sending another message.";
@@ -370,28 +407,27 @@ export function ChatBot() {
         }
       ]);
     } finally {
-      setIsTyping(false);
+      if (!controller.signal.aborted || controller.signal.reason === "TIMEOUT") {
+        setIsTyping(false);
+      }
     }
   }, [inputMessage, isTyping]);
 
-  const handleResetChat = () => {
-    setMessages([
-      {
-        id: "welcome_" + Date.now(),
-        sender: "bot",
-        text: "Hello! Welcome to AAA Technologies. How can I assist you today?",
-        timestamp: getTimestamp()
-      }
-    ]);
+  const handleResetChat = useCallback(() => {
+    // Abort any in-flight request so it won't inject into the fresh conversation
+    abortControllerRef.current?.abort("RESET");
+    abortControllerRef.current = null;
+    setIsTyping(false);
+    setMessages([createWelcomeMessage()]);
     setInputMessage("");
     inputRef.current?.focus();
-  };
+  }, []);
 
   const handleToggleOpen = () => {
-    const nextState = !isOpen;
-    setIsOpen(nextState);
-    if (!nextState) {
-      launcherButtonRef.current?.focus();
+    if (isOpen) {
+      handleCloseChat();
+    } else {
+      setIsOpen(true);
     }
   };
 
@@ -425,7 +461,7 @@ export function ChatBot() {
                 repeat: Infinity,
                 ease: "easeInOut"
               }}
-              className="relative flex items-center justify-center"
+              className="relative flex items-center justify-center motion-reduce:animate-none motion-reduce:transform-none"
             >
               <img
                 src="/assets/img/chatbot-icon.png"
@@ -438,7 +474,7 @@ export function ChatBot() {
         </motion.button>
       </div>
 
-      {/* COMPACT CLEAN CHATBOX (330px width, 430px height) */}
+      {/* COMPACT CLEAN CHATBOX (330px width, 430px height, mobile 100dvh support) */}
       <AnimatePresence>
         {isOpen && (
           <motion.div
@@ -451,7 +487,7 @@ export function ChatBot() {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 10, scale: 0.96 }}
             transition={{ duration: 0.18, ease: "easeOut" }}
-            className="fixed bottom-[82px] left-3 sm:left-5 z-[1000] w-[calc(100vw-24px)] sm:w-[330px] h-[430px] max-h-[calc(100vh-90px)] bg-white rounded-xl shadow-[0_12px_40px_rgba(0,0,0,0.18)] border border-slate-200 flex flex-col overflow-hidden font-sans"
+            className="fixed bottom-[82px] left-3 sm:left-5 z-[1000] w-[calc(100vw-24px)] sm:w-[330px] h-[430px] max-h-[calc(100dvh-90px)] max-h-[calc(100vh-90px)] bg-white rounded-xl shadow-[0_12px_40px_rgba(0,0,0,0.18)] border border-slate-200 flex flex-col overflow-hidden font-sans"
           >
             <p id="aaa-chatbot-desc" className="sr-only">
               Interactive support chat window. Press Escape to close.
@@ -460,7 +496,7 @@ export function ChatBot() {
             {/* CLEAN COMPACT HEADER */}
             <div className="bg-[#1A1040] text-white px-3.5 py-2.5 flex items-center justify-between border-b border-white/10 shrink-0 select-none">
               <div className="flex items-center gap-2">
-                <div className="w-7 h-7 rounded-md bg-white p-1 flex items-center justify-center shrink-0 shadow-xs">
+                <div className="w-8 h-8 rounded-md bg-white p-1 flex items-center justify-center shrink-0 shadow-xs">
                   <img
                     src="/assets/img/logo-dark.png"
                     alt="AAA Technologies Logo"
@@ -490,10 +526,7 @@ export function ChatBot() {
                 )}
                 <button
                   type="button"
-                  onClick={() => {
-                    setIsOpen(false);
-                    launcherButtonRef.current?.focus();
-                  }}
+                  onClick={handleCloseChat}
                   title="Close chat window"
                   aria-label="Close chat window"
                   className="p-1 text-white/60 hover:text-white rounded hover:bg-white/10 transition-colors focus-visible:ring-2 focus-visible:ring-white focus-visible:outline-none"
@@ -510,11 +543,12 @@ export function ChatBot() {
               aria-live="polite"
               aria-relevant="additions text"
               aria-label="Chat messages history"
-              className="flex-1 min-h-0 overflow-y-auto overscroll-contain p-3 space-y-2.5 bg-slate-50/50"
+              className="relative flex-1 min-h-0 overflow-y-auto overscroll-contain p-3 space-y-2.5 bg-slate-50/50"
             >
               {messages.map((msg) => (
                 <div
                   key={msg.id}
+                  data-msg-id={msg.id}
                   className={`flex gap-1.5 ${msg.sender === "user" ? "justify-end" : "justify-start"}`}
                 >
                   {msg.sender === "bot" && (
@@ -529,7 +563,6 @@ export function ChatBot() {
                   )}
 
                   <div
-                    aria-label={`Message from ${msg.sender === "user" ? "you" : "AAA Assistant"}: ${msg.text}`}
                     className={`max-w-[85%] px-3 py-2 rounded-xl text-[12px] leading-relaxed break-words ${
                       msg.sender === "user"
                         ? "bg-[#35268F] text-white rounded-br-none font-medium shadow-xs"
@@ -538,14 +571,17 @@ export function ChatBot() {
                         : "bg-white text-slate-800 border border-slate-200 rounded-bl-none shadow-xs"
                     }`}
                   >
-                    <p className="whitespace-pre-wrap">{renderFormattedMessage(msg.text, msg.sender === "user")}</p>
+                    <p className="whitespace-pre-wrap">
+                      <span className="sr-only">{msg.sender === "user" ? "You: " : "AAA Assistant: "}</span>
+                      {renderFormattedMessage(msg.text, msg.sender === "user")}
+                    </p>
 
                     {/* Retry button on error */}
                     {msg.isError && msg.retryText && (
                       <div className="mt-2 pt-1 border-t border-amber-200/80">
                         <button
                           type="button"
-                          onClick={() => handleSendMessage(msg.retryText)}
+                          onClick={() => handleSendMessage(msg.retryText, true)}
                           disabled={isTyping}
                           aria-label={`Retry sending message: ${msg.retryText}`}
                           className="inline-flex items-center gap-1.5 text-[11px] font-semibold text-amber-900 bg-amber-100 hover:bg-amber-200 active:scale-95 px-2.5 py-1 rounded border border-amber-300 transition-all cursor-pointer focus-visible:ring-2 focus-visible:ring-amber-700 focus-visible:outline-none disabled:opacity-50"
@@ -592,9 +628,9 @@ export function ChatBot() {
               {/* QUICK QUESTIONS PILLS */}
               {messages.length <= 2 && !isTyping && (
                 <div role="group" aria-label="Suggested quick questions" className="pt-1 flex flex-wrap gap-1">
-                  {QUICK_QUESTIONS.map((query, idx) => (
+                  {QUICK_QUESTIONS.map((query) => (
                     <button
-                      key={idx}
+                      key={query}
                       type="button"
                       disabled={isTyping}
                       onClick={() => handleSendMessage(query)}
@@ -641,6 +677,11 @@ export function ChatBot() {
                   <Send className="w-2.5 h-2.5" aria-hidden="true" />
                 </button>
               </form>
+              <div className="text-center pt-1.5 pb-0.5 select-none pointer-events-none">
+                <p className="text-[11px] text-slate-400 font-medium tracking-wide">
+                  Powered by <span className="font-semibold text-[#35268F]">SkyLabs</span>
+                </p>
+              </div>
             </div>
           </motion.div>
         )}

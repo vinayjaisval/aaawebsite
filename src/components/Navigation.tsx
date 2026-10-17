@@ -204,7 +204,7 @@ export function Header() {
       <HeaderUtilityBar />
       <div className="container mx-auto px-4 flex items-center justify-between h-[82px]">
         <Link to="/" className="flex items-center">
-          <img src="/assets/img/logo-dark.png" alt="AAA Technologies" className="h-[42px] w-auto" />
+          <img src="/assets/img/logo-dark.png" alt="AAA Technologies" className="h-[46px] w-auto" />
         </Link>
 
         <nav className="hidden lg:flex items-center gap-8 font-bold text-[#343f52] text-[15px] tracking-tight" ref={dropdownRef}>
