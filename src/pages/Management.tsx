@@ -9,7 +9,7 @@ const leaders = [
     role: "Whole Time Director",
     image: "/images/santosh-kumar-pandey.jpg",
     experience: "Mr. Santosh Kumar Pandey is a seasoned business leader with over 26 years of experience in corporate management and technology innovation. Founder of a prominent GPS and IoT solutions firm driving geospatial and industrial automation frameworks.",
-    qualifications: "Certified in CISA, ISO 27001:22 Certified Lead Auditor, ISO 42001:23, CEH and CHFI.",
+    qualifications: "Certified in CISA, ISO 27001:22 Certified Lead Auditor, ISO 42001:23, CEH, CHFI, DFE and NFE.",
     bullets: [
       "Emphasizes strategic IIOT / Drone based software and hardware project management.",
       "Aligns core technical offerings with mission-critical client objectives.",

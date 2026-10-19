@@ -15,8 +15,9 @@ const API_URL = "https://smebuzz.com/chatbots/api/aaatechnologies/chat";
 
 const QUICK_QUESTIONS = [
   "DPDP Compliance readiness",
-  "Current job openings",
-  "Contact / Office location"
+  "Cyber Security Services",
+  "Cyber Forensic Services",
+  "Current job openings"
 ];
 
 const getTimestamp = () =>
