@@ -10,9 +10,9 @@ const boardMembers = [
     image: "/images/santosh-kumar-pandey.jpg",
     bullets: [
       "Mr. Santosh Kumar Pandey is a seasoned business leader with over 26 years of experience in corporate management and technology innovation. As the Founder of a prominent GPS and IoT solutions firm, he has spent the last 16 years driving the development and deployment of advanced geospatial and industrial automation frameworks.",
-      "His leadership approach emphasizes strategic IIOT / Drone based rigorous software and hardware based project management, and the alignment of core technical offerings with mission-critical client objectives.",
+      "His leadership approach emphasizes strategic IOT / Drone based rigorous software and hardware based project management, and the alignment of core technical offerings with mission-critical client objectives.",
       "Mr. Pandey's career is defined by a commitment to operational excellence, sustainable business growth, and the successful execution of complex, large-scale digital transformation projects.",
-      "He has rich experience in Information Security protocols with certification in CISA, ISO 27001:22 Certified Lead Auditor, ISO 42001:23, CEH and CHFI."
+      "He has rich experience in Information Security protocols with certification in CISA, ISO 27001:22 Certified Lead Auditor, ISO 42001:23, CEH and CHFI, DFE and NFE."
     ]
   },
   {

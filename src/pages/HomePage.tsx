@@ -34,12 +34,12 @@ function useScrollCue() {
 
 function Hero() {
   return (
-    <div className="flex flex-col  font-sans" style={{ marginTop: '-50px' }}>
-      <section className="bg-[#F4F3FB] text-center px-4 flex items-center pt-32 pb-64 md:pt-16 md:pb-80 md:min-h-screen">
+    <div className="flex flex-col font-sans">
+      <section className="bg-[#F4F3FB] text-center px-4 flex items-center pt-2 pb-16 md:pt-2.5 md:pb-24">
         <div className="container mx-auto">
           <div className="max-w-4xl mx-auto flex flex-col items-center">
             <span
-              className="inline-block px-5 py-2 rounded-full text-[13px] font-bold mb-6"
+              className="inline-block px-3.5 py-1 rounded-full text-[10px] md:text-[10.5px] font-bold mb-3 mt-0"
               style={{
                 background: 'var(--red-50)',
                 color: 'var(--red-600)',
@@ -55,24 +55,35 @@ function Hero() {
             >
               CERT-In Empanelled Since 2005
             </span>
-            <h1 data-cue className="mb-6 font-extrabold tracking-tight text-[#1A1040]" style={{
-              fontSize: 'clamp(2rem, 5vw, 3.8rem)',
-              lineHeight: '1.1',
-              letterSpacing: '-0.01em'
-            }}>
+            <h1
+              data-cue
+              className="mb-3 font-extrabold tracking-tight text-[#1A1040]"
+              style={{
+                fontSize: 'clamp(1.75rem, 3.8vw, 3rem)',
+                lineHeight: 1.15,
+                letterSpacing: '-0.01em'
+              }}
+            >
               India's Premier<br />
               Cyber Security<br />
               <span className="decoration-aaa">Audit &amp; Consulting</span> Firm
             </h1>
-            <p data-cue className="text-[#60697b] text-[17px] md:text-[19px] leading-relaxed mb-10 font-medium max-w-3xl mx-auto">
-             We have protected 635+ organisations across 12+ industries for over 25+ years.<br className="hidden md:block" />
-              Listed on NSE and BSE. Certified to ISO 9001:2015, ISO 20000-1:2018, ISO 27001:2022 and CMMI Level 3.
+            <p
+              data-cue
+              className="text-[#60697b] text-[12.5px] md:text-[13.5px] leading-relaxed mb-4.5 font-medium max-w-2xl mx-auto"
+            >
+              We have protected 635+ organisations across 12+ industries for over 25+ years.<br />
+              Listed on NSE and BSE. Certified to ISO 9001:2015, ISO 20000-1:2018, ISO 27001:2022<br />
+              and CMMI Level 3.
             </p>
-            <div data-cue className="flex flex-wrap justify-center gap-3">
-              <button className="bg-[#35268F] hover:bg-[#251b64] text-white px-8 py-3 rounded-[8px] text-[15px] font-bold transition-all shadow-xl shadow-[#35268F]/20">
+            <div data-cue className="flex flex-col sm:flex-row items-center justify-center gap-2.5">
+              <button className="bg-[#35268F] hover:bg-[#251b64] text-white px-4 py-1.5 rounded-[5px] text-[11px] md:text-[11.5px] font-bold transition-all shadow-sm shadow-[#35268F]/20">
                 See All Services
               </button>
-              <Link to="/contact" className="border-2 border-[#35268F] text-[#35268F] hover:bg-[#35268F] hover:text-white px-8 py-3 rounded-[8px] text-[15px] font-bold transition-all decoration-none inline-flex items-center">
+              <Link
+                to="/contact"
+                className="border-2 border-[#35268F] text-[#35268F] hover:bg-[#35268F] hover:text-white px-4 py-1.5 rounded-[5px] text-[11px] md:text-[11.5px] font-bold transition-all decoration-none inline-flex items-center"
+              >
                 Request a Free Assessment
               </Link>
             </div>
@@ -80,9 +91,9 @@ function Hero() {
         </div>
       </section>
 
-      <section className="bg-[#1A1040] text-white px-4 pb-20 md:pb-28">
+      <section className="bg-[#1A1040] text-white px-4 pb-16 md:pb-24">
         <div className="container mx-auto">
-          <figure data-cue className="relative -mt-32 md:-mt-64 mb-12 md:mb-20 max-w-6xl mx-auto z-20 px-4">
+          <figure data-cue className="relative -mt-10 md:-mt-14 mb-10 md:mb-12 max-w-3xl lg:max-w-4xl mx-auto z-20 px-4">
             <div className="relative rounded-xl overflow-hidden shadow-2xl border border-white/20">
 
               {/* Image */}
