@@ -251,7 +251,7 @@ export default function Contact() {
                         rel="noopener noreferrer"
                         className="text-[0.95rem] text-[#60697B] leading-relaxed font-medium hover:text-aaa-primary transition-colors block"
                       >
-                        Image Tower, Noida Sector 132, B-27, 7th Floor, Shahpur Goverdhanpur Bangar, Noida, Uttar Pradesh 201304, INDIA
+                        Image Tower, Noida Sector 132, B-27, 7th Floor, Shahpur Govardhanpur Bangar, Noida, Uttar Pradesh 201304, INDIA
                       </a>
                     </div>
                   </div>
