@@ -246,12 +246,12 @@ export default function Contact() {
                     <div>
                       <h4 className="text-[11px] font-extrabold text-[#1A1040] mb-0.5 uppercase tracking-[0.2em]">Noida Office</h4>
                       <a
-                        href="https://maps.google.com/?q=B-37,+Sector+2,+Noida,+Uttar+Pradesh+201301"
+                        href="https://maps.app.goo.gl/kC6e5geRy4SiSbD5A"
                         target="_blank"
                         rel="noopener noreferrer"
                         className="text-[0.95rem] text-[#60697B] leading-relaxed font-medium hover:text-aaa-primary transition-colors block"
                       >
-                        Corporate Office: B-37, 1st Floor, Sector 2, Noida, Uttar Pradesh 201301, INDIA
+                        Image Tower, Noida Sector 132, B-27, 7th Floor, Shahpur Goverdhanpur Bangar, Noida, Uttar Pradesh 201304, INDIA
                       </a>
                     </div>
                   </div>
