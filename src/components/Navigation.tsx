@@ -342,7 +342,7 @@ export function Footer() {
                 AAA Technologies
               </span>
               <span style={{ display: 'block', fontSize: '0.7rem', fontWeight: 600, letterSpacing: '0.18em', textTransform: 'uppercase', color: '#a78bfa', marginTop: '0.1rem' }}>
-                Accurate · Reliable · Innovative
+                Assessment · Assurance · Accountability · Intelligence
               </span>
             </div>
             <p style={{ color: 'rgba(255,255,255,0.55)', fontSize: '0.875rem', lineHeight: 1.7, maxWidth: '280px' }}>

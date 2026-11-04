@@ -99,7 +99,7 @@ export default function AboutOverview() {
                     </h1>
                     <div className="text-[17px] md:text-[19px] text-[#60697B] leading-relaxed border-l-[4px] border-aaa-primary/20 pl-8 block max-w-4xl font-medium bg-slate-50/50 py-6 rounded-r-2xl shadow-sm transition-all duration-500">
                       To Identify Issues Of Cyber Security & IT Corporate Governance And Providing.
-                      <span className="text-aaa-primary font-bold uppercase tracking-widest text-[14px] md:text-[16px] block mt-4 tracking-[0.2em]">Accurate | Reliable | Innovative Services</span>
+                      <span className="text-aaa-primary font-bold uppercase tracking-widest text-[14px] md:text-[16px] block mt-4 tracking-[0.2em]">Assessment | Assurance | Accountability | Intelligence Services</span>
                     </div>
                   </div>
                 </motion.div>
